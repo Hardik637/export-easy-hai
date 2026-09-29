@@ -14,45 +14,43 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-24 sm:py-32 overflow-hidden bg-[#FAF6EE] text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-[#FAF6EE] text-[#111111]"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="max-w-2xl mb-12">
-          <div className="inline-flex items-center gap-2 mb-4 text-[#D45A20] text-xs font-bold tracking-widest uppercase">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl mb-10">
+          <div className="inline-flex items-center gap-2 mb-3 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-6 h-[2px] bg-[#D45A20]" />
             FREQUENT QUESTIONS
           </div>
 
-          <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl leading-[0.88] tracking-tight uppercase text-[#111111] mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111]">
             Got Questions? <br />
             <span>WE&apos;VE GOT ANSWERS.</span>
           </h2>
         </div>
 
-        {/* Accordions */}
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={faq.question}
-                className="rounded-2xl border border-[#EAD5AF] bg-white transition-all overflow-hidden shadow-sm"
+                className="rounded-xl border border-[#EAD5AF] bg-white transition-all overflow-hidden shadow-sm"
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
+                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="font-display text-xl sm:text-2xl text-[#111111] uppercase tracking-wide">
+                  <span className="font-display text-lg sm:text-xl text-[#111111] uppercase tracking-wide">
                     {faq.question}
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-[#FAF6EE] flex items-center justify-center text-[#D45A20] shrink-0 font-bold">
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                  <div className="w-7 h-7 rounded-full bg-[#FAF6EE] flex items-center justify-center text-[#D45A20] shrink-0 font-bold">
+                    {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#555555] leading-relaxed border-t border-[#F0E6D2] pt-4">
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-5 text-xs text-[#555555] leading-relaxed border-t border-[#F0E6D2] pt-3">
                     {faq.answer}
                   </div>
                 )}
