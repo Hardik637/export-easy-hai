@@ -40,18 +40,18 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
             Join Export Easy Hai and get the knowledge, tools and support to build your export business with confidence.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
             <button
               onClick={onOpenCourseModal}
-              className="px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#F2A62B] to-[#FFC83D] text-[#111111] hover:from-[#FFC83D] hover:to-[#FFD86A] transition-all shadow-md flex items-center justify-center gap-2 group cursor-pointer"
+              className="min-h-[48px] px-7 py-3.5 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#E50920] to-[#FF172F] text-white hover:from-[#FF172F] hover:to-[#B80014] transition-all shadow-lg shadow-[#E50920]/30 flex items-center justify-center gap-2 group cursor-pointer active:scale-[0.98]"
             >
-              <span>Explore Courses</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              <span>Explore All Courses</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
 
             <button
               onClick={onOpenWebinarModal}
-              className="px-5 py-3 rounded-full bg-white/60 hover:bg-white/90 border border-black/20 text-[#111111] font-semibold text-xs tracking-wider uppercase transition-all backdrop-blur-sm flex items-center justify-center gap-2 cursor-pointer"
+              className="min-h-[48px] px-6 py-3.5 rounded-full bg-white/80 hover:bg-white border border-[#D45A20]/30 text-[#111111] font-bold text-xs tracking-wider uppercase transition-all backdrop-blur-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] shadow-sm"
             >
               <div className="w-4 h-4 rounded-full bg-[#E50920] flex items-center justify-center text-white">
                 <Play className="w-2 h-2 fill-current ml-0.5" />

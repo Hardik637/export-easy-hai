@@ -68,34 +68,34 @@ export default function CourseSection() {
                 )}
               </div>
 
-              <div className="p-4 flex-1 flex flex-col justify-between">
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-xl text-[#111111] uppercase tracking-wide group-hover:text-[#E50920] transition-colors leading-tight mb-1.5">
+                  <div className="font-sans font-bold text-base text-[#111111] tracking-tight group-hover:text-[#E50920] transition-colors leading-snug mb-1.5">
                     {course.title}
-                  </h3>
+                  </div>
 
-                  <p className="text-[11px] text-[#666666] leading-relaxed mb-3 line-clamp-2">
+                  <p className="text-xs text-[#666666] leading-relaxed mb-3 line-clamp-2">
                     {course.description}
                   </p>
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between text-[11px] text-[#777777] py-2 border-y border-[#F0E6D2] mb-3">
-                    <span className="flex items-center gap-1">
-                      <BookOpen className="w-3 h-3 text-[#D45A20]" />
+                  <div className="flex items-center justify-between text-xs text-[#777777] py-2.5 border-y border-[#F0E6D2] mb-3">
+                    <span className="flex items-center gap-1.5">
+                      <BookOpen className="w-3.5 h-3.5 text-[#D45A20]" />
                       {course.lessons}
                     </span>
                     <span>{course.access}</span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="font-display text-xl text-[#111111]">
+                    <div className="font-sans font-bold text-lg text-[#111111]">
                       {course.price}
                     </div>
 
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E50920] group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#E50920] group-hover:translate-x-1 transition-transform flex items-center gap-1.5">
                       <span>Explore</span>
-                      <ArrowRight className="w-3 h-3" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
@@ -110,34 +110,34 @@ export default function CourseSection() {
             <div className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl text-[#111111] border border-[#EAD5AF]">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h3 className="font-display text-2xl uppercase leading-tight">
+                  <div className="font-sans font-bold text-xl uppercase tracking-tight leading-tight">
                     {selectedCourse.title}
-                  </h3>
+                  </div>
                   <span className="text-xs text-[#D45A20] font-medium">{selectedCourse.lessons} • {selectedCourse.access}</span>
                 </div>
                 <button
                   onClick={() => setSelectedCourse(null)}
-                  className="p-1.5 rounded-full bg-black/5 text-[#555555] hover:text-black cursor-pointer"
+                  className="w-9 h-9 rounded-full bg-black/5 text-[#555555] hover:text-black flex items-center justify-center cursor-pointer"
                 >
                   ✕
                 </button>
               </div>
 
-              <p className="text-xs text-[#555555] mb-4">
+              <p className="text-xs text-[#555555] mb-4 leading-relaxed">
                 {selectedCourse.description}
               </p>
 
               <div className="space-y-1.5 mb-5">
                 {selectedCourse.modules.slice(0, 3).map((m) => (
-                  <div key={m} className="p-2 rounded-lg bg-[#FAF6EE] text-xs text-[#222222] flex items-center gap-2">
-                    <Check className="w-3 h-3 text-[#E50920] shrink-0" />
+                  <div key={m} className="p-2.5 rounded-lg bg-[#FAF6EE] text-xs text-[#222222] flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#E50920] shrink-0" />
                     <span>{m}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#FAF6EE] mb-4">
-                <div className="font-display text-2xl text-[#E50920]">{selectedCourse.price}</div>
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#FAF6EE] mb-4">
+                <div className="font-sans font-bold text-xl text-[#E50920]">{selectedCourse.price}</div>
                 <div className="text-xs text-[#666666]">⭐ {selectedCourse.rating} ({selectedCourse.students})</div>
               </div>
 

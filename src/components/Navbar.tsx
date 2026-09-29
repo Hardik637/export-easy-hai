@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Compass } from "lucide-react";
 import { NAV_LINKS } from "@/data/siteData";
 
 interface NavbarProps {
@@ -35,18 +35,16 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? isLightMode
-              ? "bg-[#FFF1D2]/80 backdrop-blur-md py-3 border-b border-[#D45A20]/15 shadow-sm"
-              : "bg-[#050505]/80 backdrop-blur-md py-3 border-b border-white/10 shadow-lg"
-            : "bg-transparent py-5"
+              ? "bg-[#FAF6EE]/90 backdrop-blur-md py-3 border-b border-[#D45A20]/15 shadow-sm"
+              : "bg-[#050505]/85 backdrop-blur-md py-3 border-b border-white/10 shadow-lg"
+            : "bg-transparent py-4 sm:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-lg bg-[#E50920] flex items-center justify-center shadow-lg shadow-[#E50920]/40 transform group-hover:scale-105 transition-transform">
-              <span className="font-display text-2xl text-white font-bold leading-none select-none">
-                &lt;
-              </span>
+          <a href="#hero" className="flex items-center gap-3 group min-h-[44px]">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF172F] to-[#B80014] flex items-center justify-center shadow-lg shadow-[#E50920]/30 transform group-hover:scale-105 transition-transform text-white">
+              <Compass className="w-5 h-5 animate-pulse" />
             </div>
             <div>
               <div
@@ -128,8 +126,8 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-white/10">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-[#E50920] flex items-center justify-center">
-                  <span className="font-display text-lg text-white font-bold">&lt;</span>
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FF172F] to-[#B80014] flex items-center justify-center text-white shadow-md">
+                  <Compass className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="font-display text-lg text-white">EXPORT EASY HAI</div>
@@ -139,10 +137,10 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
 
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-lg text-white/70 hover:text-white"
+                className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/10 text-white/80 hover:text-white cursor-pointer"
                 aria-label="Close menu"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 

@@ -10,8 +10,11 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-[#E50920] flex items-center justify-center">
-                <span className="font-display text-2xl text-white font-bold leading-none">&lt;</span>
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF172F] to-[#B80014] flex items-center justify-center text-white shadow-lg shadow-[#E50920]/30">
+                <svg className="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
               </div>
               <div>
                 <div className="font-display text-xl text-white tracking-wide uppercase">

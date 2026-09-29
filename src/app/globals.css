@@ -12,16 +12,22 @@
     overflow-x: hidden;
     background-color: #050505;
     color: #ffffff;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, .font-display {
-    font-family: var(--font-display), 'Bebas Neue', Impact, sans-serif;
+  .font-display {
+    font-family: var(--font-display), 'Bebas Neue', sans-serif;
     letter-spacing: 0.02em;
-    line-height: 0.9;
+    line-height: 0.95;
   }
 
   .font-script {
     font-family: var(--font-script), 'Caveat', cursive;
+  }
+
+  button, a {
+    touch-action: manipulation;
   }
 }
 

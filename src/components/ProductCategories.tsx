@@ -78,10 +78,10 @@ export default function ProductCategories({
           </div>
         </div>
 
-        {/* Product Cards Row */}
+        {/* Product Cards Row with Mobile Snap Scrolling */}
         <div
           ref={scrollRef}
-          className="flex lg:grid lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 scrollbar-none"
+          className="flex lg:grid lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory touch-pan-x -mx-5 px-5 sm:mx-0 sm:px-0"
         >
           {PRODUCT_CATEGORIES.slice(0, 6).map((cat) => (
             <div
@@ -89,39 +89,44 @@ export default function ProductCategories({
               onClick={() => {
                 if (onSelectCategory) onSelectCategory(cat);
               }}
-              className="min-w-[200px] sm:min-w-[240px] lg:min-w-0 rounded-2xl overflow-hidden bg-black/50 backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-300 shadow-md group cursor-pointer flex flex-col justify-between"
+              className="min-w-[220px] sm:min-w-[240px] lg:min-w-0 snap-start rounded-2xl overflow-hidden bg-black/55 backdrop-blur-xl border border-white/15 hover:border-[#FFD86A]/50 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between shrink-0"
             >
               <div className="relative aspect-square w-full overflow-hidden">
                 <Image
                   src={cat.image}
                   alt={cat.title}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                  sizes="(max-width: 640px) 70vw, (max-width: 1024px) 33vw, 16vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/70 text-[9px] font-mono text-[#FFD86A]">
+                <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-sm text-[10px] font-mono text-[#FFD86A] border border-white/10">
                   {cat.hsCode}
                 </div>
               </div>
 
-              <div className="p-3.5 flex-1 flex flex-col justify-between">
+              <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-lg text-white uppercase tracking-wide group-hover:text-[#FFD86A] transition-colors leading-tight">
+                  <div className="font-sans font-bold text-sm sm:text-base text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
                     {cat.title}
-                  </h3>
-                  <p className="text-[10px] text-white/70 mt-0.5 line-clamp-1">
+                  </div>
+                  <p className="text-[11px] text-white/70 mt-1 line-clamp-1 leading-normal">
                     {cat.subtitle}
                   </p>
                 </div>
 
-                <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-[#FFD86A]">
-                  <span>Margin: {cat.margin}</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
+                  <span className="font-semibold">Margin: {cat.margin}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="lg:hidden text-center mt-3 text-[11px] text-white/60 font-medium">
+          ← Swipe to explore categories →
         </div>
       </div>
     </section>

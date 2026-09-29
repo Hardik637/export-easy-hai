@@ -44,46 +44,80 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
         </div>
 
         {/* Global Markets Stats */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-black/60 backdrop-blur-md border border-[#D45A20]/30 max-w-xl mb-5">
-          <div className="text-[10px] font-mono uppercase tracking-wider text-[#FFD86A] mb-2">
+        <div className="p-4 sm:p-5 rounded-2xl bg-black/55 backdrop-blur-xl border border-[#D45A20]/30 max-w-xl mb-5 shadow-xl">
+          <div className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-3 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#F2A62B] animate-pulse" />
             Global Markets are Waiting for Indian Products
           </div>
           <div className="grid grid-cols-3 gap-3">
-            {TRUST_STATS.map((stat) => (
-              <div key={stat.label}>
-                <div className="font-display text-2xl sm:text-3xl text-white">
-                  {stat.value}
-                </div>
-                <div className="text-[10px] text-white/60 uppercase tracking-wider">
-                  {stat.label}
-                </div>
+            <div>
+              <div className="font-display text-2xl sm:text-3xl text-white">
+                $800B+
               </div>
-            ))}
+              <div className="text-[10px] sm:text-xs text-white/70 uppercase tracking-wider font-medium">
+                Export Target
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-2xl sm:text-3xl text-white">
+                200+
+              </div>
+              <div className="text-[10px] sm:text-xs text-white/70 uppercase tracking-wider font-medium">
+                Active Ports
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-2xl sm:text-3xl text-[#FFD86A]">
+                10.5x
+              </div>
+              <div className="text-[10px] sm:text-xs text-white/70 uppercase tracking-wider font-medium">
+                Peak Multiplier
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Arbitrage comparison card */}
-        <div className="max-w-xl p-4 sm:p-5 rounded-2xl bg-black/65 backdrop-blur-md border border-white/10">
+        {/* Arbitrage comparison card with interactive tabs */}
+        <div className="max-w-xl p-4 sm:p-5 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 shadow-xl">
+          {/* Product selector tabs */}
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/10 mb-4 overflow-x-auto scrollbar-none">
+            {ARBITRAGE_EXAMPLES.map((ex, idx) => (
+              <button
+                key={ex.product}
+                onClick={() => setActiveArbitrage(idx)}
+                className={`min-h-[36px] px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer flex-1 text-center ${
+                  activeArbitrage === idx
+                    ? "bg-[#F2A62B] text-black shadow-md"
+                    : "text-white/75 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                {ex.product.split(" ")[0]} {ex.product.split(" ")[1]}
+              </button>
+            ))}
+          </div>
+
           <div className="flex items-center justify-between mb-3 text-xs">
-            <span className="font-display text-lg sm:text-xl text-white uppercase tracking-wide">
-              Same Products. <span className="text-[#FFD86A]">Bigger Markets.</span>
-            </span>
-            <span className="text-[11px] font-mono text-[#F2A62B]">
+            <div>
+              <span className="font-sans font-bold text-sm sm:text-base text-white tracking-tight">
+                {ARBITRAGE_EXAMPLES[activeArbitrage].product}
+              </span>
+            </div>
+            <span className="px-2.5 py-0.5 rounded-full bg-[#F2A62B]/20 border border-[#F2A62B]/40 text-xs font-mono font-bold text-[#FFD86A]">
               {ARBITRAGE_EXAMPLES[activeArbitrage].multiplier}
             </span>
           </div>
 
           <div className="grid grid-cols-2 gap-3 text-xs">
-            <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-              <div className="text-[10px] text-white/50 uppercase">🇮🇳 In India</div>
-              <div className="font-display text-xl text-white mt-0.5">
+            <div className="p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10">
+              <div className="text-[10px] sm:text-xs text-white/60 uppercase font-medium">🇮🇳 Sourcing (India)</div>
+              <div className="font-display text-xl sm:text-2xl text-white mt-1">
                 {ARBITRAGE_EXAMPLES[activeArbitrage].domestic}
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#D45A20]/25 border border-[#F2A62B]/30">
-              <div className="text-[10px] text-[#FFD86A] uppercase">🌐 Global Market {ARBITRAGE_EXAMPLES[activeArbitrage].flag}</div>
-              <div className="font-display text-xl text-[#FFD86A] mt-0.5">
+            <div className="p-3 sm:p-4 rounded-xl bg-[#D45A20]/25 border border-[#F2A62B]/40">
+              <div className="text-[10px] sm:text-xs text-[#FFD86A] uppercase font-medium">🌐 Export Price {ARBITRAGE_EXAMPLES[activeArbitrage].flag}</div>
+              <div className="font-display text-xl sm:text-2xl text-[#FFD86A] mt-1">
                 {ARBITRAGE_EXAMPLES[activeArbitrage].export}
               </div>
             </div>

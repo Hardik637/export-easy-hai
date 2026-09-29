@@ -56,6 +56,11 @@ export default function MentorSection() {
                 <div className="text-[11px] font-bold tracking-widest uppercase text-[#D45A20]">
                   EXPORT EXPERT • MENTOR • EDUCATOR
                 </div>
+                <div className="flex flex-wrap items-center gap-2 mt-2 text-[10px] text-[#555555]">
+                  <span className="px-2 py-0.5 rounded-md bg-[#FAF6EE] border border-[#EAD5AF]">10+ Yrs Exporting</span>
+                  <span className="px-2 py-0.5 rounded-md bg-[#FAF6EE] border border-[#EAD5AF]">₹120Cr+ Shipments</span>
+                  <span className="px-2 py-0.5 rounded-md bg-[#FAF6EE] border border-[#EAD5AF]">DGFT &amp; FIEO Certified</span>
+                </div>
               </div>
             </div>
           </div>
@@ -67,14 +72,14 @@ export default function MentorSection() {
               return (
                 <div
                   key={item.title}
-                  className="p-4 rounded-xl bg-white/75 backdrop-blur-md border border-[#D45A20]/20 flex items-center gap-3.5 shadow-sm"
+                  className="p-4 rounded-2xl bg-white/85 backdrop-blur-xl border border-[#D45A20]/20 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-[#D45A20]/10 flex items-center justify-center text-[#D45A20] shrink-0">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-[#D45A20]/10 border border-[#D45A20]/20 flex items-center justify-center text-[#D45A20] shrink-0">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-display text-base sm:text-lg text-[#111111] uppercase tracking-wide leading-tight">
+                  <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight leading-snug">
                     {item.title}
-                  </h3>
+                  </div>
                 </div>
               );
             })}

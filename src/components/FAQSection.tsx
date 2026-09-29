@@ -39,18 +39,18 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer"
+                  className="min-h-[52px] w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer active:bg-[#FAF6EE]/50 transition-colors"
                 >
-                  <span className="font-display text-lg sm:text-xl text-[#111111] uppercase tracking-wide">
+                  <span className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight leading-snug">
                     {faq.question}
                   </span>
-                  <div className="w-7 h-7 rounded-full bg-[#FAF6EE] flex items-center justify-center text-[#D45A20] shrink-0 font-bold">
-                    {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                  <div className="w-8 h-8 rounded-full bg-[#FAF6EE] border border-[#EAD5AF] flex items-center justify-center text-[#D45A20] shrink-0 font-bold">
+                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-5 sm:px-5 sm:pb-5 text-xs text-[#555555] leading-relaxed border-t border-[#F0E6D2] pt-3">
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-[#555555] leading-relaxed border-t border-[#F0E6D2] pt-3.5">
                     {faq.answer}
                   </div>
                 )}

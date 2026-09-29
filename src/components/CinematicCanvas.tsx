@@ -66,32 +66,28 @@ export default function CinematicCanvas() {
   }, []);
 
   // Compute smooth, overlapping bell-curve opacities for the visual layers
-  // Layer 1: Blood Moon Night Port (peaking 0% to 15%, fades out by 28%)
   const opNight = Math.max(0, 1 - progress * 4.0);
-
-  // Layer 2: Pre-dawn Twilight Dock (enters 10%, peaks 22%, fades out by 38%)
   const opPredawn = Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, (progress - 0.10) / 0.28))));
-
-  // Layer 3: Glowing Trade Routes over Port (enters 28%, peaks 44%, fades out by 58%)
   const opOpportunity = Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, (progress - 0.28) / 0.30))));
-
-  // Layer 4: Golden Sunrise over Harbor (enters 48%, peaks 65%, fades out by 82%)
   const opSunrise = Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, (progress - 0.48) / 0.34))));
-
-  // Layer 5: Bright Daylight Ocean Horizon & Departing Ship (enters 78%, fully up by 95%)
   const opDaylight = Math.max(0, (progress - 0.78) / 0.20);
 
   const bgColor = interpolateColor(progress);
 
   return (
     <div
-      className="fixed inset-0 pointer-events-none -z-40 overflow-hidden"
-      style={{ backgroundColor: bgColor, transition: "background-color 0.15s ease-out" }}
+      className="fixed inset-0 pointer-events-none -z-40 overflow-hidden transform-gpu will-change-[background-color]"
+      style={{
+        backgroundColor: bgColor,
+        transition: "background-color 0.15s ease-out",
+        height: "100dvh",
+        width: "100vw",
+      }}
       aria-hidden="true"
     >
       {/* Visual Layer 1: Hero Blood Moon Port */}
       <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out"
+        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
         style={{ opacity: opNight }}
       >
         <Image
@@ -107,7 +103,7 @@ export default function CinematicCanvas() {
 
       {/* Visual Layer 2: Pre-dawn Twilight Harbor */}
       <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out"
+        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
         style={{ opacity: opPredawn }}
       >
         <Image
@@ -122,7 +118,7 @@ export default function CinematicCanvas() {
 
       {/* Visual Layer 3: Glowing Trade Routes over Port */}
       <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out"
+        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
         style={{ opacity: opOpportunity }}
       >
         <Image
@@ -137,7 +133,7 @@ export default function CinematicCanvas() {
 
       {/* Visual Layer 4: Golden Sunrise over Shipping Terminal */}
       <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out"
+        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
         style={{ opacity: opSunrise }}
       >
         <Image
@@ -152,7 +148,7 @@ export default function CinematicCanvas() {
 
       {/* Visual Layer 5: Full Daylight Ocean Horizon & Container Ship */}
       <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out"
+        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
         style={{ opacity: opDaylight }}
       >
         <Image
@@ -167,11 +163,11 @@ export default function CinematicCanvas() {
       </div>
 
       {/* Fine Film Grain Texture Overlay */}
-      <div className="absolute inset-0 bg-grain opacity-30 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-grain opacity-25 mix-blend-overlay" />
 
-      {/* Top progress line */}
+      {/* Top slim progress bar */}
       <div
-        className="fixed top-0 left-0 h-[2px] z-50 transition-all duration-100 ease-out"
+        className="fixed top-0 left-0 h-[2px] z-50 transition-all duration-75 ease-out"
         style={{
           width: `${progress * 100}%`,
           background: "linear-gradient(90deg, #E50920 0%, #D45A20 35%, #F2A62B 65%, #FFD86A 100%)",

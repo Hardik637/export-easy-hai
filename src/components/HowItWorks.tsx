@@ -56,12 +56,12 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
           <div className="grid grid-cols-7 gap-3">
             {TIMELINE_STEPS.map((step) => (
               <div key={step.number} className="flex flex-col items-center text-center group">
-                <div className="w-11 h-11 rounded-full bg-[#E50920] border-2 border-white/40 flex items-center justify-center font-display text-xl text-white shadow-lg mb-3 transform group-hover:scale-110 transition-transform">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#E50920] to-[#D45A20] border-2 border-white/50 flex items-center justify-center font-display text-xl text-white shadow-lg mb-3 transform group-hover:scale-110 transition-transform">
                   {step.number}
                 </div>
-                <h3 className="font-display text-base text-white uppercase tracking-wide leading-tight group-hover:text-[#FFD86A] transition-colors">
+                <div className="font-sans font-bold text-xs uppercase tracking-wider text-white group-hover:text-[#FFD86A] transition-colors leading-tight">
                   {step.title}
-                </h3>
+                </div>
               </div>
             ))}
           </div>
@@ -69,17 +69,20 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
 
         {/* Connected Vertical Timeline on Mobile */}
         <div className="lg:hidden relative pl-6 space-y-4">
-          <div className="absolute top-2 bottom-2 left-[21px] w-[2px] bg-gradient-to-b from-[#E50920] via-[#D45A20] to-[#F2A62B] -z-10" />
+          <div className="absolute top-3 bottom-3 left-[20px] w-[2px] bg-gradient-to-b from-[#E50920] via-[#D45A20] to-[#F2A62B] -z-10" />
 
           {TIMELINE_STEPS.map((step) => (
-            <div key={step.number} className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-[#E50920] border border-white/40 flex items-center justify-center font-display text-base text-white shadow-md shrink-0">
+            <div key={step.number} className="flex items-start gap-3.5 group">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#E50920] to-[#D45A20] border-2 border-white/40 flex items-center justify-center font-display text-base text-white shadow-md shrink-0">
                 {step.number}
               </div>
-              <div className="pt-1.5">
-                <h3 className="font-display text-base text-white uppercase tracking-wide leading-tight">
+              <div className="pt-0.5 flex-1 p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
+                <div className="font-sans font-bold text-xs sm:text-sm text-white tracking-tight">
                   {step.title}
-                </h3>
+                </div>
+                <p className="text-[11px] text-white/70 mt-1 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             </div>
           ))}

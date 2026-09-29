@@ -40,20 +40,25 @@ export default function RealitySection() {
 
           {/* Right Column: 4 Clean Minimalist Glass Chips */}
           <div className="lg:col-span-6">
-            <div className="grid grid-cols-2 gap-3 max-w-md ml-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md ml-auto">
               {painPoints.map((item) => {
                 const IconComponent = item.icon;
                 return (
                   <div
                     key={item.title}
-                    className="p-4 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-[#FF172F]/40 transition-colors flex flex-col justify-between"
+                    className="p-4 sm:p-5 rounded-2xl bg-black/45 backdrop-blur-xl border border-white/10 hover:border-[#FF172F]/40 transition-all flex flex-col justify-between shadow-lg"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[#E50920]/20 flex items-center justify-center text-[#FF172F] mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-[#E50920]/20 border border-[#E50920]/30 flex items-center justify-center text-[#FF172F] mb-3 shrink-0">
                       <IconComponent className="w-4 h-4" />
                     </div>
-                    <h3 className="font-display text-base sm:text-lg text-white uppercase tracking-wide leading-tight">
-                      {item.title}
-                    </h3>
+                    <div>
+                      <div className="font-sans font-bold text-sm sm:text-base text-white tracking-tight leading-snug">
+                        {item.title}
+                      </div>
+                      <div className="text-[11px] text-white/60 mt-1 leading-relaxed">
+                        The cycle repeats month after month without building equity.
+                      </div>
+                    </div>
                   </div>
                 );
               })}
