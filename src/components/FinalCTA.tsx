@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, Play, Sparkles, Compass } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 interface FinalCTAProps {
   onOpenWebinarModal?: () => void;
@@ -13,49 +13,49 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
   return (
     <section
       id="final-cta"
-      className="relative min-h-[90vh] flex flex-col justify-between py-24 sm:py-32 overflow-hidden text-neutral-900"
+      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 overflow-hidden text-[#111111]"
     >
-      {/* Background Daylight Container Port & Departing Ship */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+      {/* Seamless Full-Bleed Daylight Sunrise Harbor Background */}
+      <div className="absolute inset-0 -z-20">
         <Image
           src="/images/final-cta-ship.jpg"
-          alt="Container ship sailing towards the golden horizon in bright morning sunlight with young Indian exporter standing on the dock"
+          alt="Container ship sailing towards the golden horizon in bright morning sunlight with young Indian exporter on the dock"
           fill
           sizes="100vw"
           className="object-cover object-center filter brightness-100 contrast-105"
         />
-        {/* Soft daylight and sky gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#DCEBF0]/80 via-transparent to-black/30 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent pointer-events-none" />
+        {/* Soft daylight sky gradient blends */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent pointer-events-none" />
       </div>
 
       {/* Floating handwritten script note in sky */}
-      <div className="absolute bottom-16 right-8 sm:bottom-24 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">
-        <div className="font-script text-5xl lg:text-7xl text-[#8A4A1C] drop-shadow-md rotate-[-4deg]">
+      <div className="absolute bottom-20 right-8 sm:bottom-28 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">
+        <div className="font-script text-6xl lg:text-7xl text-[#8A4A1C] drop-shadow-md rotate-[-4deg]">
           Bigger Tomorrow <br />
           Is Possible.
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 my-auto">
-        <div className="max-w-2xl bg-white/75 backdrop-blur-xl p-8 sm:p-12 rounded-3xl border border-white/60 shadow-2xl">
+        <div className="max-w-2xl">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D45A20]/15 border border-[#D45A20]/30 text-[#A83A19] text-xs font-bold tracking-widest uppercase mb-6">
-            <Compass className="w-3.5 h-3.5 text-[#D45A20]" />
+          <div className="inline-flex items-center gap-2 mb-4 text-[#D45A20] text-xs font-bold tracking-widest uppercase">
+            <span className="w-6 h-[2px] bg-[#D45A20]" />
             FROM INDIA. TO THE WORLD.
           </div>
 
           {/* Main Headline */}
-          <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tight uppercase text-[#111111] mb-6">
-            YOUR NEXT CHAPTER <br />
-            <span className="text-[#E50920]">
+          <h2 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.88] tracking-tight uppercase text-[#111111] mb-6">
+            YOUR NEXT CHAPTER. <br />
+            <span className="text-[#E50920] drop-shadow-[0_8px_25px_rgba(229,9,32,0.4)]">
               STARTS HERE.
             </span>
           </h2>
 
           {/* Body */}
-          <p className="text-base sm:text-lg text-[#333333] leading-relaxed mb-8 max-w-xl font-normal">
-            Join Export Easy Hai and get the practical knowledge, verified supplier networks, buyer verification tools, and lifetime support to build your export business from India.
+          <p className="text-sm sm:text-base lg:text-lg text-[#222222] font-normal leading-relaxed mb-8 max-w-lg">
+            Join Export Easy Hai and get the knowledge, tools and support to build your export business with confidence.
           </p>
 
           {/* Action Buttons */}
@@ -70,7 +70,7 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
 
             <button
               onClick={onOpenWebinarModal}
-              className="px-7 py-4 rounded-full bg-black/10 hover:bg-black/15 border border-black/20 text-[#111111] font-semibold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+              className="px-7 py-4 rounded-full bg-white/40 hover:bg-white/70 border border-black/20 text-[#111111] font-semibold text-xs tracking-wider uppercase transition-all backdrop-blur-sm flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <div className="w-5 h-5 rounded-full bg-[#E50920] flex items-center justify-center text-white">
                 <Play className="w-2.5 h-2.5 fill-current ml-0.5" />

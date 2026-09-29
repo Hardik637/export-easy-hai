@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { TIMELINE_STEPS } from "@/data/siteData";
 
 interface HowItWorksProps {
@@ -10,142 +10,104 @@ interface HowItWorksProps {
 }
 
 export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
-  const [selectedStep, setSelectedStep] = useState(0);
-
   return (
     <section
       id="how-it-works"
-      className="relative py-24 sm:py-32 overflow-hidden"
+      className="relative min-h-[95vh] flex flex-col justify-center py-24 sm:py-32 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Seamless Golden Sunrise Port Background */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/images/how-it-works-sunrise.jpg"
+          alt="Golden sunrise rising over shipping port terminal with cranes and traveler silhouette"
+          fill
+          sizes="100vw"
+          className="object-cover object-center filter brightness-95 contrast-105"
+        />
+        {/* Continuous gradient blend: transitions from opportunity amber to golden dawn */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#A83A19] via-transparent to-[#5A1D12] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Handwritten Script Note in Sky */}
+      <div className="absolute top-20 right-8 sm:top-28 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">
+        <div className="font-script text-4xl lg:text-5xl text-[#FFD86A] rotate-[-5deg] drop-shadow-lg">
+          Same Products. <br />
+          Bigger Markets.
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D45A20]/20 border border-[#D45A20]/40 text-[#FFD86A] text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#FFD86A]" />
+        <div className="max-w-2xl mb-14">
+          <div className="inline-flex items-center gap-2 mb-4 text-[#FFD86A] text-xs font-bold tracking-widest uppercase">
+            <span className="w-6 h-[2px] bg-[#FFD86A]" />
             HOW IT WORKS
           </div>
 
-          <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl uppercase leading-[0.95] text-white tracking-tight mb-6">
+          <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl leading-[0.88] tracking-tight uppercase text-white mb-6">
             Small Steps. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F2A62B] via-[#FFD86A] to-[#FFF1D2]">
+            <span className="text-[#FFD86A] drop-shadow-[0_10px_35px_rgba(255,216,106,0.5)]">
               BIG DREAMS.
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#F5F0E8]/85 leading-relaxed max-w-xl font-normal">
-            Follow a simple, step-by-step process to start your export journey with confidence. No complex jargon or unneeded complications.
+          <p className="text-sm sm:text-base lg:text-lg text-[#F5F0E8]/90 font-normal leading-relaxed mb-6">
+            Follow a simple, step-by-step process to start your export journey with confidence.
           </p>
+
+          <button
+            onClick={onOpenCourseModal}
+            className="px-8 py-3.5 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#F2A62B] to-[#FFC83D] text-[#111111] hover:from-[#FFC83D] hover:to-[#FFD86A] transition-all transform hover:-translate-y-0.5 shadow-xl shadow-[#F2A62B]/30 flex items-center gap-2 cursor-pointer"
+          >
+            <span>See the Full Process</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
 
-        {/* Content Grid: Interactive Step Timeline on Left, Golden Sunrise Visual on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Timeline Steps */}
-          <div className="lg:col-span-7 space-y-4">
-            {TIMELINE_STEPS.map((step, idx) => {
-              const isSelected = selectedStep === idx;
-              return (
-                <div
-                  key={step.number}
-                  onClick={() => setSelectedStep(idx)}
-                  className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
-                    isSelected
-                      ? "bg-gradient-to-r from-[#D45A20]/25 to-[#F2A62B]/15 border-[#FFD86A]/50 shadow-xl"
-                      : "bg-black/35 hover:bg-black/50 border-white/10 hover:border-white/20"
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    {/* Number Badge */}
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center font-display text-2xl shrink-0 transition-all ${
-                        isSelected
-                          ? "bg-gradient-to-br from-[#E50920] to-[#D45A20] text-white shadow-lg shadow-[#E50920]/30 scale-105"
-                          : "bg-white/10 text-white/70"
-                      }`}
-                    >
-                      {step.number}
-                    </div>
+        {/* Connected Horizontal Timeline on Desktop / Connected Vertical on Mobile */}
+        {/* Desktop View */}
+        <div className="hidden lg:block relative pt-10 pb-6">
+          {/* Continuous Red/Orange Connecting Line */}
+          <div className="absolute top-[68px] left-8 right-8 h-[3px] bg-gradient-to-r from-[#E50920] via-[#D45A20] to-[#F2A62B] -z-10 shadow-[0_0_12px_rgba(229,9,32,0.8)]" />
 
-                    {/* Step Title & Details */}
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-[10px] uppercase font-mono tracking-wider text-[#FFD86A]">
-                          {step.tag}
-                        </span>
-                        {isSelected && (
-                          <span className="text-[10px] text-white/60 font-semibold px-2 py-0.5 rounded-full bg-white/10">
-                            Active Step
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="font-display text-xl sm:text-2xl text-white tracking-wide uppercase mt-1 mb-1.5">
-                        {step.title}
-                      </h3>
-
-                      <p className="text-xs sm:text-sm text-[#F5F0E8]/75 leading-relaxed">
-                        {step.description}
-                      </p>
-
-                      {isSelected && (
-                        <div className="mt-3 pt-3 border-t border-white/10 text-xs text-[#FFD86A]/90 flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#FFD86A] shrink-0" />
-                          <span>{step.details}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+          <div className="grid grid-cols-7 gap-4">
+            {TIMELINE_STEPS.map((step) => (
+              <div key={step.number} className="flex flex-col items-center text-center group">
+                {/* Number Circle Badge */}
+                <div className="w-14 h-14 rounded-full bg-gradient-to-b from-[#E50920] to-[#B80014] border-2 border-white/40 flex items-center justify-center font-display text-2xl text-white shadow-xl shadow-[#E50920]/50 mb-4 transform group-hover:scale-110 transition-transform">
+                  {step.number}
                 </div>
-              );
-            })}
 
-            {/* Bottom Timeline CTA */}
-            <div className="pt-4">
-              <button
-                onClick={onOpenCourseModal}
-                className="w-full sm:w-auto px-8 py-4 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#F2A62B] to-[#FFC83D] text-[#111111] hover:from-[#FFC83D] hover:to-[#FFD86A] transition-all flex items-center justify-center gap-3 shadow-xl shadow-[#F2A62B]/25 group cursor-pointer"
-              >
-                <span>See the Full Process</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
-            </div>
+                {/* Step Label */}
+                <h3 className="font-display text-lg text-white uppercase tracking-wide leading-tight group-hover:text-[#FFD86A] transition-colors">
+                  {step.title}
+                </h3>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Right Column: Golden Sunrise Port with Traveler Visual */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#F2A62B]/30 group">
-              <div className="relative aspect-[4/5] w-full">
-                <Image
-                  src="/images/how-it-works-sunrise.jpg"
-                  alt="Golden sunrise rising over Indian container port with cranes and ships"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-center group-hover:scale-103 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+        {/* Mobile View: Connected Vertical Timeline */}
+        <div className="lg:hidden relative pl-8 space-y-6">
+          {/* Continuous Vertical Line */}
+          <div className="absolute top-4 bottom-4 left-[27px] w-[3px] bg-gradient-to-b from-[#E50920] via-[#D45A20] to-[#F2A62B] -z-10 shadow-[0_0_10px_rgba(229,9,32,0.8)]" />
 
-                {/* Handwritten script overlay */}
-                <div className="absolute top-8 right-8 text-right">
-                  <div className="font-script text-4xl sm:text-5xl text-[#FFD86A] rotate-[-6deg] drop-shadow-lg">
-                    Same Products. <br />
-                    Bigger Markets.
-                  </div>
-                </div>
-
-                {/* Bottom Card Spotlight */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-black/65 backdrop-blur-md border border-white/15">
-                  <div className="text-[11px] font-mono uppercase text-[#F2A62B] mb-1">
-                    Step {TIMELINE_STEPS[selectedStep].number} Spotlight
-                  </div>
-                  <div className="font-display text-2xl text-white uppercase mb-1">
-                    {TIMELINE_STEPS[selectedStep].title}
-                  </div>
-                  <p className="text-xs text-[#F5F0E8]/80">
-                    {TIMELINE_STEPS[selectedStep].details}
-                  </p>
-                </div>
+          {TIMELINE_STEPS.map((step) => (
+            <div key={step.number} className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-b from-[#E50920] to-[#B80014] border-2 border-white/30 flex items-center justify-center font-display text-xl text-white shadow-lg shrink-0">
+                {step.number}
+              </div>
+              <div className="pt-2">
+                <h3 className="font-display text-xl text-white uppercase tracking-wide leading-tight">
+                  {step.title}
+                </h3>
+                <p className="text-xs text-[#F5F0E8]/70 mt-1">
+                  {step.description}
+                </p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
