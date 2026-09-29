@@ -14,9 +14,9 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-20 sm:py-28 overflow-hidden bg-[#FAF6EE] text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
     >
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-5 sm:px-8">
         <div className="max-w-xl mb-10">
           <div className="inline-flex items-center gap-2 mb-3 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-6 h-[2px] bg-[#D45A20]" />
@@ -35,7 +35,7 @@ export default function FAQSection() {
             return (
               <div
                 key={faq.question}
-                className="rounded-xl border border-[#EAD5AF] bg-white transition-all overflow-hidden shadow-sm"
+                className="rounded-xl border border-[#EAD5AF] bg-white/90 backdrop-blur-md transition-all overflow-hidden shadow-sm"
               >
                 <button
                   onClick={() => toggle(idx)}

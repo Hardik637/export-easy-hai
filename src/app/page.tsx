@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ScrollBackground from "@/components/ScrollBackground";
+import CinematicCanvas from "@/components/CinematicCanvas";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import RealitySection from "@/components/RealitySection";
@@ -34,8 +34,8 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen">
-      {/* Continuous scroll-linked sunrise color and atmospheric transition */}
-      <ScrollBackground />
+      {/* Continuous scroll-linked cinematic visual transformation canvas */}
+      <CinematicCanvas />
 
       {/* Floating / Sticky navigation */}
       <Navbar

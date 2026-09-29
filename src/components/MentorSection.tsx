@@ -15,18 +15,18 @@ export default function MentorSection() {
   return (
     <section
       id="about"
-      className="relative py-20 sm:py-28 overflow-hidden bg-gradient-to-b from-[#F2A62B] via-[#FFF1D2] to-[#FAF6EE] text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 mb-3 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
-              <span className="w-6 h-[2px] bg-[#D45A20]" />
+              <span className="w-5 h-[2px] bg-[#D45A20]" />
               LEARN FROM EXPERIENCE
             </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-4">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-3">
               Not Just Theory. <br />
               <span className="text-[#D45A20]">
                 REAL GUIDANCE.
@@ -39,7 +39,7 @@ export default function MentorSection() {
 
             {/* Portrait & Signature */}
             <div className="flex flex-col sm:flex-row items-center sm:items-end gap-5 pt-2">
-              <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-xl border-2 border-white shrink-0">
+              <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-xl border-2 border-white/80 shrink-0">
                 <Image
                   src="/images/mentor-rahul.jpg"
                   alt="Rahul Makwana - Export Expert, Mentor & Educator"
@@ -67,7 +67,7 @@ export default function MentorSection() {
               return (
                 <div
                   key={item.title}
-                  className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-[#D45A20]/20 flex items-center gap-3.5 shadow-sm"
+                  className="p-4 rounded-xl bg-white/75 backdrop-blur-md border border-[#D45A20]/20 flex items-center gap-3.5 shadow-sm"
                 >
                   <div className="w-8 h-8 rounded-lg bg-[#D45A20]/10 flex items-center justify-center text-[#D45A20] shrink-0">
                     <Icon className="w-4 h-4" />

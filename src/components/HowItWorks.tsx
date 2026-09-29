@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { TIMELINE_STEPS } from "@/data/siteData";
 
@@ -13,21 +12,8 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
   return (
     <section
       id="how-it-works"
-      className="relative min-h-[90vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden"
+      className="relative min-h-[85vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent"
     >
-      {/* Golden Sunrise Port Background */}
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/images/how-it-works-sunrise.jpg"
-          alt="Golden sunrise over shipping terminal with cranes and traveler silhouette"
-          fill
-          sizes="100vw"
-          className="object-cover object-center filter brightness-95 contrast-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#A83A19] via-transparent to-[#5A1D12] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent pointer-events-none" />
-      </div>
-
       {/* Script note in sky */}
       <div className="absolute top-16 right-8 sm:top-24 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">
         <div className="font-script text-3xl sm:text-4xl text-[#FFD86A] rotate-[-5deg] drop-shadow-md">
@@ -36,28 +22,27 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="max-w-xl mb-12">
-          {/* Eyebrow */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
+        <div className="max-w-xl mb-10">
           <div className="inline-flex items-center gap-2 mb-3 text-[#FFD86A] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-5 h-[2px] bg-[#FFD86A]" />
             HOW IT WORKS
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-3">
             Small Steps. <br />
             <span className="text-[#FFD86A]">
               BIG DREAMS.
             </span>
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-white/80 font-normal leading-relaxed mb-6">
+          <p className="text-xs sm:text-sm md:text-base text-white/80 font-normal leading-relaxed mb-5">
             Follow a simple, step-by-step process to start your export journey with confidence.
           </p>
 
           <button
             onClick={onOpenCourseModal}
-            className="px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#F2A62B] to-[#FFC83D] text-[#111111] hover:from-[#FFC83D] hover:to-[#FFD86A] transition-all flex items-center gap-2 cursor-pointer shadow-md"
+            className="px-6 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#F2A62B] to-[#FFC83D] text-[#111111] hover:from-[#FFC83D] hover:to-[#FFD86A] transition-all flex items-center gap-2 cursor-pointer shadow-md"
           >
             <span>See the Full Process</span>
             <ArrowRight className="w-3.5 h-3.5" />

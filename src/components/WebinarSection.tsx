@@ -12,10 +12,10 @@ export default function WebinarSection({ onOpenWebinarModal }: WebinarSectionPro
   return (
     <section
       id="webinar"
-      className="relative py-14 sm:py-20 overflow-hidden bg-[#FAF6EE]"
+      className="relative py-14 sm:py-20 overflow-hidden bg-transparent"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-2xl overflow-hidden shadow-xl bg-[#0B0607] border border-[#E50920]/40">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#0B0607] border border-[#E50920]/40">
           <div className="absolute inset-0 -z-10">
             <Image
               src="/images/webinar-cover.jpg"

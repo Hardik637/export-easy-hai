@@ -26,18 +26,18 @@ export default function ProductCategories({
   return (
     <section
       id="products"
-      className="relative py-20 sm:py-28 overflow-hidden bg-gradient-to-b from-[#A83A19] via-[#D45A20] to-[#F2A62B]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 mb-3 text-[#FFD86A] text-[11px] font-bold tracking-widest uppercase">
               <span className="w-5 h-[2px] bg-[#FFD86A]" />
               WHAT CAN YOU EXPORT
             </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-3">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-2">
               Every Indian Product <br />
               Has a{" "}
               <span className="text-[#FFD86A]">
@@ -89,7 +89,7 @@ export default function ProductCategories({
               onClick={() => {
                 if (onSelectCategory) onSelectCategory(cat);
               }}
-              className="min-w-[200px] sm:min-w-[240px] lg:min-w-0 rounded-2xl overflow-hidden bg-black/40 border border-white/20 hover:border-white/50 transition-all duration-300 shadow-md group cursor-pointer flex flex-col justify-between"
+              className="min-w-[200px] sm:min-w-[240px] lg:min-w-0 rounded-2xl overflow-hidden bg-black/50 backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-300 shadow-md group cursor-pointer flex flex-col justify-between"
             >
               <div className="relative aspect-square w-full overflow-hidden">
                 <Image

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { Calendar, TrendingDown, Lock, Briefcase } from "lucide-react";
 
 export default function RealitySection() {
@@ -15,22 +14,9 @@ export default function RealitySection() {
   return (
     <section
       id="reality"
-      className="relative min-h-[85vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden"
+      className="relative min-h-[80vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent"
     >
-      {/* Pre-Dawn Background */}
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/images/reality-predawn.jpg"
-          alt="Pre-dawn dock with young Indian man sitting and contemplating"
-          fill
-          sizes="100vw"
-          className="object-cover object-center filter brightness-[0.7] contrast-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#26090B] via-transparent to-[#120607] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#120607]/90 via-[#120607]/50 to-transparent pointer-events-none" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column */}
           <div className="lg:col-span-6">
@@ -60,9 +46,9 @@ export default function RealitySection() {
                 return (
                   <div
                     key={item.title}
-                    className="p-4 rounded-xl bg-black/45 backdrop-blur-md border border-white/10 hover:border-[#FF172F]/40 transition-colors flex flex-col justify-between"
+                    className="p-4 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-[#FF172F]/40 transition-colors flex flex-col justify-between"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[#E50920]/15 flex items-center justify-center text-[#FF172F] mb-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#E50920]/20 flex items-center justify-center text-[#FF172F] mb-3">
                       <IconComponent className="w-4 h-4" />
                     </div>
                     <h3 className="font-display text-base sm:text-lg text-white uppercase tracking-wide leading-tight">

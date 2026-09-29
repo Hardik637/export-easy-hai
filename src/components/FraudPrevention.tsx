@@ -16,9 +16,9 @@ export default function FraudPrevention() {
   return (
     <section
       id="fraud-prevention"
-      className="relative py-20 sm:py-28 overflow-hidden bg-[#FAF6EE] text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Shield Visual */}
           <div className="lg:col-span-6 relative">
@@ -57,17 +57,17 @@ export default function FraudPrevention() {
               </span>
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-base text-[#555555] font-normal leading-relaxed mb-6 max-w-lg">
+            <p className="text-xs sm:text-sm md:text-base text-[#444444] font-normal leading-relaxed mb-6 max-w-lg">
               Learn how to verify buyers, identify red flags and protect your business from export frauds before shipping a single carton.
             </p>
 
             <div className="space-y-2.5">
               {points.map((pt) => (
-                <div key={pt} className="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-[#EAD5AF] shadow-sm">
+                <div key={pt} className="flex items-center gap-3 p-3 rounded-xl bg-white/85 backdrop-blur-md border border-[#EAD5AF] shadow-sm">
                   <div className="w-5 h-5 rounded-full bg-[#E50920]/15 flex items-center justify-center text-[#E50920] shrink-0">
                     <CheckCircle2 className="w-3.5 h-3.5 fill-current text-white" />
                   </div>
-                  <span className="text-xs font-medium text-[#222222]">
+                  <span className="text-xs font-semibold text-[#222222]">
                     {pt}
                   </span>
                 </div>

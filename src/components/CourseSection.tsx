@@ -11,11 +11,11 @@ export default function CourseSection() {
   return (
     <section
       id="courses"
-      className="relative py-20 sm:py-28 overflow-hidden bg-[#FAF6EE] text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 mb-3 text-[#E50920] text-[11px] font-bold tracking-widest uppercase">
               <span className="w-6 h-[2px] bg-[#E50920]" />
@@ -50,7 +50,7 @@ export default function CourseSection() {
             <div
               key={course.id}
               onClick={() => setSelectedCourse(course)}
-              className="rounded-2xl overflow-hidden bg-white border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer"
+              className="rounded-2xl overflow-hidden bg-white/85 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer"
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden">
                 <Image
