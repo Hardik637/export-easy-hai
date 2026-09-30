@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, TouchEvent } from "react";
+import React, { useState, useRef, useEffect, useCallback, TouchEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface MobileCarouselProps {
@@ -9,6 +9,8 @@ interface MobileCarouselProps {
   className?: string;
   showArrows?: boolean;
   theme?: "dark" | "light";
+  autoplay?: boolean;
+  autoplayInterval?: number; // In milliseconds, defaults to 3500ms
 }
 
 export default function MobileCarousel({
@@ -17,15 +19,62 @@ export default function MobileCarousel({
   className = "",
   showArrows = true,
   theme = "dark",
+  autoplay = true,
+  autoplayInterval = 3500,
 }: MobileCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isInteracting, setIsInteracting] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const total = children.length;
 
   const minSwipeDistance = 40;
 
+  const nextSlide = useCallback(() => {
+    if (total <= 1) return;
+    setCurrentIndex((prev) => (prev + 1) % total);
+  }, [total]);
+
+  const prevSlide = useCallback(() => {
+    if (total <= 1) return;
+    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  }, [total]);
+
+  const goToSlide = (idx: number) => {
+    setCurrentIndex(Math.max(0, Math.min(idx, total - 1)));
+  };
+
+  // Helper to pause autoplay temporarily during user action and resume after idle delay
+  const pauseAndResumeLater = useCallback((delayMs = 3000) => {
+    setIsInteracting(true);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, delayMs);
+  }, []);
+
+  // Autoplay Timer
+  useEffect(() => {
+    if (!autoplay || isInteracting || total <= 1) return;
+
+    const timer = setInterval(() => {
+      nextSlide();
+    }, autoplayInterval);
+
+    return () => clearInterval(timer);
+  }, [autoplay, isInteracting, autoplayInterval, total, nextSlide]);
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
+  }, []);
+
   const onTouchStart = (e: TouchEvent) => {
+    setIsInteracting(true);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     touchEndX.current = null;
     touchStartX.current = e.targetTouches[0].clientX;
   };
@@ -35,33 +84,27 @@ export default function MobileCarousel({
   };
 
   const onTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const distance = touchStartX.current - touchEndX.current;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const distance = touchStartX.current - touchEndX.current;
+      const isLeftSwipe = distance > minSwipeDistance;
+      const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe && currentIndex < total - 1) {
-      setCurrentIndex((prev) => prev + 1);
+      if (isLeftSwipe) {
+        nextSlide();
+      } else if (isRightSwipe) {
+        prevSlide();
+      }
     }
-    if (isRightSwipe && currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
-    }
-  };
-
-  const goToSlide = (idx: number) => {
-    setCurrentIndex(Math.max(0, Math.min(idx, total - 1)));
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => Math.min(total - 1, prev + 1));
+    // Resume autoplay 2.5s after touch release
+    pauseAndResumeLater(2500);
   };
 
   return (
-    <div className={`w-full flex flex-col ${className}`}>
+    <div
+      className={`w-full flex flex-col ${className}`}
+      onMouseEnter={() => setIsInteracting(true)}
+      onMouseLeave={() => pauseAndResumeLater(1500)}
+    >
       {/* Sliding Viewport */}
       <div
         className="w-full overflow-hidden touch-pan-y"
@@ -70,7 +113,7 @@ export default function MobileCarousel({
         onTouchEnd={onTouchEnd}
       >
         <div
-          className="flex transition-transform duration-300 ease-out will-change-transform"
+          className="flex transition-transform duration-500 ease-out will-change-transform"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {children.map((child, idx) => (
@@ -97,16 +140,14 @@ export default function MobileCarousel({
         {/* Left Arrow Button */}
         {showArrows && (
           <button
-            onClick={prevSlide}
-            disabled={currentIndex === 0}
-            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
-              currentIndex === 0
-                ? theme === "light"
-                  ? "opacity-25 pointer-events-none text-black/30"
-                  : "opacity-25 pointer-events-none text-white/30"
-                : theme === "light"
-                ? "bg-black/5 hover:bg-black/15 active:scale-95 text-black shadow-sm border border-black/10"
-                : "bg-white/10 hover:bg-white/20 active:scale-95 text-white shadow-md border border-white/10"
+            onClick={() => {
+              prevSlide();
+              pauseAndResumeLater(3500);
+            }}
+            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer active:scale-90 ${
+              theme === "light"
+                ? "bg-black/5 hover:bg-black/15 text-black shadow-sm border border-black/10"
+                : "bg-white/10 hover:bg-white/20 text-white shadow-md border border-white/10"
             }`}
             aria-label="Previous slide"
           >
@@ -121,7 +162,10 @@ export default function MobileCarousel({
             return (
               <button
                 key={idx}
-                onClick={() => goToSlide(idx)}
+                onClick={() => {
+                  goToSlide(idx);
+                  pauseAndResumeLater(3500);
+                }}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "w-6 shadow-md"
@@ -139,16 +183,14 @@ export default function MobileCarousel({
         {/* Right Arrow Button */}
         {showArrows && (
           <button
-            onClick={nextSlide}
-            disabled={currentIndex === total - 1}
-            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
-              currentIndex === total - 1
-                ? theme === "light"
-                  ? "opacity-25 pointer-events-none text-black/30"
-                  : "opacity-25 pointer-events-none text-white/30"
-                : theme === "light"
-                ? "bg-black/5 hover:bg-black/15 active:scale-95 text-black shadow-sm border border-black/10"
-                : "bg-white/10 hover:bg-white/20 active:scale-95 text-white shadow-md border border-white/10"
+            onClick={() => {
+              nextSlide();
+              pauseAndResumeLater(3500);
+            }}
+            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer active:scale-90 ${
+              theme === "light"
+                ? "bg-black/5 hover:bg-black/15 text-black shadow-sm border border-black/10"
+                : "bg-white/10 hover:bg-white/20 text-white shadow-md border border-white/10"
             }`}
             aria-label="Next slide"
           >
@@ -163,7 +205,7 @@ export default function MobileCarousel({
           theme === "light" ? "text-black/50" : "text-white/50"
         }`}
       >
-        {currentIndex + 1} of {total} • Swipe or tap to browse
+        {currentIndex + 1} of {total} • Auto-playing • Swipe to browse
       </div>
     </div>
   );
