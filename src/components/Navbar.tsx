@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, Compass } from "lucide-react";
+import { ArrowRight, Compass } from "lucide-react";
 import { NAV_LINKS } from "@/data/siteData";
+import MobileDotsNav from "@/components/MobileDotsNav";
 
 interface NavbarProps {
   onOpenWebinarModal?: () => void;
@@ -11,7 +12,6 @@ interface NavbarProps {
 
 export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLightMode, setIsLightMode] = useState(false);
 
   useEffect(() => {
@@ -94,94 +94,11 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
             </button>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className={`p-2 rounded-lg lg:hidden cursor-pointer transition-colors ${
-              isLightMode ? "text-[#111111]" : "text-white"
-            }`}
-            aria-label="Open navigation menu"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
         </div>
       </header>
 
-      {/* Fullscreen Mobile Menu Drawer */}
-      <div
-        className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div
-          className="absolute inset-0 bg-black/85 backdrop-blur-xl"
-          onClick={() => setMobileMenuOpen(false)}
-        />
-
-        <div
-          className={`absolute top-0 right-0 w-[85%] max-w-sm h-full bg-[#090909] border-l border-[#E50920]/30 shadow-2xl p-6 flex flex-col justify-between transition-transform duration-300 ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div>
-            <div className="flex items-center justify-between pb-6 border-b border-white/10">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FF172F] to-[#B80014] flex items-center justify-center text-white shadow-md">
-                  <Compass className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-display text-lg text-white">EXPORT EASY HAI</div>
-                  <div className="text-[9px] tracking-widest text-[#D45A20]">Explore. Learn. Grow.</div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/10 text-white/80 hover:text-white cursor-pointer"
-                aria-label="Close menu"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="mt-6 flex flex-col space-y-2">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 rounded-xl text-sm font-semibold tracking-wider uppercase text-white/90 hover:text-white hover:bg-[#E50920]/20 transition-colors flex items-center justify-between"
-                >
-                  <span>{link.label}</span>
-                  <ArrowRight className="w-4 h-4 text-[#E50920]" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="pt-6 border-t border-white/10 space-y-3">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenCourseModal) onOpenCourseModal();
-              }}
-              className="w-full py-3.5 px-4 rounded-xl font-bold uppercase tracking-wider text-xs bg-[#E50920] text-white flex items-center justify-center gap-2 shadow-lg shadow-[#E50920]/30"
-            >
-              <span>Explore Courses</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenWebinarModal) onOpenWebinarModal();
-              }}
-              className="w-full py-3 px-4 rounded-xl font-bold uppercase tracking-wider text-xs bg-white/10 border border-white/20 text-white flex items-center justify-center gap-2"
-            >
-              <span>Watch Free Webinar</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* 8-Dot Vertical Navigation on Right Middle (Mobile Only) */}
+      <MobileDotsNav />
     </>
   );
 }
