@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCT_CATEGORIES, ProductCategory } from "@/data/siteData";
+import MobileCarousel from "@/components/MobileCarousel";
 
 interface ProductCategoriesProps {
   onOpenCourseModal?: () => void;
@@ -78,25 +79,22 @@ export default function ProductCategories({
           </div>
         </div>
 
-        {/* Product Cards Row with Mobile Snap Scrolling */}
-        <div
-          ref={scrollRef}
-          className="flex lg:grid lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory touch-pan-x -mx-5 px-5 sm:mx-0 sm:px-0"
-        >
+        {/* Desktop Product Cards Grid (6 Columns) */}
+        <div className="hidden lg:grid lg:grid-cols-6 gap-3 sm:gap-4">
           {PRODUCT_CATEGORIES.slice(0, 6).map((cat) => (
             <div
               key={cat.id}
               onClick={() => {
                 if (onSelectCategory) onSelectCategory(cat);
               }}
-              className="w-[68vw] max-w-[230px] lg:w-auto lg:max-w-none snap-start rounded-2xl overflow-hidden bg-black/60 backdrop-blur-xl border border-white/15 hover:border-[#FFD86A]/50 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between shrink-0"
+              className="rounded-2xl overflow-hidden bg-black/60 backdrop-blur-xl border border-white/15 hover:border-[#FFD86A]/50 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between"
             >
-              <div className="relative h-44 sm:h-48 lg:aspect-square w-full overflow-hidden shrink-0 bg-black">
+              <div className="relative aspect-square w-full overflow-hidden shrink-0 bg-black">
                 <Image
                   src={cat.image}
                   alt={cat.title}
                   fill
-                  sizes="(max-width: 640px) 230px, (max-width: 1024px) 33vw, 16vw"
+                  sizes="16vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
@@ -124,9 +122,52 @@ export default function ProductCategories({
           ))}
         </div>
 
-        {/* Mobile Swipe Hint */}
-        <div className="lg:hidden text-center mt-3 text-[11px] text-white/60 font-medium">
-          ← Swipe to explore categories →
+        {/* Mobile Interactive Touch Carousel */}
+        <div className="lg:hidden">
+          <MobileCarousel activeColor="#FFD86A" theme="dark">
+            {PRODUCT_CATEGORIES.slice(0, 6).map((cat) => (
+              <div
+                key={cat.id}
+                onClick={() => {
+                  if (onSelectCategory) onSelectCategory(cat);
+                }}
+                className="w-full rounded-2xl overflow-hidden bg-black/70 backdrop-blur-xl border border-white/20 hover:border-[#FFD86A]/60 transition-all duration-300 shadow-2xl group cursor-pointer flex flex-col justify-between"
+              >
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden shrink-0 bg-black">
+                  <Image
+                    src={cat.image}
+                    alt={cat.title}
+                    fill
+                    sizes="(max-width: 640px) 340px, 340px"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[11px] font-mono font-semibold text-[#FFD86A] border border-white/15">
+                    {cat.hsCode}
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="font-sans font-bold text-base sm:text-lg text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
+                      {cat.title}
+                    </div>
+                    <p className="text-xs text-white/75 mt-1 leading-normal">
+                      {cat.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
+                    <span className="font-semibold text-sm">Margin: {cat.margin}</span>
+                    <span className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px]">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </MobileCarousel>
         </div>
       </div>
     </section>

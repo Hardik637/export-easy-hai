@@ -3,6 +3,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { TIMELINE_STEPS } from "@/data/siteData";
+import MobileCarousel from "@/components/MobileCarousel";
 
 interface HowItWorksProps {
   onOpenCourseModal?: () => void;
@@ -12,7 +13,7 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
   return (
     <section
       id="how-it-works"
-      className="relative min-h-[85vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent scroll-mt-24"
+      className="relative min-h-[75vh] flex flex-col justify-center py-14 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
     >
       {/* Script note in sky */}
       <div className="absolute top-16 right-8 sm:top-24 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">
@@ -67,41 +68,37 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
           </div>
         </div>
 
-        {/* Mobile Horizontal Snap Stepper (clean, un-congested, swipeable) */}
+        {/* Mobile Interactive Carousel (smooth slide, centered card, pagination dots & arrows) */}
         <div className="lg:hidden">
-          <div className="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-none -mx-5 px-5">
+          <MobileCarousel activeColor="#FFD86A">
             {TIMELINE_STEPS.map((step) => (
               <div
                 key={step.number}
-                className="w-[82vw] max-w-[300px] shrink-0 snap-start p-4 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 flex flex-col justify-between shadow-xl"
+                className="p-5 rounded-2xl bg-black/65 backdrop-blur-xl border border-white/15 flex flex-col justify-between shadow-2xl min-h-[210px]"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#E50920] to-[#D45A20] text-white flex items-center justify-center font-display text-base font-bold shadow-md">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E50920] to-[#D45A20] text-white flex items-center justify-center font-display text-lg font-bold shadow-md">
                       {step.number}
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#FFD86A] px-2 py-0.5 rounded-full bg-white/10">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#FFD86A] px-2.5 py-1 rounded-full bg-white/10 border border-white/10">
                       Step {step.number} of 07
                     </span>
                   </div>
-                  <div className="font-sans font-bold text-sm text-white mb-1.5 tracking-tight">
+                  <div className="font-sans font-bold text-base text-white mb-2 tracking-tight">
                     {step.title}
                   </div>
-                  <p className="text-xs text-white/70 leading-relaxed">
+                  <p className="text-xs text-white/75 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
-                <div className="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#FFD86A]">
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
                   <span>Action Phase</span>
-                  <span>Swipe next →</span>
+                  <span className="text-[11px] text-white/50">Next-gen Exporter</span>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-2.5 text-[11px] text-white/50 font-medium">
-            ← Swipe to see the 7-step process →
-          </div>
+          </MobileCarousel>
         </div>
       </div>
     </section>
