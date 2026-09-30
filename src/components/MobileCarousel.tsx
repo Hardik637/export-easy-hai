@@ -198,15 +198,6 @@ export default function MobileCarousel({
           </button>
         )}
       </div>
-
-      {/* Slide Counter Indicator */}
-      <div
-        className={`text-center mt-2 text-[10px] font-mono tracking-widest uppercase ${
-          theme === "light" ? "text-black/50" : "text-white/50"
-        }`}
-      >
-        {currentIndex + 1} of {total} • Auto-playing • Swipe to browse
-      </div>
     </div>
   );
 }
