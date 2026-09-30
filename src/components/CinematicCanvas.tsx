@@ -3,18 +3,17 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-// Strict color stops from the specification
+// Color stops aligned with Hero cinematic transformation into daylight editorial site
 const COLOR_STOPS = [
   { progress: 0.0, color: [5, 5, 5] },        // #050505 (Hero night)
-  { progress: 0.12, color: [18, 6, 7] },      // #120607
-  { progress: 0.22, color: [38, 9, 11] },     // #26090B (The Reality)
-  { progress: 0.35, color: [90, 29, 18] },    // #5A1D12 (Pre-dawn to opportunity)
-  { progress: 0.48, color: [168, 58, 25] },   // #A83A19
-  { progress: 0.58, color: [212, 90, 32] },   // #D45A20 (Opportunity to How It Works)
-  { progress: 0.68, color: [242, 166, 43] },  // #F2A62B (Golden sunrise / Products)
-  { progress: 0.78, color: [255, 216, 106] }, // #FFD86A
-  { progress: 0.86, color: [255, 241, 210] }, // #FFF1D2 (Mentor / Courses daylight)
-  { progress: 0.94, color: [247, 243, 235] }, // #F7F3EB (FAQ)
+  { progress: 0.06, color: [16, 13, 20] },    // #100D14 (Pre-dawn)
+  { progress: 0.12, color: [43, 28, 30] },    // #2B1C1E (First light)
+  { progress: 0.18, color: [66, 40, 24] },    // #422818 (Golden sunrise)
+  { progress: 0.24, color: [250, 246, 238] }, // #FAF6EE (Daylight arrival - Reality)
+  { progress: 0.40, color: [255, 248, 235] }, // #FFF8EB (Opportunity & How It Works)
+  { progress: 0.60, color: [250, 246, 238] }, // #FAF6EE (Products & Mentor)
+  { progress: 0.80, color: [255, 241, 210] }, // #FFF1D2 (Courses & Webinar)
+  { progress: 0.92, color: [244, 248, 250] }, // #F4F8FA (Stories & FAQ)
   { progress: 1.0, color: [220, 235, 240] },  // #DCEBF0 (Final CTA ocean horizon)
 ];
 
@@ -85,83 +84,6 @@ export default function CinematicCanvas() {
       }}
       aria-hidden="true"
     >
-      {/* Visual Layer 1: Hero Blood Moon Port */}
-      <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
-        style={{ opacity: opNight }}
-      >
-        <Image
-          src="/images/hero-blood-moon.jpg"
-          alt="Night blood moon port"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center filter brightness-95 contrast-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/60" />
-      </div>
-
-      {/* Visual Layer 2: Pre-dawn Twilight Harbor */}
-      <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
-        style={{ opacity: opPredawn }}
-      >
-        <Image
-          src="/images/reality-predawn.jpg"
-          alt="Pre-dawn dock harbor"
-          fill
-          sizes="100vw"
-          className="object-cover object-center filter brightness-[0.75] contrast-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/50" />
-      </div>
-
-      {/* Visual Layer 3: Glowing Trade Routes over Port */}
-      <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
-        style={{ opacity: opOpportunity }}
-      >
-        <Image
-          src="/images/opportunity-map.jpg"
-          alt="World trade routes port"
-          fill
-          sizes="100vw"
-          className="object-cover object-center filter brightness-[0.8] contrast-115"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/50" />
-      </div>
-
-      {/* Visual Layer 4: Golden Sunrise over Shipping Terminal */}
-      <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
-        style={{ opacity: opSunrise }}
-      >
-        <Image
-          src="/images/how-it-works-sunrise.jpg"
-          alt="Golden sunrise port"
-          fill
-          sizes="100vw"
-          className="object-cover object-center filter brightness-95 contrast-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40" />
-      </div>
-
-      {/* Visual Layer 5: Full Daylight Ocean Horizon & Container Ship */}
-      <div
-        className="absolute inset-0 transition-opacity duration-300 ease-out will-change-opacity"
-        style={{ opacity: opDaylight }}
-      >
-        <Image
-          src="/images/final-cta-ship.jpg"
-          alt="Daylight ocean container ship"
-          fill
-          sizes="100vw"
-          className="object-cover object-center filter brightness-100 contrast-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent" />
-      </div>
-
       {/* Fine Film Grain Texture Overlay */}
       <div className="absolute inset-0 bg-grain opacity-25 mix-blend-overlay" />
 
