@@ -19,10 +19,10 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
       const scrollY = window.scrollY;
       setScrolled(scrollY > 30);
 
-      // Light mode starts as the Hero journey reaches daylight (~22% of total page height)
+      // Light mode starts as the page journey reaches sunrise and daylight sections (~58% of total page height)
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? scrollY / docHeight : 0;
-      setIsLightMode(progress > 0.22);
+      setIsLightMode(progress > 0.58);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
