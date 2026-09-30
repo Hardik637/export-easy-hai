@@ -6,12 +6,11 @@ import { JOURNEY_STAGES } from "@/data/journeyData";
 // Color stops aligned with page scroll progression (0.00 to 1.00)
 const COLOR_STOPS = [
   { progress: 0.0, color: [5, 5, 5] },        // #050505 (Hero night)
-  { progress: 0.15, color: [16, 13, 20] },    // #100D14 (Pre-dawn)
-  { progress: 0.35, color: [43, 28, 30] },    // #2B1C1E (First light)
-  { progress: 0.55, color: [66, 40, 24] },    // #422818 (Golden sunrise)
-  { progress: 0.75, color: [248, 243, 233] }, // #F8F3E9 (Early daylight)
-  { progress: 0.90, color: [244, 248, 250] }, // #F4F8FA (High daylight)
-  { progress: 1.0, color: [220, 235, 240] },  // #DCEBF0 (Final CTA ocean horizon)
+  { progress: 0.20, color: [16, 20, 36] },    // Pre-dawn twilight
+  { progress: 0.45, color: [50, 38, 42] },    // First light
+  { progress: 0.70, color: [80, 50, 32] },    // Golden sunrise
+  { progress: 0.90, color: [175, 195, 218] }, // High daylight
+  { progress: 1.0, color: [220, 235, 240] },  // Ocean horizon
 ];
 
 function interpolateColor(p: number) {
@@ -72,7 +71,7 @@ export default function CinematicCanvas() {
     let animationFrameId: number;
     let lastActiveStage = -1;
 
-    // Smoothstep helper
+    // Smoothstep helper for buttery transitions
     const smoothstep = (min: number, max: number, value: number) => {
       const x = Math.max(0, Math.min(1, (value - min) / (max - min)));
       return x * x * (3 - 2 * x);
@@ -94,8 +93,8 @@ export default function CinematicCanvas() {
         let stageIndex = 0;
         if (p >= 0.80) stageIndex = 4;
         else if (p >= 0.58) stageIndex = 3;
-        else if (p >= 0.38) stageIndex = 2;
-        else if (p >= 0.18) stageIndex = 1;
+        else if (p >= 0.36) stageIndex = 2;
+        else if (p >= 0.16) stageIndex = 1;
         else stageIndex = 0;
 
         if (stageIndex !== lastActiveStage) {
@@ -103,17 +102,17 @@ export default function CinematicCanvas() {
           setActiveStage(stageIndex);
         }
 
-        // Transition progress across the full website scroll:
-        // Transition 0 -> 1: p 0.10 to 0.28 (Pre-dawn wipes across as user enters Reality)
-        // Transition 1 -> 2: p 0.30 to 0.50 (First light expands outward in Opportunity & How It Works)
-        // Transition 2 -> 3: p 0.52 to 0.72 (Sunrise bursts outward in Products, Mentor, & Courses)
-        // Transition 3 -> 4: p 0.74 to 0.92 (Daylight sweeps in over Stories, FAQ, & Final CTA)
-        const t1 = smoothstep(0.10, 0.28, p);
-        const t2 = smoothstep(0.30, 0.50, p);
-        const t3 = smoothstep(0.52, 0.72, p);
-        const t4 = smoothstep(0.74, 0.92, p);
+        // Smooth continuous overlapping transition curves across page scroll:
+        // Transition 0 -> 1: p 0.08 to 0.28 (Pre-dawn enters smoothly during Reality)
+        // Transition 1 -> 2: p 0.28 to 0.50 (First light expands during Opportunity & How It Works)
+        // Transition 2 -> 3: p 0.48 to 0.72 (Sunrise breaks out during Products, Mentor, & Courses)
+        // Transition 3 -> 4: p 0.70 to 0.92 (Full daylight takes over during Stories, FAQ, & Final CTA)
+        const t1 = smoothstep(0.08, 0.28, p);
+        const t2 = smoothstep(0.28, 0.50, p);
+        const t3 = smoothstep(0.48, 0.72, p);
+        const t4 = smoothstep(0.70, 0.92, p);
 
-        // Layer 0: Night (always visible as foundation, subtle forward movement)
+        // Layer 0: Night (base layer, subtle forward movement)
         const l0 = layerRefs.current[0];
         if (l0) {
           if (!reducedMotion) {
@@ -122,7 +121,7 @@ export default function CinematicCanvas() {
           }
         }
 
-        // Layer 1: Pre-Dawn (Directional dawn light wipe from horizon/left)
+        // Layer 1: Pre-Dawn (smooth dawn wipe with soft 40% feather)
         const l1 = layerRefs.current[1];
         if (l1) {
           if (reducedMotion) {
@@ -130,16 +129,17 @@ export default function CinematicCanvas() {
             l1.style.maskImage = "none";
             l1.style.webkitMaskImage = "none";
           } else {
-            l1.style.opacity = t1 > 0 ? "1" : "0";
-            const wipe = t1 * 140 - 20;
-            l1.style.maskImage = `linear-gradient(115deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 25)}%)`;
-            l1.style.webkitMaskImage = `linear-gradient(115deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 25)}%)`;
+            l1.style.opacity = `${t1}`;
+            const wipe = t1 * 120 - 10;
+            const maskVal = `linear-gradient(135deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 40)}%)`;
+            l1.style.maskImage = maskVal;
+            l1.style.webkitMaskImage = maskVal;
             const s = 1.015 - (1 - t1) * 0.015;
             l1.style.transform = `scale(${s})`;
           }
         }
 
-        // Layer 2: First Light (Horizon warm glow expansion)
+        // Layer 2: First Light (wide horizon radial expansion with soft feather)
         const l2 = layerRefs.current[2];
         if (l2) {
           if (reducedMotion) {
@@ -147,16 +147,17 @@ export default function CinematicCanvas() {
             l2.style.maskImage = "none";
             l2.style.webkitMaskImage = "none";
           } else {
-            l2.style.opacity = t2 > 0 ? "1" : "0";
-            const radius = t2 * 135 - 15;
-            l2.style.maskImage = `radial-gradient(ellipse 130% 90% at 30% 65%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 25)}%)`;
-            l2.style.webkitMaskImage = `radial-gradient(ellipse 130% 90% at 30% 65%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 25)}%)`;
+            l2.style.opacity = `${t2}`;
+            const radius = t2 * 115;
+            const maskVal = `radial-gradient(ellipse 140% 100% at 35% 65%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 45)}%)`;
+            l2.style.maskImage = maskVal;
+            l2.style.webkitMaskImage = maskVal;
             const s = 1.015 - (1 - t2) * 0.015;
             l2.style.transform = `scale(${s})`;
           }
         }
 
-        // Layer 3: Sunrise (Radiant golden sun wavefront from sun coordinate x:35%, y:55%)
+        // Layer 3: Sunrise (radiant sun wave originating at x:70% y:50% where sun rises)
         const l3 = layerRefs.current[3];
         if (l3) {
           if (reducedMotion) {
@@ -164,10 +165,11 @@ export default function CinematicCanvas() {
             l3.style.maskImage = "none";
             l3.style.webkitMaskImage = "none";
           } else {
-            l3.style.opacity = t3 > 0 ? "1" : "0";
-            const radius = t3 * 140 - 20;
-            l3.style.maskImage = `radial-gradient(circle at 35% 55%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 25)}%)`;
-            l3.style.webkitMaskImage = `radial-gradient(circle at 35% 55%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 25)}%)`;
+            l3.style.opacity = `${t3}`;
+            const radius = t3 * 120;
+            const maskVal = `radial-gradient(circle at 72% 50%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 45)}%)`;
+            l3.style.maskImage = maskVal;
+            l3.style.webkitMaskImage = maskVal;
             const s = 1.015 - (1 - t3) * 0.015;
             l3.style.transform = `scale(${s})`;
           }
@@ -175,11 +177,11 @@ export default function CinematicCanvas() {
 
         // Sunrise golden atmospheric bloom
         if (bloomRef.current && !reducedMotion) {
-          const bloomIntensity = Math.sin(t3 * Math.PI) * 0.4;
+          const bloomIntensity = Math.sin(t3 * Math.PI) * 0.35;
           bloomRef.current.style.opacity = `${bloomIntensity}`;
         }
 
-        // Layer 4: Daylight (Clean morning light sweeps across from top-right to bottom-left)
+        // Layer 4: Daylight (wide morning light sweep)
         const l4 = layerRefs.current[4];
         if (l4) {
           if (reducedMotion) {
@@ -187,11 +189,12 @@ export default function CinematicCanvas() {
             l4.style.maskImage = "none";
             l4.style.webkitMaskImage = "none";
           } else {
-            l4.style.opacity = t4 > 0 ? "1" : "0";
-            const wipe = t4 * 140 - 20;
-            l4.style.maskImage = `linear-gradient(205deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 20)}%)`;
-            l4.style.webkitMaskImage = `linear-gradient(205deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 20)}%)`;
-            const s = 1.0 + Math.max(0, (p - 0.85) / 0.15) * 0.025;
+            l4.style.opacity = `${t4}`;
+            const wipe = t4 * 120 - 10;
+            const maskVal = `linear-gradient(205deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 35)}%)`;
+            l4.style.maskImage = maskVal;
+            l4.style.webkitMaskImage = maskVal;
+            const s = 1.0 + Math.max(0, (p - 0.85) / 0.15) * 0.02;
             l4.style.transform = `scale(${s})`;
           }
         }
@@ -209,19 +212,19 @@ export default function CinematicCanvas() {
 
   return (
     <>
-      {/* Fixed Fullscreen Visual Journey Canvas */}
+      {/* Fixed Fullscreen Visual Journey Canvas - Covers 100% of Viewport on PC & Mobile */}
       <div
         ref={bgRef}
         className="fixed inset-0 pointer-events-none z-0 overflow-hidden transform-gpu will-change-[background-color]"
         style={{
           backgroundColor: "#050505",
-          transition: "background-color 0.15s ease-out",
+          transition: "background-color 0.2s ease-out",
           height: "100dvh",
           width: "100vw",
         }}
         aria-hidden="true"
       >
-        {/* 5 Stacked Photographic Stages */}
+        {/* 5 Stacked Photographic Stages - Full 100vw x 100vh Bleed */}
         {JOURNEY_STAGES.map((stage, idx) => (
           <div
             key={stage.id}
@@ -234,7 +237,7 @@ export default function CinematicCanvas() {
               opacity: idx === 0 ? 1 : 0,
             }}
           >
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative w-full h-full">
               <picture className="w-full h-full block">
                 {/* Mobile portrait image (screens < 768px) */}
                 <source
@@ -251,26 +254,26 @@ export default function CinematicCanvas() {
                 <img
                   src={stage.desktopImage}
                   alt={`${stage.label} - ${stage.time}`}
-                  className="w-full h-full object-cover object-center transform-gpu will-change-transform"
+                  className="w-full h-full object-cover object-[70%_center] md:object-center transform-gpu will-change-transform"
                   loading={idx <= 1 ? "eager" : "lazy"}
                   decoding="async"
                 />
               </picture>
 
-              {/* Natural subtle ambient vignette */}
+              {/* Cinematic Vignette for crystal-clear text readability across day & night */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
                     idx === 0
-                      ? "linear-gradient(180deg, rgba(5,5,5,0.45) 0%, transparent 30%, transparent 70%, rgba(5,5,5,0.75) 100%)"
+                      ? "linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.15) 30%, rgba(5,5,5,0.2) 70%, rgba(5,5,5,0.75) 100%)"
                       : idx === 1
-                      ? "linear-gradient(180deg, rgba(16,13,20,0.4) 0%, transparent 30%, transparent 70%, rgba(16,13,20,0.7) 100%)"
+                      ? "linear-gradient(180deg, rgba(16,13,20,0.5) 0%, rgba(16,13,20,0.1) 30%, rgba(16,13,20,0.2) 70%, rgba(16,13,20,0.7) 100%)"
                       : idx === 2
-                      ? "linear-gradient(180deg, rgba(43,28,30,0.3) 0%, transparent 30%, transparent 70%, rgba(43,28,30,0.6) 100%)"
+                      ? "linear-gradient(180deg, rgba(43,28,30,0.45) 0%, rgba(43,28,30,0.1) 30%, rgba(43,28,30,0.15) 70%, rgba(43,28,30,0.6) 100%)"
                       : idx === 3
-                      ? "linear-gradient(180deg, rgba(66,40,24,0.2) 0%, transparent 30%, transparent 70%, rgba(66,40,24,0.55) 100%)"
-                      : "linear-gradient(180deg, rgba(220,235,240,0.2) 0%, transparent 30%, transparent 70%, rgba(220,235,240,0.5) 100%)",
+                      ? "linear-gradient(180deg, rgba(66,40,24,0.3) 0%, transparent 35%, transparent 70%, rgba(66,40,24,0.5) 100%)"
+                      : "linear-gradient(180deg, rgba(220,235,240,0.25) 0%, transparent 35%, transparent 70%, rgba(220,235,240,0.4) 100%)",
                 }}
               />
             </div>
@@ -280,16 +283,16 @@ export default function CinematicCanvas() {
         {/* Golden Sunrise Atmospheric Light Bloom Layer */}
         <div
           ref={bloomRef}
-          className="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-150 transform-gpu z-10"
+          className="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-200 transform-gpu z-10"
           style={{
             background:
-              "radial-gradient(circle at 35% 55%, rgba(242, 166, 43, 0.45) 0%, rgba(229, 9, 32, 0.25) 35%, transparent 70%)",
+              "radial-gradient(circle at 72% 50%, rgba(242, 166, 43, 0.45) 0%, rgba(229, 9, 32, 0.2) 35%, transparent 70%)",
             mixBlendMode: "screen",
           }}
         />
 
         {/* Fine Film Grain Texture Overlay */}
-        <div className="absolute inset-0 bg-grain opacity-25 mix-blend-overlay z-20" />
+        <div className="absolute inset-0 bg-grain opacity-20 mix-blend-overlay z-20 pointer-events-none" />
       </div>
 
       {/* Top Slim Scroll Progress Bar */}
