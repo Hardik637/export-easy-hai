@@ -67,25 +67,41 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
           </div>
         </div>
 
-        {/* Connected Vertical Timeline on Mobile */}
-        <div className="lg:hidden relative pl-6 space-y-4">
-          <div className="absolute top-3 bottom-3 left-[20px] w-[2px] bg-gradient-to-b from-[#E50920] via-[#D45A20] to-[#F2A62B] -z-10" />
-
-          {TIMELINE_STEPS.map((step) => (
-            <div key={step.number} className="flex items-start gap-3.5 group">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#E50920] to-[#D45A20] border-2 border-white/40 flex items-center justify-center font-display text-base text-white shadow-md shrink-0">
-                {step.number}
-              </div>
-              <div className="pt-0.5 flex-1 p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
-                <div className="font-sans font-bold text-xs sm:text-sm text-white tracking-tight">
-                  {step.title}
+        {/* Mobile Horizontal Snap Stepper (clean, un-congested, swipeable) */}
+        <div className="lg:hidden">
+          <div className="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-none -mx-5 px-5">
+            {TIMELINE_STEPS.map((step) => (
+              <div
+                key={step.number}
+                className="min-w-[270px] snap-start p-4 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 flex flex-col justify-between shrink-0 shadow-xl"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#E50920] to-[#D45A20] text-white flex items-center justify-center font-display text-base font-bold shadow-md">
+                      {step.number}
+                    </div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#FFD86A] px-2 py-0.5 rounded-full bg-white/10">
+                      Step {step.number} of 07
+                    </span>
+                  </div>
+                  <div className="font-sans font-bold text-sm text-white mb-1.5 tracking-tight">
+                    {step.title}
+                  </div>
+                  <p className="text-xs text-white/70 leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <p className="text-[11px] text-white/70 mt-1 leading-relaxed">
-                  {step.description}
-                </p>
+                <div className="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#FFD86A]">
+                  <span>Action Phase</span>
+                  <span>Swipe next →</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="text-center mt-2.5 text-[11px] text-white/50 font-medium">
+            ← Swipe to see the 7-step process →
+          </div>
         </div>
       </div>
     </section>

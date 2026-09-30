@@ -16,10 +16,10 @@ export default function FraudPrevention() {
   return (
     <section
       id="fraud-prevention"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
+      className="relative py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column: Shield Visual */}
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-[#D45A20]/30 group">
@@ -32,8 +32,8 @@ export default function FraudPrevention() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/60 backdrop-blur-sm text-white">
-                <div className="font-display text-lg uppercase">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-xl bg-black/65 backdrop-blur-sm text-white">
+                <div className="font-display text-base sm:text-lg uppercase">
                   Zero Cargo Dispatch Without Financial Guarantee
                 </div>
                 <div className="text-[10px] text-[#FFD86A] mt-0.5">
@@ -45,19 +45,19 @@ export default function FraudPrevention() {
 
           {/* Right Column: Copy & Checklist */}
           <div className="lg:col-span-6">
-            <div className="inline-flex items-center gap-2 mb-3 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 mb-2.5 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
               <span className="w-6 h-[2px] bg-[#D45A20]" />
               EXPORT SAFELY
             </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-3">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-2.5">
               Export Safely. <br />
               <span className="text-[#E50920]">
                 Avoid Scams.
               </span>
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-base text-[#444444] font-normal leading-relaxed mb-6 max-w-lg">
+            <p className="text-xs sm:text-sm md:text-base text-[#444444] font-normal leading-relaxed mb-5 max-w-lg">
               Learn how to verify buyers, identify red flags and protect your business from export frauds before shipping a single carton.
             </p>
 

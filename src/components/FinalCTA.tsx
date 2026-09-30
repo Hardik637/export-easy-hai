@@ -12,7 +12,7 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
   return (
     <section
       id="final-cta"
-      className="relative min-h-[90vh] flex flex-col justify-between py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
+      className="relative min-h-[80vh] flex flex-col justify-between py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       {/* Script note in sky */}
       <div className="absolute bottom-16 right-8 sm:bottom-24 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">
@@ -24,12 +24,12 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10 my-auto">
         <div className="max-w-xl">
-          <div className="inline-flex items-center gap-2 mb-3 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 mb-2.5 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-5 h-[2px] bg-[#D45A20]" />
             FROM INDIA. TO THE WORLD.
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-4">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-3">
             YOUR NEXT CHAPTER. <br />
             <span className="text-[#E50920]">
               STARTS HERE.

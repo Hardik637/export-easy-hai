@@ -14,16 +14,16 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
+      className="relative py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-3xl mx-auto px-5 sm:px-8">
-        <div className="max-w-xl mb-10">
-          <div className="inline-flex items-center gap-2 mb-3 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
+        <div className="max-w-xl mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 mb-2.5 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-6 h-[2px] bg-[#D45A20]" />
             FREQUENT QUESTIONS
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111]">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111]">
             Got Questions? <br />
             <span>WE&apos;VE GOT ANSWERS.</span>
           </h2>

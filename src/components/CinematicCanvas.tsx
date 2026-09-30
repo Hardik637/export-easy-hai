@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
+import { ChevronDown } from "lucide-react";
 import { JOURNEY_STAGES } from "@/data/journeyData";
 
 // Color stops aligned with page scroll progression (0.00 to 1.00)
@@ -397,22 +398,23 @@ export default function CinematicCanvas() {
         })}
       </div>
 
-      {/* Mobile Horizontal Pill Story Indicator (Top Right) */}
+      {/* Mobile Bottom Chapter Navigation Capsule (Bottom Center — completely clear of text content) */}
       <button
         onClick={() => {
           const nextIndex = (activeNavIndex + 1) % JOURNEY_NAV_ITEMS.length;
           scrollToSection(JOURNEY_NAV_ITEMS[nextIndex].id);
         }}
-        className="fixed top-20 right-4 z-40 md:hidden flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 shadow-lg transition-all duration-300 pointer-events-auto cursor-pointer active:scale-95 text-left"
+        className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 md:hidden flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/75 backdrop-blur-xl border border-white/20 shadow-2xl transition-all duration-300 pointer-events-auto cursor-pointer active:scale-95 text-center shrink-0"
         aria-label="Next journey stage"
       >
-        <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
-        <span className="text-[10px] font-mono font-bold text-white/95 uppercase tracking-widest">
-          {JOURNEY_NAV_ITEMS[activeNavIndex]?.stepNumber} • {JOURNEY_NAV_ITEMS[activeNavIndex]?.label}
+        <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse shrink-0" />
+        <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+          {JOURNEY_NAV_ITEMS[activeNavIndex]?.stepNumber} {JOURNEY_NAV_ITEMS[activeNavIndex]?.label}
         </span>
         <span className="text-[9px] font-mono text-[#FFD86A] uppercase">
-          ({JOURNEY_NAV_ITEMS[activeNavIndex]?.time})
+          • {JOURNEY_NAV_ITEMS[activeNavIndex]?.time}
         </span>
+        <ChevronDown className="w-3 h-3 text-white/70 ml-0.5" />
       </button>
     </>
   );

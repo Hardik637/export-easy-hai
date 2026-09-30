@@ -14,29 +14,29 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
   return (
     <section
       id="opportunity"
-      className="relative min-h-[85vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent scroll-mt-24"
+      className="relative min-h-[75vh] flex flex-col justify-center py-14 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
-        <div className="max-w-xl mb-8">
-          <div className="inline-flex items-center gap-2 mb-3 text-[#F2A62B] text-[11px] font-bold tracking-widest uppercase">
+        <div className="max-w-xl mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 mb-2.5 text-[#F2A62B] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-5 h-[2px] bg-[#F2A62B]" />
             THE OPPORTUNITY
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-3">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-2.5">
             Indian Products. <br />
             <span className="text-[#F2A62B]">
               GLOBAL DEMAND.
             </span>
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-white/80 font-normal leading-relaxed mb-5">
+          <p className="text-xs sm:text-sm md:text-base text-white/80 font-normal leading-relaxed mb-4">
             From everyday essentials to specialized goods, Indian products are valued across international markets.
           </p>
 
           <button
             onClick={onOpenCourseModal}
-            className="px-6 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#F2A62B] to-[#FFC83D] text-[#111111] hover:from-[#FFC83D] hover:to-[#FFD86A] transition-all flex items-center gap-2 cursor-pointer shadow-md"
+            className="px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#F2A62B] to-[#FFC83D] text-[#111111] hover:from-[#FFC83D] hover:to-[#FFD86A] transition-all inline-flex items-center gap-2 cursor-pointer shadow-md"
           >
             <span>Explore the Opportunity</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -44,7 +44,7 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
         </div>
 
         {/* Global Markets Stats */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-black/55 backdrop-blur-xl border border-[#D45A20]/30 max-w-xl mb-5 shadow-xl">
+        <div className="p-3.5 sm:p-5 rounded-2xl bg-black/55 backdrop-blur-xl border border-[#D45A20]/30 max-w-xl mb-4 shadow-xl">
           <div className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#F2A62B] animate-pulse" />
             Global Markets are Waiting for Indian Products

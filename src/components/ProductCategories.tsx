@@ -26,18 +26,18 @@ export default function ProductCategories({
   return (
     <section
       id="products"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent scroll-mt-24"
+      className="relative py-14 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 sm:gap-6 mb-6 sm:mb-8">
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 mb-3 text-[#FFD86A] text-[11px] font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 mb-2.5 text-[#FFD86A] text-[11px] font-bold tracking-widest uppercase">
               <span className="w-5 h-[2px] bg-[#FFD86A]" />
               WHAT CAN YOU EXPORT
             </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-2">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-2">
               Every Indian Product <br />
               Has a{" "}
               <span className="text-[#FFD86A]">

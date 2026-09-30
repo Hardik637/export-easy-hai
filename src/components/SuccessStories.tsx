@@ -11,17 +11,17 @@ export default function SuccessStories() {
   return (
     <section
       id="success-stories"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
+      className="relative py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
-        <div className="max-w-xl mb-8">
-          <div className="inline-flex items-center gap-2 mb-3 text-[#E50920] text-[11px] font-bold tracking-widest uppercase">
+        <div className="max-w-xl mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 mb-2.5 text-[#E50920] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-6 h-[2px] bg-[#E50920]" />
             SUCCESS STORIES
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-2">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-2">
             From Learners <br />
             to{" "}
             <span className="text-[#E50920]">
@@ -34,20 +34,20 @@ export default function SuccessStories() {
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* 4 Cards Grid on Desktop / Smooth Snap Carousel on Mobile */}
+        <div className="flex lg:grid lg:grid-cols-4 gap-4 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory touch-pan-x -mx-5 px-5 sm:mx-0 sm:px-0">
           {SUCCESS_STORIES.map((item) => (
             <div
               key={item.id}
               onClick={() => setActiveStory(item)}
-              className="rounded-2xl overflow-hidden bg-white/85 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer"
+              className="min-w-[260px] sm:min-w-[280px] lg:min-w-0 snap-start rounded-2xl overflow-hidden bg-white/90 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer shrink-0"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-500 filter brightness-95"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
@@ -63,7 +63,7 @@ export default function SuccessStories() {
 
               <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="font-sans font-bold text-base text-[#111111] tracking-tight group-hover:text-[#E50920] transition-colors leading-snug mb-0.5">
+                  <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight group-hover:text-[#E50920] transition-colors leading-snug mb-0.5">
                     {item.name}
                   </div>
                   <div className="text-xs font-semibold text-[#D45A20] mb-2">
@@ -81,6 +81,11 @@ export default function SuccessStories() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="lg:hidden text-center mt-2.5 text-[11px] text-[#777777] font-medium">
+          ← Swipe to see exporter results (4) →
         </div>
 
         {/* Modal Player */}
