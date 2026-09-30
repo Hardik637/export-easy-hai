@@ -11,7 +11,7 @@ export default function SuccessStories() {
   return (
     <section
       id="success-stories"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}

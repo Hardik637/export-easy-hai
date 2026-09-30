@@ -16,7 +16,7 @@ export default function FraudPrevention() {
   return (
     <section
       id="fraud-prevention"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">

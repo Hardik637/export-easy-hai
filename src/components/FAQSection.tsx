@@ -14,7 +14,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-3xl mx-auto px-5 sm:px-8">
         <div className="max-w-xl mb-10">

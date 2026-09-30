@@ -36,8 +36,17 @@ function interpolateColor(p: number) {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Section target map for clicking indicator stages
-const STAGE_SECTIONS = ["hero", "reality", "opportunity", "courses", "final-cta"];
+// Complete journey chapters mapped 1:1 to page sections (zero skipping, balanced scrolling)
+export const JOURNEY_NAV_ITEMS = [
+  { id: "hero", stepNumber: "01", label: "STUCK", time: "NIGHT" },
+  { id: "reality", stepNumber: "02", label: "REALITY", time: "PRE-DAWN" },
+  { id: "opportunity", stepNumber: "03", label: "OPPORTUNITY", time: "FIRST LIGHT" },
+  { id: "how-it-works", stepNumber: "04", label: "ROADMAP", time: "ACTION" },
+  { id: "products", stepNumber: "05", label: "PRODUCTS", time: "MARKET" },
+  { id: "courses", stepNumber: "06", label: "COURSES", time: "SUNRISE" },
+  { id: "success-stories", stepNumber: "07", label: "STORIES", time: "PROOF" },
+  { id: "final-cta", stepNumber: "08", label: "YOUR CHAPTER", time: "DAYLIGHT" },
+];
 
 export default function CinematicCanvas() {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -45,7 +54,7 @@ export default function CinematicCanvas() {
   const bgRef = useRef<HTMLDivElement>(null);
 
   const [progress, setProgress] = useState(0);
-  const [activeStage, setActiveStage] = useState(0);
+  const [activeNavIndex, setActiveNavIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   // Check reduced motion preference
@@ -57,19 +66,23 @@ export default function CinematicCanvas() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // Jump smoothly to the matching section on indicator click
-  const scrollToStage = useCallback((index: number) => {
-    const targetId = STAGE_SECTIONS[index] || "hero";
-    const el = document.getElementById(targetId);
+  // Jump smoothly to matching section with sticky navbar clearance
+  const scrollToSection = useCallback((id: string) => {
+    const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const navbarOffset = 76;
+      const targetY = el.getBoundingClientRect().top + window.scrollY - navbarOffset;
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: "smooth",
+      });
     }
   }, []);
 
   // High-performance scroll animation loop using requestAnimationFrame
   useEffect(() => {
     let animationFrameId: number;
-    let lastActiveStage = -1;
+    let lastActiveNav = -1;
 
     // Smoothstep helper for buttery transitions
     const smoothstep = (min: number, max: number, value: number) => {
@@ -89,17 +102,28 @@ export default function CinematicCanvas() {
           bgRef.current.style.backgroundColor = interpolateColor(p);
         }
 
-        // Active stage calculation for indicator
-        let stageIndex = 0;
-        if (p >= 0.80) stageIndex = 4;
-        else if (p >= 0.58) stageIndex = 3;
-        else if (p >= 0.36) stageIndex = 2;
-        else if (p >= 0.16) stageIndex = 1;
-        else stageIndex = 0;
+        // Dynamic detection of which section is currently active in viewport
+        const scrollY = window.scrollY;
+        const totalHeight = document.documentElement.scrollHeight;
+        const isNearBottom = scrollY + window.innerHeight >= totalHeight - 60;
 
-        if (stageIndex !== lastActiveStage) {
-          lastActiveStage = stageIndex;
-          setActiveStage(stageIndex);
+        let navIndex = 0;
+        if (isNearBottom) {
+          navIndex = JOURNEY_NAV_ITEMS.length - 1;
+        } else {
+          const checkY = scrollY + 160;
+          for (let i = JOURNEY_NAV_ITEMS.length - 1; i >= 0; i--) {
+            const el = document.getElementById(JOURNEY_NAV_ITEMS[i].id);
+            if (el && checkY >= el.offsetTop) {
+              navIndex = i;
+              break;
+            }
+          }
+        }
+
+        if (navIndex !== lastActiveNav) {
+          lastActiveNav = navIndex;
+          setActiveNavIndex(navIndex);
         }
 
         // Smooth continuous overlapping transition curves across page scroll:
@@ -306,24 +330,24 @@ export default function CinematicCanvas() {
 
       {/* Desktop Vertical Story Indicator (Fixed Right) */}
       <div
-        className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-2 p-2.5 rounded-2xl bg-black/55 backdrop-blur-xl border border-white/15 shadow-2xl transition-all duration-300 pointer-events-auto"
+        className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1 p-2 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 shadow-2xl transition-all duration-300 pointer-events-auto"
         aria-label="Story journey navigation"
       >
-        {JOURNEY_STAGES.map((stg, i) => {
-          const isActive = activeStage === i;
-          const isPast = activeStage > i;
+        {JOURNEY_NAV_ITEMS.map((item, i) => {
+          const isActive = activeNavIndex === i;
+          const isPast = activeNavIndex > i;
           return (
             <button
-              key={stg.id}
-              onClick={() => scrollToStage(i)}
-              className="group flex items-center justify-between gap-3 text-left py-1.5 px-2 rounded-xl transition-all hover:bg-white/10 cursor-pointer min-h-[36px]"
-              aria-label={`Jump to stage ${stg.stepNumber}: ${stg.label} (${stg.time})`}
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="group flex items-center justify-between gap-3 text-left py-1 px-2.5 rounded-xl transition-all hover:bg-white/10 cursor-pointer min-h-[32px]"
+              aria-label={`Jump to stage ${item.stepNumber}: ${item.label} (${item.time})`}
             >
               <div
-                className={`flex flex-col transition-all duration-300 ${
+                className={`flex flex-col transition-all duration-200 ${
                   isActive
                     ? "opacity-100 translate-x-0"
-                    : "opacity-40 group-hover:opacity-75 translate-x-0.5"
+                    : "opacity-45 group-hover:opacity-80 translate-x-0.5"
                 }`}
               >
                 <div className="flex items-center gap-1.5">
@@ -332,33 +356,33 @@ export default function CinematicCanvas() {
                       isActive ? "text-[#E50920] font-bold" : "text-white/60"
                     }`}
                   >
-                    {stg.stepNumber}
+                    {item.stepNumber}
                   </span>
                   <span
-                    className={`text-xs font-bold tracking-wider uppercase transition-colors ${
+                    className={`text-[11px] font-bold tracking-wider uppercase transition-colors ${
                       isActive
                         ? "text-white drop-shadow-[0_2px_8px_rgba(229,9,32,0.8)]"
                         : "text-white/70 group-hover:text-white"
                     }`}
                   >
-                    {stg.label}
+                    {item.label}
                   </span>
                 </div>
                 <span
-                  className={`text-[9px] font-medium tracking-wide uppercase transition-colors ${
+                  className={`text-[8.5px] font-medium tracking-wide uppercase transition-colors ${
                     isActive ? "text-[#FFD86A]" : "text-white/40"
                   }`}
                 >
-                  {stg.time}
+                  {item.time}
                 </span>
               </div>
 
               {/* Status Pip */}
-              <div className="relative flex items-center justify-center w-4 h-4 ml-1">
+              <div className="relative flex items-center justify-center w-3.5 h-3.5 ml-1">
                 <span
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
                     isActive
-                      ? "bg-[#E50920] scale-125 shadow-[0_0_12px_#E50920]"
+                      ? "bg-[#E50920] scale-125 shadow-[0_0_10px_#E50920]"
                       : isPast
                       ? "bg-white/70"
                       : "bg-white/25 group-hover:bg-white/50"
@@ -374,18 +398,22 @@ export default function CinematicCanvas() {
       </div>
 
       {/* Mobile Horizontal Pill Story Indicator (Top Right) */}
-      <div
-        onClick={() => scrollToStage(activeStage)}
-        className="fixed top-20 right-4 z-40 md:hidden flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 shadow-lg transition-all duration-300 pointer-events-auto cursor-pointer active:scale-95"
+      <button
+        onClick={() => {
+          const nextIndex = (activeNavIndex + 1) % JOURNEY_NAV_ITEMS.length;
+          scrollToSection(JOURNEY_NAV_ITEMS[nextIndex].id);
+        }}
+        className="fixed top-20 right-4 z-40 md:hidden flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 shadow-lg transition-all duration-300 pointer-events-auto cursor-pointer active:scale-95 text-left"
+        aria-label="Next journey stage"
       >
         <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
         <span className="text-[10px] font-mono font-bold text-white/95 uppercase tracking-widest">
-          {JOURNEY_STAGES[activeStage]?.stepNumber} • {JOURNEY_STAGES[activeStage]?.label}
+          {JOURNEY_NAV_ITEMS[activeNavIndex]?.stepNumber} • {JOURNEY_NAV_ITEMS[activeNavIndex]?.label}
         </span>
         <span className="text-[9px] font-mono text-[#FFD86A] uppercase">
-          ({JOURNEY_STAGES[activeStage]?.time})
+          ({JOURNEY_NAV_ITEMS[activeNavIndex]?.time})
         </span>
-      </div>
+      </button>
     </>
   );
 }

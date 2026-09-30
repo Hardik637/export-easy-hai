@@ -12,7 +12,7 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
   return (
     <section
       id="final-cta"
-      className="relative min-h-[90vh] flex flex-col justify-between py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111]"
+      className="relative min-h-[90vh] flex flex-col justify-between py-20 sm:py-28 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       {/* Script note in sky */}
       <div className="absolute bottom-16 right-8 sm:bottom-24 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">

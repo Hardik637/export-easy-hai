@@ -14,7 +14,7 @@ export default function RealitySection() {
   return (
     <section
       id="reality"
-      className="relative min-h-[80vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent"
+      className="relative min-h-[80vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">

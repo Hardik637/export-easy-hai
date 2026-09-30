@@ -13,7 +13,7 @@ export default function Hero({ onOpenWebinarModal, onOpenCourseModal }: HeroProp
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-24 pb-12 overflow-hidden bg-transparent"
+      className="relative min-h-screen flex flex-col justify-between pt-24 pb-12 overflow-hidden bg-transparent scroll-mt-24"
     >
       {/* Top Headline & CTAs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full z-10 pt-4 sm:pt-6">

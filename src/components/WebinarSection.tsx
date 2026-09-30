@@ -12,7 +12,7 @@ export default function WebinarSection({ onOpenWebinarModal }: WebinarSectionPro
   return (
     <section
       id="webinar"
-      className="relative py-14 sm:py-20 overflow-hidden bg-transparent"
+      className="relative py-14 sm:py-20 overflow-hidden bg-transparent scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#1C0D0A] via-[#28130E] to-[#120806] border border-[#D45A20]/40">

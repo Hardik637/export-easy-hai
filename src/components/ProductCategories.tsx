@@ -26,7 +26,7 @@ export default function ProductCategories({
   return (
     <section
       id="products"
-      className="relative py-20 sm:py-28 overflow-hidden bg-transparent"
+      className="relative py-20 sm:py-28 overflow-hidden bg-transparent scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}

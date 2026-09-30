@@ -12,7 +12,7 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
   return (
     <section
       id="how-it-works"
-      className="relative min-h-[85vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent"
+      className="relative min-h-[85vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden bg-transparent scroll-mt-24"
     >
       {/* Script note in sky */}
       <div className="absolute top-16 right-8 sm:top-24 sm:right-16 text-right pointer-events-none z-10 hidden sm:block">
