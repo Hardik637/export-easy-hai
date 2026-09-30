@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import Image from "next/image";
 import { JOURNEY_STAGES } from "@/data/journeyData";
 
 // Color stops aligned with page scroll progression (0.00 to 1.00)
@@ -236,30 +235,42 @@ export default function CinematicCanvas() {
             }}
           >
             <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src={stage.image}
-                alt={`${stage.label} - ${stage.time}`}
-                fill
-                priority={idx <= 1}
-                quality={95}
-                sizes="100vw"
-                className="object-cover object-[72%_center] sm:object-[65%_center] md:object-[60%_center] lg:object-[55%_center] transform-gpu will-change-transform"
-              />
+              <picture className="w-full h-full block">
+                {/* Mobile portrait image (screens < 768px) */}
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={stage.mobileImage}
+                  type="image/webp"
+                />
+                {/* Desktop widescreen image (screens >= 768px) */}
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={stage.desktopImage}
+                  type="image/webp"
+                />
+                <img
+                  src={stage.desktopImage}
+                  alt={`${stage.label} - ${stage.time}`}
+                  className="w-full h-full object-cover object-center transform-gpu will-change-transform"
+                  loading={idx <= 1 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </picture>
 
-              {/* Natural edge feathering to seamlessly blend panoramic strips into background */}
+              {/* Natural subtle ambient vignette */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
                     idx === 0
-                      ? "linear-gradient(180deg, rgba(5,5,5,0.7) 0%, transparent 25%, transparent 75%, rgba(5,5,5,0.85) 100%)"
+                      ? "linear-gradient(180deg, rgba(5,5,5,0.45) 0%, transparent 30%, transparent 70%, rgba(5,5,5,0.75) 100%)"
                       : idx === 1
-                      ? "linear-gradient(180deg, rgba(16,13,20,0.6) 0%, transparent 25%, transparent 75%, rgba(16,13,20,0.8) 100%)"
+                      ? "linear-gradient(180deg, rgba(16,13,20,0.4) 0%, transparent 30%, transparent 70%, rgba(16,13,20,0.7) 100%)"
                       : idx === 2
-                      ? "linear-gradient(180deg, rgba(43,28,30,0.5) 0%, transparent 25%, transparent 75%, rgba(43,28,30,0.7) 100%)"
+                      ? "linear-gradient(180deg, rgba(43,28,30,0.3) 0%, transparent 30%, transparent 70%, rgba(43,28,30,0.6) 100%)"
                       : idx === 3
-                      ? "linear-gradient(180deg, rgba(66,40,24,0.4) 0%, transparent 25%, transparent 75%, rgba(66,40,24,0.7) 100%)"
-                      : "linear-gradient(180deg, rgba(220,235,240,0.3) 0%, transparent 25%, transparent 75%, rgba(220,235,240,0.6) 100%)",
+                      ? "linear-gradient(180deg, rgba(66,40,24,0.2) 0%, transparent 30%, transparent 70%, rgba(66,40,24,0.55) 100%)"
+                      : "linear-gradient(180deg, rgba(220,235,240,0.2) 0%, transparent 30%, transparent 70%, rgba(220,235,240,0.5) 100%)",
                 }}
               />
             </div>
