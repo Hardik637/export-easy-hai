@@ -50,14 +50,14 @@ export default function CourseSection() {
             <div
               key={course.id}
               onClick={() => setSelectedCourse(course)}
-              className="min-w-[270px] sm:min-w-[300px] lg:min-w-0 snap-start rounded-2xl overflow-hidden bg-white/90 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer shrink-0"
+              className="w-[82vw] max-w-[300px] lg:w-auto lg:max-w-none shrink-0 snap-start rounded-2xl overflow-hidden bg-white/95 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer"
             >
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
+              <div className="relative h-40 sm:h-44 w-full overflow-hidden shrink-0 bg-black">
                 <Image
                   src={course.image}
                   alt={course.title}
                   fill
-                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
 

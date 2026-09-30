@@ -398,24 +398,7 @@ export default function CinematicCanvas() {
         })}
       </div>
 
-      {/* Mobile Bottom Chapter Navigation Capsule (Bottom Center — completely clear of text content) */}
-      <button
-        onClick={() => {
-          const nextIndex = (activeNavIndex + 1) % JOURNEY_NAV_ITEMS.length;
-          scrollToSection(JOURNEY_NAV_ITEMS[nextIndex].id);
-        }}
-        className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 md:hidden flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/75 backdrop-blur-xl border border-white/20 shadow-2xl transition-all duration-300 pointer-events-auto cursor-pointer active:scale-95 text-center shrink-0"
-        aria-label="Next journey stage"
-      >
-        <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse shrink-0" />
-        <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider">
-          {JOURNEY_NAV_ITEMS[activeNavIndex]?.stepNumber} {JOURNEY_NAV_ITEMS[activeNavIndex]?.label}
-        </span>
-        <span className="text-[9px] font-mono text-[#FFD86A] uppercase">
-          • {JOURNEY_NAV_ITEMS[activeNavIndex]?.time}
-        </span>
-        <ChevronDown className="w-3 h-3 text-white/70 ml-0.5" />
-      </button>
+      {/* Mobile view relies on top slim progress bar and standard navbar without intrusive floating overlays */}
     </>
   );
 }

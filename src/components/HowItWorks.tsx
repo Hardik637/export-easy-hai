@@ -73,7 +73,7 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
             {TIMELINE_STEPS.map((step) => (
               <div
                 key={step.number}
-                className="min-w-[270px] snap-start p-4 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 flex flex-col justify-between shrink-0 shadow-xl"
+                className="w-[82vw] max-w-[300px] shrink-0 snap-start p-4 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 flex flex-col justify-between shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">

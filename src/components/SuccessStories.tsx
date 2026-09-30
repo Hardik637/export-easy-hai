@@ -40,43 +40,43 @@ export default function SuccessStories() {
             <div
               key={item.id}
               onClick={() => setActiveStory(item)}
-              className="min-w-[260px] sm:min-w-[280px] lg:min-w-0 snap-start rounded-2xl overflow-hidden bg-white/90 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer shrink-0"
+              className="w-[82vw] max-w-[300px] lg:w-auto lg:max-w-none shrink-0 snap-start rounded-2xl overflow-hidden bg-white/95 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <div className="relative h-44 sm:h-48 w-full overflow-hidden shrink-0 bg-black">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-500 filter brightness-95"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent pointer-events-none" />
 
                 <div className="absolute inset-0 m-auto w-10 h-10 rounded-full bg-white/90 text-[#111111] flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-[#E50920] group-hover:text-white transition-all">
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                 </div>
 
-                <div className="absolute bottom-2 left-2.5 px-2 py-0.5 rounded-md bg-black/60 text-[9px] text-white font-mono">
+                <div className="absolute bottom-2.5 left-2.5 px-2.5 py-0.5 rounded-md bg-black/70 backdrop-blur-sm text-[10px] text-white font-mono font-semibold">
                   {item.turnover}
                 </div>
               </div>
 
               <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight group-hover:text-[#E50920] transition-colors leading-snug mb-0.5">
+                  <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight group-hover:text-[#E50920] transition-colors leading-snug mb-0.5 line-clamp-1">
                     {item.name}
                   </div>
-                  <div className="text-xs font-semibold text-[#D45A20] mb-2">
+                  <div className="text-xs font-semibold text-[#D45A20] mb-2 line-clamp-1">
                     {item.business}
                   </div>
-                  <p className="text-xs text-[#666666] leading-relaxed line-clamp-2 italic mb-3">
+                  <p className="text-xs text-[#555555] leading-relaxed line-clamp-2 italic mb-3">
                     &ldquo;{item.quote}&rdquo;
                   </p>
                 </div>
 
                 <div className="pt-2.5 border-t border-[#F0E6D2] text-xs text-[#222222] font-medium flex items-center gap-1.5">
-                  <TrendingUp className="w-3.5 h-3.5 text-[#E50920]" />
-                  <span>{item.result}</span>
+                  <TrendingUp className="w-3.5 h-3.5 text-[#E50920] shrink-0" />
+                  <span className="truncate">{item.result}</span>
                 </div>
               </div>
             </div>

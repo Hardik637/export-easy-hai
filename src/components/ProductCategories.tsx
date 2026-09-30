@@ -89,14 +89,14 @@ export default function ProductCategories({
               onClick={() => {
                 if (onSelectCategory) onSelectCategory(cat);
               }}
-              className="min-w-[220px] sm:min-w-[240px] lg:min-w-0 snap-start rounded-2xl overflow-hidden bg-black/55 backdrop-blur-xl border border-white/15 hover:border-[#FFD86A]/50 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between shrink-0"
+              className="w-[68vw] max-w-[230px] lg:w-auto lg:max-w-none snap-start rounded-2xl overflow-hidden bg-black/60 backdrop-blur-xl border border-white/15 hover:border-[#FFD86A]/50 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between shrink-0"
             >
-              <div className="relative aspect-square w-full overflow-hidden">
+              <div className="relative h-44 sm:h-48 lg:aspect-square w-full overflow-hidden shrink-0 bg-black">
                 <Image
                   src={cat.image}
                   alt={cat.title}
                   fill
-                  sizes="(max-width: 640px) 70vw, (max-width: 1024px) 33vw, 16vw"
+                  sizes="(max-width: 640px) 230px, (max-width: 1024px) 33vw, 16vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
