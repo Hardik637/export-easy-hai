@@ -9,10 +9,10 @@ export default function CourseSection() {
 
   return (
     <section
-      id="live-batch"
+      id="courses"
       className="relative py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
-      <div id="courses" className="absolute -top-24 left-0 pointer-events-none" />
+      <div id="live-batch" className="absolute -top-24 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="rounded-3xl bg-white/95 backdrop-blur-2xl border border-[#EAD5AF] p-6 sm:p-10 lg:p-12 shadow-xl">
           {/* Header */}

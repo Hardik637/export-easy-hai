@@ -106,18 +106,21 @@ export default function CinematicCanvas() {
         // Dynamic detection of which section is currently active in viewport
         const scrollY = window.scrollY;
         const totalHeight = document.documentElement.scrollHeight;
-        const isNearBottom = scrollY + window.innerHeight >= totalHeight - 60;
+        const isNearBottom = scrollY + window.innerHeight >= totalHeight - 80;
 
         let navIndex = 0;
         if (isNearBottom) {
           navIndex = JOURNEY_NAV_ITEMS.length - 1;
-        } else {
-          const checkY = scrollY + 160;
+        } else if (scrollY > 60) {
+          const checkpoint = scrollY + Math.min(window.innerHeight * 0.35, 260);
           for (let i = JOURNEY_NAV_ITEMS.length - 1; i >= 0; i--) {
             const el = document.getElementById(JOURNEY_NAV_ITEMS[i].id);
-            if (el && checkY >= el.offsetTop) {
-              navIndex = i;
-              break;
+            if (el) {
+              const top = el.getBoundingClientRect().top + scrollY;
+              if (checkpoint >= top) {
+                navIndex = i;
+                break;
+              }
             }
           }
         }
