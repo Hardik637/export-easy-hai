@@ -71,6 +71,22 @@ export default function RootLayout({
       lang="en"
       className={`${bebasNeue.variable} ${jakarta.variable} ${caveat.variable} scroll-smooth`}
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/journey/mobile/01-night.webp"
+          media="(max-width: 1023px)"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/journey/desktop/01-night.webp"
+          media="(min-width: 1024px)"
+          type="image/webp"
+        />
+      </head>
       <body className="font-sans antialiased bg-[#050505] text-white selection:bg-[#E50920] selection:text-white">
         {children}
       </body>

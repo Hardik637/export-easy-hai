@@ -127,6 +127,8 @@ export default function CinematicCanvas() {
           setActiveNavIndex(navIndex);
         }
 
+        const isMobile = window.innerWidth < 1024;
+
         // Smooth continuous overlapping transition curves across page scroll:
         // Transition 0 -> 1: p 0.08 to 0.28 (Pre-dawn enters smoothly during Reality)
         // Transition 1 -> 2: p 0.28 to 0.50 (First light expands during Opportunity & How It Works)
@@ -140,13 +142,15 @@ export default function CinematicCanvas() {
         // Layer 0: Night (base layer, subtle forward movement)
         const l0 = layerRefs.current[0];
         if (l0) {
-          if (!reducedMotion) {
+          if (!reducedMotion && !isMobile) {
             const s = 1.0 + p * 0.02;
             l0.style.transform = `scale(${s})`;
+          } else {
+            l0.style.transform = "none";
           }
         }
 
-        // Layer 1: Pre-Dawn (smooth dawn wipe with soft 40% feather)
+        // Layer 1: Pre-Dawn (smooth dawn wipe with soft feather)
         const l1 = layerRefs.current[1];
         if (l1) {
           if (reducedMotion) {
@@ -156,11 +160,17 @@ export default function CinematicCanvas() {
           } else {
             l1.style.opacity = `${t1}`;
             const wipe = t1 * 120 - 10;
-            const maskVal = `linear-gradient(135deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 40)}%)`;
+            const maskVal = isMobile
+              ? `linear-gradient(180deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 35)}%)`
+              : `linear-gradient(135deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 40)}%)`;
             l1.style.maskImage = maskVal;
             l1.style.webkitMaskImage = maskVal;
-            const s = 1.015 - (1 - t1) * 0.015;
-            l1.style.transform = `scale(${s})`;
+            if (!isMobile) {
+              const s = 1.015 - (1 - t1) * 0.015;
+              l1.style.transform = `scale(${s})`;
+            } else {
+              l1.style.transform = "none";
+            }
           }
         }
 
@@ -174,15 +184,21 @@ export default function CinematicCanvas() {
           } else {
             l2.style.opacity = `${t2}`;
             const radius = t2 * 115;
-            const maskVal = `radial-gradient(ellipse 140% 100% at 35% 65%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 45)}%)`;
+            const maskVal = isMobile
+              ? `radial-gradient(ellipse 150% 120% at 50% 45%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 40)}%)`
+              : `radial-gradient(ellipse 140% 100% at 35% 65%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 45)}%)`;
             l2.style.maskImage = maskVal;
             l2.style.webkitMaskImage = maskVal;
-            const s = 1.015 - (1 - t2) * 0.015;
-            l2.style.transform = `scale(${s})`;
+            if (!isMobile) {
+              const s = 1.015 - (1 - t2) * 0.015;
+              l2.style.transform = `scale(${s})`;
+            } else {
+              l2.style.transform = "none";
+            }
           }
         }
 
-        // Layer 3: Sunrise (radiant sun wave originating at x:70% y:50% where sun rises)
+        // Layer 3: Sunrise (radiant sun wave originating where the sun rises)
         const l3 = layerRefs.current[3];
         if (l3) {
           if (reducedMotion) {
@@ -191,12 +207,18 @@ export default function CinematicCanvas() {
             l3.style.webkitMaskImage = "none";
           } else {
             l3.style.opacity = `${t3}`;
-            const radius = t3 * 120;
-            const maskVal = `radial-gradient(circle at 72% 50%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 45)}%)`;
+            const radius = t3 * 125;
+            const maskVal = isMobile
+              ? `radial-gradient(circle at 55% 36%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 40)}%)`
+              : `radial-gradient(circle at 72% 50%, black 0%, black ${Math.max(0, radius)}%, transparent ${Math.min(100, radius + 45)}%)`;
             l3.style.maskImage = maskVal;
             l3.style.webkitMaskImage = maskVal;
-            const s = 1.015 - (1 - t3) * 0.015;
-            l3.style.transform = `scale(${s})`;
+            if (!isMobile) {
+              const s = 1.015 - (1 - t3) * 0.015;
+              l3.style.transform = `scale(${s})`;
+            } else {
+              l3.style.transform = "none";
+            }
           }
         }
 
@@ -204,6 +226,9 @@ export default function CinematicCanvas() {
         if (bloomRef.current && !reducedMotion) {
           const bloomIntensity = Math.sin(t3 * Math.PI) * 0.35;
           bloomRef.current.style.opacity = `${bloomIntensity}`;
+          bloomRef.current.style.background = isMobile
+            ? "radial-gradient(circle at 55% 36%, rgba(242, 166, 43, 0.45) 0%, rgba(229, 9, 32, 0.2) 35%, transparent 70%)"
+            : "radial-gradient(circle at 72% 50%, rgba(242, 166, 43, 0.45) 0%, rgba(229, 9, 32, 0.2) 35%, transparent 70%)";
         }
 
         // Layer 4: Daylight (wide morning light sweep)
@@ -216,11 +241,17 @@ export default function CinematicCanvas() {
           } else {
             l4.style.opacity = `${t4}`;
             const wipe = t4 * 120 - 10;
-            const maskVal = `linear-gradient(205deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 35)}%)`;
+            const maskVal = isMobile
+              ? `linear-gradient(190deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 35)}%)`
+              : `linear-gradient(205deg, black 0%, black ${Math.max(0, wipe)}%, transparent ${Math.min(100, wipe + 35)}%)`;
             l4.style.maskImage = maskVal;
             l4.style.webkitMaskImage = maskVal;
-            const s = 1.0 + Math.max(0, (p - 0.85) / 0.15) * 0.02;
-            l4.style.transform = `scale(${s})`;
+            if (!isMobile) {
+              const s = 1.0 + Math.max(0, (p - 0.85) / 0.15) * 0.02;
+              l4.style.transform = `scale(${s})`;
+            } else {
+              l4.style.transform = "none";
+            }
           }
         }
       });
@@ -245,11 +276,11 @@ export default function CinematicCanvas() {
           backgroundColor: "#050505",
           transition: "background-color 0.2s ease-out",
           height: "100dvh",
-          width: "100vw",
+          width: "100%",
         }}
         aria-hidden="true"
       >
-        {/* 5 Stacked Photographic Stages - Full 100vw x 100vh Bleed */}
+        {/* 5 Stacked Photographic Stages - Full 100% Bleed */}
         {JOURNEY_STAGES.map((stage, idx) => (
           <div
             key={stage.id}
@@ -264,23 +295,23 @@ export default function CinematicCanvas() {
           >
             <div className="relative w-full h-full">
               <picture className="w-full h-full block">
-                {/* Mobile portrait image (screens < 768px) */}
+                {/* Mobile portrait image (screens < 1024px) */}
                 <source
-                  media="(max-width: 767px)"
+                  media="(max-width: 1023px)"
                   srcSet={stage.mobileImage}
                   type="image/webp"
                 />
-                {/* Desktop widescreen image (screens >= 768px) */}
+                {/* Desktop widescreen image (screens >= 1024px) */}
                 <source
-                  media="(min-width: 768px)"
+                  media="(min-width: 1024px)"
                   srcSet={stage.desktopImage}
                   type="image/webp"
                 />
                 <img
-                  src={stage.desktopImage}
+                  src={stage.mobileImage}
                   alt={`${stage.label} - ${stage.time}`}
-                  className="w-full h-full object-cover object-[70%_center] md:object-center transform-gpu will-change-transform"
-                  loading={idx <= 1 ? "eager" : "lazy"}
+                  className="w-full h-full object-cover object-center transform-gpu will-change-transform"
+                  loading="eager"
                   decoding="async"
                 />
               </picture>
