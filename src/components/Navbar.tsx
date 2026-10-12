@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ArrowRight, Compass } from "lucide-react";
-import { NAV_LINKS } from "@/data/siteData";
+import { NAV_LINKS, BRAND_NAME, BRAND_TAGLINE } from "@/data/siteData";
 import MobileDotsNav from "@/components/MobileDotsNav";
 
 interface NavbarProps {
@@ -52,21 +52,21 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
                   isLightMode ? "text-[#111111]" : "text-white"
                 }`}
               >
-                EXPORT EASY HAI
+                {BRAND_NAME}
               </div>
               <div
                 className={`text-[9px] sm:text-[10px] tracking-widest uppercase font-semibold transition-colors ${
                   isLightMode ? "text-[#8A4A1C]" : "text-[#D45A20]"
                 }`}
               >
-                Explore. Learn. Grow.
+                {BRAND_TAGLINE}
               </div>
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.slice(0, 6).map((link) => (
+          {/* Desktop Nav Links (from PDF Navigation) */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -79,21 +79,20 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
             ))}
           </nav>
 
-          {/* Right Action */}
+          {/* Right Action: Primary CTA from PDF: Reserve Your Webinar Seat */}
           <div className="hidden sm:flex items-center gap-4">
             <button
-              onClick={onOpenCourseModal}
+              onClick={onOpenWebinarModal}
               className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer shadow-md ${
                 isLightMode
                   ? "bg-[#111111] text-white hover:bg-[#E50920]"
                   : "bg-white text-black hover:bg-[#FFD86A]"
               }`}
             >
-              <span>Start Learning</span>
+              <span>Reserve Your Webinar Seat</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
-
         </div>
       </header>
 

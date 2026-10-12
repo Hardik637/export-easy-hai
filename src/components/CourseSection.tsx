@@ -1,230 +1,167 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import { ArrowRight, BookOpen, Check } from "lucide-react";
-import { COURSES, CourseItem } from "@/data/siteData";
-import MobileCarousel from "@/components/MobileCarousel";
+import { ArrowRight, CheckCircle2, ShieldAlert } from "lucide-react";
+import { LIVE_BATCH_CONTENT } from "@/data/siteData";
 
 export default function CourseSection() {
-  const [selectedCourse, setSelectedCourse] = useState<CourseItem | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section
-      id="courses"
+      id="live-batch"
       className="relative py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
+      <div id="courses" className="absolute -top-24 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 sm:gap-6 mb-6 sm:mb-8">
-          <div className="max-w-xl">
+        <div className="rounded-3xl bg-white/95 backdrop-blur-2xl border border-[#EAD5AF] p-6 sm:p-10 lg:p-12 shadow-xl">
+          {/* Header */}
+          <div className="max-w-3xl mb-8">
             <div className="inline-flex items-center gap-2 mb-2.5 text-[#E50920] text-[11px] font-bold tracking-widest uppercase">
               <span className="w-6 h-[2px] bg-[#E50920]" />
-              FEATURED COURSES
+              LIVE BATCH SECTION
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111] mb-2">
-              Practical Courses <br />
-              for{" "}
-              <span className="text-[#E50920]">
-                Aspiring Exporters.
-              </span>
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight uppercase text-[#111111] mb-3">
+              {LIVE_BATCH_CONTENT.heading}
             </h2>
 
-            <p className="text-xs sm:text-sm text-[#555555] font-normal">
-              Learn at your own pace with structured courses built for real-world application.
+            <p className="text-xs sm:text-sm md:text-base text-[#111111] font-semibold mb-2">
+              {LIVE_BATCH_CONTENT.subcopy1}
+            </p>
+
+            <p className="text-xs sm:text-sm text-[#555555] font-normal leading-relaxed">
+              {LIVE_BATCH_CONTENT.subcopy2}
             </p>
           </div>
 
-          <button
-            onClick={() => setSelectedCourse(COURSES[0])}
-            className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-black text-white hover:bg-[#E50920] transition-all inline-flex items-center gap-2 cursor-pointer shrink-0 self-start md:self-auto"
-          >
-            <span>View All Courses</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+            {/* What the batch includes (10 points) */}
+            <div className="lg:col-span-7">
+              <h3 className="font-sans font-bold text-sm sm:text-base text-[#E50920] uppercase tracking-wider mb-4">
+                {LIVE_BATCH_CONTENT.includesTitle}
+              </h3>
 
-        {/* Desktop 4 Cards Grid */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-4">
-          {COURSES.map((course) => (
-            <div
-              key={course.id}
-              onClick={() => setSelectedCourse(course)}
-              className="rounded-2xl overflow-hidden bg-white/95 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group cursor-pointer"
-            >
-              <div className="relative h-44 w-full overflow-hidden shrink-0 bg-black">
-                <Image
-                  src={course.image}
-                  alt={course.title}
-                  fill
-                  sizes="25vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-
-                {course.badge && (
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-[#E50920] text-[9px] font-bold tracking-wider uppercase text-white shadow-sm">
-                    {course.badge}
-                  </div>
-                )}
-              </div>
-
-              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight group-hover:text-[#E50920] transition-colors leading-snug mb-1.5">
-                    {course.title}
-                  </div>
-
-                  <p className="text-xs text-[#666666] leading-relaxed mb-3 line-clamp-2">
-                    {course.description}
-                  </p>
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between text-xs text-[#777777] py-2.5 border-y border-[#F0E6D2] mb-3">
-                    <span className="flex items-center gap-1.5">
-                      <BookOpen className="w-3.5 h-3.5 text-[#D45A20]" />
-                      {course.lessons}
-                    </span>
-                    <span>{course.access}</span>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="font-sans font-bold text-base sm:text-lg text-[#111111]">
-                      {course.price}
-                    </div>
-
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#E50920] group-hover:translate-x-1 transition-transform flex items-center gap-1.5">
-                      <span>Explore</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile Interactive Touch Carousel */}
-        <div className="lg:hidden">
-          <MobileCarousel activeColor="#E50920" theme="light">
-            {COURSES.map((course) => (
-              <div
-                key={course.id}
-                onClick={() => setSelectedCourse(course)}
-                className="w-full rounded-2xl overflow-hidden bg-white/95 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-md flex flex-col justify-between group cursor-pointer"
-              >
-                <div className="relative h-48 w-full overflow-hidden shrink-0 bg-black">
-                  <Image
-                    src={course.image}
-                    alt={course.title}
-                    fill
-                    sizes="(max-width: 640px) 340px, 340px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-
-                  {course.badge && (
-                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#E50920] text-[10px] font-bold tracking-wider uppercase text-white shadow-md">
-                      {course.badge}
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="font-sans font-bold text-base text-[#111111] tracking-tight group-hover:text-[#E50920] transition-colors leading-snug mb-1.5">
-                      {course.title}
-                    </div>
-
-                    <p className="text-xs text-[#666666] leading-relaxed mb-3">
-                      {course.description}
-                    </p>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-[#777777] py-2.5 border-y border-[#F0E6D2] mb-3">
-                      <span className="flex items-center gap-1.5 font-medium">
-                        <BookOpen className="w-3.5 h-3.5 text-[#D45A20]" />
-                        {course.lessons}
-                      </span>
-                      <span className="font-medium">{course.access}</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <div className="font-sans font-bold text-lg text-[#111111]">
-                        {course.price}
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedCourse(course);
-                        }}
-                        className="px-3.5 py-1.5 rounded-full bg-[#E50920] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm active:scale-95"
-                      >
-                        <span>View Details</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </MobileCarousel>
-        </div>
-
-        {/* Modal */}
-        {selectedCourse && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-            <div className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl text-[#111111] border border-[#EAD5AF]">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <div className="font-sans font-bold text-xl uppercase tracking-tight leading-tight">
-                    {selectedCourse.title}
-                  </div>
-                  <span className="text-xs text-[#D45A20] font-medium">{selectedCourse.lessons} • {selectedCourse.access}</span>
-                </div>
-                <button
-                  onClick={() => setSelectedCourse(null)}
-                  className="w-9 h-9 rounded-full bg-black/5 text-[#555555] hover:text-black flex items-center justify-center cursor-pointer"
-                >
-                  ✕
-                </button>
-              </div>
-
-              <p className="text-xs text-[#555555] mb-4 leading-relaxed">
-                {selectedCourse.description}
-              </p>
-
-              <div className="space-y-1.5 mb-5">
-                {selectedCourse.modules.slice(0, 3).map((m) => (
-                  <div key={m} className="p-2.5 rounded-lg bg-[#FAF6EE] text-xs text-[#222222] flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#E50920] shrink-0" />
-                    <span>{m}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {LIVE_BATCH_CONTENT.includes.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] flex items-start gap-2.5 text-xs text-[#222222]"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0 mt-0.5" />
+                    <span className="leading-snug font-medium">{item}</span>
                   </div>
                 ))}
               </div>
+            </div>
 
-              <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#FAF6EE] mb-4">
-                <div className="font-sans font-bold text-xl text-[#E50920]">{selectedCourse.price}</div>
-                <div className="text-xs text-[#666666]">⭐ {selectedCourse.rating} ({selectedCourse.students})</div>
+            {/* Expected outcome & Action Card */}
+            <div className="lg:col-span-5 flex flex-col justify-between p-5 sm:p-6 rounded-2xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-md">
+              <div>
+                <h4 className="font-sans font-bold text-xs uppercase tracking-wider text-[#D45A20] mb-2">
+                  {LIVE_BATCH_CONTENT.expectedOutcomeTitle}
+                </h4>
+
+                <p className="text-xs sm:text-sm text-[#333333] leading-relaxed mb-4">
+                  {LIVE_BATCH_CONTENT.expectedOutcome}
+                </p>
+
+                <div className="p-3 rounded-xl bg-white border border-[#EAD5AF] text-[11px] text-[#666666] italic leading-relaxed mb-6">
+                  {LIVE_BATCH_CONTENT.disclaimer}
+                </div>
+              </div>
+
+              <div>
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="min-h-[48px] w-full py-3.5 rounded-xl font-bold uppercase tracking-wider text-xs bg-[#E50920] hover:bg-[#B80014] text-white transition-all shadow-md shadow-[#E50920]/30 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+                >
+                  <span>{LIVE_BATCH_CONTENT.cta}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Application Modal */}
+      {modalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <div className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl text-[#111111] border border-[#EAD5AF]">
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <div className="font-sans font-bold text-xl uppercase tracking-tight leading-tight">
+                  {LIVE_BATCH_CONTENT.heading}
+                </div>
+                <span className="text-xs text-[#D45A20] font-medium">Application Form</span>
+              </div>
+              <button
+                onClick={() => setModalOpen(false)}
+                className="w-9 h-9 rounded-full bg-black/5 text-[#555555] hover:text-black flex items-center justify-center cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            <p className="text-xs text-[#555555] mb-4 leading-relaxed">
+              {LIVE_BATCH_CONTENT.expectedOutcome}
+            </p>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Thank you! Your application for the Next Live Batch has been received.");
+                setModalOpen(false);
+              }}
+              className="space-y-3 mb-4"
+            >
+              <div>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#333333] mb-1">
+                  Your Full Name
+                </label>
+                <input
+                  required
+                  type="text"
+                  placeholder="e.g. Rahul Sharma"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#EAD5AF] text-xs bg-[#FAF6EE] focus:outline-none focus:border-[#E50920]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#333333] mb-1">
+                  WhatsApp Number
+                </label>
+                <input
+                  required
+                  type="tel"
+                  placeholder="+91 98765 43210"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#EAD5AF] text-xs bg-[#FAF6EE] focus:outline-none focus:border-[#E50920]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#333333] mb-1">
+                  Current Occupation
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Working Professional / Business"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#EAD5AF] text-xs bg-[#FAF6EE] focus:outline-none focus:border-[#E50920]"
+                />
               </div>
 
               <button
-                onClick={() => {
-                  alert(`Enrolling in ${selectedCourse.title}.`);
-                  setSelectedCourse(null);
-                }}
-                className="w-full py-3 rounded-xl font-bold uppercase tracking-wider text-xs bg-[#E50920] text-white flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                type="submit"
+                className="w-full py-3.5 rounded-xl font-bold uppercase tracking-wider text-xs bg-[#E50920] text-white flex items-center justify-center gap-2 cursor-pointer shadow-md mt-2"
               >
-                <span>Enroll in Course</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Submit Application</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
-            </div>
+            </form>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { PRODUCT_CATEGORIES, ProductCategory } from "@/data/siteData";
+import { PRODUCTS_CONTENT, ProductCategory } from "@/data/siteData";
 import MobileCarousel from "@/components/MobileCarousel";
 
 interface ProductCategoriesProps {
@@ -32,22 +32,22 @@ export default function ProductCategories({
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 sm:gap-6 mb-6 sm:mb-8">
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-2.5 text-[#FFD86A] text-[11px] font-bold tracking-widest uppercase">
               <span className="w-5 h-[2px] bg-[#FFD86A]" />
-              WHAT CAN YOU EXPORT
+              PRODUCTS SECTION
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-2">
-              Every Indian Product <br />
-              Has a{" "}
-              <span className="text-[#FFD86A]">
-                Global Market.
-              </span>
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-3">
+              {PRODUCTS_CONTENT.heading}
             </h2>
 
-            <p className="text-xs sm:text-sm text-white/85 font-normal">
-              Explore high-demand product categories and real business opportunities in international markets.
+            <p className="text-xs sm:text-sm text-white/85 font-normal leading-relaxed mb-2">
+              {PRODUCTS_CONTENT.subcopy1}
+            </p>
+
+            <p className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
+              {PRODUCTS_CONTENT.subcopy2}
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export default function ProductCategories({
               onClick={onOpenCourseModal}
               className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/20 hover:bg-white text-white hover:text-black transition-all flex items-center gap-2 cursor-pointer backdrop-blur-sm"
             >
-              <span>Explore All Products</span>
+              <span>{PRODUCTS_CONTENT.cta}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 
@@ -80,8 +80,8 @@ export default function ProductCategories({
         </div>
 
         {/* Desktop Product Cards Grid (6 Columns) */}
-        <div className="hidden lg:grid lg:grid-cols-6 gap-3 sm:gap-4">
-          {PRODUCT_CATEGORIES.slice(0, 6).map((cat) => (
+        <div className="hidden lg:grid lg:grid-cols-6 gap-3 sm:gap-4 mb-6">
+          {PRODUCTS_CONTENT.categories.map((cat) => (
             <div
               key={cat.id}
               onClick={() => {
@@ -108,13 +108,13 @@ export default function ProductCategories({
                   <div className="font-sans font-bold text-sm sm:text-base text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
                     {cat.title}
                   </div>
-                  <p className="text-[11px] text-white/70 mt-1 line-clamp-1 leading-normal">
+                  <p className="text-[11px] text-white/70 mt-1 line-clamp-2 leading-normal">
                     {cat.subtitle}
                   </p>
                 </div>
 
                 <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
-                  <span className="font-semibold">Margin: {cat.margin}</span>
+                  <span className="font-semibold text-[11px]">Gulf Market</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -123,9 +123,9 @@ export default function ProductCategories({
         </div>
 
         {/* Mobile Interactive Touch Carousel */}
-        <div className="lg:hidden">
+        <div className="lg:hidden mb-6">
           <MobileCarousel activeColor="#FFD86A" theme="dark">
-            {PRODUCT_CATEGORIES.slice(0, 6).map((cat) => (
+            {PRODUCTS_CONTENT.categories.map((cat) => (
               <div
                 key={cat.id}
                 onClick={() => {
@@ -158,7 +158,7 @@ export default function ProductCategories({
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
-                    <span className="font-semibold text-sm">Margin: {cat.margin}</span>
+                    <span className="font-semibold text-xs">Gulf Opportunity</span>
                     <span className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px]">
                       <span>Explore</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -168,6 +168,12 @@ export default function ProductCategories({
               </div>
             ))}
           </MobileCarousel>
+        </div>
+
+        {/* Responsible claim */}
+        <div className="p-4 rounded-xl bg-black/50 border border-white/10 text-[11px] sm:text-xs text-white/70 italic leading-relaxed text-center sm:text-left">
+          <strong className="text-[#FFD86A] font-semibold not-italic">Responsible claim: </strong>
+          {PRODUCTS_CONTENT.responsibleClaim}
         </div>
       </div>
     </section>

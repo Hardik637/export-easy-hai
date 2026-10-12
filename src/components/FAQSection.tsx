@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import { FAQS } from "@/data/siteData";
+import { FAQS_CONTENT } from "@/data/siteData";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -20,21 +20,20 @@ export default function FAQSection() {
         <div className="max-w-xl mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 mb-2.5 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
             <span className="w-6 h-[2px] bg-[#D45A20]" />
-            FREQUENT QUESTIONS
+            FAQ SECTION
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-[#111111]">
-            Got Questions? <br />
-            <span>WE&apos;VE GOT ANSWERS.</span>
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight uppercase text-[#111111]">
+            Questions Beginners Ask
           </h2>
         </div>
 
         <div className="space-y-2.5">
-          {FAQS.map((faq, idx) => {
+          {FAQS_CONTENT.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
-                key={faq.question}
+                key={idx}
                 className="rounded-xl border border-[#EAD5AF] bg-white/90 backdrop-blur-md transition-all overflow-hidden shadow-sm"
               >
                 <button

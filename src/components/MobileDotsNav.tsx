@@ -4,13 +4,13 @@ import React, { useState, useEffect, useRef } from "react";
 
 const MOBILE_SECTIONS = [
   { id: "hero", label: "Home" },
-  { id: "reality", label: "Reality" },
-  { id: "opportunity", label: "Opportunity" },
+  { id: "opportunity", label: "The Opportunity" },
   { id: "how-it-works", label: "How It Works" },
   { id: "products", label: "Products" },
-  { id: "courses", label: "Courses" },
-  { id: "success-stories", label: "Success Stories" },
-  { id: "faq", label: "FAQ" },
+  { id: "live-batch", label: "Live Batch" },
+  { id: "webinar", label: "Webinar" },
+  { id: "about", label: "About" },
+  { id: "faq", label: "FAQs" },
 ];
 
 export default function MobileDotsNav() {

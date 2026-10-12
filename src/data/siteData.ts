@@ -1,16 +1,12 @@
 export interface PainPoint {
   id: string;
-  title: string;
-  subtitle: string;
-  icon: string;
+  question: string;
 }
 
 export interface StepItem {
   number: string;
   title: string;
   description: string;
-  details: string;
-  tag: string;
 }
 
 export interface ProductCategory {
@@ -21,472 +17,489 @@ export interface ProductCategory {
   hsCode: string;
   topMarkets: string[];
   margin: string;
-  tag: string;
-}
-
-export interface CourseItem {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  lessons: string;
-  access: string;
-  image: string;
-  badge?: string;
-  rating: number;
-  students: string;
-  price: string;
-  originalPrice: string;
-  modules: string[];
-}
-
-export interface TestimonialItem {
-  id: string;
-  name: string;
-  business: string;
-  story: string;
-  result: string;
-  turnover: string;
-  countries: string;
-  image: string;
-  videoDuration: string;
-  quote: string;
 }
 
 export interface FAQItem {
   question: string;
   answer: string;
-  category: string;
 }
 
+// Brand Line:
+// EXPORT EASY HAI
+// Explore. Learn. Export.
+
+export const BRAND_NAME = "EXPORT EASY HAI";
+export const BRAND_TAGLINE = "Explore. Learn. Export.";
+
+// Navigation:
+// • Home
+// • The Opportunity
+// • How It Works
+// • Products
+// • Live Batch
+// • Webinar
+// • About
+// • FAQs
 export const NAV_LINKS = [
   { label: "Home", href: "#hero" },
-  { label: "Reality", href: "#reality" },
-  { label: "Opportunity", href: "#opportunity" },
+  { label: "The Opportunity", href: "#opportunity" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Products", href: "#products" },
-  { label: "Courses", href: "#courses" },
-  { label: "Webinars", href: "#webinar" },
-  { label: "Safety", href: "#fraud-prevention" },
-  { label: "Success Stories", href: "#success-stories" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Live Batch", href: "#live-batch" },
+  { label: "Webinar", href: "#webinar" },
+  { label: "About", href: "#about" },
+  { label: "FAQs", href: "#faq" },
 ];
 
-export const TRUST_STATS = [
-  { value: "200+", label: "Countries", sub: "Global Reach" },
-  { value: "₹8T+", label: "Export Market", sub: "Annual Opportunity" },
-  { value: "1000+", label: "Product Categories", sub: "Ready for Export" },
+// 1. Hero Section:
+export const HERO_CONTENT = {
+  eyebrow: "STUCK IN A 9 TO 5?",
+  headlineMain: "QUIT 9 TO 5.",
+  headlineSub: "BUILD AN EXPORT BUSINESS.",
+  supportingCopy:
+    "Learn how to start an India-to-Gulf export business with a practical, step-by-step roadmap—so you can move from confusion to your first shipment with greater clarity and confidence.",
+  positioningNote:
+    "Build your export business in 6 months with the right roadmap, consistent execution, and expert guidance. This is a target roadmap, not a guaranteed result.",
+  primaryCTA: "Reserve Your ₹699 Webinar Seat",
+  secondaryCTA: "See How It Works",
+  trustStrip: [
+    "Beginner-friendly guidance",
+    "India-to-Gulf export focus",
+    "Live Hinglish training",
+    "Documentation and compliance support",
+  ],
+};
+
+// 2. Problem Section:
+export const PROBLEM_CONTENT = {
+  heading: "Your Job Pays the Bills. But Is It Building Your Future?",
+  subcopy1:
+    "A 9-to-5 job can give you stability. But if you want ownership, independence, and a business of your own, waiting for the “perfect time” can keep you stuck for years.",
+  subcopy2: "You may already be thinking about exporting, but questions hold you back:",
+  questions: [
+    "Which product should I export?",
+    "How do I find genuine buyers in the Gulf?",
+    "What documents are required?",
+    "How do I avoid customs delays and costly mistakes?",
+    "How can I trust a supplier or buyer I have never met?",
+    "Can I start while continuing my job?",
+  ],
+  closingLine:
+    "You do not need more random information. You need a clear process and practical support.",
+};
+
+// 3. Opportunity Section:
+export const OPPORTUNITY_CONTENT = {
+  heading: "Indian Products. Gulf Demand. A Practical Business Opportunity.",
+  body1:
+    "The Gulf market includes the UAE, Saudi Arabia, Qatar, Oman, Kuwait, and Bahrain. Indian products across multiple categories are already familiar to buyers in these markets.",
+  body2:
+    "Export Easy Hai helps beginners understand how to evaluate products, choose a suitable market, verify business contacts, prepare documents, and plan a shipment responsibly.",
+  categoriesList: [
+    "Textiles and apparel",
+    "Food and agricultural products",
+    "Spices and packaged goods",
+    "Handicrafts and home décor",
+    "Engineering goods and components",
+    "Home and lifestyle products",
+    "Beauty and personal-care products",
+    "Other suitable Indian products based on demand and compliance requirements",
+  ],
+  cta: "Explore the Export Roadmap",
+  complianceNote:
+    "Product suitability, margins, licences, duties, and import requirements vary by product and destination. Always verify current requirements before committing money to a shipment.",
+};
+
+// 4. What Export Easy Hai Helps You Do:
+export const WHAT_WE_HELP_DO = {
+  heading: "From “I Want to Export” to “I Know My Next Step.”",
+  subcopy:
+    "Export Easy Hai is designed for complete beginners—especially working professionals who want to build a business beyond their salary but do not know where to start.",
+  learningPoints: [
+    "Select products with realistic Gulf-market potential",
+    "Identify the right target country and customer",
+    "Find and verify suppliers and buyers",
+    "Set up your export business entity legally",
+    "Understand IEC, GST, AD Code, invoices, packing lists, shipping bills, and related documents",
+    "Coordinate with freight forwarders and logistics partners",
+    "Reduce avoidable customs and documentation errors",
+    "Choose safer payment terms and reduce fraud risk",
+    "Prepare for your first shipment step by step",
+    "Build a repeatable process for future orders",
+  ],
+  cta: "Start With the Beginner Roadmap",
+};
+
+// 5. How It Works:
+export const HOW_IT_WORKS_CONTENT = {
+  heading: "A Clearer Path to Your First Export Shipment",
+  steps: [
+    {
+      number: "01",
+      title: "Choose a suitable product",
+      description:
+        "Understand product demand, sourcing options, compliance requirements, and realistic margins before making a decision.",
+    },
+    {
+      number: "02",
+      title: "Select your Gulf market",
+      description:
+        "Compare opportunities across the UAE, Saudi Arabia, Qatar, Oman, Kuwait, and Bahrain based on product fit and buyer demand.",
+    },
+    {
+      number: "03",
+      title: "Find and verify business contacts",
+      description:
+        "Learn how to identify genuine suppliers and buyers, check business details, and recognise common warning signs.",
+    },
+    {
+      number: "04",
+      title: "Set up legally",
+      description:
+        "Understand the basic business setup, registrations, export permissions, and compliance steps required for your situation.",
+    },
+    {
+      number: "05",
+      title: "Prepare the documents",
+      description:
+        "Follow a practical documentation process to reduce errors, delays, and last-minute confusion.",
+    },
+    {
+      number: "06",
+      title: "Plan the shipment",
+      description:
+        "Understand freight options, packaging, insurance, customs coordination, and the responsibilities of each party.",
+    },
+    {
+      number: "07",
+      title: "Execute and improve",
+      description:
+        "Use what you learn from the first shipment to create a more reliable and scalable export process.",
+    },
+  ],
+  cta: "See the Full Export Process",
+};
+
+// 6. Webinar Offer Section:
+export const WEBINAR_CONTENT = {
+  eyebrow: "QUIT 9 TO 5. BUILD AN EXPORT BUSINESS IN 6 MONTHS.",
+  subhead: "India-to-Gulf Export Starter Webinar",
+  description:
+    "A live, practical webinar for working professionals and complete beginners who want to understand how to start exporting from India to the Gulf.",
+  learnList: [
+    "How the India-to-Gulf export model works",
+    "How to evaluate product opportunities across multiple categories",
+    "How to choose a suitable Gulf market",
+    "How to find and verify suppliers and buyers",
+    "How to set up your export business legally",
+    "Which documents are commonly involved in an export shipment",
+    "How to reduce the risk of customs delays and documentation mistakes",
+    "How to create a practical six-month export action roadmap",
+  ],
+  receiveList: [
+    "Beginner export roadmap",
+    "Product-selection checklist",
+    "Buyer-verification checklist",
+    "Export documentation checklist",
+  ],
+  details: {
+    format: "Live online webinar",
+    platform: "Zoom",
+    language: "Hinglish",
+    schedule: "Every Sunday at 1:00 PM IST",
+    fee: "₹699",
+    seats: "Limited to 50 participants per session",
+    recording: "Not included; live attendance only",
+  },
+  primaryCTA: "Reserve My Seat for ₹699",
+  paymentNote:
+    "Complete your payment securely through Razorpay. After successful payment, you will be redirected to WhatsApp to receive the Zoom link and joining instructions.",
+  refundNote:
+    "No refunds are offered after registration. Please review the webinar details before completing payment.",
+  disclaimer:
+    "The six-month roadmap is an educational framework and not a promise of income, orders, profits, or business success. Results depend on product choice, capital, execution, market conditions, compliance, and other factors.",
+};
+
+// 7. Why Learn With Us:
+export const WHY_LEARN_WITH_US = {
+  heading: "Practical Guidance. Fewer Expensive Mistakes.",
+  subcopy:
+    "Starting your first shipment can feel risky when you are unfamiliar with suppliers, buyers, customs, payments, and paperwork. Our approach is built around helping beginners understand the process before they commit their money.",
+  practicalPoints: [
+    {
+      title: "End-to-end execution support",
+      desc: "Understand the journey from product selection to shipment planning.",
+    },
+    {
+      title: "Gulf-focused guidance",
+      desc: "Learn about the UAE, Saudi Arabia, Qatar, Oman, Kuwait, and Bahrain.",
+    },
+    {
+      title: "Supplier and buyer verification",
+      desc: "Use a structured process instead of trusting unverified contacts.",
+    },
+    {
+      title: "Documentation support",
+      desc: "Understand the documents and sequence involved in export execution.",
+    },
+    {
+      title: "Legal compliance assistance",
+      desc: "Learn the basic setup and compliance steps for starting responsibly.",
+    },
+    {
+      title: "Beginner-friendly teaching",
+      desc: "Clear explanations without unnecessary jargon.",
+    },
+    {
+      title: "Live doubt solving",
+      desc: "Ask questions and learn through practical examples.",
+    },
+  ],
+  cta: "Learn the Process Before You Ship",
+};
+
+// 8. Founder / Mentor Section:
+export const MENTOR_CONTENT = {
+  name: "Rahul Makwana",
+  role: "Founder • Mentor • Export Educator",
+  title: "Learn With Rahul Makwana",
+  bio1:
+    "Rahul Makwana helps beginners understand the practical side of building an India-to-Gulf export business—from product selection and business setup to buyer verification, documentation, and shipment execution.",
+  bio2:
+    "His teaching approach focuses on making export easier to understand, easier to plan, and safer to execute.",
+  experienceProof: [
+    "Years of export experience",
+    "Export shipments and clients supported",
+    "Relevant certifications and industry guidance",
+  ],
+  cta: "Learn From the Export Roadmap",
+};
+
+// 9. Products Section:
+export const PRODUCTS_CONTENT = {
+  heading: "What Can You Export?",
+  subcopy1:
+    "There is no single “magic product” that guarantees success. The right choice depends on demand, competition, quality, compliance, sourcing, logistics, and your available capital.",
+  subcopy2:
+    "Export Easy Hai helps you evaluate suitable opportunities across categories such as:",
+  categories: [
+    {
+      id: "textiles",
+      title: "Textiles and apparel",
+      subtitle: "Garments, fabrics, home linen, and other textile products.",
+      image: "/images/prod-textiles.jpg",
+      hsCode: "HS 50 - 63",
+      topMarkets: ["UAE", "Saudi Arabia", "Oman"],
+      margin: "Category Focus",
+    },
+    {
+      id: "food-agri",
+      title: "Food and agriculture",
+      subtitle: "Spices, rice, herbs, processed foods, and other eligible products.",
+      image: "/images/prod-spices.jpg",
+      hsCode: "HS 07 - 12",
+      topMarkets: ["UAE", "Saudi Arabia", "Qatar"],
+      margin: "Category Focus",
+    },
+    {
+      id: "handicrafts",
+      title: "Handicrafts and décor",
+      subtitle: "Traditional Indian craft products, décor, and lifestyle goods.",
+      image: "/images/prod-handicrafts.jpg",
+      hsCode: "HS 44 & 74",
+      topMarkets: ["UAE", "Kuwait", "Bahrain"],
+      margin: "Category Focus",
+    },
+    {
+      id: "engineering",
+      title: "Engineering goods",
+      subtitle: "Components, tools, machinery-related products, and industrial supplies.",
+      image: "/images/prod-engineering.jpg",
+      hsCode: "HS 84 - 87",
+      topMarkets: ["Saudi Arabia", "UAE", "Oman"],
+      margin: "Category Focus",
+    },
+    {
+      id: "home-lifestyle",
+      title: "Home and lifestyle",
+      subtitle: "Kitchenware, furniture, rugs, utility products, and décor.",
+      image: "/images/prod-home-decor.jpg",
+      hsCode: "HS 94 & 57",
+      topMarkets: ["UAE", "Qatar", "Kuwait"],
+      margin: "Category Focus",
+    },
+    {
+      id: "beauty",
+      title: "Beauty and personal care",
+      subtitle: "Eligible wellness, beauty, herbal, and personal-care products.",
+      image: "/images/prod-beauty.jpg",
+      hsCode: "HS 3304",
+      topMarkets: ["UAE", "Saudi Arabia", "Bahrain"],
+      margin: "Category Focus",
+    },
+  ],
+  cta: "Find a Product-Market Fit",
+  responsibleClaim:
+    "Product margins shown in training are examples for learning, not guaranteed returns. Verify costs, duties, taxes, freight, compliance, and buyer requirements before placing an order.",
+};
+
+// 10. Live Batch Section:
+export const LIVE_BATCH_CONTENT = {
+  heading: "The 4-Month Live Gulf Export Batch",
+  subcopy1: "Ready to move beyond learning and work toward your own export business?",
+  subcopy2:
+    "The four-month live batch is designed for beginners who want structured guidance, accountability, and practical support while preparing to launch and execute their export process.",
+  includesTitle: "What the batch includes",
+  includes: [
+    "Weekly live training sessions",
+    "A step-by-step India-to-Gulf export roadmap",
+    "Product and market-selection guidance",
+    "Supplier and buyer verification guidance",
+    "Legal business setup and compliance guidance",
+    "Export documentation training",
+    "Customs and shipment-planning guidance",
+    "Assignments, templates, and checklists",
+    "Group doubt-solving support",
+    "First-shipment preparation and execution guidance",
+    "Practical review of your action plan",
+  ],
+  expectedOutcomeTitle: "Expected outcome",
+  expectedOutcome:
+    "By the end of the batch, you should have a clearer export business plan, a selected product-market direction, a legal and documentation checklist, and a structured plan for preparing your first shipment.",
+  disclaimer:
+    "The batch does not guarantee profits, buyers, orders, or shipment success.",
+  cta: "Apply for the Next Batch",
+};
+
+// 11. Replace Unverified Success Stories:
+export const STORIES_REPLACEMENT_CONTENT = {
+  heading: "Learn First. Build Your Story Next.",
+  subcopy:
+    "Export Easy Hai is focused on helping new learners build their own export journey through practical knowledge and consistent execution.",
+  temporaryCopy:
+    "You do not need someone else’s success story to begin. You need a clear process, realistic expectations, and the discipline to take the next step.",
+  futureProofTitle: "Future proof section",
+  futureProofDesc:
+    "Real learner stories will be added here as verified students complete milestones such as:",
+  milestones: [
+    "Legal business setup",
+    "Product and market selection",
+    "Buyer or supplier verification",
+    "First export order",
+    "First completed shipment",
+    "Repeat order or long-term buyer relationship",
+  ],
+};
+
+// 12. Objection Section:
+export const OBJECTION_CONTENT = {
+  heading: "Worried About Losing Money on Your First Shipment?",
+  body1:
+    "That concern is valid. Customs delays, documentation errors, unreliable suppliers, unclear payment terms, and unverified buyers can create serious problems for beginners.",
+  body2:
+    "The goal of Export Easy Hai is not to promise zero risk. It is to help you identify risks earlier, make better decisions, and follow a more organised process before shipping.",
+  weHelpTitle: "We help you understand how to:",
+  points: [
+    "Verify business contacts before committing",
+    "Check documents before shipment",
+    "Ask the right questions of suppliers and buyers",
+    "Understand payment and delivery terms",
+    "Plan logistics with the right partners",
+    "Keep records for compliance and follow-up",
+  ],
+  cta: "Reduce Confusion Before Your First Shipment",
+};
+
+// 13. FAQ Section:
+export const FAQS_CONTENT: FAQItem[] = [
+  {
+    question: "Can a complete beginner start exporting?",
+    answer:
+      "Yes. You can begin by learning the process, selecting a suitable product, understanding the target market, and completing the required legal and documentation steps. Your starting requirements will depend on your product, business structure, destination, and shipment model.",
+  },
+  {
+    question: "Do I need to quit my job immediately?",
+    answer:
+      "No. Many people first learn and validate their export plan while continuing their existing work. Decide when to make a career change only after reviewing your finances, responsibilities, and business progress.",
+  },
+  {
+    question: "Which countries do you cover?",
+    answer:
+      "The programme focuses on Gulf markets including the UAE, Saudi Arabia, Qatar, Oman, Kuwait, and Bahrain.",
+  },
+  {
+    question: "Which products can I export?",
+    answer:
+      "Potential categories include textiles, food and agriculture, handicrafts, engineering goods, home products, beauty products, and other suitable Indian products. Product eligibility and compliance requirements must be checked separately.",
+  },
+  {
+    question: "Is the webinar live or recorded?",
+    answer:
+      "The ₹699 webinar is live on Zoom and conducted in Hinglish.",
+  },
+  {
+    question: "When is the webinar held?",
+    answer: "Every Sunday at 1:00 PM IST.",
+  },
+  {
+    question: "How do I receive the Zoom link?",
+    answer:
+      "After successful Razorpay payment, you will be redirected to WhatsApp for the Zoom link and joining instructions.",
+  },
+  {
+    question: "Is the webinar refundable?",
+    answer: "No. Registrations are non-refundable after payment.",
+  },
+  {
+    question: "What happens after the webinar?",
+    answer:
+      "If you are ready for structured implementation support, you can apply for the next four-month live Gulf export batch.",
+  },
+  {
+    question: "Is a profitable shipment guaranteed?",
+    answer:
+      "No. Export results depend on product selection, demand, sourcing, pricing, compliance, logistics, capital, and execution. The programme provides education and guidance, not a guarantee of profit or orders.",
+  },
+  {
+    question: "Is one-on-one coaching available?",
+    answer: "One-on-one coaching is not currently being offered.",
+  },
 ];
 
-export const HERO_PILLS = [
-  { title: "Practical Learning", desc: "No Theory Gyan", icon: "GraduationCap" },
-  { title: "Fraud Prevention", desc: "& Buyer Verification", icon: "ShieldCheck" },
-  { title: "Step-by-Step Guidance", desc: "From India to Global", icon: "Compass" },
-  { title: "Lifetime Access", desc: "& Community Support", icon: "Users" },
-];
+// 14. Final CTA Section:
+export const FINAL_CTA_CONTENT = {
+  headline: "YOUR NEXT CHAPTER STARTS WITH ONE CLEAR STEP.",
+  subcopy:
+    "You do not have to understand everything today. Start by learning the process, understanding the risks, and creating a practical roadmap for your India-to-Gulf export journey.",
+  primaryCTA: "Reserve Your ₹699 Webinar Seat",
+  secondaryCTA: "Apply for the Next Live Batch",
+  closingLine:
+    "From India to the Gulf. Learn the process. Prepare with clarity. Export with confidence.",
+};
 
-export const PAIN_POINTS: PainPoint[] = [
-  {
-    id: "routine",
-    title: "Same routine every day",
-    subtitle: "Trading 40+ hours a week for a fixed paycheck with zero creative or financial upside.",
-    icon: "Calendar",
-  },
-  {
-    id: "growth",
-    title: "Limited income growth",
-    subtitle: "Annual increments barely beat inflation while living expenses multiply rapidly.",
-    icon: "TrendingDown",
-  },
-  {
-    id: "freedom",
-    title: "No financial freedom",
-    subtitle: "Always seeking approval for leave, pay, and career trajectory from management.",
-    icon: "Lock",
-  },
-  {
-    id: "dreams",
-    title: "Someone else's dreams",
-    subtitle: "Pouring peak energy into building corporate wealth instead of your own family legacy.",
-    icon: "Briefcase",
-  },
-];
-
-export const ARBITRAGE_EXAMPLES = [
-  {
-    product: "Indian Cotton Textiles & Garments",
-    domestic: "₹350/kg",
-    export: "$25 – $35/kg (₹2,100 – ₹2,900)",
-    multiplier: "7.2x Margin",
-    flag: "🇺🇸 🇪🇺",
-  },
-  {
-    product: "Single-Origin Lakadong Turmeric",
-    domestic: "₹280/kg",
-    export: "$32 – $42/kg (₹2,650 – ₹3,500)",
-    multiplier: "10.5x Margin",
-    flag: "🇬🇧 🇦🇺",
-  },
-  {
-    product: "Handcrafted Moradabad Brass Decor",
-    domestic: "₹650/piece",
-    export: "$65 – $95/piece (₹5,400 – ₹7,900)",
-    multiplier: "9.8x Margin",
-    flag: "🇦🇪 🇺🇸",
-  },
-];
-
-export const TIMELINE_STEPS: StepItem[] = [
-  {
-    number: "01",
-    title: "Choose a product with demand",
-    description: "Identify high-margin Indian goods with verified global demand rather than guessing.",
-    details: "Learn HS-Code research, domestic sourcing hotspots, and international demand validation techniques.",
-    tag: "Product Discovery",
-  },
-  {
-    number: "02",
-    title: "Find the right target market",
-    description: "Pinpoint countries with zero or low import duties, high buying power, and active import volumes.",
-    details: "Analyze trade agreements, free trade policies, and consumer behavior in USA, EU, Gulf, and Asia.",
-    tag: "Market Selection",
-  },
-  {
-    number: "03",
-    title: "Find & verify genuine buyers",
-    description: "Connect with authentic international buyers and eliminate 100% of scammers and fraudulent brokers.",
-    details: "Master B2B databases, embassies, trade fairs, and our 5-step background verification framework.",
-    tag: "Buyer Acquisition",
-  },
-  {
-    number: "04",
-    title: "Handle documentation with ease",
-    description: "Navigate IEC, GST, LUT, AD Code, Bill of Lading, and Certificate of Origin without headaches.",
-    details: "Ready-to-use checklist templates so you never get stuck at customs or bank counters.",
-    tag: "Compliance & Legal",
-  },
-  {
-    number: "05",
-    title: "Ship the product safely",
-    description: "Coordinate with trusted freight forwarders, choose between FCL/LCL, and secure transit insurance.",
-    details: "Incoterms decoded: FOB, CIF, EXW explained with practical cost-saving booking methods.",
-    tag: "Logistics & Shipping",
-  },
-  {
-    number: "06",
-    title: "Receive international payment",
-    description: "Get paid securely through Letter of Credit (LC), Advance TT, or Escrow with zero risk of default.",
-    details: "FEMA compliance, BRC/e-BRC closure, and foreign exchange bank processing made simple.",
-    tag: "Banking & FX",
-  },
-  {
-    number: "07",
-    title: "Repeat & scale globally",
-    description: "Turn one-off international shipments into long-term retainer purchase contracts.",
-    details: "Build long-term buyer relationships, negotiate volume orders, and scale product portfolios.",
-    tag: "Scaling Growth",
-  },
-];
-
-export const PRODUCT_CATEGORIES: ProductCategory[] = [
-  {
-    id: "textiles",
-    title: "Textiles & Apparel",
-    subtitle: "Garments, Fabrics, Home Linen & Silk",
-    image: "/images/prod-textiles.jpg",
-    hsCode: "HS 50 - 63",
-    topMarkets: ["United States", "Germany", "United Kingdom", "UAE"],
-    margin: "45% – 70%",
-    tag: "High Volume",
-  },
-  {
-    id: "food-agri",
-    title: "Food & Agriculture",
-    subtitle: "Spices, Basmati Rice, Organic Herbs",
-    image: "/images/prod-spices.jpg",
-    hsCode: "HS 07 - 12",
-    topMarkets: ["Saudi Arabia", "USA", "Netherlands", "Singapore"],
-    margin: "35% – 60%",
-    tag: "Recurrent Demand",
-  },
-  {
-    id: "handicrafts",
-    title: "Handicrafts & Decor",
-    subtitle: "Brass Artifacts, Terracotta, Woodcraft",
-    image: "/images/prod-handicrafts.jpg",
-    hsCode: "HS 44 & 74",
-    topMarkets: ["Australia", "France", "Japan", "Canada"],
-    margin: "80% – 140%",
-    tag: "Highest Margin",
-  },
-  {
-    id: "engineering",
-    title: "Engineering Goods",
-    subtitle: "Machinery, Auto Parts, Industrial Fasteners",
-    image: "/images/prod-engineering.jpg",
-    hsCode: "HS 84 - 87",
-    topMarkets: ["USA", "Germany", "Italy", "South Africa"],
-    margin: "30% – 50%",
-    tag: "B2B Contracts",
-  },
-  {
-    id: "home-lifestyle",
-    title: "Home & Lifestyle",
-    subtitle: "Cane Furniture, Handwoven Rugs, Kitchenware",
-    image: "/images/prod-home-decor.jpg",
-    hsCode: "HS 94 & 57",
-    topMarkets: ["United Kingdom", "USA", "Nordics", "UAE"],
-    margin: "55% – 85%",
-    tag: "Premium Retail",
-  },
-  {
-    id: "beauty",
-    title: "Beauty & Personal Care",
-    subtitle: "Ayurveda, Saffron Skincare, Herbal Wellness",
-    image: "/images/prod-beauty.jpg",
-    hsCode: "HS 3304",
-    topMarkets: ["USA", "Europe", "South Korea", "Middle East"],
-    margin: "65% – 95%",
-    tag: "Global Trend",
-  },
-  {
-    id: "packaging",
-    title: "Packaging & Boxes",
-    subtitle: "Eco-friendly corrugated cartons, bio-packaging",
-    image: "/images/prod-packaging.jpg",
-    hsCode: "HS 4819",
-    topMarkets: ["UAE", "UK", "Netherlands"],
-    margin: "25% – 40%",
-    tag: "Essential Utility",
-  },
-];
-
-export const MENTOR_HIGHLIGHTS = [
-  {
-    title: "Live Webinars with Q&A",
-    desc: "Direct answers to your export questions and live product evaluations.",
-    icon: "Video",
-  },
-  {
-    title: "Practical Case Studies & Examples",
-    desc: "Real breakdown of actual shipments from Nhava Sheva and Mundra ports.",
-    icon: "FileSpreadsheet",
-  },
-  {
-    title: "Fraud Prevention & Buyer Verification",
-    desc: "Battle-tested protocols to safeguard your cargo and advance payments.",
-    icon: "ShieldAlert",
-  },
-  {
-    title: "Templates, Checklists & Resources",
-    desc: "Plug-and-play proforma invoices, quotation sheets, and contract drafts.",
-    icon: "FileCheck",
-  },
-];
-
-export const COURSES: CourseItem[] = [
-  {
-    id: "foundation",
-    title: "Export Business Foundation",
-    description: "Start from zero and master the complete export lifecycle from IEC registration to bank reconciliation.",
-    category: "Complete Blueprint",
-    lessons: "20+ Lessons",
-    access: "Lifetime Access",
-    image: "/images/course-foundation.jpg",
-    badge: "Bestseller",
-    rating: 4.9,
-    students: "4,200+ Exporters",
-    price: "₹4,999",
-    originalPrice: "₹14,999",
-    modules: [
-      "Export Firm Setup & Entity Registration",
-      "IEC, GST, LUT & Bank AD Code Filing",
-      "Choosing Your Profitable Niche Product",
-      "Finding Overseas Buyers with 0 Ad Spend",
-      "Understanding Port Clearances & Customs",
-    ],
-  },
-  {
-    id: "buyers",
-    title: "Find Verified Buyers Globally",
-    description: "Discover genuine international importers, bypass intermediaries, and negotiate long-term export orders.",
-    category: "B2B Sales Mastery",
-    lessons: "15+ Lessons",
-    access: "Lifetime Access",
-    image: "/images/course-buyers.jpg",
-    rating: 4.8,
-    students: "2,850+ Exporters",
-    price: "₹3,999",
-    originalPrice: "₹9,999",
-    modules: [
-      "International Trade Data Mining",
-      "Embassy Commercial Wings & EPCs",
-      "Crafting Cold Outreach That Gets Replies",
-      "Quotation & Proforma Invoice Structuring",
-      "Handling Price Negotiations with Foreign Importers",
-    ],
-  },
-  {
-    id: "documentation",
-    title: "Export Documentation Made Easy",
-    description: "Demystify all legal documents, shipping bills, certificates of origin, and avoid costly customs penalties.",
-    category: "Compliance & Banking",
-    lessons: "12+ Lessons",
-    access: "Lifetime Access",
-    image: "/images/course-docs.jpg",
-    rating: 4.9,
-    students: "3,100+ Exporters",
-    price: "₹3,499",
-    originalPrice: "₹8,499",
-    modules: [
-      "Commercial Invoice & Packing List Masterclass",
-      "Bill of Lading (BL) & Airway Bill (AWB)",
-      "Certificate of Origin & Preferential Trade Agreements",
-      "FEMA Compliance & EDPMS / IDPMS",
-      "e-BRC Generation & Bank Settlement",
-    ],
-  },
-  {
-    id: "frauds",
-    title: "Avoid Export Frauds & Scams",
-    description: "Identify fake buyers, fraudulent payment guarantees, phantom freight forwarders, and trade traps.",
-    category: "Security & Risk Control",
-    lessons: "10+ Lessons",
-    access: "Lifetime Access",
-    image: "/images/course-scams.jpg",
-    badge: "Must Watch",
-    rating: 5.0,
-    students: "5,400+ Exporters",
-    price: "₹2,999",
-    originalPrice: "₹7,999",
-    modules: [
-      "Top 10 International Export Scams Unveiled",
-      "Verifying Foreign Companies in Under 10 Minutes",
-      "Letter of Credit (LC) Red Flag Clauses",
-      "Payment Terms Matrix: 100% Risk vs 0% Risk",
-      "ECGC Insurance & Debt Recovery Systems",
-    ],
-  },
-];
-
-export const SUCCESS_STORIES: TestimonialItem[] = [
-  {
-    id: "amit-sharma",
-    name: "Amit Sharma",
-    business: "Vedic Crafts Exports",
-    story: "Was working as an operations executive in Gurgaon for 7 years. With Export Easy Hai, he found German and UK buyers for wooden brass handicrafts.",
-    result: "Exporting to 9+ countries within 6 months of launching.",
-    turnover: "₹64 Lakhs",
-    countries: "Germany, UK, USA, UAE",
-    image: "/images/story-amit.jpg",
-    videoDuration: "3:42 Min Case Study",
-    quote: "Export Easy Hai made the entire process so single-minded. From finding buyers to export documentation, everything was explained in a practical, step-by-step way.",
-  },
-  {
-    id: "priya-mehta",
-    name: "Priya Mehta",
-    business: "Avani Natural Organics",
-    story: "Transitioned from corporate HR to exporting certified organic turmeric, moringa powder, and millets to specialty organic food chains across Europe.",
-    result: "Recurring monthly container contracts in Netherlands & France.",
-    turnover: "₹1.1 Crore",
-    countries: "Netherlands, France, Switzerland",
-    image: "/images/story-priya.jpg",
-    videoDuration: "4:15 Min Case Study",
-    quote: "The live webinars and practical templates saved me months of painful trial and error. Rahul sir's buyer verification method is pure gold for anyone starting fresh.",
-  },
-  {
-    id: "rohit-gupta",
-    name: "Rohit Gupta",
-    business: "Apex Forgings India",
-    story: "Left his IT support job in Pune. Partnered with Rajkot auto-component makers to export precision steel gears to South African agricultural equipment firms.",
-    result: "Replaced 5 years of salary with just two international shipments.",
-    turnover: "₹92 Lakhs",
-    countries: "South Africa, Kenya, Malaysia",
-    image: "/images/story-rohit.jpg",
-    videoDuration: "5:08 Min Case Study",
-    quote: "I thought exporting required crores of capital. Rahul showed me how to begin with merchant export and zero manufacturing overhead. It changed my life completely.",
-  },
-  {
-    id: "sneha-jain",
-    name: "Sneha Jain",
-    business: "Indus Loom Furnishings",
-    story: "Started exporting handloom cushion covers and rugs directly to US boutique interior stores through verified B2B wholesale buyers.",
-    result: "Built a sustainable 6-figure USD export business in 1 year.",
-    turnover: "₹85 Lakhs",
-    countries: "USA, Canada, Australia",
-    image: "/images/story-sneha.jpg",
-    videoDuration: "3:20 Min Case Study",
-    quote: "The step-by-step guidance eliminated my fear of customs paperwork and shipping lines. The community support gives answers whenever I am at port clearance.",
-  },
-];
-
-export const FRAUD_PILLARS = [
-  {
-    title: "Verify Genuine Buyers",
-    desc: "Check government trade registries, D&B ratings, tax identifiers, and embassy commercial attaches before sending quotes.",
-    icon: "UserCheck",
-  },
-  {
-    title: "Identify Fraud Warning Signs",
-    desc: "Spot suspicious unverified domain emails, unrealistic high-value orders, and refusal to provide business registration.",
-    icon: "AlertTriangle",
-  },
-  {
-    title: "Use Trusted Tools & Platforms",
-    desc: "Leverage Panjiva, ImportGenius, DGFT trade portal, and official Export Promotion Councils for background verification.",
-    icon: "Cpu",
-  },
-  {
-    title: "Real-Case Studies of Scams",
-    desc: "Study real-life fraudulent scenarios: phantom BLs, unauthorized release of cargo, and fake bank payment guarantees.",
-    icon: "FileSearch",
-  },
-  {
-    title: "Checklists & Contract Templates",
-    desc: "Download ironclad purchase order confirmations and non-negotiable payment milestone clauses.",
-    icon: "ShieldCheck",
-  },
-];
-
-export const FAQS: FAQItem[] = [
-  {
-    question: "Do I need a company to start exporting?",
-    answer: "No, you do not need a Private Limited company to start. You can easily begin as a Sole Proprietorship with a simple GST registration, PAN card, and an Import Export Code (IEC) issued online by DGFT in under 24 hours.",
-    category: "Setup",
-  },
-  {
-    question: "How do I find genuine buyers?",
-    answer: "We teach you 5 proven practical channels: Export Promotion Councils (EPCs), Indian Embassy commercial wings abroad, international B2B customs shipping databases, targeted LinkedIn B2B outreach, and international trade fair catalogues.",
-    category: "Buyers",
-  },
-  {
-    question: "What products can I export?",
-    answer: "India exports over 1,000+ high-demand product categories! Top beginner-friendly sectors include textiles & apparel, agricultural commodities & spices, processed foods, handicrafts, engineering goods, and Ayurvedic personal care.",
-    category: "Products",
-  },
-  {
-    question: "How much money do I need to start?",
-    answer: "You can start as a Merchant Exporter with ₹25,000 to ₹50,000 for government registrations (IEC, GST, RCMC) and initial outreach. You do not need your own factory or warehouse — you can source directly from manufacturers against buyer orders.",
-    category: "Capital",
-  },
-  {
-    question: "How long does it take to get my first order?",
-    answer: "With consistent execution of our outreach framework, students typically secure their first international inquiry within 30 to 45 days, and complete their first commercial shipment within 3 to 5 months.",
-    category: "Timeline",
-  },
-  {
-    question: "Can beginners really start exporting?",
-    answer: "Yes, absolutely! More than 70% of successful Indian exporters started with zero previous international trade background. The key is understanding documentation, proper buyer verification, and choosing the right product-market fit.",
-    category: "Beginners",
-  },
-  {
-    question: "What documents are required?",
-    answer: "The essential documents are: IEC (Import Export Code), GST & LUT (Letter of Undertaking), Bank AD Code, Commercial Invoice, Packing List, Bill of Lading (BL) or Airway Bill, and Certificate of Origin. We provide exact fillable templates for each.",
-    category: "Documentation",
-  },
-  {
-    question: "How do I avoid export scams?",
-    answer: "Never ship cargo without secured advance payment terms (e.g., 30% advance + 70% against BL copy) or an Irrevocable Confirmed Letter of Credit (LC) from a prime international bank. Always verify buyer credentials through our 5-point verification framework and take ECGC credit insurance.",
-    category: "Safety",
-  },
-];
+// 15. Footer Copy:
+export const FOOTER_CONTENT = {
+  brand: "EXPORT EASY HAI",
+  tagline: "Explore. Learn. Export.",
+  mission:
+    "Practical India-to-Gulf export education for beginners who want to build a business beyond the 9-to-5.",
+  quickLinks: [
+    { label: "Home", href: "#hero" },
+    { label: "How It Works", href: "#how-it-works" },
+    { label: "Products", href: "#products" },
+    { label: "Webinar", href: "#webinar" },
+    { label: "Live Batch", href: "#live-batch" },
+    { label: "About", href: "#about" },
+    { label: "FAQs", href: "#faq" },
+    { label: "Contact", href: "#footer" },
+  ],
+  legalLinks: [
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms and Conditions", href: "#" },
+    { label: "Disclaimer", href: "#" },
+    { label: "Refund Policy", href: "#" },
+  ],
+  disclaimer:
+    "Export Easy Hai provides educational content and practical guidance. We do not guarantee profits, buyers, orders, shipment completion, business success, or any specific financial outcome. Participants are responsible for verifying current laws, duties, licences, documentation, suppliers, buyers, and professional advice relevant to their transaction.",
+  contactEmail: "support@exporteasyhai.com",
+};

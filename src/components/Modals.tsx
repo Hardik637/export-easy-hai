@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, CheckCircle2, Calendar, Clock, Video, Send, ArrowRight } from "lucide-react";
+import { X, CheckCircle2, ArrowRight } from "lucide-react";
+import { WEBINAR_CONTENT } from "@/data/siteData";
 
 interface WebinarModalProps {
   isOpen: boolean;
@@ -14,7 +15,7 @@ export function WebinarModal({ isOpen, onClose }: WebinarModalProps) {
     name: "",
     phone: "",
     email: "",
-    productInterest: "Textiles & Garments",
+    productInterest: "Textiles and apparel",
   });
 
   if (!isOpen) return null;
@@ -38,15 +39,15 @@ export function WebinarModal({ isOpen, onClose }: WebinarModalProps) {
         {!submitted ? (
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E50920]/20 text-[#FF172F] text-[10px] font-bold tracking-widest uppercase mb-3">
-              LIVE WEBINAR ACCESS
+              LIVE WEBINAR REGISTRATION
             </div>
 
-            <h3 className="font-display text-3xl text-white uppercase mb-2">
-              Reserve Your Seat
+            <h3 className="font-display text-2xl sm:text-3xl text-white uppercase mb-2">
+              {WEBINAR_CONTENT.subhead}
             </h3>
 
-            <p className="text-xs text-[#F5F0E8]/70 mb-5 leading-relaxed">
-              Live with Rahul Makwana • Saturday, 28 Sep 2026 at 7:00 PM IST on Zoom.
+            <p className="text-xs text-[#F5F0E8]/70 mb-4 leading-relaxed">
+              {WEBINAR_CONTENT.details.schedule} • {WEBINAR_CONTENT.details.platform} (Fee: {WEBINAR_CONTENT.details.fee})
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3.5">
@@ -101,21 +102,25 @@ export function WebinarModal({ isOpen, onClose }: WebinarModalProps) {
                   onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
                   className="w-full bg-[#1A0A0C] border border-white/15 rounded-xl px-4 py-3 text-[16px] sm:text-xs text-white focus:outline-none focus:border-[#E50920]"
                 >
-                  <option value="Textiles & Garments">Textiles &amp; Garments</option>
-                  <option value="Food, Spices & Agriculture">Food, Spices &amp; Agriculture</option>
-                  <option value="Handicrafts & Decor">Handicrafts &amp; Decor</option>
-                  <option value="Engineering & Auto Goods">Engineering &amp; Auto Goods</option>
-                  <option value="Home & Lifestyle">Home &amp; Lifestyle</option>
-                  <option value="Ayurveda & Beauty">Ayurveda &amp; Beauty</option>
-                  <option value="Merchant Export / General">Merchant Export / General</option>
+                  <option value="Textiles and apparel">Textiles and apparel</option>
+                  <option value="Food and agriculture">Food and agriculture</option>
+                  <option value="Spices and packaged goods">Spices and packaged goods</option>
+                  <option value="Handicrafts and home décor">Handicrafts and home décor</option>
+                  <option value="Engineering goods and components">Engineering goods and components</option>
+                  <option value="Home and lifestyle products">Home and lifestyle products</option>
+                  <option value="Beauty and personal-care products">Beauty and personal-care products</option>
                 </select>
+              </div>
+
+              <div className="text-[10px] text-white/60 leading-relaxed pt-1">
+                {WEBINAR_CONTENT.paymentNote}
               </div>
 
               <button
                 type="submit"
-                className="min-h-[48px] w-full mt-4 py-3.5 rounded-xl font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#E50920] to-[#FF172F] hover:from-[#FF172F] hover:to-[#B80014] text-white transition-all shadow-xl shadow-[#E50920]/40 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+                className="min-h-[48px] w-full mt-2 py-3.5 rounded-xl font-bold uppercase tracking-wider text-xs bg-gradient-to-r from-[#E50920] to-[#FF172F] hover:from-[#FF172F] hover:to-[#B80014] text-white transition-all shadow-xl shadow-[#E50920]/40 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
               >
-                <span>Confirm My Free Seat</span>
+                <span>{WEBINAR_CONTENT.primaryCTA}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
@@ -127,41 +132,23 @@ export function WebinarModal({ isOpen, onClose }: WebinarModalProps) {
             </div>
 
             <div className="text-xs font-mono uppercase text-[#FFD86A] mb-1">
-              Pass Confirmed #EEH-{Math.floor(100000 + Math.random() * 900000)}
+              Registration Received
             </div>
 
             <h3 className="font-display text-3xl text-white uppercase mb-2">
-              You&apos;re In, {formData.name || "Exporter"}!
+              Thank You, {formData.name || "Exporter"}!
             </h3>
 
             <p className="text-xs text-[#F5F0E8]/75 mb-6">
-              Your free webinar access pass and calendar invite have been sent to{" "}
+              You will be redirected to WhatsApp to receive the Zoom link and joining instructions for{" "}
               <span className="text-white font-medium">{formData.phone || formData.email}</span>.
             </p>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-left text-xs space-y-2 mb-6">
-              <div className="flex items-center gap-2 text-white">
-                <Calendar className="w-4 h-4 text-[#F2A62B]" />
-                <span>Saturday, 28 Sep 2026</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <Clock className="w-4 h-4 text-[#F2A62B]" />
-                <span>7:00 PM (IST)</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <Video className="w-4 h-4 text-[#F2A62B]" />
-                <span>Zoom link dispatched 30 mins before session</span>
-              </div>
-            </div>
-
             <button
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
-              className="w-full py-3 rounded-xl font-bold uppercase tracking-wider text-xs bg-white/10 hover:bg-white/20 text-white transition-all cursor-pointer"
+              onClick={onClose}
+              className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider"
             >
-              Done &amp; Return to Page
+              Close
             </button>
           </div>
         )}
