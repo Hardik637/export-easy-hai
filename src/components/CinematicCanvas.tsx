@@ -365,7 +365,7 @@ export default function CinematicCanvas() {
 
       {/* Desktop Vertical Story Indicator (Fixed Right) */}
       <div
-        className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1 p-2 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 shadow-2xl transition-all duration-300 pointer-events-auto"
+        className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1 p-2 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 shadow-xl transition-all duration-300 pointer-events-auto"
         aria-label="Story journey navigation"
       >
         {JOURNEY_NAV_ITEMS.map((item, i) => {
@@ -375,7 +375,7 @@ export default function CinematicCanvas() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="group flex items-center justify-between gap-3 text-left py-1 px-2.5 rounded-xl transition-all hover:bg-white/10 cursor-pointer min-h-[32px]"
+              className="group flex items-center justify-between gap-3 text-left py-1 px-2.5 rounded-lg transition-all hover:bg-white/10 cursor-pointer min-h-[32px]"
               aria-label={`Jump to stage ${item.stepNumber}: ${item.label} (${item.time})`}
             >
               <div
@@ -396,7 +396,7 @@ export default function CinematicCanvas() {
                   <span
                     className={`text-[11px] font-bold tracking-wider uppercase transition-colors ${
                       isActive
-                        ? "text-white drop-shadow-[0_2px_8px_rgba(229,9,32,0.8)]"
+                        ? "text-white"
                         : "text-white/70 group-hover:text-white"
                     }`}
                   >
@@ -413,19 +413,16 @@ export default function CinematicCanvas() {
               </div>
 
               {/* Status Pip */}
-              <div className="relative flex items-center justify-center w-3.5 h-3.5 ml-1">
+              <div className="relative flex items-center justify-center w-3 h-3 ml-1">
                 <span
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  className={`rounded-full transition-all duration-200 ${
                     isActive
-                      ? "bg-[#E50920] scale-125 shadow-[0_0_10px_#E50920]"
+                      ? "w-2 h-2 bg-[#E50920] scale-110"
                       : isPast
-                      ? "bg-white/70"
-                      : "bg-white/25 group-hover:bg-white/50"
+                      ? "w-1.5 h-1.5 bg-white/70"
+                      : "w-1.5 h-1.5 bg-white/25 group-hover:bg-white/50"
                   }`}
                 />
-                {isActive && (
-                  <span className="absolute w-3.5 h-3.5 rounded-full border border-[#E50920] animate-ping opacity-60" />
-                )}
               </div>
             </button>
           );

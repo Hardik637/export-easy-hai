@@ -14,12 +14,14 @@
     color: #ffffff;
     -webkit-tap-highlight-color: transparent;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .font-display {
     font-family: var(--font-display), 'Bebas Neue', sans-serif;
-    letter-spacing: 0.02em;
-    line-height: 0.95;
+    letter-spacing: 0.03em;
+    line-height: 0.98;
   }
 
   .font-script {
@@ -28,6 +30,11 @@
 
   button, a {
     touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 2px solid #E50920;
+    outline-offset: 2px;
   }
 }
 

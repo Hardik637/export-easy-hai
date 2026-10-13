@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF172F] to-[#B80014] flex items-center justify-center text-white shadow-lg shadow-[#E50920]/30">
+              <div className="w-9 h-9 rounded-lg bg-[#E50920] flex items-center justify-center text-white shadow-md shadow-red-950/30">
                 <svg className="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10" />
                   <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
@@ -27,12 +27,12 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-xs text-[#F5F0E8]/75 max-w-sm mb-6 leading-relaxed">
+            <p className="text-sm text-[#F5F0E8]/80 max-w-sm mb-6 leading-relaxed">
               {FOOTER_CONTENT.mission}
             </p>
 
             {/* Contact details */}
-            <div className="text-xs text-white/80 space-y-1">
+            <div className="text-sm text-white/85 space-y-1">
               <div>
                 <span className="text-white/50 uppercase font-mono text-[10px] tracking-wider block">Contact Email:</span>
                 <a href={`mailto:${FOOTER_CONTENT.contactEmail}`} className="text-[#FFD86A] hover:underline font-mono">

@@ -18,33 +18,33 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-20 sm:pt-24 pb-8 sm:pb-12 overflow-hidden bg-transparent scroll-mt-24"
+      className="relative min-h-screen flex flex-col justify-between pt-24 sm:pt-28 pb-8 sm:pb-12 overflow-hidden bg-transparent scroll-mt-24"
     >
       {/* Top Headline & CTAs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full z-10 pt-4 sm:pt-6">
-        <div className="max-w-md sm:max-w-xl">
-          <div className="inline-flex items-center gap-2 mb-2 text-[#FF172F] text-[10px] sm:text-[11px] font-bold tracking-widest uppercase">
-            <span className="w-4 h-[2px] bg-[#FF172F]" />
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10 pt-4 sm:pt-6">
+        <div className="max-w-xl lg:max-w-2xl">
+          <div className="inline-flex items-center gap-2.5 mb-3 text-[#FF4D5E] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            <span className="w-5 h-[2px] bg-[#FF4D5E]" />
             {HERO_CONTENT.eyebrow}
           </div>
 
-          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight uppercase text-white mb-2.5 sm:mb-3 drop-shadow-lg">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.94] tracking-tight uppercase text-white mb-4 drop-shadow-md">
             {HERO_CONTENT.headlineMain} <br />
-            <span className="text-[#FF172F]">{HERO_CONTENT.headlineSub}</span>
+            <span className="text-[#FF4D5E]">{HERO_CONTENT.headlineSub}</span>
           </h1>
 
-          <p className="text-xs sm:text-sm text-white/90 font-normal leading-relaxed mb-4 max-w-lg drop-shadow-md">
+          <p className="text-base sm:text-lg text-white/90 font-normal leading-relaxed mb-5 max-w-xl drop-shadow-sm">
             {HERO_CONTENT.supportingCopy}
           </p>
 
-          <p className="text-[11px] sm:text-xs text-white/70 italic leading-relaxed mb-6 max-w-lg drop-shadow-sm border-l-2 border-[#FF172F]/50 pl-3">
+          <p className="text-xs sm:text-sm text-white/75 leading-relaxed mb-8 max-w-xl border-l-2 border-white/20 pl-4 italic">
             {HERO_CONTENT.positioningNote}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <button
               onClick={onOpenWebinarModal}
-              className="group min-h-[46px] px-6 py-3 rounded-full bg-[#E50920] hover:bg-[#FF172F] active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-xl shadow-[#E50920]/40 flex items-center justify-center gap-2 cursor-pointer"
+              className="group min-h-[50px] px-7 py-3.5 rounded-lg bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white font-semibold text-sm tracking-wide transition-all shadow-lg shadow-red-950/40 flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <span>{HERO_CONTENT.primaryCTA}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -52,9 +52,9 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
 
             <button
               onClick={scrollToHowItWorks}
-              className="min-h-[46px] px-5 py-3 rounded-full bg-black/65 hover:bg-white/10 active:scale-[0.98] border border-white/20 text-white font-medium text-xs tracking-wider uppercase transition-all backdrop-blur-md flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+              className="min-h-[50px] px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 active:scale-[0.99] border border-white/20 text-white font-medium text-sm tracking-wide transition-all backdrop-blur-sm flex items-center justify-center gap-2 cursor-pointer"
             >
-              <Compass className="w-4 h-4 text-[#FF172F]" />
+              <Compass className="w-4 h-4 text-[#FF4D5E]" />
               <span>{HERO_CONTENT.secondaryCTA}</span>
             </button>
           </div>
@@ -62,19 +62,16 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
       </div>
 
       {/* Middle Breathing Room */}
-      <div className="flex-1 min-h-[40px] sm:min-h-[140px]" />
+      <div className="flex-1 min-h-[40px] sm:min-h-[100px]" />
 
       {/* Bottom Dock Trust Strip */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full z-10">
-        <div className="p-3.5 sm:p-5 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/15 shadow-2xl">
-          <div className="text-[10px] font-mono tracking-widest text-[#FFD86A] uppercase mb-2">
-            TRUST STRIP
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-xs sm:text-sm text-white/90">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
+        <div className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl bg-black/45 backdrop-blur-md border border-white/10 shadow-xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-xs sm:text-sm text-white/85">
             {HERO_CONTENT.trustStrip.map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF172F] shrink-0" />
-                <span className="font-medium">{item}</span>
+              <div key={item} className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E50920] shrink-0" />
+                <span className="font-medium tracking-normal">{item}</span>
               </div>
             ))}
           </div>

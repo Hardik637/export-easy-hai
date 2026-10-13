@@ -43,8 +43,8 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-3 group min-h-[44px]">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF172F] to-[#B80014] flex items-center justify-center shadow-lg shadow-[#E50920]/30 transform group-hover:scale-105 transition-transform text-white">
-              <Compass className="w-5 h-5 animate-pulse" />
+            <div className="w-9 h-9 rounded-lg bg-[#E50920] flex items-center justify-center shadow-md shadow-red-950/30 text-white">
+              <Compass className="w-5 h-5" />
             </div>
             <div>
               <div
@@ -79,14 +79,14 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
             ))}
           </nav>
 
-          {/* Right Action: Primary CTA from PDF: Reserve Your Webinar Seat */}
+          {/* Right Action: Primary CTA */}
           <div className="hidden sm:flex items-center gap-4">
             <button
               onClick={onOpenWebinarModal}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer shadow-md ${
+              className={`px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-md ${
                 isLightMode
                   ? "bg-[#111111] text-white hover:bg-[#E50920]"
-                  : "bg-white text-black hover:bg-[#FFD86A]"
+                  : "bg-[#E50920] text-white hover:bg-[#c8071a]"
               }`}
             >
               <span>Reserve Your Webinar Seat</span>

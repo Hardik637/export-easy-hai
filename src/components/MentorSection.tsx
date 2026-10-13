@@ -14,50 +14,50 @@ export default function MentorSection() {
   return (
     <section
       id="about"
-      className="relative py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
+      className="relative py-16 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section 7: Why Learn With Us */}
-        <div className="mb-14 sm:mb-20">
+        <div className="mb-16 sm:mb-20">
           <div className="max-w-3xl mb-8">
-            <div className="inline-flex items-center gap-2 mb-2.5 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3 text-[#D45A20] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#D45A20]" />
               WHY LEARN WITH US
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight uppercase text-[#111111] mb-3">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-[#111111] mb-4">
               {WHY_LEARN_WITH_US.heading}
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-base text-[#444444] font-normal leading-relaxed mb-5">
+            <p className="text-base sm:text-lg text-[#333333] font-normal leading-relaxed mb-6">
               {WHY_LEARN_WITH_US.subcopy}
             </p>
 
             <button
               onClick={scrollToHowItWorks}
-              className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-black text-white hover:bg-[#D45A20] transition-all inline-flex items-center gap-2 cursor-pointer shadow-sm"
+              className="px-6 py-3 rounded-lg text-sm font-semibold tracking-wide bg-[#111111] text-white hover:bg-[#E50920] transition-colors inline-flex items-center gap-2 cursor-pointer shadow-sm"
             >
               <span>{WHY_LEARN_WITH_US.cta}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] mb-3 font-semibold">
+          <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] mb-4 font-semibold">
             What makes the approach practical:
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {WHY_LEARN_WITH_US.practicalPoints.map((point, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-2xl bg-white/85 backdrop-blur-xl border border-[#D45A20]/20 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                className="p-5 sm:p-6 rounded-xl bg-white/95 border border-[#EAD5AF] flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
               >
                 <div>
-                  <div className="font-sans font-bold text-sm text-[#111111] tracking-tight leading-snug mb-1.5 flex items-center gap-2">
+                  <div className="font-sans font-bold text-base text-[#111111] tracking-tight leading-snug mb-2 flex items-center gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#D45A20] shrink-0" />
                     <span>{point.title}</span>
                   </div>
-                  <p className="text-xs text-[#555555] leading-relaxed">
+                  <p className="text-sm text-[#444444] leading-relaxed">
                     {point.desc}
                   </p>
                 </div>
@@ -67,16 +67,16 @@ export default function MentorSection() {
         </div>
 
         {/* Section 8: Founder / Mentor Section */}
-        <div className="p-6 sm:p-10 rounded-3xl bg-white/90 backdrop-blur-2xl border border-[#EAD5AF] shadow-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="p-8 sm:p-12 rounded-2xl bg-white/95 border border-[#EAD5AF] shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Portrait & Title */}
-            <div className="lg:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left">
-              <div className="relative w-36 h-36 sm:w-48 sm:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-white/80 shrink-0 mb-4 bg-black">
+            <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+              <div className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-xl overflow-hidden shadow-md border border-[#EAD5AF] shrink-0 mb-4 bg-black">
                 <Image
                   src="/images/mentor-rahul.jpg"
                   alt="Rahul Makwana - Founder, Mentor & Export Educator"
                   fill
-                  sizes="200px"
+                  sizes="240px"
                   className="object-cover object-top"
                 />
               </div>
@@ -84,39 +84,39 @@ export default function MentorSection() {
               <h3 className="font-display text-2xl sm:text-3xl text-[#111111] uppercase tracking-tight">
                 {MENTOR_CONTENT.name}
               </h3>
-              <div className="text-xs font-bold tracking-widest uppercase text-[#D45A20] mt-0.5">
+              <div className="text-xs font-semibold tracking-wider uppercase text-[#D45A20] mt-1">
                 {MENTOR_CONTENT.role}
               </div>
             </div>
 
             {/* Right Column: Bio & Experience Proof */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 mb-2 text-[#D45A20] text-[11px] font-bold tracking-widest uppercase">
-                <span className="w-5 h-[2px] bg-[#D45A20]" />
-                FOUNDER / MENTOR
+            <div className="lg:col-span-8">
+              <div className="inline-flex items-center gap-2 mb-2.5 text-[#D45A20] text-xs font-semibold tracking-wider uppercase">
+                <span className="w-4 h-[2px] bg-[#D45A20]" />
+                FOUNDER &amp; MENTOR
               </div>
 
-              <h4 className="font-display text-2xl sm:text-4xl text-[#111111] uppercase tracking-tight leading-tight mb-3">
+              <h4 className="font-display text-2xl sm:text-4xl text-[#111111] uppercase tracking-tight leading-snug mb-4">
                 {MENTOR_CONTENT.title}
               </h4>
 
-              <p className="text-xs sm:text-sm text-[#444444] leading-relaxed mb-3">
+              <p className="text-base text-[#333333] leading-relaxed mb-4">
                 {MENTOR_CONTENT.bio1}
               </p>
 
-              <p className="text-xs sm:text-sm text-[#444444] leading-relaxed mb-5">
+              <p className="text-base text-[#333333] leading-relaxed mb-6">
                 {MENTOR_CONTENT.bio2}
               </p>
 
-              <div className="p-4 rounded-2xl bg-[#FAF6EE] border border-[#EAD5AF] mb-5">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-2">
+              <div className="p-5 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] mb-6">
+                <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-3">
                   Experience &amp; Approach
                 </div>
-                <div className="space-y-1.5 text-xs text-[#333333]">
+                <div className="space-y-2 text-sm text-[#333333]">
                   {MENTOR_CONTENT.experienceProof.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#D45A20] shrink-0" />
-                      <span>{item}</span>
+                    <div key={idx} className="flex items-center gap-2.5">
+                      <ShieldCheck className="w-4 h-4 text-[#D45A20] shrink-0" />
+                      <span className="font-medium">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -124,7 +124,7 @@ export default function MentorSection() {
 
               <button
                 onClick={scrollToHowItWorks}
-                className="px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs bg-[#E50920] hover:bg-[#FF172F] text-white transition-all inline-flex items-center gap-2 cursor-pointer shadow-md"
+                className="px-7 py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] text-white transition-all inline-flex items-center gap-2 cursor-pointer shadow-md"
               >
                 <span>{MENTOR_CONTENT.cta}</span>
                 <ArrowRight className="w-4 h-4" />

@@ -9,35 +9,35 @@ export default function SuccessStories() {
   return (
     <section
       id="success-stories"
-      className="relative py-14 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
+      className="relative py-16 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 mb-2.5 text-[#E50920] text-[11px] font-bold tracking-widest uppercase">
-            <span className="w-6 h-[2px] bg-[#E50920]" />
-            LEARNER JOURNEY
+          <div className="inline-flex items-center gap-2.5 mb-3 text-[#E50920] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            <span className="w-5 h-[2px] bg-[#E50920]" />
+            LEARNER JOURNEY &amp; MILESTONES
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight uppercase text-[#111111] mb-3">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-[#111111] mb-3.5">
             {STORIES_REPLACEMENT_CONTENT.heading}
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-[#444444] font-normal leading-relaxed mb-4">
+          <p className="text-base sm:text-lg text-[#444444] font-normal leading-relaxed mb-5">
             {STORIES_REPLACEMENT_CONTENT.subcopy}
           </p>
 
-          <div className="p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#EAD5AF] text-xs sm:text-sm text-[#111111] font-semibold leading-relaxed shadow-sm">
+          <div className="p-5 rounded-xl bg-white/95 border-l-2 border-[#E50920] border-y border-r border-[#EAD5AF] text-sm sm:text-base text-[#111111] font-semibold leading-relaxed shadow-sm">
             {STORIES_REPLACEMENT_CONTENT.temporaryCopy}
           </div>
         </div>
 
         {/* Future proof section */}
-        <div className="mb-4">
-          <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-1">
+        <div className="mb-6">
+          <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-1.5">
             {STORIES_REPLACEMENT_CONTENT.futureProofTitle}
           </div>
-          <p className="text-xs text-[#666666] leading-relaxed mb-4">
+          <p className="text-sm text-[#555555] leading-relaxed">
             {STORIES_REPLACEMENT_CONTENT.futureProofDesc}
           </p>
         </div>
@@ -47,16 +47,16 @@ export default function SuccessStories() {
           {STORIES_REPLACEMENT_CONTENT.milestones.map((milestone, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#EAD5AF] hover:border-[#E50920] transition-all duration-300 shadow-sm hover:shadow-md flex items-start gap-3.5"
+              className="p-5 sm:p-6 rounded-xl bg-white/95 border border-[#EAD5AF] hover:border-[#E50920]/60 transition-all duration-300 shadow-sm hover:shadow-md flex items-start gap-4"
             >
-              <div className="w-8 h-8 rounded-xl bg-[#E50920]/10 text-[#E50920] flex items-center justify-center shrink-0 font-display text-sm font-bold">
-                {idx + 1}
+              <div className="w-8 h-8 rounded-lg bg-[#E50920]/10 text-[#E50920] flex items-center justify-center shrink-0 font-mono text-xs font-bold">
+                0{idx + 1}
               </div>
               <div>
-                <div className="font-sans font-bold text-sm text-[#111111] tracking-tight mb-1">
+                <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight mb-2 leading-snug">
                   {milestone}
                 </div>
-                <div className="text-[11px] text-[#777777] flex items-center gap-1.5 font-medium">
+                <div className="text-xs text-[#777777] flex items-center gap-1.5 font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#D45A20]" />
                   <span>Execution Milestone</span>
                 </div>
@@ -71,14 +71,14 @@ export default function SuccessStories() {
             {STORIES_REPLACEMENT_CONTENT.milestones.map((milestone, idx) => (
               <div
                 key={idx}
-                className="w-full p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#EAD5AF] shadow-md flex flex-col justify-between min-h-[160px]"
+                className="w-full p-5 sm:p-6 rounded-xl bg-white/95 border border-[#EAD5AF] shadow-md flex flex-col justify-between min-h-[170px]"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="w-7 h-7 rounded-lg bg-[#E50920]/10 text-[#E50920] flex items-center justify-center font-display text-xs font-bold">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="w-8 h-8 rounded-lg bg-[#E50920]/10 text-[#E50920] flex items-center justify-center font-mono text-xs font-bold">
                       0{idx + 1}
                     </span>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#D45A20] px-2 py-0.5 rounded-full bg-[#FAF6EE] border border-[#EAD5AF]">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#D45A20] px-2.5 py-1 rounded bg-[#FAF6EE] border border-[#EAD5AF]">
                       Milestone
                     </span>
                   </div>
@@ -86,7 +86,7 @@ export default function SuccessStories() {
                     {milestone}
                   </div>
                 </div>
-                <div className="pt-3 border-t border-[#F0E6D2] text-[11px] text-[#777777] flex items-center gap-1.5 font-medium">
+                <div className="pt-3 border-t border-[#F0E6D2] text-xs text-[#777777] flex items-center gap-1.5 font-medium">
                   <Milestone className="w-3.5 h-3.5 text-[#E50920]" />
                   <span>Verified Learner Progress</span>
                 </div>

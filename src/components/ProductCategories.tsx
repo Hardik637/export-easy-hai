@@ -27,26 +27,26 @@ export default function ProductCategories({
   return (
     <section
       id="products"
-      className="relative py-14 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
+      className="relative py-16 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 sm:gap-6 mb-6 sm:mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 mb-2.5 text-[#FFD86A] text-[11px] font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3 text-[#FFD86A] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#FFD86A]" />
-              PRODUCTS SECTION
+              EXPORT PRODUCT CATEGORIES
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.92] tracking-tight uppercase text-white mb-3">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-white mb-3">
               {PRODUCTS_CONTENT.heading}
             </h2>
 
-            <p className="text-xs sm:text-sm text-white/85 font-normal leading-relaxed mb-2">
+            <p className="text-base text-white/85 font-normal leading-relaxed mb-2">
               {PRODUCTS_CONTENT.subcopy1}
             </p>
 
-            <p className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
+            <p className="text-sm text-white/80 font-medium leading-relaxed">
               {PRODUCTS_CONTENT.subcopy2}
             </p>
           </div>
@@ -54,23 +54,23 @@ export default function ProductCategories({
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenCourseModal}
-              className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/20 hover:bg-white text-white hover:text-black transition-all flex items-center gap-2 cursor-pointer backdrop-blur-sm"
+              className="px-6 py-3 rounded-lg text-sm font-semibold tracking-wide bg-[#E50920] hover:bg-[#c8071a] text-white transition-all flex items-center gap-2 cursor-pointer shadow-md"
             >
               <span>{PRODUCTS_CONTENT.cta}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </button>
 
             <div className="hidden sm:flex items-center gap-1.5">
               <button
                 onClick={() => scroll("left")}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center cursor-pointer transition-colors"
+                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center cursor-pointer transition-colors"
                 aria-label="Scroll left"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={() => scroll("right")}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center cursor-pointer transition-colors"
+                className="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center cursor-pointer transition-colors"
                 aria-label="Scroll right"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -80,14 +80,14 @@ export default function ProductCategories({
         </div>
 
         {/* Desktop Product Cards Grid (6 Columns) */}
-        <div className="hidden lg:grid lg:grid-cols-6 gap-3 sm:gap-4 mb-6">
+        <div className="hidden lg:grid lg:grid-cols-6 gap-3 sm:gap-4 mb-8">
           {PRODUCTS_CONTENT.categories.map((cat) => (
             <div
               key={cat.id}
               onClick={() => {
                 if (onSelectCategory) onSelectCategory(cat);
               }}
-              className="rounded-2xl overflow-hidden bg-black/60 backdrop-blur-xl border border-white/15 hover:border-[#FFD86A]/50 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between"
+              className="rounded-xl overflow-hidden bg-black/50 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg group cursor-pointer flex flex-col justify-between"
             >
               <div className="relative aspect-square w-full overflow-hidden shrink-0 bg-black">
                 <Image
@@ -98,22 +98,22 @@ export default function ProductCategories({
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-sm text-[10px] font-mono text-[#FFD86A] border border-white/10">
+                <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded bg-black/75 backdrop-blur-sm text-[10px] font-mono text-[#FFD86A] border border-white/10">
                   {cat.hsCode}
                 </div>
               </div>
 
-              <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <div className="font-sans font-bold text-sm sm:text-base text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
                     {cat.title}
                   </div>
-                  <p className="text-[11px] text-white/70 mt-1 line-clamp-2 leading-normal">
+                  <p className="text-xs text-white/70 mt-1 line-clamp-2 leading-relaxed">
                     {cat.subtitle}
                   </p>
                 </div>
 
-                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
+                <div className="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
                   <span className="font-semibold text-[11px]">Gulf Market</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -123,7 +123,7 @@ export default function ProductCategories({
         </div>
 
         {/* Mobile Interactive Touch Carousel */}
-        <div className="lg:hidden mb-6">
+        <div className="lg:hidden mb-8">
           <MobileCarousel activeColor="#FFD86A" theme="dark">
             {PRODUCTS_CONTENT.categories.map((cat) => (
               <div
@@ -131,7 +131,7 @@ export default function ProductCategories({
                 onClick={() => {
                   if (onSelectCategory) onSelectCategory(cat);
                 }}
-                className="w-full rounded-2xl overflow-hidden bg-black/70 backdrop-blur-xl border border-white/20 hover:border-[#FFD86A]/60 transition-all duration-300 shadow-2xl group cursor-pointer flex flex-col justify-between"
+                className="w-full rounded-xl overflow-hidden bg-black/60 backdrop-blur-md border border-white/15 hover:border-white/30 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between"
               >
                 <div className="relative h-48 sm:h-52 w-full overflow-hidden shrink-0 bg-black">
                   <Image
@@ -142,17 +142,17 @@ export default function ProductCategories({
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[11px] font-mono font-semibold text-[#FFD86A] border border-white/15">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/80 backdrop-blur-md text-[11px] font-mono font-semibold text-[#FFD86A] border border-white/15">
                     {cat.hsCode}
                   </div>
                 </div>
 
                 <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="font-sans font-bold text-base sm:text-lg text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
+                    <div className="font-sans font-bold text-base text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
                       {cat.title}
                     </div>
-                    <p className="text-xs text-white/75 mt-1 leading-normal">
+                    <p className="text-sm text-white/75 mt-1.5 leading-relaxed">
                       {cat.subtitle}
                     </p>
                   </div>
@@ -171,7 +171,7 @@ export default function ProductCategories({
         </div>
 
         {/* Responsible claim */}
-        <div className="p-4 rounded-xl bg-black/50 border border-white/10 text-[11px] sm:text-xs text-white/70 italic leading-relaxed text-center sm:text-left">
+        <div className="p-4 sm:p-5 rounded-xl bg-black/45 border-l-2 border-[#D45A20] border-y border-r border-white/10 text-xs sm:text-sm text-white/75 leading-relaxed">
           <strong className="text-[#FFD86A] font-semibold not-italic">Responsible claim: </strong>
           {PRODUCTS_CONTENT.responsibleClaim}
         </div>
