@@ -33,68 +33,68 @@ export default function WebinarSection({ onOpenWebinarModal }: WebinarSectionPro
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 items-start mb-5 sm:mb-10">
-            {/* Event details card — On mobile, order-first groups price, details, and CTA together */}
-            <div className="order-first lg:order-last lg:col-span-5 flex flex-col justify-between p-3.5 sm:p-8 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 shadow-xl">
-              <div className="flex items-center justify-between text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-3 sm:mb-4 font-semibold pb-2 border-b border-white/10">
+            {/* Event details card — On mobile, compact ticket layout with prominent fee, schedule & CTA */}
+            <div className="order-first lg:order-last lg:col-span-5 flex flex-col justify-between p-3 sm:p-7 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 shadow-xl">
+              <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-2 sm:mb-4 font-semibold pb-1.5 sm:pb-2 border-b border-white/10">
                 <span>Event details</span>
-                <span className="text-white/50 text-[10px]">Live Workshop</span>
+                <span className="text-white/50 text-[9px] sm:text-[10px]">Live Workshop</span>
               </div>
 
-              {/* Price & Schedule Highlight */}
-              <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] border border-white/10 mb-3">
+              {/* Price & Schedule Shared Row */}
+              <div className="flex items-center justify-between p-2 sm:p-2.5 rounded-lg bg-white/[0.04] border border-white/10 mb-2 sm:mb-3">
                 <div>
-                  <div className="text-[10px] uppercase font-mono text-white/60">Registration Fee</div>
-                  <div className="font-bold text-xl sm:text-2xl text-[#FF4D5E] leading-none mt-0.5">
+                  <div className="text-[9px] sm:text-[10px] uppercase font-mono text-white/50 tracking-wider">Registration Fee</div>
+                  <div className="font-bold text-lg sm:text-2xl text-[#FF4D5E] leading-none mt-0.5">
                     {WEBINAR_CONTENT.details.fee}
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-[10px] uppercase font-mono text-white/60">Live Schedule</div>
-                  <div className="font-bold text-xs sm:text-sm text-[#FFD86A] leading-tight mt-0.5">
+                  <div className="text-[9px] sm:text-[10px] uppercase font-mono text-white/50 tracking-wider">Live Schedule</div>
+                  <div className="font-bold text-[11px] sm:text-sm text-[#FFD86A] leading-tight mt-0.5">
                     {WEBINAR_CONTENT.details.schedule}
                   </div>
                 </div>
               </div>
 
-              {/* Spec list */}
-              <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 sm:block sm:space-y-3 mb-3.5 sm:mb-6 text-[11px] sm:text-sm text-white">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
-                  <span className="text-white/60 text-[10px] sm:text-xs">Format</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.format}</span>
+              {/* Tight Two-Column Info Grid */}
+              <div className="grid grid-cols-2 gap-x-2.5 gap-y-1 sm:block sm:space-y-2.5 mb-2.5 sm:mb-5 text-[11px] sm:text-sm text-white">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-0.5 sm:py-1.5 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/50 text-[9px] sm:text-xs font-mono uppercase tracking-wider">Format</span>
+                  <span className="font-medium text-white text-[11px] sm:text-sm leading-tight">{WEBINAR_CONTENT.details.format}</span>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
-                  <span className="text-white/60 text-[10px] sm:text-xs">Platform</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.platform}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-0.5 sm:py-1.5 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/50 text-[9px] sm:text-xs font-mono uppercase tracking-wider">Platform</span>
+                  <span className="font-medium text-white text-[11px] sm:text-sm leading-tight">{WEBINAR_CONTENT.details.platform}</span>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
-                  <span className="text-white/60 text-[10px] sm:text-xs">Language</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.language}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-0.5 sm:py-1.5 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/50 text-[9px] sm:text-xs font-mono uppercase tracking-wider">Language</span>
+                  <span className="font-medium text-white text-[11px] sm:text-sm leading-tight">{WEBINAR_CONTENT.details.language}</span>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
-                  <span className="text-white/60 text-[10px] sm:text-xs">Seats</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.seats}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-0.5 sm:py-1.5 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/50 text-[9px] sm:text-xs font-mono uppercase tracking-wider">Seats</span>
+                  <span className="font-medium text-white text-[11px] sm:text-sm leading-tight">{WEBINAR_CONTENT.details.seats}</span>
                 </div>
-                <div className="col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
-                  <span className="text-white/60 text-[10px] sm:text-xs">Recording</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.recording}</span>
+                <div className="col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between py-0.5 sm:py-1.5 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/50 text-[9px] sm:text-xs font-mono uppercase tracking-wider">Recording</span>
+                  <span className="font-medium text-white text-[11px] sm:text-sm leading-tight">{WEBINAR_CONTENT.details.recording}</span>
                 </div>
               </div>
 
               <button
                 onClick={onOpenWebinarModal}
-                className="btn-primary w-full py-3 px-5 sm:px-6 text-xs sm:text-sm mb-3 sm:mb-5 justify-center"
+                className="btn-primary w-full py-2.5 sm:py-3 px-4 sm:px-6 text-xs sm:text-sm mb-2 sm:mb-4 justify-center shadow-lg shadow-red-950/40"
               >
                 <span>{WEBINAR_CONTENT.primaryCTA}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 ml-1" />
               </button>
 
-              <div className="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-white/80 leading-relaxed">
+              <div className="space-y-1 sm:space-y-1.5 text-[9.5px] sm:text-xs text-white/75 leading-snug pt-1.5 border-t border-white/5">
                 <p>
-                  <strong className="text-white font-semibold">Payment and access note: </strong>
+                  <strong className="text-white/95 font-semibold">Payment and access note: </strong>
                   {WEBINAR_CONTENT.paymentNote}
                 </p>
                 <p>
-                  <strong className="text-white font-semibold">Refund note: </strong>
+                  <strong className="text-white/95 font-semibold">Refund note: </strong>
                   {WEBINAR_CONTENT.refundNote}
                 </p>
               </div>
