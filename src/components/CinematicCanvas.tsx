@@ -57,6 +57,7 @@ export default function CinematicCanvas() {
   const [progress, setProgress] = useState(0);
   const [activeNavIndex, setActiveNavIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isNavHovered, setIsNavHovered] = useState(false);
 
   // Check reduced motion preference
   useEffect(() => {
@@ -363,9 +364,11 @@ export default function CinematicCanvas() {
         }}
       />
 
-      {/* Desktop Vertical Story Indicator (Fixed Right) */}
+      {/* Desktop Vertical Story Indicator (Fixed Right) - Shows only dots normally, slides out when cursor hovers near */}
       <div
-        className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1 p-2 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 shadow-xl transition-all duration-300 pointer-events-auto"
+        onMouseEnter={() => setIsNavHovered(true)}
+        onMouseLeave={() => setIsNavHovered(false)}
+        className="group fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1 p-2 rounded-2xl bg-black/80 backdrop-blur-md border border-white/15 shadow-2xl transition-all duration-300 ease-out pointer-events-auto"
         aria-label="Story journey navigation"
       >
         {JOURNEY_NAV_ITEMS.map((item, i) => {
@@ -375,15 +378,16 @@ export default function CinematicCanvas() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="group flex items-center justify-between gap-3 text-left py-1 px-2.5 rounded-lg transition-all hover:bg-white/10 cursor-pointer min-h-[32px]"
+              className="flex items-center justify-end py-1 px-1 rounded-lg transition-all hover:bg-white/10 cursor-pointer min-h-[30px]"
               aria-label={`Jump to stage ${item.stepNumber}: ${item.label} (${item.time})`}
             >
+              {/* Slide-out text label - hidden/collapsed by default, slides out smoothly on hover */}
               <div
-                className={`flex flex-col transition-all duration-200 ${
-                  isActive
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-70 group-hover:opacity-100 translate-x-0.5"
-                }`}
+                className={`overflow-hidden transition-all duration-300 ease-out flex flex-col whitespace-nowrap text-left ${
+                  isNavHovered
+                    ? "max-w-[160px] opacity-100 translate-x-0 mr-2.5"
+                    : "max-w-0 opacity-0 translate-x-3 pointer-events-none mr-0"
+                } group-hover:max-w-[160px] group-hover:opacity-100 group-hover:translate-x-0 group-hover:mr-2.5`}
               >
                 <div className="flex items-center gap-1.5">
                   <span
@@ -412,15 +416,15 @@ export default function CinematicCanvas() {
                 </span>
               </div>
 
-              {/* Status Pip */}
-              <div className="relative flex items-center justify-center w-3 h-3 ml-1">
+              {/* Status Pip (Always visible as dots) */}
+              <div className="relative flex items-center justify-center w-4 h-4 shrink-0">
                 <span
                   className={`rounded-full transition-all duration-200 ${
                     isActive
-                      ? "w-2 h-2 bg-[#E50920] scale-110"
+                      ? "w-2.5 h-2.5 bg-[#E50920] shadow-[0_0_8px_rgba(229,9,32,0.9)] scale-110"
                       : isPast
-                      ? "w-1.5 h-1.5 bg-white/70"
-                      : "w-1.5 h-1.5 bg-white/25 group-hover:bg-white/50"
+                      ? "w-1.5 h-1.5 bg-white/75"
+                      : "w-1.5 h-1.5 bg-white/35 group-hover:bg-white/60"
                   }`}
                 />
               </div>
