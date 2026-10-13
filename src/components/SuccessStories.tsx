@@ -9,36 +9,36 @@ export default function SuccessStories() {
   return (
     <section
       id="success-stories"
-      className="relative py-16 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
+      className="relative py-12 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div className="editorial-container">
-        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-6 sm:p-10 lg:p-14 shadow-2xl">
+        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-4.5 sm:p-10 lg:p-14 shadow-2xl">
           {/* Section Header */}
-          <div className="max-w-3xl mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2.5 mb-3.5 text-[#E50920] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+          <div className="max-w-3xl mb-6 sm:mb-12">
+            <div className="inline-flex items-center gap-2.5 mb-2.5 sm:mb-3.5 text-[#E50920] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#E50920]" />
               LEARNER JOURNEY &amp; MILESTONES
             </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-[#111111] mb-4">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-[#111111] mb-3 sm:mb-4">
               {STORIES_REPLACEMENT_CONTENT.heading}
             </h2>
 
-            <p className="text-base sm:text-lg text-[#222222] font-normal leading-relaxed mb-6">
+            <p className="text-sm sm:text-lg text-[#222222] font-normal leading-relaxed mb-4 sm:mb-6">
               {STORIES_REPLACEMENT_CONTENT.subcopy}
             </p>
 
-            <div className="p-5 rounded-xl bg-[#FAF6EE] border-l-2 border-[#E50920] border-y border-r border-[#EAD5AF] text-sm sm:text-base text-[#111111] font-semibold leading-relaxed shadow-sm">
+            <div className="p-3.5 sm:p-5 rounded-xl bg-[#FAF6EE] border-l-2 border-[#E50920] border-y border-r border-[#EAD5AF] text-xs sm:text-base text-[#111111] font-semibold leading-relaxed shadow-sm">
               {STORIES_REPLACEMENT_CONTENT.temporaryCopy}
             </div>
           </div>
 
           {/* Future proof section */}
-          <div className="mb-8 p-4 rounded-lg bg-[#FAF6EE]/70 border border-[#EAD5AF] flex items-start gap-3">
-            <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold shrink-0 pt-0.5">
+          <div className="mb-6 sm:mb-8 p-3 sm:p-4 rounded-lg bg-[#FAF6EE]/70 border border-[#EAD5AF] flex items-start gap-2.5 sm:gap-3">
+            <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold shrink-0 pt-0.5">
               {STORIES_REPLACEMENT_CONTENT.futureProofTitle}:
             </div>
-            <p className="text-sm text-[#222222] leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-[#222222] leading-relaxed font-normal">
               {STORIES_REPLACEMENT_CONTENT.futureProofDesc}
             </p>
           </div>
@@ -72,22 +72,22 @@ export default function SuccessStories() {
               {STORIES_REPLACEMENT_CONTENT.milestones.map((milestone, idx) => (
                 <div
                   key={idx}
-                  className="w-full p-5 sm:p-6 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-md flex flex-col justify-between min-h-[170px]"
+                  className="w-full p-4 sm:p-6 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-md flex flex-col justify-between min-h-[140px] sm:min-h-[170px]"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3.5">
-                      <span className="w-8 h-8 rounded-lg bg-[#E50920]/10 text-[#E50920] flex items-center justify-center font-mono text-xs font-bold">
+                    <div className="flex items-center justify-between mb-2.5 sm:mb-3.5">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#E50920]/10 text-[#E50920] flex items-center justify-center font-mono text-xs font-bold">
                         0{idx + 1}
                       </span>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#D45A20] px-2.5 py-1 rounded bg-white border border-[#EAD5AF]">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#D45A20] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-white border border-[#EAD5AF]">
                         Milestone
                       </span>
                     </div>
-                    <div className="font-sans font-bold text-base text-[#111111] tracking-tight leading-snug">
+                    <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight leading-snug">
                       {milestone}
                     </div>
                   </div>
-                  <div className="pt-3 border-t border-[#EAD5AF] text-xs text-[#444444] flex items-center gap-1.5 font-medium">
+                  <div className="pt-2.5 sm:pt-3 border-t border-[#EAD5AF] text-[11px] sm:text-xs text-[#444444] flex items-center gap-1.5 font-medium">
                     <Milestone className="w-3.5 h-3.5 text-[#E50920]" />
                     <span>Verified Learner Progress</span>
                   </div>
