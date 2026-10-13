@@ -128,43 +128,43 @@ export default function ProductCategories({
           ))}
         </div>
 
-        {/* Mobile Interactive Touch Carousel */}
-        <div className="lg:hidden mb-6">
-          <MobileCarousel activeColor="#FFD86A" theme="dark">
+        {/* Mobile Distinct Horizontal Snap Rail with Card Peeking */}
+        <div className="lg:hidden mb-4">
+          <div className="flex gap-3 overflow-x-auto pb-3 pt-1 -mx-4 px-4 snap-x snap-mandatory no-scrollbar">
             {PRODUCTS_CONTENT.categories.map((cat) => (
               <div
                 key={cat.id}
                 onClick={() => {
                   if (onSelectCategory) onSelectCategory(cat);
                 }}
-                className="w-full rounded-xl overflow-hidden bg-black/60 backdrop-blur-md border border-white/15 hover:border-white/30 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between"
+                className="w-[240px] shrink-0 snap-start rounded-xl overflow-hidden bg-black/60 backdrop-blur-md border border-white/15 hover:border-white/30 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between"
               >
-                <div className="relative h-36 sm:h-52 w-full overflow-hidden shrink-0 bg-black">
+                <div className="relative h-28 w-full overflow-hidden shrink-0 bg-black">
                   <Image
                     src={cat.image}
                     alt={cat.title}
                     fill
-                    sizes="(max-width: 640px) 340px, 340px"
+                    sizes="240px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
-                  <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-[10px] font-mono font-semibold text-[#FFD86A] border border-white/15">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-[10px] font-mono font-semibold text-[#FFD86A] border border-white/15">
                     {cat.hsCode}
                   </div>
                 </div>
 
-                <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between">
+                <div className="p-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="font-sans font-bold text-sm sm:text-base text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
+                    <div className="font-sans font-bold text-sm text-white tracking-tight leading-snug group-hover:text-[#FFD86A] transition-colors">
                       {cat.title}
                     </div>
-                    <p className="text-xs sm:text-sm text-white/85 mt-1 leading-relaxed font-normal">
+                    <p className="text-[11px] text-white/80 mt-1 line-clamp-2 leading-relaxed font-normal">
                       {cat.subtitle}
                     </p>
                   </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#FFD86A]">
-                    <span className="font-semibold text-[11px]">Gulf Opportunity</span>
+                  <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#FFD86A]">
+                    <span className="font-semibold text-[10px]">Gulf Opportunity</span>
                     <span className="flex items-center gap-1 font-bold uppercase tracking-wider text-[10px]">
                       <span>Explore</span>
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
@@ -173,11 +173,19 @@ export default function ProductCategories({
                 </div>
               </div>
             ))}
-          </MobileCarousel>
+          </div>
+
+          <div className="flex items-center justify-between text-[10px] font-mono text-white/50 px-1 mt-1">
+            <span>6 High-Demand Categories</span>
+            <span className="flex items-center gap-1 text-[#FFD86A]">
+              <span>Swipe horizontally</span>
+              <ArrowRight className="w-3 h-3" />
+            </span>
+          </div>
         </div>
 
         {/* Responsible claim */}
-        <div className="p-3.5 sm:p-5 rounded-lg bg-black/50 border-l-2 border-[#D45A20] border-y border-r border-white/10 text-xs sm:text-sm text-white/90 leading-relaxed backdrop-blur-sm shadow-md">
+        <div className="p-2.5 sm:p-5 rounded-lg bg-black/50 border-l-2 border-[#D45A20] border-y border-r border-white/10 text-[11px] sm:text-sm text-white/90 leading-relaxed backdrop-blur-sm shadow-md">
           <strong className="text-[#FFD86A] font-semibold not-italic">Responsible claim: </strong>
           {PRODUCTS_CONTENT.responsibleClaim}
         </div>

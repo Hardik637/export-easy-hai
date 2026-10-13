@@ -47,13 +47,13 @@ export default function CourseSection() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3.5">
+              <div className="grid grid-cols-2 gap-x-2 sm:gap-x-6 gap-y-1.5 sm:gap-y-3.5">
                 {LIVE_BATCH_CONTENT.includes.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 sm:gap-3 py-1 text-xs sm:text-sm text-[#111111]"
+                    className="flex items-start gap-1.5 sm:gap-3 py-0.5 text-[11px] sm:text-sm text-[#111111]"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E50920] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-[#E50920] shrink-0 mt-0.5" />
                     <span className="leading-snug font-medium">{item}</span>
                   </div>
                 ))}
@@ -61,17 +61,17 @@ export default function CourseSection() {
             </div>
 
             {/* Expected outcome & Action Card */}
-            <div className="lg:col-span-5 flex flex-col justify-between p-4 sm:p-8 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-sm mt-4 lg:mt-0">
+            <div className="lg:col-span-5 flex flex-col justify-between p-3.5 sm:p-8 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-sm mt-3 lg:mt-0">
               <div>
-                <h4 className="font-sans font-bold text-[11px] sm:text-xs uppercase tracking-wider text-[#D45A20] mb-2 sm:mb-3">
+                <h4 className="font-sans font-bold text-[10px] sm:text-xs uppercase tracking-wider text-[#D45A20] mb-1.5 sm:mb-3">
                   {LIVE_BATCH_CONTENT.expectedOutcomeTitle}
                 </h4>
 
-                <p className="text-xs sm:text-base text-[#111111] font-medium leading-relaxed mb-3 sm:mb-5">
+                <p className="text-xs sm:text-base text-[#111111] font-medium leading-relaxed mb-2.5 sm:mb-5">
                   {LIVE_BATCH_CONTENT.expectedOutcome}
                 </p>
 
-                <div className="p-3 sm:p-4 rounded-lg bg-white border border-[#EAD5AF] text-[11px] sm:text-xs text-[#333333] leading-relaxed mb-4 sm:mb-6 font-normal">
+                <div className="p-2.5 sm:p-4 rounded-lg bg-white border border-[#EAD5AF] text-[10px] sm:text-xs text-[#333333] leading-relaxed mb-3 sm:mb-6 font-normal">
                   <strong className="text-[#111111] font-semibold not-italic">Disclaimer: </strong>
                   {LIVE_BATCH_CONTENT.disclaimer}
                 </div>
@@ -80,7 +80,7 @@ export default function CourseSection() {
               <div>
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="btn-primary w-full py-3 text-xs sm:text-sm"
+                  className="btn-primary w-full py-2.5 sm:py-3 text-xs sm:text-sm justify-center"
                 >
                   <span>{LIVE_BATCH_CONTENT.cta}</span>
                   <ArrowRight className="w-4 h-4" />

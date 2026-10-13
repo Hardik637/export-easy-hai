@@ -41,23 +41,25 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
               </span>
             </h2>
 
-            <p className="text-sm sm:text-lg text-white/95 font-normal leading-relaxed mb-2.5 sm:mb-4">
+            <p className="text-sm sm:text-lg text-white/95 font-normal leading-relaxed mb-2 sm:mb-4">
               {OPPORTUNITY_CONTENT.body1}
             </p>
 
-            <p className="text-xs sm:text-base text-white/80 font-normal leading-relaxed mb-4 sm:mb-6">
+            <p className="text-xs sm:text-base text-white/80 font-normal leading-relaxed mb-3 sm:mb-6">
               {OPPORTUNITY_CONTENT.body2}
             </p>
 
-            <button
-              onClick={scrollToHowItWorks}
-              className="btn-primary mb-4 sm:mb-6 py-3 px-5 sm:px-6 text-xs sm:text-sm"
-            >
-              <span>{OPPORTUNITY_CONTENT.cta}</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 mb-3 sm:mb-6">
+              <button
+                onClick={scrollToHowItWorks}
+                className="btn-primary py-3 px-5 sm:px-6 text-xs sm:text-sm justify-center w-full sm:w-auto"
+              >
+                <span>{OPPORTUNITY_CONTENT.cta}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
 
-            <div className="p-3.5 sm:p-5 rounded-lg bg-black/50 border-l-2 border-[#F2A62B] border-y border-r border-white/10 text-xs sm:text-sm text-white/90 leading-relaxed backdrop-blur-sm shadow-md mb-6 lg:mb-0">
+            <div className="p-2.5 sm:p-4 rounded-lg bg-black/60 border-l-2 border-[#F2A62B] border-y border-r border-white/10 text-[11px] sm:text-xs text-white/85 leading-relaxed backdrop-blur-sm mb-5 lg:mb-0">
               <strong className="text-[#FFD86A] font-semibold not-italic">Compliance note: </strong>
               {OPPORTUNITY_CONTENT.complianceNote}
             </div>
@@ -65,8 +67,8 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
 
           {/* Right Column: Product categories */}
           <div className="lg:col-span-6">
-            <div className="p-4 sm:p-8 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 shadow-xl">
-              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-3.5 sm:mb-5 font-semibold flex items-center justify-between border-b border-white/10 pb-2.5 sm:pb-3.5">
+            <div className="p-3.5 sm:p-8 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 shadow-xl">
+              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-2.5 sm:mb-5 font-semibold flex items-center justify-between border-b border-white/10 pb-2 sm:pb-3.5">
                 <span className="flex items-center gap-1.5 sm:gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F2A62B]" />
                   Product categories may include:
@@ -74,11 +76,11 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
                 <span className="text-[10px] sm:text-[11px] font-mono text-white/50">Market Sectors</span>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
+              <div className="grid grid-cols-2 gap-1.5 sm:gap-2.5">
                 {OPPORTUNITY_CONTENT.categoriesList.map((cat, idx) => (
                   <div
                     key={idx}
-                    className="p-2.5 sm:p-3.5 rounded-lg bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-center gap-2 text-xs sm:text-sm text-white font-medium leading-tight"
+                    className="p-2 sm:p-3.5 rounded-lg bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm text-white font-medium leading-tight"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#F2A62B] shrink-0" />
                     <span>{cat}</span>
@@ -90,12 +92,12 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
         </div>
 
         {/* Section 4: What Export Easy Hai Helps You Do */}
-        <div className="p-4 sm:p-8 lg:p-10 rounded-2xl bg-black/55 backdrop-blur-md border border-white/10 shadow-xl">
-          <div className="max-w-2xl mb-4 sm:mb-6">
-            <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-1.5 sm:mb-2.5 font-semibold">
+        <div className="p-3.5 sm:p-8 lg:p-10 rounded-2xl bg-black/55 backdrop-blur-md border border-white/10 shadow-xl">
+          <div className="max-w-2xl mb-3.5 sm:mb-6">
+            <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-1 sm:mb-2.5 font-semibold">
               WHAT EXPORT EASY HAI HELPS YOU DO
             </div>
-            <h3 className="font-display text-2xl sm:text-4xl text-white uppercase tracking-tight leading-snug mb-2 sm:mb-3">
+            <h3 className="font-display text-2xl sm:text-4xl text-white uppercase tracking-tight leading-snug mb-1.5 sm:mb-3">
               {WHAT_WE_HELP_DO.heading}
             </h3>
             <p className="text-xs sm:text-base text-white/85 leading-relaxed">
@@ -103,18 +105,19 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
             </p>
           </div>
 
-          <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-3 sm:mb-4 font-semibold flex items-center gap-1.5 sm:gap-2">
+          <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-2.5 sm:mb-4 font-semibold flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFD86A]" />
             You will learn how to:
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 mb-6 sm:mb-8">
+          {/* 2-Column Grid on Mobile and Desktop */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-4 sm:mb-8">
             {WHAT_WE_HELP_DO.learningPoints.map((point, idx) => (
               <div
                 key={idx}
-                className="p-2.5 sm:p-4 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-start gap-2.5 sm:gap-3.5 text-xs sm:text-base text-white"
+                className="p-2 sm:p-4 rounded-lg sm:rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-start gap-1.5 sm:gap-3.5 text-[11px] sm:text-base text-white"
               >
-                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#F2A62B]/20 text-[#FFD86A] text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 border border-[#F2A62B]/30">
+                <div className="w-4 h-4 sm:w-6 sm:h-6 rounded bg-[#F2A62B]/20 text-[#FFD86A] text-[9px] sm:text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 border border-[#F2A62B]/30">
                   {idx + 1}
                 </div>
                 <span className="leading-snug font-medium text-white/95">{point}</span>
@@ -122,15 +125,15 @@ export default function OpportunitySection({ onOpenCourseModal }: OpportunityPro
             ))}
           </div>
 
-          <div className="pt-4 sm:pt-6 border-t border-white/10 flex items-center justify-between flex-wrap gap-3 sm:gap-4">
+          <div className="pt-3 sm:pt-6 border-t border-white/10 flex items-center justify-between flex-wrap gap-2.5 sm:gap-4">
             <button
               onClick={scrollToHowItWorks}
-              className="btn-primary py-3 px-5 sm:px-6 text-xs sm:text-sm"
+              className="btn-primary py-2.5 px-4 sm:py-3 sm:px-6 text-xs sm:text-sm w-full sm:w-auto justify-center"
             >
               <span>{WHAT_WE_HELP_DO.cta}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-            <span className="text-[11px] sm:text-xs font-mono text-white/50">
+            <span className="text-[10px] sm:text-xs font-mono text-white/50 hidden sm:inline">
               Practical Step-by-Step Curriculum
             </span>
           </div>

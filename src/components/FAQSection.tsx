@@ -29,28 +29,29 @@ export default function FAQSection() {
             </h2>
           </div>
 
-          <div className="space-y-2.5 sm:space-y-3.5">
+          {/* Clean, compact unified accordion container */}
+          <div className="rounded-xl border border-[#EAD5AF] bg-[#FAF6EE] overflow-hidden divide-y divide-[#EAD5AF] shadow-sm">
             {FAQS_CONTENT.map((faq, idx) => {
               const isOpen = openIndex === idx;
               return (
                 <div
                   key={idx}
-                  className="rounded-xl border border-[#EAD5AF] bg-[#FAF6EE] transition-all overflow-hidden shadow-sm"
+                  className="transition-colors overflow-hidden"
                 >
                   <button
                     onClick={() => toggle(idx)}
-                    className="min-h-[48px] sm:min-h-[56px] w-full text-left p-3.5 sm:p-5 flex items-center justify-between gap-3 sm:gap-4 cursor-pointer hover:bg-white/60 transition-colors focus:outline-none focus:ring-2 focus:ring-[#D45A20] focus:ring-offset-2"
+                    className="w-full text-left py-3 px-3.5 sm:py-4.5 sm:px-5 flex items-center justify-between gap-2.5 sm:gap-4 cursor-pointer hover:bg-white/70 transition-colors focus:outline-none focus:bg-white/60"
                   >
-                    <span className="font-sans font-bold text-sm sm:text-lg text-[#111111] tracking-tight leading-snug">
+                    <span className="font-sans font-bold text-xs sm:text-base text-[#111111] tracking-tight leading-snug">
                       {faq.question}
                     </span>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white border border-[#EAD5AF] flex items-center justify-center text-[#D45A20] shrink-0 font-bold shadow-xs">
-                      {isOpen ? <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded bg-white border border-[#EAD5AF] flex items-center justify-center text-[#D45A20] shrink-0 font-bold shadow-2xs">
+                      {isOpen ? <Minus className="w-3 h-3 sm:w-4 sm:h-4" /> : <Plus className="w-3 h-3 sm:w-4 sm:h-4" />}
                     </div>
                   </button>
 
                   {isOpen && (
-                    <div className="px-3.5 pb-4 sm:px-5 sm:pb-6 text-xs sm:text-base text-[#222222] leading-relaxed border-t border-[#EAD5AF] pt-3 sm:pt-4 font-normal">
+                    <div className="px-3.5 pb-3.5 pt-1 sm:px-5 sm:pb-5 sm:pt-2 text-[11px] sm:text-sm text-[#222222] leading-relaxed font-normal bg-white/50 border-t border-[#EAD5AF]/50">
                       {faq.answer}
                     </div>
                   )}

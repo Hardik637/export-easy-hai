@@ -32,18 +32,85 @@ export default function WebinarSection({ onOpenWebinarModal }: WebinarSectionPro
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start mb-6 sm:mb-10">
-            {/* In this live session, you will learn */}
-            <div className="lg:col-span-7 space-y-4 sm:space-y-7">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 items-start mb-5 sm:mb-10">
+            {/* Event details card — On mobile, order-first groups price, details, and CTA together */}
+            <div className="order-first lg:order-last lg:col-span-5 flex flex-col justify-between p-3.5 sm:p-8 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 shadow-xl">
+              <div className="flex items-center justify-between text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-3 sm:mb-4 font-semibold pb-2 border-b border-white/10">
+                <span>Event details</span>
+                <span className="text-white/50 text-[10px]">Live Workshop</span>
+              </div>
+
+              {/* Price & Schedule Highlight */}
+              <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] border border-white/10 mb-3">
+                <div>
+                  <div className="text-[10px] uppercase font-mono text-white/60">Registration Fee</div>
+                  <div className="font-bold text-xl sm:text-2xl text-[#FF4D5E] leading-none mt-0.5">
+                    {WEBINAR_CONTENT.details.fee}
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-[10px] uppercase font-mono text-white/60">Live Schedule</div>
+                  <div className="font-bold text-xs sm:text-sm text-[#FFD86A] leading-tight mt-0.5">
+                    {WEBINAR_CONTENT.details.schedule}
+                  </div>
+                </div>
+              </div>
+
+              {/* Spec list */}
+              <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 sm:block sm:space-y-3 mb-3.5 sm:mb-6 text-[11px] sm:text-sm text-white">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/60 text-[10px] sm:text-xs">Format</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.format}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/60 text-[10px] sm:text-xs">Platform</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.platform}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/60 text-[10px] sm:text-xs">Language</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.language}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/60 text-[10px] sm:text-xs">Seats</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.seats}</span>
+                </div>
+                <div className="col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 border-b border-white/5 sm:border-white/10">
+                  <span className="text-white/60 text-[10px] sm:text-xs">Recording</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.recording}</span>
+                </div>
+              </div>
+
+              <button
+                onClick={onOpenWebinarModal}
+                className="btn-primary w-full py-3 px-5 sm:px-6 text-xs sm:text-sm mb-3 sm:mb-5 justify-center"
+              >
+                <span>{WEBINAR_CONTENT.primaryCTA}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <div className="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-white/80 leading-relaxed">
+                <p>
+                  <strong className="text-white font-semibold">Payment and access note: </strong>
+                  {WEBINAR_CONTENT.paymentNote}
+                </p>
+                <p>
+                  <strong className="text-white font-semibold">Refund note: </strong>
+                  {WEBINAR_CONTENT.refundNote}
+                </p>
+              </div>
+            </div>
+
+            {/* In this live session, you will learn & receive */}
+            <div className="order-last lg:order-first lg:col-span-7 space-y-3.5 sm:space-y-7">
               <div>
-                <h3 className="font-sans font-bold text-[11px] sm:text-sm text-[#FFD86A] uppercase tracking-wider mb-2.5 sm:mb-4 pb-1.5 sm:pb-2 border-b border-white/10">
+                <h3 className="font-sans font-bold text-[11px] sm:text-sm text-[#FFD86A] uppercase tracking-wider mb-2 sm:mb-4 pb-1 sm:pb-2 border-b border-white/10">
                   In this live session, you will learn:
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-3">
                   {WEBINAR_CONTENT.learnList.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-2.5 sm:p-3.5 rounded-lg bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-white/90"
+                      className="p-2 sm:p-3.5 rounded-lg bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-start gap-1.5 sm:gap-3 text-[11px] sm:text-sm text-white/90"
                     >
                       <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E50920] shrink-0 mt-0.5" />
                       <span className="leading-snug">{item}</span>
@@ -54,77 +121,20 @@ export default function WebinarSection({ onOpenWebinarModal }: WebinarSectionPro
 
               {/* You will also receive */}
               <div>
-                <h3 className="font-sans font-bold text-[11px] sm:text-sm text-[#FFD86A] uppercase tracking-wider mb-2.5 sm:mb-4 pb-1.5 sm:pb-2 border-b border-white/10">
+                <h3 className="font-sans font-bold text-[11px] sm:text-sm text-[#FFD86A] uppercase tracking-wider mb-2 sm:mb-4 pb-1 sm:pb-2 border-b border-white/10">
                   You will also receive:
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-3">
                   {WEBINAR_CONTENT.receiveList.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-2.5 sm:p-3.5 rounded-lg bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-white/90"
+                      className="p-2 sm:p-3.5 rounded-lg bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors flex items-center gap-1.5 sm:gap-3 text-[11px] sm:text-sm text-white/90"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FFD86A] shrink-0" />
                       <span className="font-medium">{item}</span>
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Event details card */}
-            <div className="lg:col-span-5 flex flex-col justify-between p-4 sm:p-8 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 shadow-xl">
-              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-3 sm:mb-4 font-semibold pb-2 border-b border-white/10">
-                Event details
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 sm:block sm:space-y-3 mb-4 sm:mb-6 text-xs sm:text-sm text-white">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 sm:py-2 border-b border-white/10">
-                  <span className="text-white/65 text-[11px] sm:text-xs">Format</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.format}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 sm:py-2 border-b border-white/10">
-                  <span className="text-white/65 text-[11px] sm:text-xs">Platform</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.platform}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 sm:py-2 border-b border-white/10">
-                  <span className="text-white/65 text-[11px] sm:text-xs">Language</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.language}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 sm:py-2 border-b border-white/10">
-                  <span className="text-white/65 text-[11px] sm:text-xs">Schedule</span>
-                  <span className="font-bold text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 sm:py-2 border-b border-white/10">
-                  <span className="text-white/65 text-[11px] sm:text-xs">Seats</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.seats}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 sm:py-2 border-b border-white/10">
-                  <span className="text-white/65 text-[11px] sm:text-xs">Recording</span>
-                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.recording}</span>
-                </div>
-                <div className="col-span-2 flex items-center justify-between py-2 border-b sm:border-b-0 border-white/10">
-                  <span className="text-white/65 text-xs">Fee</span>
-                  <span className="font-bold text-lg sm:text-xl text-[#FF4D5E]">{WEBINAR_CONTENT.details.fee}</span>
-                </div>
-              </div>
-
-              <button
-                onClick={onOpenWebinarModal}
-                className="btn-primary w-full py-3 px-5 sm:px-6 text-xs sm:text-sm mb-3.5 sm:mb-5"
-              >
-                <span>{WEBINAR_CONTENT.primaryCTA}</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <div className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-white/80 leading-relaxed">
-                <p>
-                  <strong className="text-white font-semibold">Payment and access note: </strong>
-                  {WEBINAR_CONTENT.paymentNote}
-                </p>
-                <p>
-                  <strong className="text-white font-semibold">Refund note: </strong>
-                  {WEBINAR_CONTENT.refundNote}
-                </p>
               </div>
             </div>
           </div>

@@ -47,8 +47,8 @@ export default function RealitySection() {
 
           {/* Right Column: 6 Core Questions as an Audit Diagnostic */}
           <div className="lg:col-span-7">
-            <div className="border border-white/10 rounded-xl overflow-hidden bg-black/50 backdrop-blur-md shadow-xl divide-y divide-white/10 max-w-2xl lg:ml-auto">
-              <div className="px-4 sm:px-5 py-2.5 sm:py-3.5 bg-white/[0.03] border-b border-white/10 flex items-center justify-between">
+            <div className="border border-white/10 rounded-xl overflow-hidden bg-black/50 backdrop-blur-md shadow-xl max-w-2xl lg:ml-auto">
+              <div className="px-3.5 sm:px-5 py-2 sm:py-3.5 bg-white/[0.03] border-b border-white/10 flex items-center justify-between">
                 <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#FF4D5E] font-semibold">
                   Diagnostic Questions
                 </span>
@@ -56,16 +56,18 @@ export default function RealitySection() {
                   Self-Assessment • 6 Points
                 </span>
               </div>
-              <div className="divide-y divide-white/10">
+
+              {/* Mobile 2-column grid / Desktop clean audit list */}
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 p-2.5 sm:p-3 lg:p-0 lg:gap-0 lg:divide-y lg:divide-white/10">
                 {PROBLEM_CONTENT.questions.map((q, idx) => (
                   <div
                     key={idx}
-                    className="p-3 sm:p-4.5 hover:bg-white/[0.04] transition-colors flex items-start gap-3 sm:gap-4 group"
+                    className="p-2.5 sm:p-3.5 lg:p-4.5 rounded-lg lg:rounded-none bg-white/[0.04] lg:bg-transparent border border-white/10 lg:border-none hover:bg-white/[0.08] transition-colors flex items-start gap-2 sm:gap-3 lg:gap-4 group"
                   >
-                    <span className="font-mono text-xs sm:text-sm font-bold text-[#FF4D5E] shrink-0 mt-0.5">
+                    <span className="font-mono text-[11px] sm:text-xs lg:text-sm font-bold text-[#FF4D5E] shrink-0 pt-0.5">
                       0{idx + 1}
                     </span>
-                    <div className="font-sans font-medium text-xs sm:text-base text-white/95 group-hover:text-white leading-snug">
+                    <div className="font-sans font-medium text-[11px] sm:text-xs lg:text-base text-white/95 group-hover:text-white leading-snug">
                       {q}
                     </div>
                   </div>

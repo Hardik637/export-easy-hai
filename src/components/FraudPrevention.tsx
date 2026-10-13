@@ -21,7 +21,7 @@ export default function FraudPrevention() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
             {/* Left Column: Shield Visual */}
             <div className="lg:col-span-5 relative">
-              <div className="relative h-40 sm:h-auto sm:aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-[#EAD5AF] group">
+              <div className="relative h-32 sm:h-auto sm:aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-[#EAD5AF] group">
                 <Image
                   src="/images/fraud-shield.jpg"
                   alt="Security shield emblem on shipping container port at dawn"
@@ -29,13 +29,13 @@ export default function FraudPrevention() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
 
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md text-white border border-white/15">
-                  <div className="font-display text-sm sm:text-lg uppercase">
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 p-2 sm:p-3.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md text-white border border-white/15">
+                  <div className="font-display text-xs sm:text-lg uppercase">
                     Identify Risks Earlier. Ship Smarter.
                   </div>
-                  <div className="text-[11px] sm:text-xs text-[#FFD86A] mt-0.5">
+                  <div className="text-[10px] sm:text-xs text-[#FFD86A] mt-0.5">
                     Organised Process • Documented Compliance • Verified Contacts
                   </div>
                 </div>
@@ -44,35 +44,36 @@ export default function FraudPrevention() {
 
             {/* Right Column: Copy & Checklist */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 mb-2 sm:mb-3.5 text-[#D45A20] text-xs sm:text-sm font-semibold tracking-wider uppercase">
-                <span className="w-5 h-[2px] bg-[#D45A20]" />
+              <div className="inline-flex items-center gap-1.5 mb-1.5 sm:mb-3.5 text-[#D45A20] text-[10px] sm:text-sm font-semibold tracking-wider uppercase">
+                <span className="w-4 sm:w-5 h-[2px] bg-[#D45A20]" />
                 RISK MANAGEMENT &amp; SAFETY
               </div>
 
-              <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-[#111111] mb-2 sm:mb-4">
+              <h2 className="font-display text-2xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.98] sm:leading-[0.95] tracking-tight uppercase text-[#111111] mb-2 sm:mb-4">
                 {OBJECTION_CONTENT.heading}
               </h2>
 
-              <p className="text-sm sm:text-lg text-[#222222] font-normal leading-relaxed mb-2 sm:mb-3">
+              <p className="text-xs sm:text-lg text-[#222222] font-normal leading-relaxed mb-1.5 sm:mb-3">
                 {OBJECTION_CONTENT.body1}
               </p>
 
-              <p className="text-xs sm:text-base text-[#444444] font-normal leading-relaxed mb-4 sm:mb-6">
+              <p className="text-[11px] sm:text-base text-[#444444] font-normal leading-relaxed mb-3 sm:mb-6">
                 {OBJECTION_CONTENT.body2}
               </p>
 
-              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-2.5 sm:mb-3.5 flex items-center gap-2">
+              <div className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-2 sm:mb-3.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D45A20]" />
                 {OBJECTION_CONTENT.weHelpTitle}
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-6 sm:mb-8">
+              {/* 2-Column Grid on Mobile */}
+              <div className="grid grid-cols-2 gap-1.5 sm:gap-3 mb-4 sm:mb-8">
                 {OBJECTION_CONTENT.points.map((pt, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-4 rounded-lg sm:rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-sm text-xs sm:text-sm font-medium text-[#111111]"
+                    className="flex items-start gap-1.5 sm:gap-3 p-2 sm:p-4 rounded-lg sm:rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-xs text-[11px] sm:text-sm font-medium text-[#111111]"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E50920] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E50920] shrink-0 mt-0.5" />
                     <span className="leading-snug">{pt}</span>
                   </div>
                 ))}
@@ -80,7 +81,7 @@ export default function FraudPrevention() {
 
               <button
                 onClick={scrollToHowItWorks}
-                className="btn-primary w-full sm:w-auto"
+                className="btn-primary w-full sm:w-auto py-2.5 px-5 sm:py-3 sm:px-6 text-xs sm:text-sm justify-center"
               >
                 <span>{OBJECTION_CONTENT.cta}</span>
                 <ArrowRight className="w-4 h-4" />

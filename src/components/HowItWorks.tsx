@@ -100,28 +100,36 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
           </div>
         </div>
 
-        {/* Mobile Numbered Vertical Timeline */}
-        <div className="lg:hidden relative pl-6 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#E50920] before:via-[#F2A62B] before:to-[#FFD86A] space-y-3">
-          {HOW_IT_WORKS_CONTENT.steps.map((step) => (
-            <div
-              key={step.number}
-              className="relative pl-3"
-            >
-              {/* Timeline marker */}
-              <div className="absolute -left-6 top-1 w-6 h-6 rounded-full bg-black border border-white/20 flex items-center justify-center font-mono font-bold text-[10px] text-[#FFD86A] shadow-md">
-                {step.number}
-              </div>
+        {/* Mobile Compact Station Roadmap Track inside a unified container */}
+        <div className="lg:hidden rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 p-4 shadow-xl">
+          <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-[11px] font-mono">
+            <span className="text-[#FFD86A] font-semibold uppercase tracking-wider flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E50920]" />
+              7-Step Export Progression
+            </span>
+            <span className="text-white/50 text-[10px]">Complete Roadmap</span>
+          </div>
 
-              <div className="p-3.5 rounded-xl bg-black/55 backdrop-blur-md border border-white/10 shadow-md">
-                <div className="font-sans font-bold text-sm text-white mb-1 tracking-tight leading-snug">
+          <div className="relative pl-6 before:absolute before:left-2.5 before:top-2 before:bottom-3 before:w-[2px] before:bg-gradient-to-b before:from-[#E50920] before:via-[#F2A62B] before:to-[#FFD86A] space-y-3">
+            {HOW_IT_WORKS_CONTENT.steps.map((step, idx) => (
+              <div
+                key={step.number}
+                className="relative pl-2 pb-2.5 border-b border-white/5 last:border-b-0 last:pb-0"
+              >
+                {/* Timeline Node */}
+                <div className="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-black border border-white/25 flex items-center justify-center font-mono font-bold text-[9px] text-[#FFD86A] shadow-sm">
+                  {step.number}
+                </div>
+
+                <div className="font-sans font-bold text-xs sm:text-sm text-white tracking-tight leading-snug">
                   {step.title}
                 </div>
-                <p className="text-xs text-white/85 leading-relaxed font-normal">
+                <p className="text-[11px] sm:text-xs text-white/80 leading-relaxed font-normal mt-0.5">
                   {step.description}
                 </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

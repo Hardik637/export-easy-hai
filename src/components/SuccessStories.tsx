@@ -66,30 +66,40 @@ export default function SuccessStories() {
             ))}
           </div>
 
-          {/* Mobile Interactive Touch Carousel */}
+          {/* Mobile Interactive Touch Carousel with clear progress indicators */}
           <div className="lg:hidden">
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#555555] mb-2 px-1">
+              <span className="font-semibold text-[#D45A20] uppercase tracking-wider">Learner Progression</span>
+              <span className="text-[#888888]">6 Milestones • Swipe →</span>
+            </div>
+
             <MobileCarousel activeColor="#E50920" theme="light">
               {STORIES_REPLACEMENT_CONTENT.milestones.map((milestone, idx) => (
                 <div
                   key={idx}
-                  className="w-full p-4 sm:p-6 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-md flex flex-col justify-between min-h-[140px] sm:min-h-[170px]"
+                  className="w-full p-4.5 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-md flex flex-col justify-between min-h-[150px]"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-2.5 sm:mb-3.5">
-                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#E50920]/10 text-[#E50920] flex items-center justify-center font-mono text-xs font-bold">
-                        0{idx + 1}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="px-2 py-0.5 rounded bg-[#E50920]/10 text-[#E50920] font-mono text-xs font-bold border border-[#E50920]/20">
+                        Milestone 0{idx + 1} / 06
                       </span>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#D45A20] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-white border border-[#EAD5AF]">
-                        Milestone
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#D45A20] px-2 py-0.5 rounded bg-white border border-[#EAD5AF]">
+                        Execution
                       </span>
                     </div>
                     <div className="font-sans font-bold text-sm sm:text-base text-[#111111] tracking-tight leading-snug">
                       {milestone}
                     </div>
                   </div>
-                  <div className="pt-2.5 sm:pt-3 border-t border-[#EAD5AF] text-[11px] sm:text-xs text-[#444444] flex items-center gap-1.5 font-medium">
-                    <Milestone className="w-3.5 h-3.5 text-[#E50920]" />
-                    <span>Verified Learner Progress</span>
+                  <div className="pt-2.5 mt-3 border-t border-[#EAD5AF] text-[11px] text-[#444444] flex items-center justify-between font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <Milestone className="w-3.5 h-3.5 text-[#E50920]" />
+                      <span>Verified Learner Progress</span>
+                    </span>
+                    <span className="text-[10px] font-mono text-[#888888]">
+                      {idx < 5 ? `Next: 0${idx + 2} →` : `Completed ✓`}
+                    </span>
                   </div>
                 </div>
               ))}
