@@ -21,11 +21,11 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
       className="relative min-h-screen flex flex-col justify-between pt-24 sm:pt-28 pb-8 sm:pb-12 overflow-hidden bg-transparent scroll-mt-24"
     >
       {/* Top Headline & CTAs */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10 pt-4 sm:pt-6">
+      <div className="editorial-container z-10 pt-4 sm:pt-6">
         <div className="relative max-w-xl lg:max-w-2xl">
           {/* Localized dark scrim behind left content area, fading into the port scene on the right */}
           <div
-            className="absolute -inset-x-5 -inset-y-6 sm:-inset-x-8 sm:-inset-y-8 rounded-2xl pointer-events-none -z-10 bg-gradient-to-b from-black/85 via-black/70 to-black/30 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/65 sm:to-transparent"
+            className="absolute -inset-x-5 -inset-y-6 sm:-inset-x-8 sm:-inset-y-8 rounded-2xl pointer-events-none -z-10 bg-gradient-to-b from-black/80 via-black/55 to-transparent sm:bg-gradient-to-r sm:from-black/85 sm:via-black/50 sm:to-transparent"
             aria-hidden="true"
           />
 
@@ -34,7 +34,7 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
             {HERO_CONTENT.eyebrow}
           </div>
 
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.94] tracking-tight uppercase text-white mb-4 drop-shadow-md">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[76px] leading-[0.96] tracking-tight uppercase text-white mb-4 drop-shadow-md">
             {HERO_CONTENT.headlineMain} <br />
             <span className="text-[#FF4D5E]">{HERO_CONTENT.headlineSub}</span>
           </h1>
@@ -43,14 +43,14 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
             {HERO_CONTENT.supportingCopy}
           </p>
 
-          <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-8 max-w-xl border-l-2 border-white/30 pl-4 italic">
+          <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-8 max-w-xl border-l-2 border-[#E50920]/60 pl-3.5 italic">
             {HERO_CONTENT.positioningNote}
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <button
               onClick={onOpenWebinarModal}
-              className="group min-h-[50px] px-7 py-3.5 rounded-lg bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white font-semibold text-sm tracking-wide transition-all shadow-lg shadow-red-950/40 border border-red-500/30 flex items-center justify-center gap-2.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FF4D5E] focus:ring-offset-2 focus:ring-offset-black"
+              className="btn-primary group"
             >
               <span>{HERO_CONTENT.primaryCTA}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -58,7 +58,7 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
 
             <button
               onClick={scrollToHowItWorks}
-              className="min-h-[50px] px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 active:scale-[0.99] border border-white/25 text-white font-medium text-sm tracking-wide transition-all backdrop-blur-sm flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+              className="btn-secondary"
             >
               <Compass className="w-4 h-4 text-[#FF4D5E]" />
               <span>{HERO_CONTENT.secondaryCTA}</span>
@@ -71,9 +71,9 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
       <div className="flex-1 min-h-[40px] sm:min-h-[100px]" />
 
       {/* Bottom Dock Trust Strip */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
-        <div className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 shadow-xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-xs sm:text-sm text-white/95">
+      <div className="editorial-container z-10">
+        <div className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-black/45 backdrop-blur-md border border-white/10 shadow-lg">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-xs sm:text-sm text-white/90">
             {HERO_CONTENT.trustStrip.map((item) => (
               <div key={item} className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E50920] shrink-0" />

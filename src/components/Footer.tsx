@@ -6,7 +6,7 @@ import { FOOTER_CONTENT } from "@/data/siteData";
 export default function Footer() {
   return (
     <footer id="footer" className="bg-[#050505] text-white border-t border-white/10 pt-16 pb-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="editorial-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Info */}
           <div className="lg:col-span-2">

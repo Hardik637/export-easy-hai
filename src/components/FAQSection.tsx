@@ -16,20 +16,20 @@ export default function FAQSection() {
       id="faq"
       className="relative py-16 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
-      <div className="max-w-4xl mx-auto px-5 sm:px-8">
-        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-6 sm:p-10 lg:p-12 shadow-xl">
-          <div className="max-w-xl mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2.5 mb-3 text-[#D45A20] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+      <div className="editorial-container max-w-4xl">
+        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-6 sm:p-10 lg:p-14 shadow-2xl">
+          <div className="max-w-xl mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2.5 mb-3.5 text-[#D45A20] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#D45A20]" />
               FREQUENTLY ASKED QUESTIONS
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-[#111111]">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-[#111111]">
               Questions Beginners Ask
             </h2>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3.5">
             {FAQS_CONTENT.map((faq, idx) => {
               const isOpen = openIndex === idx;
               return (
@@ -44,7 +44,7 @@ export default function FAQSection() {
                     <span className="font-sans font-bold text-base sm:text-lg text-[#111111] tracking-tight leading-snug">
                       {faq.question}
                     </span>
-                    <div className="w-8 h-8 rounded-lg bg-white border border-[#EAD5AF] flex items-center justify-center text-[#D45A20] shrink-0 font-bold">
+                    <div className="w-8 h-8 rounded-lg bg-white border border-[#EAD5AF] flex items-center justify-center text-[#D45A20] shrink-0 font-bold shadow-xs">
                       {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                     </div>
                   </button>

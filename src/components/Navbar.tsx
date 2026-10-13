@@ -40,7 +40,7 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
             : "bg-transparent py-4 sm:py-5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="editorial-container flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-3 group min-h-[44px]">
             <div className="w-9 h-9 rounded-lg bg-[#E50920] flex items-center justify-center shadow-md shadow-red-950/30 text-white">

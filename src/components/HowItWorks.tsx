@@ -15,26 +15,26 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
       id="how-it-works"
       className="relative min-h-[75vh] flex flex-col justify-center py-16 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
-        <div className="relative max-w-2xl mb-10 sm:mb-12">
+      <div className="editorial-container z-10">
+        <div className="relative max-w-2xl mb-10 sm:mb-14">
           {/* Localized dark scrim behind header */}
           <div
             className="absolute -inset-x-5 -inset-y-6 sm:-inset-x-8 sm:-inset-y-8 rounded-2xl pointer-events-none -z-10 bg-gradient-to-b from-black/85 via-black/70 to-black/30 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/65 sm:to-transparent"
             aria-hidden="true"
           />
 
-          <div className="inline-flex items-center gap-2.5 mb-3 text-[#FFD86A] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2.5 mb-3.5 text-[#FFD86A] text-xs sm:text-sm font-semibold tracking-wider uppercase">
             <span className="w-5 h-[2px] bg-[#FFD86A]" />
             THE ROADMAP
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-white mb-4 drop-shadow-sm">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-white mb-5 drop-shadow-sm">
             {HOW_IT_WORKS_CONTENT.heading}
           </h2>
 
           <button
             onClick={onOpenCourseModal}
-            className="px-6 py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all inline-flex items-center gap-2 cursor-pointer shadow-lg shadow-red-950/40 border border-red-500/30 focus:outline-none focus:ring-2 focus:ring-[#FF4D5E] focus:ring-offset-2 focus:ring-offset-black"
+            className="btn-primary"
           >
             <span>{HOW_IT_WORKS_CONTENT.cta}</span>
             <ArrowRight className="w-4 h-4" />
@@ -47,18 +47,18 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
             {HOW_IT_WORKS_CONTENT.steps.slice(0, 4).map((step) => (
               <div
                 key={step.number}
-                className="p-5 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 hover:border-white/25 transition-all flex flex-col justify-between shadow-lg"
+                className="p-5 sm:p-6 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between shadow-xl group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-3.5">
                     <span className="text-xs font-mono font-bold text-[#FF4D5E] px-2.5 py-0.5 rounded bg-[#E50920]/15 border border-[#E50920]/30">
                       STEP {step.number}
                     </span>
                   </div>
-                  <div className="font-sans font-bold text-base text-white tracking-tight mb-2">
+                  <div className="font-sans font-bold text-base text-white tracking-tight mb-2 group-hover:text-[#FFD86A] transition-colors">
                     {step.title}
                   </div>
-                  <p className="text-sm text-white/90 leading-relaxed font-normal">
+                  <p className="text-sm text-white/85 leading-relaxed font-normal">
                     {step.description}
                   </p>
                 </div>
@@ -70,18 +70,18 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
             {HOW_IT_WORKS_CONTENT.steps.slice(4, 7).map((step) => (
               <div
                 key={step.number}
-                className="p-5 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 hover:border-white/25 transition-all flex flex-col justify-between shadow-lg"
+                className="p-5 sm:p-6 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between shadow-xl group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-3.5">
                     <span className="text-xs font-mono font-bold text-[#FFD86A] px-2.5 py-0.5 rounded bg-[#F2A62B]/15 border border-[#F2A62B]/30">
                       STEP {step.number}
                     </span>
                   </div>
-                  <div className="font-sans font-bold text-base text-white tracking-tight mb-2">
+                  <div className="font-sans font-bold text-base text-white tracking-tight mb-2 group-hover:text-[#FFD86A] transition-colors">
                     {step.title}
                   </div>
-                  <p className="text-sm text-white/90 leading-relaxed font-normal">
+                  <p className="text-sm text-white/85 leading-relaxed font-normal">
                     {step.description}
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
             {HOW_IT_WORKS_CONTENT.steps.map((step) => (
               <div
                 key={step.number}
-                className="p-5 rounded-xl bg-black/65 backdrop-blur-md border border-white/15 flex flex-col justify-between shadow-xl min-h-[220px]"
+                className="p-5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex flex-col justify-between shadow-xl min-h-[220px]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
@@ -107,7 +107,7 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
                   <div className="font-sans font-bold text-base text-white mb-2 tracking-tight">
                     {step.title}
                   </div>
-                  <p className="text-sm text-white/90 leading-relaxed">
+                  <p className="text-sm text-white/85 leading-relaxed font-normal">
                     {step.description}
                   </p>
                 </div>

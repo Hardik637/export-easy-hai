@@ -95,3 +95,110 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Editorial Design System Utilities */
+.editorial-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .editorial-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  padding: 0.8125rem 1.625rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  background-color: #E50920;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(229, 9, 32, 0.3);
+  border: 1px solid rgba(229, 9, 32, 0.4);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #c8071a;
+  box-shadow: 0 6px 20px rgba(229, 9, 32, 0.4);
+}
+.btn-primary:active {
+  transform: scale(0.99);
+}
+.btn-primary:focus-visible {
+  outline: 2px solid #FF4D5E;
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.8125rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.btn-secondary:active {
+  transform: scale(0.99);
+}
+.btn-secondary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.btn-secondary-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.8125rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid rgba(17, 17, 17, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.btn-secondary-light:hover {
+  background-color: #FAF6EE;
+  border-color: rgba(17, 17, 17, 0.35);
+}
+.btn-secondary-light:active {
+  transform: scale(0.99);
+}
+.btn-secondary-light:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+

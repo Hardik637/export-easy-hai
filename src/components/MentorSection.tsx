@@ -16,9 +16,9 @@ export default function MentorSection() {
       id="about"
       className="relative py-16 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+      <div className="editorial-container">
         {/* Section 7: Why Learn With Us */}
-        <div className="relative mb-16 sm:mb-20">
+        <div className="relative mb-16 sm:mb-24">
           {/* Localized dark gradient behind the text block fading into the port photograph */}
           <div
             className="absolute -inset-x-5 -inset-y-6 sm:-inset-x-8 sm:-inset-y-8 rounded-2xl pointer-events-none -z-10 bg-gradient-to-b from-black/90 via-black/75 to-black/35 sm:bg-gradient-to-r sm:from-black/92 sm:via-black/70 sm:to-transparent"
@@ -26,12 +26,12 @@ export default function MentorSection() {
           />
 
           <div className="max-w-3xl mb-8 relative z-10">
-            <div className="inline-flex items-center gap-2.5 mb-3 text-[#F2A62B] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3.5 text-[#F2A62B] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#F2A62B]" />
               WHY LEARN WITH US
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-white mb-4 drop-shadow-sm">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-white mb-5 drop-shadow-sm">
               {WHY_LEARN_WITH_US.heading}
             </h2>
 
@@ -41,14 +41,15 @@ export default function MentorSection() {
 
             <button
               onClick={scrollToHowItWorks}
-              className="px-6 py-3.5 rounded-lg text-sm font-semibold tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all inline-flex items-center gap-2 cursor-pointer shadow-lg shadow-red-950/40 border border-red-500/30 focus:outline-none focus:ring-2 focus:ring-[#FF4D5E] focus:ring-offset-2 focus:ring-offset-black"
+              className="btn-primary"
             >
               <span>{WHY_LEARN_WITH_US.cta}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-4 font-semibold relative z-10">
+          <div className="text-xs font-mono uppercase tracking-wider text-[#FFD86A] mb-4 font-semibold relative z-10 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFD86A]" />
             What makes the approach practical:
           </div>
 
@@ -56,10 +57,10 @@ export default function MentorSection() {
             {WHY_LEARN_WITH_US.practicalPoints.map((point, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 flex flex-col justify-between shadow-lg hover:border-white/25 transition-all"
+                className="p-5 sm:p-6 rounded-xl bg-black/55 backdrop-blur-md border border-white/10 flex flex-col justify-between shadow-xl hover:border-white/25 transition-all group"
               >
                 <div>
-                  <div className="font-sans font-bold text-base text-white tracking-tight leading-snug mb-2 flex items-center gap-2.5">
+                  <div className="font-sans font-bold text-base text-white tracking-tight leading-snug mb-2 flex items-center gap-2.5 group-hover:text-[#FFD86A] transition-colors">
                     <CheckCircle2 className="w-4 h-4 text-[#F2A62B] shrink-0" />
                     <span>{point.title}</span>
                   </div>
@@ -73,7 +74,7 @@ export default function MentorSection() {
         </div>
 
         {/* Section 8: Founder / Mentor Section */}
-        <div className="p-8 sm:p-12 rounded-2xl bg-white/95 border border-[#EAD5AF] shadow-xl">
+        <div className="p-8 sm:p-12 lg:p-14 rounded-2xl bg-white/95 border border-[#EAD5AF] shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Portrait & Title */}
             <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -98,7 +99,7 @@ export default function MentorSection() {
             {/* Right Column: Bio & Experience Proof */}
             <div className="lg:col-span-8">
               <div className="inline-flex items-center gap-2 mb-2.5 text-[#D45A20] text-xs font-semibold tracking-wider uppercase">
-                <span className="w-4 h-[2px] bg-[#D45A20]" />
+                <span className="w-2 h-[2px] bg-[#D45A20]" />
                 FOUNDER &amp; MENTOR
               </div>
 
@@ -106,11 +107,11 @@ export default function MentorSection() {
                 {MENTOR_CONTENT.title}
               </h4>
 
-              <p className="text-base text-[#222222] leading-relaxed mb-4">
+              <p className="text-base sm:text-lg text-[#222222] leading-relaxed mb-4">
                 {MENTOR_CONTENT.bio1}
               </p>
 
-              <p className="text-base text-[#222222] leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-[#444444] leading-relaxed mb-6">
                 {MENTOR_CONTENT.bio2}
               </p>
 
@@ -130,7 +131,7 @@ export default function MentorSection() {
 
               <button
                 onClick={scrollToHowItWorks}
-                className="px-7 py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all inline-flex items-center gap-2 cursor-pointer shadow-md focus:outline-none focus:ring-2 focus:ring-[#E50920] focus:ring-offset-2"
+                className="btn-primary"
               >
                 <span>{MENTOR_CONTENT.cta}</span>
                 <ArrowRight className="w-4 h-4" />

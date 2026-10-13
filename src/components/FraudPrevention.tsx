@@ -16,8 +16,8 @@ export default function FraudPrevention() {
       id="fraud-prevention"
       className="relative py-16 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-6 sm:p-10 lg:p-12 shadow-xl">
+      <div className="editorial-container">
+        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-6 sm:p-10 lg:p-14 shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Shield Visual */}
             <div className="lg:col-span-5 relative">
@@ -44,24 +44,25 @@ export default function FraudPrevention() {
 
             {/* Right Column: Copy & Checklist */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2.5 mb-3 text-[#D45A20] text-xs sm:text-sm font-semibold tracking-wider uppercase">
-                <span className="w-4 h-[2px] bg-[#D45A20]" />
+              <div className="inline-flex items-center gap-2.5 mb-3.5 text-[#D45A20] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+                <span className="w-5 h-[2px] bg-[#D45A20]" />
                 RISK MANAGEMENT &amp; SAFETY
               </div>
 
-              <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-[#111111] mb-4">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-[#111111] mb-4">
                 {OBJECTION_CONTENT.heading}
               </h2>
 
-              <p className="text-base text-[#222222] font-normal leading-relaxed mb-3">
+              <p className="text-base sm:text-lg text-[#222222] font-normal leading-relaxed mb-3">
                 {OBJECTION_CONTENT.body1}
               </p>
 
-              <p className="text-base text-[#222222] font-normal leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-[#444444] font-normal leading-relaxed mb-6">
                 {OBJECTION_CONTENT.body2}
               </p>
 
-              <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-3.5">
+              <div className="text-xs font-mono uppercase tracking-wider text-[#D45A20] font-bold mb-3.5 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D45A20]" />
                 {OBJECTION_CONTENT.weHelpTitle}
               </div>
 
@@ -79,7 +80,7 @@ export default function FraudPrevention() {
 
               <button
                 onClick={scrollToHowItWorks}
-                className="px-7 py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all inline-flex items-center gap-2 cursor-pointer shadow-md focus:outline-none focus:ring-2 focus:ring-[#E50920] focus:ring-offset-2"
+                className="btn-primary"
               >
                 <span>{OBJECTION_CONTENT.cta}</span>
                 <ArrowRight className="w-4 h-4" />

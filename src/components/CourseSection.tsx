@@ -13,36 +13,41 @@ export default function CourseSection() {
       className="relative py-16 sm:py-24 overflow-hidden bg-transparent text-[#111111] scroll-mt-24"
     >
       <div id="live-batch" className="absolute -top-24 left-0 pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-6 sm:p-10 lg:p-12 shadow-xl">
+      <div className="editorial-container">
+        <div className="rounded-2xl bg-white/95 border border-[#EAD5AF] p-6 sm:p-10 lg:p-14 shadow-2xl">
           {/* Header */}
-          <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center gap-2.5 mb-3 text-[#E50920] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2.5 mb-3.5 text-[#E50920] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#E50920]" />
               STRUCTURED EXPORT CURRICULUM
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-[#111111] mb-3">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-[#111111] mb-4">
               {LIVE_BATCH_CONTENT.heading}
             </h2>
 
-            <div className="text-sm sm:text-base text-[#D45A20] font-semibold mb-2">
+            <div className="text-sm sm:text-base text-[#D45A20] font-semibold mb-2.5">
               {LIVE_BATCH_CONTENT.subcopy1}
             </div>
 
-            <p className="text-base text-[#222222] font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-[#222222] font-normal leading-relaxed">
               {LIVE_BATCH_CONTENT.subcopy2}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* What the batch includes (10 points in clean structured checklist) */}
             <div className="lg:col-span-7">
-              <h3 className="font-sans font-bold text-sm sm:text-base text-[#111111] uppercase tracking-wider mb-4 pb-2 border-b border-[#EAD5AF]">
-                {LIVE_BATCH_CONTENT.includesTitle}
-              </h3>
+              <div className="flex items-center justify-between pb-3 mb-5 border-b border-[#EAD5AF]">
+                <h3 className="font-sans font-bold text-xs sm:text-sm text-[#111111] uppercase tracking-wider">
+                  {LIVE_BATCH_CONTENT.includesTitle}
+                </h3>
+                <span className="text-[11px] font-mono text-[#666666]">
+                  10 Comprehensive Modules
+                </span>
+              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5">
                 {LIVE_BATCH_CONTENT.includes.map((item, idx) => (
                   <div
                     key={idx}
@@ -56,17 +61,17 @@ export default function CourseSection() {
             </div>
 
             {/* Expected outcome & Action Card */}
-            <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-7 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-sm">
+            <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-xl bg-[#FAF6EE] border border-[#EAD5AF] shadow-sm">
               <div>
-                <h4 className="font-sans font-bold text-xs uppercase tracking-wider text-[#D45A20] mb-2.5">
+                <h4 className="font-sans font-bold text-xs uppercase tracking-wider text-[#D45A20] mb-3">
                   {LIVE_BATCH_CONTENT.expectedOutcomeTitle}
                 </h4>
 
-                <p className="text-sm sm:text-base text-[#111111] font-medium leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-[#111111] font-medium leading-relaxed mb-5">
                   {LIVE_BATCH_CONTENT.expectedOutcome}
                 </p>
 
-                <div className="p-3.5 rounded-lg bg-white border border-[#EAD5AF] text-xs text-[#333333] leading-relaxed mb-6 font-normal">
+                <div className="p-4 rounded-lg bg-white border border-[#EAD5AF] text-xs text-[#333333] leading-relaxed mb-6 font-normal">
                   <strong className="text-[#111111] font-semibold not-italic">Disclaimer: </strong>
                   {LIVE_BATCH_CONTENT.disclaimer}
                 </div>
@@ -75,7 +80,7 @@ export default function CourseSection() {
               <div>
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="min-h-[50px] w-full py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all shadow-md shadow-red-950/20 flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#E50920] focus:ring-offset-2"
+                  className="btn-primary w-full"
                 >
                   <span>{LIVE_BATCH_CONTENT.cta}</span>
                   <ArrowRight className="w-4 h-4" />

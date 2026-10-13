@@ -29,9 +29,9 @@ export default function ProductCategories({
       id="products"
       className="relative py-16 sm:py-24 overflow-hidden bg-transparent scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+      <div className="editorial-container">
         {/* Section Header */}
-        <div className="relative flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10">
+        <div className="relative flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
           {/* Localized dark scrim behind header */}
           <div
             className="absolute -inset-x-5 -inset-y-6 sm:-inset-x-8 sm:-inset-y-8 rounded-2xl pointer-events-none -z-10 bg-gradient-to-b from-black/85 via-black/70 to-black/30 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/65 sm:to-transparent"
@@ -39,12 +39,12 @@ export default function ProductCategories({
           />
 
           <div className="max-w-2xl relative z-10">
-            <div className="inline-flex items-center gap-2.5 mb-3 text-[#FFD86A] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3.5 text-[#FFD86A] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#FFD86A]" />
               EXPORT PRODUCT CATEGORIES
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-white mb-3 drop-shadow-sm">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[0.95] tracking-tight uppercase text-white mb-4 drop-shadow-sm">
               {PRODUCTS_CONTENT.heading}
             </h2>
 
@@ -52,7 +52,7 @@ export default function ProductCategories({
               {PRODUCTS_CONTENT.subcopy1}
             </p>
 
-            <p className="text-sm text-white/85 font-normal leading-relaxed">
+            <p className="text-sm text-white/80 font-normal leading-relaxed">
               {PRODUCTS_CONTENT.subcopy2}
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function ProductCategories({
           <div className="flex items-center gap-3 relative z-10">
             <button
               onClick={onOpenCourseModal}
-              className="px-6 py-3.5 rounded-lg text-sm font-semibold tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-red-950/40 border border-red-500/30 focus:outline-none focus:ring-2 focus:ring-[#FF4D5E] focus:ring-offset-2 focus:ring-offset-black"
+              className="btn-primary"
             >
               <span>{PRODUCTS_CONTENT.cta}</span>
               <ArrowRight className="w-4 h-4" />
@@ -177,7 +177,7 @@ export default function ProductCategories({
         </div>
 
         {/* Responsible claim */}
-        <div className="p-4 sm:p-5 rounded-xl bg-black/60 backdrop-blur-md border-l-2 border-[#D45A20] border-y border-r border-white/15 text-xs sm:text-sm text-white/90 leading-relaxed shadow-md">
+        <div className="p-4 sm:p-5 rounded-lg bg-black/50 border-l-2 border-[#D45A20] border-y border-r border-white/10 text-xs sm:text-sm text-white/90 leading-relaxed backdrop-blur-sm shadow-md">
           <strong className="text-[#FFD86A] font-semibold not-italic">Responsible claim: </strong>
           {PRODUCTS_CONTENT.responsibleClaim}
         </div>
