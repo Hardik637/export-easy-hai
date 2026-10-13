@@ -13,28 +13,34 @@ export default function RealitySection() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Context & Core Problem */}
-          <div className="lg:col-span-5">
+          <div className="relative lg:col-span-5">
+            {/* Localized dark scrim behind left content block */}
+            <div
+              className="absolute -inset-x-5 -inset-y-6 sm:-inset-x-8 sm:-inset-y-8 rounded-2xl pointer-events-none -z-10 bg-gradient-to-b from-black/85 via-black/70 to-black/30 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/65 sm:to-transparent"
+              aria-hidden="true"
+            />
+
             <div className="inline-flex items-center gap-2.5 mb-3 text-[#FF4D5E] text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="w-5 h-[2px] bg-[#FF4D5E]" />
               THE REALITY
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-white mb-4">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.96] tracking-tight uppercase text-white mb-4 drop-shadow-sm">
               Your Job Pays the Bills. <br />
               <span className="text-[#FF4D5E]">
                 But Is It Building Your Future?
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-white/90 font-normal leading-relaxed mb-4">
+            <p className="text-base sm:text-lg text-white/95 font-normal leading-relaxed mb-4">
               {PROBLEM_CONTENT.subcopy1}
             </p>
 
-            <p className="text-sm sm:text-base text-white/80 font-medium leading-relaxed mb-6">
+            <p className="text-sm sm:text-base text-white/85 font-normal leading-relaxed mb-6">
               {PROBLEM_CONTENT.subcopy2}
             </p>
 
-            <div className="p-4 sm:p-5 rounded-xl bg-white/[0.04] border-l-2 border-[#E50920] border-y border-r border-white/10 text-sm sm:text-base text-white font-medium leading-relaxed">
+            <div className="p-4 sm:p-5 rounded-xl bg-black/60 backdrop-blur-md border-l-2 border-[#E50920] border-y border-r border-white/15 text-sm sm:text-base text-white font-medium leading-relaxed shadow-lg">
               {PROBLEM_CONTENT.closingLine}
             </div>
           </div>
@@ -45,12 +51,12 @@ export default function RealitySection() {
               {PROBLEM_CONTENT.questions.map((q, idx) => (
                 <div
                   key={idx}
-                  className="p-4 sm:p-4.5 rounded-xl bg-black/45 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all flex items-start gap-3 shadow-md"
+                  className="p-4 sm:p-4.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 hover:border-white/25 transition-all flex items-start gap-3 shadow-md"
                 >
                   <span className="text-xs font-mono font-bold text-[#FF4D5E] shrink-0 mt-0.5">
                     0{idx + 1}
                   </span>
-                  <div className="font-sans font-medium text-sm sm:text-base text-white/95 leading-snug">
+                  <div className="font-sans font-medium text-sm sm:text-base text-white leading-snug">
                     {q}
                   </div>
                 </div>

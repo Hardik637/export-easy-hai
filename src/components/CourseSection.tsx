@@ -30,7 +30,7 @@ export default function CourseSection() {
               {LIVE_BATCH_CONTENT.subcopy1}
             </div>
 
-            <p className="text-base text-[#444444] font-normal leading-relaxed">
+            <p className="text-base text-[#222222] font-normal leading-relaxed">
               {LIVE_BATCH_CONTENT.subcopy2}
             </p>
           </div>
@@ -46,7 +46,7 @@ export default function CourseSection() {
                 {LIVE_BATCH_CONTENT.includes.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 py-1.5 text-sm text-[#222222]"
+                    className="flex items-start gap-3 py-1.5 text-sm text-[#111111]"
                   >
                     <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0 mt-0.5" />
                     <span className="leading-snug font-medium">{item}</span>
@@ -62,11 +62,12 @@ export default function CourseSection() {
                   {LIVE_BATCH_CONTENT.expectedOutcomeTitle}
                 </h4>
 
-                <p className="text-sm sm:text-base text-[#222222] font-medium leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-[#111111] font-medium leading-relaxed mb-4">
                   {LIVE_BATCH_CONTENT.expectedOutcome}
                 </p>
 
-                <div className="p-3.5 rounded-lg bg-white border border-[#EAD5AF] text-xs text-[#666666] leading-relaxed mb-6">
+                <div className="p-3.5 rounded-lg bg-white border border-[#EAD5AF] text-xs text-[#333333] leading-relaxed mb-6 font-normal">
+                  <strong className="text-[#111111] font-semibold not-italic">Disclaimer: </strong>
                   {LIVE_BATCH_CONTENT.disclaimer}
                 </div>
               </div>
@@ -74,7 +75,7 @@ export default function CourseSection() {
               <div>
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="min-h-[50px] w-full py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] text-white transition-all shadow-md shadow-red-950/20 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                  className="min-h-[50px] w-full py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all shadow-md shadow-red-950/20 flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#E50920] focus:ring-offset-2"
                 >
                   <span>{LIVE_BATCH_CONTENT.cta}</span>
                   <ArrowRight className="w-4 h-4" />

@@ -27,14 +27,14 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-sm text-[#F5F0E8]/80 max-w-sm mb-6 leading-relaxed">
+            <p className="text-sm text-[#F5F0E8]/90 max-w-sm mb-6 leading-relaxed">
               {FOOTER_CONTENT.mission}
             </p>
 
             {/* Contact details */}
-            <div className="text-sm text-white/85 space-y-1">
+            <div className="text-sm text-white space-y-1">
               <div>
-                <span className="text-white/50 uppercase font-mono text-[10px] tracking-wider block">Contact Email:</span>
+                <span className="text-white/70 uppercase font-mono text-[10px] tracking-wider block">Contact Email:</span>
                 <a href={`mailto:${FOOTER_CONTENT.contactEmail}`} className="text-[#FFD86A] hover:underline font-mono">
                   {FOOTER_CONTENT.contactEmail}
                 </a>
@@ -47,10 +47,10 @@ export default function Footer() {
             <h4 className="font-display text-base tracking-wider uppercase text-white mb-3">
               Quick Links
             </h4>
-            <ul className="space-y-2 text-xs text-[#F5F0E8]/70">
+            <ul className="space-y-2 text-xs text-[#F5F0E8]/85">
               {FOOTER_CONTENT.quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="hover:text-[#E50920] transition-colors">
+                  <a href={link.href} className="hover:text-[#E50920] transition-colors focus:outline-none focus:underline">
                     {link.label}
                   </a>
                 </li>
@@ -63,10 +63,10 @@ export default function Footer() {
             <h4 className="font-display text-base tracking-wider uppercase text-white mb-3">
               Legal
             </h4>
-            <ul className="space-y-2 text-xs text-[#F5F0E8]/70">
+            <ul className="space-y-2 text-xs text-[#F5F0E8]/85">
               {FOOTER_CONTENT.legalLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="hover:text-[#E50920] transition-colors">
+                  <a href={link.href} className="hover:text-[#E50920] transition-colors focus:outline-none focus:underline">
                     {link.label}
                   </a>
                 </li>
@@ -77,13 +77,13 @@ export default function Footer() {
 
         {/* Footer disclaimer from PDF */}
         <div className="pt-8 border-t border-white/10 mb-6">
-          <p className="text-[11px] text-white/55 leading-relaxed">
-            <strong className="text-white/70 font-semibold">Footer disclaimer: </strong>
+          <p className="text-[11px] text-white/80 leading-relaxed">
+            <strong className="text-white font-semibold">Footer disclaimer: </strong>
             {FOOTER_CONTENT.disclaimer}
           </p>
         </div>
 
-        <div className="pt-4 border-t border-white/5 text-center text-xs text-white/40">
+        <div className="pt-4 border-t border-white/5 text-center text-xs text-white/70">
           &copy; 2026 {FOOTER_CONTENT.brand}. All rights reserved.
         </div>
       </div>

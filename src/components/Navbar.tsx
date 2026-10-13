@@ -70,8 +70,8 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-xs font-semibold tracking-wider uppercase transition-colors hover:text-[#E50920] ${
-                  isLightMode ? "text-[#222222]" : "text-white/85"
+                className={`text-xs font-semibold tracking-wider uppercase transition-colors hover:text-[#E50920] focus:outline-none focus:underline ${
+                  isLightMode ? "text-[#111111]" : "text-white/95"
                 }`}
               >
                 {link.label}
@@ -83,7 +83,7 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
           <div className="hidden sm:flex items-center gap-4">
             <button
               onClick={onOpenWebinarModal}
-              className={`px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-md ${
+              className={`px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-md focus:outline-none focus:ring-2 focus:ring-[#E50920] focus:ring-offset-2 ${
                 isLightMode
                   ? "bg-[#111111] text-white hover:bg-[#E50920]"
                   : "bg-[#E50920] text-white hover:bg-[#c8071a]"

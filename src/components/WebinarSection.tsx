@@ -77,52 +77,52 @@ export default function WebinarSection({ onOpenWebinarModal }: WebinarSectionPro
                 Event details
               </div>
 
-              <div className="space-y-3 mb-6 text-sm text-white/90">
-                <div className="flex items-center justify-between py-2 border-b border-white/10">
-                  <span className="text-white/60">Format</span>
-                  <span className="font-medium">{WEBINAR_CONTENT.details.format}</span>
+              <div className="space-y-3 mb-6 text-sm text-white">
+                <div className="flex items-center justify-between py-2 border-b border-white/15">
+                  <span className="text-white/80">Format</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.format}</span>
                 </div>
-                <div className="flex items-center justify-between py-2 border-b border-white/10">
-                  <span className="text-white/60">Platform</span>
-                  <span className="font-medium">{WEBINAR_CONTENT.details.platform}</span>
+                <div className="flex items-center justify-between py-2 border-b border-white/15">
+                  <span className="text-white/80">Platform</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.platform}</span>
                 </div>
-                <div className="flex items-center justify-between py-2 border-b border-white/10">
-                  <span className="text-white/60">Language</span>
-                  <span className="font-medium">{WEBINAR_CONTENT.details.language}</span>
+                <div className="flex items-center justify-between py-2 border-b border-white/15">
+                  <span className="text-white/80">Language</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.language}</span>
                 </div>
-                <div className="flex items-center justify-between py-2 border-b border-white/10">
-                  <span className="text-white/60">Schedule</span>
+                <div className="flex items-center justify-between py-2 border-b border-white/15">
+                  <span className="text-white/80">Schedule</span>
                   <span className="font-bold text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule}</span>
                 </div>
-                <div className="flex items-center justify-between py-2 border-b border-white/10">
-                  <span className="text-white/60">Fee</span>
+                <div className="flex items-center justify-between py-2 border-b border-white/15">
+                  <span className="text-white/80">Fee</span>
                   <span className="font-bold text-xl text-[#FF4D5E]">{WEBINAR_CONTENT.details.fee}</span>
                 </div>
-                <div className="flex items-center justify-between py-2 border-b border-white/10">
-                  <span className="text-white/60">Seats</span>
-                  <span className="font-medium">{WEBINAR_CONTENT.details.seats}</span>
+                <div className="flex items-center justify-between py-2 border-b border-white/15">
+                  <span className="text-white/80">Seats</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.seats}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-white/60">Recording</span>
-                  <span className="font-medium">{WEBINAR_CONTENT.details.recording}</span>
+                  <span className="text-white/80">Recording</span>
+                  <span className="font-medium text-white">{WEBINAR_CONTENT.details.recording}</span>
                 </div>
               </div>
 
               <button
                 onClick={onOpenWebinarModal}
-                className="min-h-[50px] w-full py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] text-white transition-all shadow-lg shadow-red-950/30 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99] mb-5"
+                className="min-h-[50px] w-full py-3.5 rounded-lg font-semibold text-sm tracking-wide bg-[#E50920] hover:bg-[#c8071a] active:scale-[0.99] text-white transition-all shadow-lg shadow-red-950/40 border border-red-500/30 flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FF4D5E] focus:ring-offset-2 focus:ring-offset-black mb-5"
               >
                 <span>{WEBINAR_CONTENT.primaryCTA}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <div className="space-y-2 text-xs text-white/70 leading-relaxed">
+              <div className="space-y-2 text-xs text-white/85 leading-relaxed">
                 <p>
-                  <strong className="text-white/85 font-semibold">Payment and access note: </strong>
+                  <strong className="text-white font-semibold">Payment and access note: </strong>
                   {WEBINAR_CONTENT.paymentNote}
                 </p>
                 <p>
-                  <strong className="text-white/85 font-semibold">Refund note: </strong>
+                  <strong className="text-white font-semibold">Refund note: </strong>
                   {WEBINAR_CONTENT.refundNote}
                 </p>
               </div>
@@ -130,8 +130,8 @@ export default function WebinarSection({ onOpenWebinarModal }: WebinarSectionPro
           </div>
 
           {/* Disclaimer */}
-          <div className="pt-5 border-t border-white/10 text-xs text-white/60 leading-relaxed italic">
-            <strong className="text-white/75 font-semibold not-italic">Disclaimer: </strong>
+          <div className="pt-5 border-t border-white/15 text-xs text-white/85 leading-relaxed italic">
+            <strong className="text-white font-semibold not-italic">Disclaimer: </strong>
             {WEBINAR_CONTENT.disclaimer}
           </div>
         </div>

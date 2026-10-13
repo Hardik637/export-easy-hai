@@ -382,13 +382,13 @@ export default function CinematicCanvas() {
                 className={`flex flex-col transition-all duration-200 ${
                   isActive
                     ? "opacity-100 translate-x-0"
-                    : "opacity-45 group-hover:opacity-80 translate-x-0.5"
+                    : "opacity-70 group-hover:opacity-100 translate-x-0.5"
                 }`}
               >
                 <div className="flex items-center gap-1.5">
                   <span
                     className={`text-[9px] font-mono tracking-widest transition-colors ${
-                      isActive ? "text-[#E50920] font-bold" : "text-white/60"
+                      isActive ? "text-[#E50920] font-bold" : "text-white/75"
                     }`}
                   >
                     {item.stepNumber}
@@ -397,7 +397,7 @@ export default function CinematicCanvas() {
                     className={`text-[11px] font-bold tracking-wider uppercase transition-colors ${
                       isActive
                         ? "text-white"
-                        : "text-white/70 group-hover:text-white"
+                        : "text-white/85 group-hover:text-white"
                     }`}
                   >
                     {item.label}
@@ -405,7 +405,7 @@ export default function CinematicCanvas() {
                 </div>
                 <span
                   className={`text-[8.5px] font-medium tracking-wide uppercase transition-colors ${
-                    isActive ? "text-[#FFD86A]" : "text-white/40"
+                    isActive ? "text-[#FFD86A]" : "text-white/65"
                   }`}
                 >
                   {item.time}

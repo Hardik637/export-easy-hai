@@ -124,15 +124,13 @@ export default function MobileDotsNav() {
             >
               <div
                 className={`rounded-full transition-all duration-200 ${
-                  isActive ? "w-2 h-2 scale-110" : "w-1.5 h-1.5 scale-100"
+                  isActive ? "w-2.5 h-2.5 scale-110" : "w-1.5 h-1.5 scale-100"
                 } ${
-                  isLightSection
-                    ? isActive
-                      ? "bg-black/85 shadow-[0_1px_2px_rgba(255,255,255,0.6)]"
-                      : "bg-black/30 hover:bg-black/60 shadow-[0_1px_2px_rgba(255,255,255,0.3)]"
-                    : isActive
-                    ? "bg-white/95 shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
-                    : "bg-white/35 hover:bg-white/70 shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+                  isActive
+                    ? "bg-[#E50920] shadow-[0_0_8px_rgba(229,9,32,0.9)]"
+                    : isLightSection
+                    ? "bg-black/50 hover:bg-black/75 shadow-[0_1px_2px_rgba(255,255,255,0.4)]"
+                    : "bg-white/50 hover:bg-white/80 shadow-[0_1px_2px_rgba(0,0,0,0.9)]"
                 }`}
               />
             </button>
