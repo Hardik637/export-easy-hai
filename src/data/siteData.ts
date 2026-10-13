@@ -43,8 +43,8 @@ export const BRAND_TAGLINE = "Explore. Learn. Export.";
 export const NAV_LINKS = [
   { label: "Home", href: "#hero" },
   { label: "The Opportunity", href: "#opportunity" },
-  { label: "How It Works", href: "#how-it-works" },
   { label: "Products", href: "#products" },
+  { label: "How It Works", href: "#how-it-works" },
   { label: "Live Batch", href: "#live-batch" },
   { label: "Webinar", href: "#webinar" },
   { label: "About", href: "#about" },

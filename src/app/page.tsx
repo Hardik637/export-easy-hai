@@ -32,6 +32,13 @@ export default function Home() {
     }
   };
 
+  const handleSelectCategory = () => {
+    const roadmapElem = document.getElementById("how-it-works");
+    if (roadmapElem) {
+      roadmapElem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <main className="relative min-h-screen">
       {/* Continuous scroll-linked cinematic visual transformation canvas */}
@@ -55,11 +62,14 @@ export default function Home() {
       {/* Section 3 — The Opportunity (Indian Products. Global Demand.) */}
       <OpportunitySection onOpenCourseModal={handleOpenCourses} />
 
-      {/* Section 4 — How It Works (Small Steps. Big Dreams. 7-step timeline) */}
-      <HowItWorks onOpenCourseModal={handleOpenCourses} />
+      {/* Section 4 — Product Opportunities (Every Indian Product Has a Global Market) */}
+      <ProductCategories
+        onOpenCourseModal={handleOpenCourses}
+        onSelectCategory={handleSelectCategory}
+      />
 
-      {/* Section 5 — Product Opportunities (Every Indian Product Has a Global Market) */}
-      <ProductCategories onOpenCourseModal={handleOpenCourses} />
+      {/* Section 5 — How It Works (Small Steps. Big Dreams. 7-step timeline) */}
+      <HowItWorks onOpenCourseModal={handleOpenCourses} />
 
       {/* Section 6 — Learn From Experience (Rahul Makwana Mentor) */}
       <MentorSection />

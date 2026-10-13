@@ -41,19 +41,24 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
           </button>
         </div>
 
-        {/* Desktop Structured Roadmap Grid (4 + 3 layout with ample reading space) */}
+        {/* Desktop Structured Roadmap Grid (4 + 3 layout with progression connectors) */}
         <div className="hidden lg:block space-y-4">
           <div className="grid grid-cols-4 gap-4">
-            {HOW_IT_WORKS_CONTENT.steps.slice(0, 4).map((step) => (
+            {HOW_IT_WORKS_CONTENT.steps.slice(0, 4).map((step, idx) => (
               <div
                 key={step.number}
-                className="p-5 sm:p-6 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between shadow-xl group"
+                className="p-5 sm:p-6 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between shadow-xl group relative"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
                     <span className="text-xs font-mono font-bold text-[#FF4D5E] px-2.5 py-0.5 rounded bg-[#E50920]/15 border border-[#E50920]/30">
                       STEP {step.number}
                     </span>
+                    {idx < 3 ? (
+                      <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-[#FFD86A] group-hover:translate-x-0.5 transition-all" />
+                    ) : (
+                      <span className="text-[10px] font-mono text-white/40 uppercase tracking-wider">Phase 2 ↳</span>
+                    )}
                   </div>
                   <div className="font-sans font-bold text-base text-white tracking-tight mb-2 group-hover:text-[#FFD86A] transition-colors">
                     {step.title}
@@ -67,16 +72,21 @@ export default function HowItWorks({ onOpenCourseModal }: HowItWorksProps) {
           </div>
 
           <div className="grid grid-cols-3 gap-4">
-            {HOW_IT_WORKS_CONTENT.steps.slice(4, 7).map((step) => (
+            {HOW_IT_WORKS_CONTENT.steps.slice(4, 7).map((step, idx) => (
               <div
                 key={step.number}
-                className="p-5 sm:p-6 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between shadow-xl group"
+                className="p-5 sm:p-6 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between shadow-xl group relative"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
                     <span className="text-xs font-mono font-bold text-[#FFD86A] px-2.5 py-0.5 rounded bg-[#F2A62B]/15 border border-[#F2A62B]/30">
                       STEP {step.number}
                     </span>
+                    {idx < 2 ? (
+                      <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-[#FFD86A] group-hover:translate-x-0.5 transition-all" />
+                    ) : (
+                      <span className="text-[10px] font-mono text-[#FFD86A] uppercase font-semibold">Continuous Cycle ✓</span>
+                    )}
                   </div>
                   <div className="font-sans font-bold text-base text-white tracking-tight mb-2 group-hover:text-[#FFD86A] transition-colors">
                     {step.title}
