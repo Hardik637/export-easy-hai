@@ -18,62 +18,32 @@ import {
   Users,
   Award,
   Zap,
-  ChevronRight,
-  FileCheck,
-  Package,
-  TrendingUp,
-  Anchor,
   Globe2,
+  FileCheck,
+  BookOpen,
+  Rocket,
+  UserCheck,
+  Layers,
+  TrendingUp,
+  Target,
+  ShieldAlert,
+  GraduationCap,
+  AlertCircle,
+  Phone,
+  Mail,
+  User,
 } from "lucide-react";
 import { WEBINAR_CONTENT, MENTOR_CONTENT } from "@/data/siteData";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [activeTab, setActiveTab] = useState<"corridors" | "products">("corridors");
 
-  // Live Countdown Timer to Sunday 1:00 PM IST
-  const [timeLeft, setTimeLeft] = useState({
-    days: "03",
-    hours: "14",
-    minutes: "28",
-    seconds: "45",
-  });
-
-  useEffect(() => {
-    const calculateTimeRemaining = () => {
-      const now = new Date();
-      const target = new Date();
-      const currentDay = now.getDay(); // 0 is Sunday
-      const daysUntilSunday = currentDay === 0 && now.getHours() < 13 ? 0 : (7 - currentDay) % 7 || 7;
-      target.setDate(now.getDate() + daysUntilSunday);
-      target.setHours(13, 0, 0, 0);
-
-      const diff = Math.max(0, target.getTime() - now.getTime());
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / 1000 / 60) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-
-      setTimeLeft({
-        days: String(d).padStart(2, "0"),
-        hours: String(h).padStart(2, "0"),
-        minutes: String(m).padStart(2, "0"),
-        seconds: String(s).padStart(2, "0"),
-      });
-    };
-
-    calculateTimeRemaining();
-    const interval = setInterval(calculateTimeRemaining, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
+  // Form State
   const [formData, setFormData] = useState({
     name: "",
-    whatsapp: "",
     email: "",
-    profession: "",
-    productInterest: "Spices & Food Commodities",
+    phone: "",
   });
 
   const handleOpenModal = () => {
@@ -84,739 +54,742 @@ export default function LandingPage() {
     setIsModalOpen(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
   };
 
-  const scrollToCorridor = () => {
-    const el = document.getElementById("trade-corridor");
+  const scrollToWebinar = () => {
+    const el = document.getElementById("webinar-section");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#050507] text-[#FFFFFF] font-sans antialiased selection:bg-[#E50920] selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#030304] text-[#FFFFFF] font-sans antialiased selection:bg-[#E50920] selection:text-white relative overflow-x-hidden">
       {/* =========================================================================
-          NAVBAR: Sleek, Floating Desktop Bar
+          SECTION 1: HERO — CINEMATIC NIGHT CARGO PORT WITH CRIMSON BLOOD MOON
          ========================================================================= */}
-      <header className="sticky top-3 sm:top-4 z-50 max-w-6xl mx-auto px-4">
-        <div className="bg-[#0b0b0f]/85 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-2xl shadow-black/80">
-          {/* Brand Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#E50920] flex items-center justify-center text-white shadow-lg shadow-red-950/70 shrink-0">
-              <Compass className="w-4 h-4 text-white" />
-            </div>
-            <div>
-              <span className="font-display text-lg sm:text-xl text-white tracking-wider uppercase block leading-none">
-                EXPORT EASY HAI
-              </span>
-              <span className="text-[9px] tracking-[0.22em] uppercase text-[#FF4D5E] font-semibold block font-mono">
-                INDIA ➔ GULF TRADE CORRIDOR
-              </span>
-            </div>
-          </div>
-
-          {/* Quick Nav Links (Desktop) */}
-          <nav className="hidden md:flex items-center gap-6 text-xs font-mono uppercase text-white/60">
-            <a href="#how-it-works" className="hover:text-white transition-colors">4-Step Execution</a>
-            <a href="#trade-corridor" className="hover:text-white transition-colors">Gulf Corridors</a>
-            <a href="#mentor" className="hover:text-white transition-colors">Rahul Makwana</a>
-            <a href="#webinar-pass" className="hover:text-white transition-colors">Webinar Pass</a>
-          </nav>
-
-          {/* Primary Action Button */}
-          <button
-            onClick={handleOpenModal}
-            className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-bold bg-[#E50920] hover:bg-[#c9071b] text-white transition-all cursor-pointer shadow-lg shadow-red-950/60 active:scale-95 border border-white/15"
-          >
-            <span>Reserve Seat • {WEBINAR_CONTENT.details.fee}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </header>
-
-      {/* =========================================================================
-          SECTION 1: HERO — AGGRESSIVE, CINEMATIC PORT BACKGROUND & DYNAMIC TAGS
-         ========================================================================= */}
-      <section className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-8 pb-16 px-4 sm:px-6">
-        {/* Crazy Cinematic Background Canvas */}
+      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden border-b border-white/10">
+        {/* Full-Bleed Photorealistic Port Background */}
         <div className="absolute inset-0 z-0">
           <picture className="w-full h-full block">
             <source
-              media="(max-width: 1023px)"
-              srcSet="/images/hero-blood-moon.jpg"
+              media="(max-width: 768px)"
+              srcSet="/images/hero-blood-moon-mobile.jpg"
               type="image/jpeg"
             />
             <source
-              media="(min-width: 1024px)"
+              media="(min-width: 769px)"
               srcSet="/images/hero-blood-moon.jpg"
               type="image/jpeg"
             />
             <img
               src="/images/hero-blood-moon.jpg"
-              alt="Night port with blood moon and cargo containers"
-              className="w-full h-full object-cover object-center filter brightness-[0.45] contrast-[1.25] saturate-[1.1]"
+              alt="Cargo port at night with crimson blood moon and shipping cranes"
+              className="w-full h-full object-cover object-[70%_center] md:object-center filter brightness-[0.6] contrast-[1.2]"
               loading="eager"
             />
           </picture>
 
-          {/* Dark Radial Vignette & Blood Moon Volumetric Glow */}
+          {/* Deep Dark Overlay on Left for Flawless Text Readability */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(circle at 50% 30%, rgba(229,9,32,0.22) 0%, rgba(5,5,7,0.7) 50%, #050507 92%)",
+                "linear-gradient(90deg, rgba(3,3,4,0.96) 0%, rgba(3,3,4,0.85) 45%, rgba(3,3,4,0.3) 75%, rgba(3,3,4,0.85) 100%)",
             }}
           />
 
-          {/* Grid lines for trade coordinates */}
+          {/* Vertical subtle gradient for top and bottom bleeding */}
           <div
-            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage:
-                "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
+              background:
+                "linear-gradient(180deg, rgba(3,3,4,0.7) 0%, transparent 20%, transparent 80%, #030304 100%)",
             }}
           />
         </div>
 
-        {/* Dynamic Floating Telemetry Pills (Inspired by Code Academy Tags) */}
-        <div className="absolute inset-0 max-w-6xl mx-auto pointer-events-none z-10 hidden lg:block">
-          {/* Top-Left Pill */}
-          <div className="absolute top-20 left-4 px-3 py-1.5 rounded-full bg-black/60 border border-white/15 text-[11px] font-mono text-white/80 backdrop-blur-md shadow-xl flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>DESTINATION: JEBEL ALI 🇦🇪</span>
+        {/* Top Header / Navigation */}
+        <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 py-5 flex items-center justify-between">
+          {/* Brand Logo */}
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded bg-[#E50920] flex items-center justify-center text-white shadow-lg shadow-red-950/80 shrink-0">
+              <Compass className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <span className="font-display text-xl sm:text-2xl text-white tracking-wider uppercase block leading-none">
+                EXPORT EASY HAI
+              </span>
+              <span className="text-[9px] tracking-[0.28em] uppercase text-[#FF4D5E] font-semibold block font-mono mt-0.5">
+                EXPLORE. LEARN. EXPORT.
+              </span>
+            </div>
           </div>
 
-          {/* Top-Right Pill */}
-          <div className="absolute top-24 right-6 px-3 py-1.5 rounded-full bg-black/60 border border-white/15 text-[11px] font-mono text-[#FFD86A] backdrop-blur-md shadow-xl flex items-center gap-2">
-            <Anchor className="w-3 h-3 text-[#FFD86A]" />
-            <span>ORIGIN: NHAVA SHEVA / MUNDRA</span>
-          </div>
-
-          {/* Mid-Left Pill */}
-          <div className="absolute bottom-36 left-2 px-3 py-1.5 rounded-full bg-black/60 border border-[#E50920]/40 text-[11px] font-mono text-white/90 backdrop-blur-md shadow-xl flex items-center gap-2">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#E50920]" />
-            <span>LC_IRREVOCABLE = 100% SECURE</span>
-          </div>
-
-          {/* Mid-Right Pill */}
-          <div className="absolute bottom-40 right-4 px-3 py-1.5 rounded-full bg-black/60 border border-white/15 text-[11px] font-mono text-[#FF4D5E] backdrop-blur-md shadow-xl flex items-center gap-2">
-            <Zap className="w-3 h-3 text-[#FF4D5E]" />
-            <span>TRANSIT_TIME = 3.5 DAYS</span>
-          </div>
-        </div>
-
-        {/* Main Hero Content Frame (Balanced for PC Screens Above The Fold) */}
-        <div className="relative z-20 max-w-4xl mx-auto text-center w-full">
-          {/* Live Masterclass Tag */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E50920]/20 border border-[#E50920]/50 text-[#FF6B7A] text-xs font-mono uppercase tracking-wider mb-5 backdrop-blur-md shadow-lg">
+          {/* Live Webinar Pill Action */}
+          <button
+            onClick={scrollToWebinar}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-black/60 hover:bg-black/80 text-white border border-white/20 hover:border-[#E50920] backdrop-blur-md transition-all cursor-pointer shadow-md"
+          >
             <span className="w-2 h-2 rounded-full bg-[#E50920] animate-ping" />
-            <span>LIVE 3-HOUR MASTERCLASS • THIS SUNDAY 1:00 PM IST</span>
-          </div>
+            <span>LIVE WEBINAR</span>
+          </button>
+        </header>
 
-          {/* Aggressive High-Impact Headline */}
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[76px] uppercase tracking-tight leading-[0.94] text-white mb-5 drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
-            QUIT 9 TO 5. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#FFD86A]">
-              BUILD AN EXPORT BUSINESS
-            </span>{" "}
-            <br />
-            <span className="text-[#E50920]">ON REAL CARGO.</span>
-          </h1>
-
-          {/* Sharp, Concise Subtitle */}
-          <p className="text-sm sm:text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed mb-7 drop-shadow-md">
-            A live, battle-tested masterclass by 14-year export practitioner Rahul Makwana.
-            Learn verified buyer matching, automated customs clearance, and 100% scam-proof
-            payment terms for high-demand Gulf markets.
-          </p>
-
-          {/* Dual Dynamic Action Buttons (Like Code Academy) */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-8">
-            <button
-              onClick={handleOpenModal}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_35px_rgba(229,9,32,0.6)] hover:shadow-[0_15px_45px_rgba(229,9,32,0.8)] transition-all cursor-pointer active:scale-95 border border-[#FF6B7A]"
-            >
-              <span>Reserve Seat • {WEBINAR_CONTENT.details.fee}</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={scrollToCorridor}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider bg-white/10 hover:bg-white/15 text-white/90 hover:text-white transition-all cursor-pointer border border-white/15 backdrop-blur-md"
-            >
-              <Ship className="w-4 h-4 text-[#FFD86A]" />
-              <span>Explore 3.5-Day Sea Route</span>
-            </button>
-          </div>
-
-          {/* Compact Trust Indicators Bar */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-5 py-2 rounded-full bg-black/60 border border-white/10 text-xs font-mono text-white/70 backdrop-blur-md">
-            <span className="flex items-center gap-1.5 text-white">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#FFD86A]" />
-              {WEBINAR_CONTENT.details.seats}
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span className="flex items-center gap-1.5">
-              <Video className="w-3.5 h-3.5 text-[#E50920]" />
-              Direct Live Zoom Q&amp;A
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span className="flex items-center gap-1.5 text-emerald-400">
-              <Lock className="w-3.5 h-3.5" />
-              WhatsApp Pass Dispatch
-            </span>
-          </div>
-
-          {/* Live Countdown Ticker Strip */}
-          <div className="mt-8 flex items-center justify-center gap-2 sm:gap-3 text-center">
-            <div className="px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 backdrop-blur-md">
-              <span className="font-display text-xl sm:text-2xl text-white block">{timeLeft.days}</span>
-              <span className="text-[9px] text-white/50 uppercase font-mono block">DAYS</span>
-            </div>
-            <span className="text-white/40 font-mono">:</span>
-            <div className="px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 backdrop-blur-md">
-              <span className="font-display text-xl sm:text-2xl text-white block">{timeLeft.hours}</span>
-              <span className="text-[9px] text-white/50 uppercase font-mono block">HOURS</span>
-            </div>
-            <span className="text-white/40 font-mono">:</span>
-            <div className="px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 backdrop-blur-md">
-              <span className="font-display text-xl sm:text-2xl text-[#FFD86A] block">{timeLeft.minutes}</span>
-              <span className="text-[9px] text-[#FFD86A]/70 uppercase font-mono block">MINS</span>
-            </div>
-            <span className="text-white/40 font-mono">:</span>
-            <div className="px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 backdrop-blur-md">
-              <span className="font-display text-xl sm:text-2xl text-[#FF4D5E] block">{timeLeft.seconds}</span>
-              <span className="text-[9px] text-[#FF4D5E]/70 uppercase font-mono block">SECS</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 2: DYNAMIC 4-STEP CONNECTED TRACK (Directly Inspired by Image 1)
-         ========================================================================= */}
-      <section id="how-it-works" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/10 relative">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#FFD86A] font-bold block mb-2">
-            HOW IT WORKS
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
-            4 steps from zero to your first container.
-          </h2>
-          <p className="text-xs sm:text-sm text-white/60">
-            We&apos;re not promising overnight millions. We give you a battle-tested,
-            zero-guesswork roadmap if you&apos;re ready to execute.
-          </p>
-        </div>
-
-        {/* Connected Step Track with Illuminated Path */}
-        <div className="relative">
-          {/* Glowing Connector Line (Desktop) */}
-          <div className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-gradient-to-r from-[#E50920] via-[#FFD86A] to-emerald-500 opacity-60 z-0" />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {/* Step 1 */}
-            <div className="rounded-2xl bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/10 p-6 backdrop-blur-md flex flex-col justify-between hover:border-[#E50920]/60 transition-all group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#E50920] text-white flex items-center justify-center font-display text-2xl shadow-lg shadow-red-950/60 mb-5 group-hover:scale-105 transition-transform">
-                  01
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFD86A] transition-colors">
-                  Product &amp; Market Fit
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed">
-                  Evaluate real Gulf demand for spices, agro-commodities, textiles, and engineering parts. Stop guessing what sells.
-                </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-white/10 text-[11px] font-mono text-white/50">
-                HS Code &amp; Margin Vetting
-              </div>
+        {/* Hero Main Content (Desktop Left-Aligned, Generous Negative Space) */}
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-16 my-auto flex flex-col justify-center">
+          <div className="max-w-xl lg:max-w-2xl text-left">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2 mb-4 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+              <span className="w-5 h-[2px] bg-[#E50920]" />
+              <span>FOR 9 TO 5 PROFESSIONALS</span>
             </div>
 
-            {/* Step 2 */}
-            <div className="rounded-2xl bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/10 p-6 backdrop-blur-md flex flex-col justify-between hover:border-[#FFD86A]/60 transition-all group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#FFD86A] text-black flex items-center justify-center font-display text-2xl shadow-lg shadow-amber-950/40 mb-5 group-hover:scale-105 transition-transform">
-                  02
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFD86A] transition-colors">
-                  Buyer Due Diligence
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed">
-                  Audit buyers through ICEGATE port manifests and Gulf chamber records. Differentiate genuine buyers from ghost brokers.
-                </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-white/10 text-[11px] font-mono text-white/50">
-                Anti-Fraud Buyer Filtering
-              </div>
-            </div>
+            {/* Aggressive Bold Condensed Headline */}
+            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[92px] uppercase tracking-tight leading-[0.92] text-white mb-5 drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
+              QUIT 9 TO 5. <br />
+              <span className="text-[#E50920]">BUILD AN</span> <br />
+              <span className="text-[#E50920]">EXPORT BUSINESS.</span>
+            </h1>
 
-            {/* Step 3 */}
-            <div className="rounded-2xl bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/10 p-6 backdrop-blur-md flex flex-col justify-between hover:border-[#E50920]/60 transition-all group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#E50920] text-white flex items-center justify-center font-display text-2xl shadow-lg shadow-red-950/60 mb-5 group-hover:scale-105 transition-transform">
-                  03
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFD86A] transition-colors">
-                  Statutory Clearance
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed">
-                  Set up your IEC, GST, AD Code, APEDA/RCMC, and Chamber certifications without paying heavy consultancy charges.
-                </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-white/10 text-[11px] font-mono text-white/50">
-                Direct ICEGATE Filing
-              </div>
-            </div>
-
-            {/* Step 4 */}
-            <div className="rounded-2xl bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/10 p-6 backdrop-blur-md flex flex-col justify-between hover:border-emerald-500/60 transition-all group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-black flex items-center justify-center font-display text-2xl shadow-lg shadow-emerald-950/40 mb-5 group-hover:scale-105 transition-transform">
-                  04
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-                  Dispatch &amp; Safe LC Payout
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed">
-                  Book containers with vetted CHAs, sail the 3.5-day route, and receive your guaranteed payment via Irrevocable LC.
-                </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-white/10 text-[11px] font-mono text-white/50">
-                100% Guaranteed Settlement
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 3: DYNAMIC TRACK SELECTOR (Directly Inspired by Image 1's Toggle)
-         ========================================================================= */}
-      <section id="trade-corridor" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/10">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#FF4D5E] font-bold block mb-2">
-            WHERE TO START?
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
-            Pick the track that matches your goal.
-          </h2>
-          <p className="text-xs sm:text-sm text-white/60 mb-6">
-            Instead of random YouTube videos, follow one connected path with real cargo results.
-          </p>
-
-          {/* Dynamic Pill Toggle (Paths vs Courses) */}
-          <div className="inline-flex p-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-md">
-            <button
-              onClick={() => setActiveTab("corridors")}
-              className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                activeTab === "corridors"
-                  ? "bg-white text-black shadow-md"
-                  : "text-white/70 hover:text-white"
-              }`}
-            >
-              Gulf Trade Corridors
-            </button>
-            <button
-              onClick={() => setActiveTab("products")}
-              className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                activeTab === "products"
-                  ? "bg-white text-black shadow-md"
-                  : "text-white/70 hover:text-white"
-              }`}
-            >
-              Core Product Categories
-            </button>
-          </div>
-        </div>
-
-        {/* Tab 1: Gulf Trade Corridors */}
-        {activeTab === "corridors" && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in duration-300">
-            {/* Corridor Card 1: UAE */}
-            <div className="rounded-3xl bg-gradient-to-b from-[#140e11] to-[#0a0709] border border-white/15 p-6 hover:border-[#E50920] transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between text-xs font-mono text-[#FFD86A] mb-4">
-                  <span>3.5 DAYS SEA TRANSIT</span>
-                  <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">0% RE-EXPORT DUTY</span>
-                </div>
-                <h3 className="font-display text-3xl text-white uppercase tracking-tight mb-2 group-hover:text-[#FF4D5E] transition-colors">
-                  Dubai &amp; Jebel Ali (UAE)
-                </h3>
-                <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-6">
-                  The primary distribution nerve-center of the Middle East. Fast cargo clearance,
-                  massive re-export appetite, and daily container line departures from Nhava Sheva &amp; Mundra.
-                </p>
-              </div>
-              <div className="space-y-2 pt-4 border-t border-white/10 text-xs text-white/80">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#E50920]" />
-                  <span>Top Demands: Spices, Rice, Textiles, Produce</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#E50920]" />
-                  <span>Port: Port of Jebel Ali</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Corridor Card 2: Saudi Arabia */}
-            <div className="rounded-3xl bg-gradient-to-b from-[#140e11] to-[#0a0709] border border-white/15 p-6 hover:border-[#FFD86A] transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between text-xs font-mono text-emerald-400 mb-4">
-                  <span>4.5 DAYS SEA TRANSIT</span>
-                  <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">VISION 2030 DEMAND</span>
-                </div>
-                <h3 className="font-display text-3xl text-white uppercase tracking-tight mb-2 group-hover:text-[#FFD86A] transition-colors">
-                  Dammam &amp; Riyadh (KSA)
-                </h3>
-                <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-6">
-                  The largest consumer economy in the GCC. Massive state-backed food security programs,
-                  infrastructure expansion, and premium purchasing power for Indian manufactured goods.
-                </p>
-              </div>
-              <div className="space-y-2 pt-4 border-t border-white/10 text-xs text-white/80">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FFD86A]" />
-                  <span>Top Demands: Engineering Parts, Ceramics, Agro</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FFD86A]" />
-                  <span>Port: King Abdulaziz Port (Dammam)</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Corridor Card 3: Qatar & Oman */}
-            <div className="rounded-3xl bg-gradient-to-b from-[#140e11] to-[#0a0709] border border-white/15 p-6 hover:border-emerald-500 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between text-xs font-mono text-cyan-400 mb-4">
-                  <span>3.0 - 4.0 DAYS TRANSIT</span>
-                  <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">HIGH PER-CAPITA</span>
-                </div>
-                <h3 className="font-display text-3xl text-white uppercase tracking-tight mb-2 group-hover:text-emerald-400 transition-colors">
-                  Qatar, Oman &amp; Kuwait
-                </h3>
-                <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-6">
-                  High-margin niche consumer markets. Exceptional demand for premium-packaged Indian
-                  food products, hotel amenities, and customized industrial components.
-                </p>
-              </div>
-              <div className="space-y-2 pt-4 border-t border-white/10 text-xs text-white/80">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Top Demands: Gourmet Foods, Apparels, Décor</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Ports: Hamad Port &amp; Sohar Port</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Tab 2: Core Product Categories */}
-        {activeTab === "products" && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in duration-300">
-            {/* Product 1 */}
-            <div className="rounded-3xl bg-gradient-to-b from-[#140e11] to-[#0a0709] border border-white/15 p-6 hover:border-[#E50920] transition-all flex flex-col justify-between">
-              <div>
-                <div className="relative w-full h-36 rounded-2xl overflow-hidden mb-4">
-                  <Image
-                    src="/images/prod-spices.jpg"
-                    alt="Spices and Agriculture"
-                    fill
-                    sizes="300px"
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-black/70 text-[10px] font-mono text-[#FFD86A] backdrop-blur-md">
-                    HS 07 - 12
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Food &amp; Agriculture
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed mb-4">
-                  Spices, premium rice, dehydrated vegetables, and fresh produce. Sourced directly from APMC mandis without owning farmland.
-                </p>
-              </div>
-              <div className="text-[11px] font-mono text-[#FFD86A]">
-                Key Markets: UAE, Saudi Arabia, Qatar
-              </div>
-            </div>
-
-            {/* Product 2 */}
-            <div className="rounded-3xl bg-gradient-to-b from-[#140e11] to-[#0a0709] border border-white/15 p-6 hover:border-[#E50920] transition-all flex flex-col justify-between">
-              <div>
-                <div className="relative w-full h-36 rounded-2xl overflow-hidden mb-4">
-                  <Image
-                    src="/images/prod-textiles.jpg"
-                    alt="Textiles and Apparel"
-                    fill
-                    sizes="300px"
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-black/70 text-[10px] font-mono text-[#FFD86A] backdrop-blur-md">
-                    HS 50 - 63
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Textiles &amp; Apparel
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed mb-4">
-                  Garments, fabrics, home linen, and institutional hotel textiles. Sourced directly from manufacturing hubs in Surat &amp; Tirupur.
-                </p>
-              </div>
-              <div className="text-[11px] font-mono text-[#FFD86A]">
-                Key Markets: UAE, Saudi Arabia, Oman
-              </div>
-            </div>
-
-            {/* Product 3 */}
-            <div className="rounded-3xl bg-gradient-to-b from-[#140e11] to-[#0a0709] border border-white/15 p-6 hover:border-[#E50920] transition-all flex flex-col justify-between">
-              <div>
-                <div className="relative w-full h-36 rounded-2xl overflow-hidden mb-4">
-                  <Image
-                    src="/images/prod-engineering.jpg"
-                    alt="Engineering and Ceramics"
-                    fill
-                    sizes="300px"
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-black/70 text-[10px] font-mono text-[#FFD86A] backdrop-blur-md">
-                    HS 69 &amp; 73
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Engineering &amp; Ceramics
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed mb-4">
-                  Morbi ceramic tiles, brass hardware, valves, and precision parts. High margin contracts directly with GCC contractors.
-                </p>
-              </div>
-              <div className="text-[11px] font-mono text-[#FFD86A]">
-                Key Markets: Saudi Arabia, Kuwait, Bahrain
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
-
-      {/* =========================================================================
-          SECTION 4: FOUNDER SPOTLIGHT — RAHUL MAKWANA (Image 2 Editorial Split)
-         ========================================================================= */}
-      <section id="mentor" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left: Dramatic High-Contrast Portrait */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[360px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#E50920]/80 bg-[#121014] group">
-              <Image
-                src="/images/mentor-rahul.jpg"
-                alt="Rahul Makwana - Founder & Export Practitioner"
-                fill
-                sizes="360px"
-                className="object-cover object-top filter contrast-[1.08] saturate-[1.05]"
-                unoptimized
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#E50920] text-white text-[10px] font-mono font-bold uppercase tracking-wider mb-2 shadow-lg">
-                  FOUNDER • ON-GROUND PRACTITIONER
-                </span>
-                <h3 className="font-display text-4xl text-white uppercase tracking-tight">
-                  {MENTOR_CONTENT.name}
-                </h3>
-                <p className="text-xs text-[#FFD86A] font-mono">
-                  {MENTOR_CONTENT.role}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Narrative (Editorial Authority) */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono uppercase text-[#FFD86A] font-bold tracking-wider">
-              <span>AUTHENTIC TRADE CREDIBILITY</span>
-            </div>
-
-            <h2 className="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white leading-[0.95]">
-              &ldquo;The harbor only cares about cargo cleared and contracts honored.&rdquo;
-            </h2>
-
-            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
-              {MENTOR_CONTENT.bio1}
+            {/* Supporting Copy */}
+            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-lg leading-relaxed mb-8 drop-shadow-md font-normal">
+              A live, practical webinar to help you understand how to start an India-to-Gulf
+              export business with a step-by-step roadmap.
             </p>
 
-            <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
-              {MENTOR_CONTENT.bio2} Most export training is sold by academics who have never
-              stood in front of a shipping container at Mundra or resolved an ICEGATE query at midnight.
-              Rahul&apos;s curriculum is built on 14+ years of real on-ground container dispatches.
-            </p>
+            {/* 4 Quick Benefit Icons Row */}
+            <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mb-8 text-center sm:text-left">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#FFD86A]">
+                  <BookOpen className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Practical</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Guidance</span>
+                </div>
+              </div>
 
-            {/* 3 Metric Pills */}
-            <div className="grid grid-cols-3 gap-3 text-center font-mono pt-2">
-              <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-                <span className="font-display text-2xl sm:text-3xl text-[#FFD86A] block">14+ YRS</span>
-                <span className="text-[10px] text-white/50 uppercase block">Practical Trade</span>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#E50920]">
+                  <Rocket className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Step-by-Step</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Roadmap</span>
+                </div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-                <span className="font-display text-2xl sm:text-3xl text-[#E50920] block">GCC</span>
-                <span className="text-[10px] text-white/50 uppercase block">Direct Corridor</span>
+
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#FF4D5E]">
+                  <Ship className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">India-to-Gulf</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Focus</span>
+                </div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-                <span className="font-display text-2xl sm:text-3xl text-emerald-400 block">100%</span>
-                <span className="text-[10px] text-white/50 uppercase block">Anti-Scam Focus</span>
+
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-emerald-400">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Beginner</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Friendly</span>
+                </div>
               </div>
             </div>
 
-            <div className="pt-2">
+            {/* Primary Action Button */}
+            <div className="mb-4">
               <button
                 onClick={handleOpenModal}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold bg-[#E50920] hover:bg-[#c9071b] text-white transition-all cursor-pointer shadow-lg shadow-red-950/60 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_35px_rgba(229,9,32,0.65)] hover:shadow-[0_15px_45px_rgba(229,9,32,0.85)] transition-all cursor-pointer active:scale-98 border border-red-500/40"
               >
-                <span>Ask Rahul Your Doubts Live This Sunday</span>
+                <span>Reserve Your ₹699 Webinar Seat</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
+
+            {/* Schedule Info Row */}
+            <div className="flex items-center gap-4 text-xs font-mono text-white/70">
+              <div className="flex items-center gap-1.5 text-white/90">
+                <Calendar className="w-3.5 h-3.5 text-[#E50920]" />
+                <span>{WEBINAR_CONTENT.details.schedule}</span>
+              </div>
+              <span className="text-white/30">|</span>
+              <div className="flex items-center gap-1.5 text-[#FFD86A]">
+                <Video className="w-3.5 h-3.5" />
+                <span>Live on {WEBINAR_CONTENT.details.platform}</span>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* =========================================================================
-          SECTION 5: THE OFFICIAL WEBINAR PASS (The High-Converting Ticket)
-         ========================================================================= */}
-      <section id="webinar-pass" className="py-20 px-4 sm:px-6 max-w-5xl mx-auto border-t border-white/10">
-        <div className="rounded-3xl bg-gradient-to-b from-[#191012] to-[#0d090a] border-2 border-[#E50920] p-6 sm:p-12 shadow-[0_0_90px_rgba(229,9,32,0.35)] relative overflow-hidden">
-          {/* Subtle Ambient Red Flare */}
-          <div
-            className="absolute -top-24 right-1/4 w-80 h-80 bg-[#E50920]/25 rounded-full blur-[140px] pointer-events-none"
-            aria-hidden="true"
-          />
-
-          {/* Ticket Header */}
-          <div className="text-center max-w-2xl mx-auto mb-10 relative z-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#E50920] text-white text-xs font-mono font-bold uppercase tracking-wider mb-4 shadow-lg shadow-red-950/60">
-              OFFICIAL WEBINAR REGISTRATION PASS
+        {/* Bottom Right Handwritten Watermark */}
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 pb-6 flex justify-end">
+          <div className="text-right">
+            <span className="font-script text-2xl sm:text-3xl text-white/60 drop-shadow-lg block leading-none">
+              From India <br />
+              <span className="text-white/80">to the Gulf</span>
             </span>
-
-            <h2 className="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white mb-2">
-              {WEBINAR_CONTENT.subhead}
-            </h2>
-
-            <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
-              {WEBINAR_CONTENT.description}
-            </p>
-          </div>
-
-          {/* Key Metrics Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center border-y border-white/10 py-5 mb-8 relative z-10">
-            <div>
-              <span className="text-[10px] font-mono uppercase text-[#FFD86A] block mb-0.5">REGISTRATION FEE</span>
-              <span className="font-display text-3xl sm:text-4xl text-[#E50920] font-bold">{WEBINAR_CONTENT.details.fee}</span>
-              <span className="text-[9px] text-white/40 block font-mono">One-Time Fee</span>
-            </div>
-            <div>
-              <span className="text-[10px] font-mono uppercase text-[#FFD86A] block mb-0.5">LIVE SCHEDULE</span>
-              <span className="font-bold text-xs sm:text-sm text-white block mt-1">{WEBINAR_CONTENT.details.schedule}</span>
-              <span className="text-[9px] text-white/40 block font-mono">3 Hours Intensive</span>
-            </div>
-            <div>
-              <span className="text-[10px] font-mono uppercase text-[#FFD86A] block mb-0.5">PLATFORM</span>
-              <span className="font-bold text-xs sm:text-sm text-white block mt-1">{WEBINAR_CONTENT.details.platform}</span>
-              <span className="text-[9px] text-white/40 block font-mono">Direct Video Q&amp;A</span>
-            </div>
-            <div>
-              <span className="text-[10px] font-mono uppercase text-[#FFD86A] block mb-0.5">SEATS &amp; LANGUAGE</span>
-              <span className="font-bold text-xs sm:text-sm text-white block mt-1">{WEBINAR_CONTENT.details.language}</span>
-              <span className="text-[9px] text-[#FF4D5E] block font-mono">{WEBINAR_CONTENT.details.seats}</span>
-            </div>
-          </div>
-
-          {/* What You Will Learn (8 Points) */}
-          <div className="mb-8 relative z-10">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-[#FFD86A] font-bold mb-3.5">
-              In this live session, you will learn:
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {WEBINAR_CONTENT.learnList.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-3 rounded-xl bg-white/[0.03] border border-white/10 flex items-start gap-2.5 text-xs text-white/90"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Actionable Tools Provided (4 Tools) */}
-          <div className="mb-8 pt-4 border-t border-white/10 relative z-10">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-[#FFD86A] font-bold mb-3">
-              Actionable tools provided to all attendees:
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-              {WEBINAR_CONTENT.receiveList.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-white font-medium text-center"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Primary Big CTA Button */}
-          <div className="text-center pt-2 relative z-10">
-            <button
-              onClick={handleOpenModal}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-full font-display text-2xl uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_45px_rgba(229,9,32,0.65)] hover:shadow-[0_15px_55px_rgba(229,9,32,0.85)] transition-all cursor-pointer active:scale-98 border border-[#FF6B7A]"
-            >
-              <span>{WEBINAR_CONTENT.primaryCTA}</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-
-            <div className="mt-3 text-xs text-white/60 flex items-center justify-center gap-1.5 font-mono">
-              <Lock className="w-3.5 h-3.5 text-[#FFD86A]" />
-              <span>Instant Zoom pass delivered directly to your WhatsApp upon registration.</span>
-            </div>
-          </div>
-
-          {/* Verbatim Disclaimers */}
-          <div className="mt-8 p-4 rounded-2xl bg-black/60 border border-white/10 text-xs text-white/70 leading-relaxed space-y-2 relative z-10">
-            <p>
-              <strong className="text-white font-semibold">Payment and Access Note: </strong>
-              {WEBINAR_CONTENT.paymentNote}
-            </p>
-            <p>
-              <strong className="text-white font-semibold">Refund Policy: </strong>
-              {WEBINAR_CONTENT.refundNote}
-            </p>
-            <p className="text-[11px] text-white/50 italic border-t border-white/5 pt-2">
-              <strong className="text-white font-semibold not-italic">Disclaimer: </strong>
-              {WEBINAR_CONTENT.disclaimer}
-            </p>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          STICKY MOBILE ACTION BAR
+          SECTION 2: FOUNDER — RAHUL MAKWANA (EDITORIAL ASYMMETRIC SPREAD)
+         ========================================================================= */}
+      <section className="relative py-20 sm:py-28 bg-[#070609] border-b border-white/10 overflow-hidden">
+        {/* Subtle Ambient Red Glow */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E50920]/15 rounded-full blur-[160px] pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Narrative & Values */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+                <span className="w-5 h-[2px] bg-[#E50920]" />
+                <span>WHO AM I</span>
+              </div>
+
+              {/* Headline */}
+              <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
+                PRACTICAL EXPERIENCE. <br />
+                <span className="text-[#E50920]">REAL GUIDANCE.</span>
+              </h2>
+
+              {/* Bio Paragraph */}
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+                I help 9-to-5 professionals and beginners understand how to export from India
+                to the Gulf with practical, step-by-step guidance, based on real-world experience.
+              </p>
+
+              {/* 3 Icon Features */}
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
+                    <UserCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <strong className="text-sm text-white block font-semibold">Mentor with export experience</strong>
+                    <span className="text-xs text-white/60">Real background in international shipments and supplier clearance.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <strong className="text-sm text-white block font-semibold">Simplifying complex processes</strong>
+                    <span className="text-xs text-white/60">Demystifying ICEGATE customs, HS codes, and bank AD code registration.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <TrendingUp className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <strong className="text-sm text-white block font-semibold">Helping beginners start with clarity</strong>
+                    <span className="text-xs text-white/60">Guiding you to avoid expensive rookie errors and scam payment terms.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Center: Rahul Makwana Authentic Portrait */}
+            <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
+              {/* Handwritten Script Annotation */}
+              <div className="w-full text-center lg:text-left mb-2 pl-4">
+                <span className="font-script text-2xl sm:text-3xl text-[#FFD86A] block leading-none">
+                  &ldquo;Same Knowledge. <br />
+                  Simpler Path.&rdquo;
+                </span>
+              </div>
+
+              <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-[#121115]">
+                <Image
+                  src="/images/mentor-rahul.jpg"
+                  alt="Rahul Makwana - Founder & Export Mentor"
+                  fill
+                  sizes="(max-width: 1024px) 340px, 400px"
+                  className="object-cover object-top filter contrast-[1.05]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-center">
+                  <span className="font-display text-2xl text-white block uppercase">
+                    {MENTOR_CONTENT.name}
+                  </span>
+                  <span className="text-[11px] font-mono text-[#FFD86A] uppercase tracking-wider block">
+                    {MENTOR_CONTENT.role}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Founder Statement Card */}
+            <div className="lg:col-span-3">
+              <div className="rounded-2xl bg-black/60 border border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl relative">
+                {/* Red Accent Marker */}
+                <div className="w-6 h-1 bg-[#E50920] mb-4" />
+
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#FF4D5E] font-bold block mb-1">
+                  FOUNDER
+                </span>
+
+                <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight mb-4">
+                  {MENTOR_CONTENT.name}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-4">
+                  Helping 9-to-5 professionals and beginners understand exports with real
+                  experience and practical guidance.
+                </p>
+
+                <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-4">
+                  I&apos;ve been working in the export and global trade space, and through
+                  Export Easy Hai, I focus on making the export process simple, practical
+                  and understandable for beginners.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 3: COMPANY MISSION — THE INDIA-TO-GULF TRADE CORRIDOR
+         ========================================================================= */}
+      <section className="relative py-20 sm:py-28 bg-[#050406] border-b border-white/10 overflow-hidden">
+        {/* Mission Photorealistic Dusk Port Background */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/mission-gulf-port.jpg"
+            alt="International container port connecting India and Arabian Gulf"
+            fill
+            sizes="100vw"
+            className="object-cover object-bottom filter brightness-[0.4] contrast-[1.2] saturate-[1.1]"
+            unoptimized
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(5,4,6,0.92) 0%, rgba(5,4,6,0.7) 40%, rgba(5,4,6,0.95) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+          {/* Top Right Script Watermark */}
+          <div className="flex justify-end mb-4">
+            <span className="font-script text-2xl sm:text-3xl text-[#FFD86A]/80 drop-shadow-md">
+              Real Markets. Real Opportunities.
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Mission Narrative */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+                <span className="w-5 h-[2px] bg-[#E50920]" />
+                <span>OUR MISSION</span>
+              </div>
+
+              {/* Headline */}
+              <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
+                MAKE EXPORTING <br />
+                <span className="text-[#E50920]">SIMPLE AND PRACTICAL.</span>
+              </h2>
+
+              {/* Mission Text */}
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+                Export Easy Hai exists to help more Indians understand real export opportunities,
+                avoid costly mistakes, and take the right steps with clarity and confidence.
+              </p>
+
+              {/* 3 Value Pillars */}
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
+                    <Target className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <strong className="text-sm text-white block font-semibold">Clear and practical guidance</strong>
+                    <span className="text-xs text-white/60">Grounded advice focused on action rather than textbook theories.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
+                    <FileCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <strong className="text-sm text-white block font-semibold">Focus on real opportunities</strong>
+                    <span className="text-xs text-white/60">Evaluate products with genuine buying power in UAE and Saudi Arabia.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <ShieldAlert className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <strong className="text-sm text-white block font-semibold">Awareness about compliance and risks</strong>
+                    <span className="text-xs text-white/60">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Illuminated Maritime Trade Map */}
+            <div className="lg:col-span-7">
+              <div className="rounded-2xl bg-black/70 border border-white/15 p-5 sm:p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+                <div className="flex items-center justify-between text-xs font-mono mb-4 border-b border-white/10 pb-3">
+                  <span className="text-[#FFD86A] font-bold">ARABIAN SEA CONTAINER CORRIDOR</span>
+                  <span className="text-emerald-400">3.5 DAYS SAILING</span>
+                </div>
+
+                {/* Dynamic SVG Map Connecting India to the Gulf */}
+                <div className="relative w-full aspect-[16/9] flex items-center justify-center">
+                  <svg
+                    viewBox="0 0 700 360"
+                    className="w-full h-full select-none"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="700" height="360" fill="#070a0e" rx="12" />
+
+                    {/* Subtle Latitude/Longitude Grid Lines */}
+                    <line x1="0" y1="90" x2="700" y2="90" stroke="#ffffff" strokeOpacity="0.04" />
+                    <line x1="0" y1="180" x2="700" y2="180" stroke="#ffffff" strokeOpacity="0.04" />
+                    <line x1="0" y1="270" x2="700" y2="270" stroke="#ffffff" strokeOpacity="0.04" />
+
+                    {/* Glowing Curved Trade Arcs from India to Gulf */}
+                    {/* To Kuwait */}
+                    <path
+                      d="M 520 220 Q 340 120 160 110"
+                      stroke="#E50920"
+                      strokeWidth="2.5"
+                      strokeDasharray="6 4"
+                      strokeOpacity="0.8"
+                    />
+                    {/* To Bahrain */}
+                    <path
+                      d="M 520 220 Q 360 160 210 150"
+                      stroke="#E50920"
+                      strokeWidth="2"
+                      strokeDasharray="6 4"
+                      strokeOpacity="0.7"
+                    />
+                    {/* To Saudi Arabia (Dammam) */}
+                    <path
+                      d="M 520 220 Q 370 190 230 195"
+                      stroke="#FFD86A"
+                      strokeWidth="3"
+                      strokeDasharray="7 4"
+                    />
+                    {/* To UAE (Jebel Ali / Dubai) */}
+                    <path
+                      d="M 520 220 Q 400 200 280 205"
+                      stroke="#E50920"
+                      strokeWidth="3.5"
+                    />
+                    {/* To Oman (Sohar / Muscat) */}
+                    <path
+                      d="M 520 220 Q 430 240 330 250"
+                      stroke="#E50920"
+                      strokeWidth="2"
+                      strokeDasharray="6 4"
+                      strokeOpacity="0.7"
+                    />
+
+                    {/* Origin: INDIA */}
+                    <circle cx="520" cy="220" r="14" fill="#E50920" fillOpacity="0.25" className="animate-ping" />
+                    <circle cx="520" cy="220" r="7" fill="#E50920" />
+                    <text x="540" y="222" fill="#ffffff" fontSize="14" fontFamily="monospace" fontWeight="bold">
+                      INDIA
+                    </text>
+                    <text x="540" y="238" fill="#888888" fontSize="10" fontFamily="monospace">
+                      Nhava Sheva &amp; Mundra
+                    </text>
+
+                    {/* Destination 1: KUWAIT */}
+                    <circle cx="160" cy="110" r="5" fill="#FFD86A" />
+                    <text x="110" y="100" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
+                      KUWAIT
+                    </text>
+
+                    {/* Destination 2: BAHRAIN */}
+                    <circle cx="210" cy="150" r="5" fill="#FFD86A" />
+                    <text x="155" y="145" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
+                      BAHRAIN
+                    </text>
+
+                    {/* Destination 3: SAUDI ARABIA */}
+                    <circle cx="230" cy="195" r="7" fill="#FFD86A" />
+                    <text x="135" y="200" fill="#FFD86A" fontSize="12" fontFamily="monospace" fontWeight="bold">
+                      SAUDI ARABIA
+                    </text>
+
+                    {/* Destination 4: UAE */}
+                    <circle cx="280" cy="205" r="8" fill="#E50920" />
+                    <text x="270" y="230" fill="#ffffff" fontSize="13" fontFamily="monospace" fontWeight="bold">
+                      UAE (DUBAI)
+                    </text>
+
+                    {/* Destination 5: OMAN */}
+                    <circle cx="330" cy="250" r="5" fill="#FFD86A" />
+                    <text x="345" y="255" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
+                      OMAN
+                    </text>
+                  </svg>
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] font-mono text-white/60 mt-3 pt-3 border-t border-white/10">
+                  <span>DEPARTURES: DAILY FROM WEST COAST PORTS</span>
+                  <span className="text-[#FFD86A]">CLEARANCE TIME: 3.5 - 4.5 DAYS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 4: WEBINAR & REGISTRATION — DIRECT ON-PAGE BOOKING CARD
+         ========================================================================= */}
+      <section id="webinar-section" className="relative py-20 sm:py-28 bg-[#030304] overflow-hidden">
+        {/* Webinar Atmospheric Night Port Background */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/webinar-port-night.jpg"
+            alt="Cargo container terminal at night with red floodlights and reflective ground"
+            fill
+            sizes="100vw"
+            className="object-cover object-center filter brightness-[0.5] contrast-[1.25]"
+            unoptimized
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(3,3,4,0.92) 0%, rgba(3,3,4,0.7) 50%, rgba(3,3,4,0.85) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Webinar Pitch & Highlights */}
+            <div className="lg:col-span-6 space-y-6">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+                <span className="w-5 h-[2px] bg-[#E50920]" />
+                <span>TAKE THE FIRST STEP</span>
+              </div>
+
+              {/* Headline */}
+              <h2 className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-white leading-[0.92]">
+                JOIN THE <br />
+                <span className="text-[#E50920]">LIVE WEBINAR</span>
+              </h2>
+
+              {/* Subcopy */}
+              <p className="text-sm sm:text-base text-white/85 max-w-lg leading-relaxed font-normal">
+                Get clear, practical guidance on how to start your export journey from India to the Gulf.
+              </p>
+
+              {/* 4 Feature Badges Grid */}
+              <div className="grid grid-cols-2 gap-3 max-w-md">
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
+                  <Video className="w-4 h-4 text-[#E50920] shrink-0" />
+                  <span>Live online webinar</span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
+                  <GraduationCap className="w-4 h-4 text-[#FFD86A] shrink-0" />
+                  <span>Hindi/English training</span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
+                  <Users className="w-4 h-4 text-[#FF4D5E] shrink-0" />
+                  <span>Limited seats (50 per session)</span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/70">
+                  <AlertCircle className="w-4 h-4 text-white/50 shrink-0" />
+                  <span>Not included: recording</span>
+                </div>
+              </div>
+
+              {/* Red CTA Button */}
+              <div>
+                <button
+                  onClick={handleOpenModal}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_35px_rgba(229,9,32,0.65)] hover:shadow-[0_15px_45px_rgba(229,9,32,0.85)] transition-all cursor-pointer active:scale-98 border border-red-500/40"
+                >
+                  <span>Reserve Your ₹699 Webinar Seat</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Schedule Info */}
+              <div className="flex items-center gap-4 text-xs font-mono text-white/70">
+                <div className="flex items-center gap-1.5 text-white/90">
+                  <Calendar className="w-3.5 h-3.5 text-[#E50920]" />
+                  <span>{WEBINAR_CONTENT.details.schedule}</span>
+                </div>
+                <span className="text-white/30">|</span>
+                <div className="flex items-center gap-1.5 text-[#FFD86A]">
+                  <Video className="w-3.5 h-3.5" />
+                  <span>Live on {WEBINAR_CONTENT.details.platform}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Embedded Glowing Registration Card (Exact match to Reference) */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="w-full max-w-md rounded-2xl bg-[#0D0B0F]/90 backdrop-blur-xl border-2 border-[#E50920] shadow-[0_0_60px_rgba(229,9,32,0.45)] p-6 sm:p-8 text-left relative">
+                {/* Header */}
+                <div className="flex items-start gap-3 mb-5">
+                  <div className="w-9 h-9 rounded bg-[#E50920] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-md">
+                    <Compass className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight leading-none">
+                      Reserve Your <br />
+                      <span className="text-[#E50920]">₹699 Webinar Seat</span>
+                    </h3>
+                    <p className="text-xs text-white/60 mt-1">
+                      Fill in your details to join the live webinar.
+                    </p>
+                  </div>
+                </div>
+
+                {!formSubmitted ? (
+                  <form onSubmit={handleFormSubmit} className="space-y-3.5">
+                    {/* Name Input */}
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
+                        <User className="w-4 h-4" />
+                      </div>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
+                      />
+                    </div>
+
+                    {/* Email Input */}
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      <input
+                        type="email"
+                        required
+                        placeholder="Email Address"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
+                      />
+                    </div>
+
+                    {/* Phone Input */}
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
+                        <Phone className="w-4 h-4" />
+                      </div>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Phone Number (WhatsApp)"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="pt-1">
+                      <button
+                        type="submit"
+                        className="w-full py-3.5 px-6 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40"
+                      >
+                        <span>Reserve My Seat for ₹699</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    {/* Verbatim Disclaimers */}
+                    <div className="text-[11px] text-white/50 leading-relaxed pt-2 space-y-2 border-t border-white/10 mt-3">
+                      <p>
+                        <strong className="text-white/80">Payment and access note: </strong>
+                        {WEBINAR_CONTENT.paymentNote}
+                      </p>
+                      <p>
+                        <strong className="text-white/80">Refund note: </strong>
+                        {WEBINAR_CONTENT.refundNote}
+                      </p>
+                    </div>
+                  </form>
+                ) : (
+                  <div className="text-center py-6">
+                    <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-3 border border-emerald-500/30">
+                      <CheckCircle2 className="w-7 h-7" />
+                    </div>
+
+                    <h4 className="font-display text-2xl text-white uppercase tracking-tight mb-1">
+                      Registration Received!
+                    </h4>
+
+                    <p className="text-xs text-white/80 mb-5 leading-relaxed">
+                      Thank you, {formData.name}. Click below to receive your Zoom link and joining instructions on WhatsApp.
+                    </p>
+
+                    <a
+                      href={`https://wa.me/919999999999?text=${encodeURIComponent(
+                        `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹699). My name is ${formData.name}. Please share the Zoom joining instructions!`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg"
+                    >
+                      <span>Receive Zoom Link on WhatsApp</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          STICKY MOBILE CONVERSION BAR
          ========================================================================= */}
       <div className="sm:hidden fixed bottom-3 inset-x-3 z-50 bg-[#0d0b0f]/95 border border-[#E50920]/60 p-2.5 rounded-full backdrop-blur-xl flex items-center justify-between shadow-2xl">
         <div className="leading-tight pl-3">
           <div className="text-[11px] font-bold text-white flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
-            <span>{WEBINAR_CONTENT.details.fee} Masterclass Pass</span>
+            <span>₹699 Webinar Seat</span>
           </div>
           <div className="text-[9.5px] text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule}</div>
         </div>
@@ -833,8 +806,8 @@ export default function LandingPage() {
       {/* =========================================================================
           FOOTER
          ========================================================================= */}
-      <footer className="border-t border-white/10 bg-[#040406] py-8 text-center text-xs text-white/50 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="border-t border-white/10 bg-[#020203] py-8 text-center text-xs text-white/50 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             &copy; {new Date().getFullYear()} Export Easy Hai. Founded by Rahul Makwana. All rights reserved.
           </div>
@@ -850,13 +823,11 @@ export default function LandingPage() {
       </footer>
 
       {/* =========================================================================
-          REGISTRATION POPUP MODAL
+          REGISTRATION POPUP MODAL (When clicking any CTA button)
          ========================================================================= */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-3xl bg-[#0f0d12] border border-white/20 p-6 sm:p-8 shadow-2xl text-left">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-[#E50920]/20 rounded-full blur-2xl pointer-events-none" />
-
+          <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl bg-[#0D0B0F] border-2 border-[#E50920] p-6 sm:p-8 shadow-[0_0_60px_rgba(229,9,32,0.5)] text-left">
             {/* Close Button */}
             <button
               onClick={handleCloseModal}
@@ -868,186 +839,111 @@ export default function LandingPage() {
 
             {!formSubmitted ? (
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E50920]/20 border border-[#E50920]/40 text-[#FF4D5E] text-[10px] font-mono font-bold uppercase tracking-wider mb-2">
-                  <span>LIVE MASTERCLASS • FEE: {WEBINAR_CONTENT.details.fee}</span>
+                <div className="flex items-start gap-3 mb-5">
+                  <div className="w-9 h-9 rounded bg-[#E50920] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-md">
+                    <Compass className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight leading-none">
+                      Reserve Your <br />
+                      <span className="text-[#E50920]">₹699 Webinar Seat</span>
+                    </h3>
+                    <p className="text-xs text-white/60 mt-1">
+                      {WEBINAR_CONTENT.details.schedule} • Live with Rahul Makwana.
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-1">
-                  Reserve Your Webinar Seat
-                </h3>
-                <p className="text-xs text-white/70 mb-5 leading-relaxed">
-                  {WEBINAR_CONTENT.details.schedule} • Live with Rahul Makwana. Your Zoom link and entry instructions will be delivered to your WhatsApp.
-                </p>
-
-                <form onSubmit={handleSubmit} className="space-y-3.5">
-                  <div>
-                    <label className="block text-xs uppercase tracking-wider text-white/80 mb-1 font-semibold">
-                      Full Name *
-                    </label>
+                <form onSubmit={handleFormSubmit} className="space-y-3.5">
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
+                      <User className="w-4 h-4" />
+                    </div>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Vikram Sharma"
+                      placeholder="Your Name"
                       value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      className="w-full bg-white/5 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#E50920] transition-colors"
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-white/80 mb-1 font-semibold">
-                        WhatsApp Number *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+91 98765 43210"
-                        value={formData.whatsapp}
-                        onChange={(e) =>
-                          setFormData({ ...formData, whatsapp: e.target.value })
-                        }
-                        className="w-full bg-white/5 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#E50920] transition-colors"
-                      />
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
+                      <Mail className="w-4 h-4" />
                     </div>
-
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-white/80 mb-1 font-semibold">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="you@domain.com"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        className="w-full bg-white/5 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#E50920] transition-colors"
-                      />
-                    </div>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Email Address"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
+                    />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-white/80 mb-1 font-semibold">
-                        Current Profession / City
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Sales Manager / Pune"
-                        value={formData.profession}
-                        onChange={(e) =>
-                          setFormData({ ...formData, profession: e.target.value })
-                        }
-                        className="w-full bg-white/5 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#E50920] transition-colors"
-                      />
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
+                      <Phone className="w-4 h-4" />
                     </div>
-
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-white/80 mb-1 font-semibold">
-                        Target Export Product
-                      </label>
-                      <select
-                        value={formData.productInterest}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            productInterest: e.target.value,
-                          })
-                        }
-                        className="w-full bg-[#181519] border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#E50920] transition-colors"
-                      >
-                        <option value="Spices & Food Commodities">Spices &amp; Food Commodities</option>
-                        <option value="Textiles, Apparels & Garments">Textiles &amp; Garments</option>
-                        <option value="Agricultural Produce">Agricultural Produce</option>
-                        <option value="Engineering & Metal Goods">Engineering &amp; Metal Goods</option>
-                        <option value="Handicrafts & Home Décor">Handicrafts &amp; Décor</option>
-                        <option value="Beauty & Personal Care">Beauty &amp; Personal Care</option>
-                        <option value="Still Exploring / Undecided">Still Exploring / Undecided</option>
-                      </select>
-                    </div>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="Phone Number (WhatsApp)"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
+                    />
                   </div>
 
-                  <div className="text-[11px] text-white/60 pt-1 leading-snug">
-                    Registration fee: <span className="text-[#FFD86A] font-bold">{WEBINAR_CONTENT.details.fee}</span> (Non-refundable).
-                  </div>
-
-                  <div className="pt-2">
+                  <div className="pt-1">
                     <button
                       type="submit"
-                      className="w-full py-3.5 px-6 rounded-full font-bold text-base bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/60"
+                      className="w-full py-3.5 px-6 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40"
                     >
-                      <span>Proceed to Reserve Seat ({WEBINAR_CONTENT.details.fee})</span>
+                      <span>Reserve My Seat for ₹699</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
 
-                  <div className="flex items-center justify-center gap-2 text-[11px] text-white/50 pt-1 font-mono">
-                    <Lock className="w-3 h-3 text-[#FFD86A]" />
-                    <span>256-Bit SSL Encrypted • Direct WhatsApp Pass Dispatch</span>
+                  <div className="text-[11px] text-white/50 leading-relaxed pt-2 space-y-2 border-t border-white/10 mt-3">
+                    <p>
+                      <strong className="text-white/80">Payment and access note: </strong>
+                      {WEBINAR_CONTENT.paymentNote}
+                    </p>
+                    <p>
+                      <strong className="text-white/80">Refund note: </strong>
+                      {WEBINAR_CONTENT.refundNote}
+                    </p>
                   </div>
                 </form>
               </div>
             ) : (
               <div className="text-center py-6">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 mx-auto flex items-center justify-center mb-4 border border-emerald-500/20">
-                  <CheckCircle2 className="w-8 h-8" />
+                <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-3 border border-emerald-500/30">
+                  <CheckCircle2 className="w-7 h-7" />
                 </div>
 
-                <div className="text-xs font-mono font-bold tracking-wider uppercase text-emerald-400 mb-1">
-                  REGISTRATION RECEIVED
-                </div>
+                <h4 className="font-display text-2xl text-white uppercase tracking-tight mb-1">
+                  Registration Received!
+                </h4>
 
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Welcome Aboard, {formData.name || "Future Exporter"}!
-                </h3>
-
-                <p className="text-sm text-white/80 mb-6 max-w-sm mx-auto leading-relaxed">
-                  Your seat for the {WEBINAR_CONTENT.subhead} ({WEBINAR_CONTENT.details.schedule}) with Rahul Makwana is confirmed.
+                <p className="text-xs text-white/80 mb-5 leading-relaxed">
+                  Thank you, {formData.name}. Click below to receive your Zoom link and joining instructions on WhatsApp.
                 </p>
 
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 text-left mb-6 space-y-1.5 text-xs">
-                  <div className="flex justify-between text-white/70">
-                    <span>Attendee Name:</span>
-                    <span className="font-semibold text-white">{formData.name}</span>
-                  </div>
-                  <div className="flex justify-between text-white/70">
-                    <span>WhatsApp Number:</span>
-                    <span className="font-semibold text-[#FFD86A]">{formData.whatsapp}</span>
-                  </div>
-                  <div className="flex justify-between text-white/70">
-                    <span>Target Category:</span>
-                    <span className="font-semibold text-white">{formData.productInterest}</span>
-                  </div>
-                  <div className="flex justify-between text-white/70">
-                    <span>Webinar Fee:</span>
-                    <span className="font-semibold text-[#FF4D5E]">{WEBINAR_CONTENT.details.fee}</span>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <a
-                    href={`https://wa.me/919999999999?text=${encodeURIComponent(
-                      `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (${WEBINAR_CONTENT.details.fee}). My name is ${formData.name}. Please share the Zoom joining instructions!`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-full font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg shadow-emerald-950/50"
-                  >
-                    <span>Receive Zoom Link on WhatsApp</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-
-                  <button
-                    onClick={handleCloseModal}
-                    className="w-full py-2.5 px-4 rounded-full bg-white/10 hover:bg-white/15 text-white text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
-                  >
-                    Back to Webinar Details
-                  </button>
-                </div>
+                <a
+                  href={`https://wa.me/919999999999?text=${encodeURIComponent(
+                    `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹699). My name is ${formData.name}. Please share the Zoom joining instructions!`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg"
+                >
+                  <span>Receive Zoom Link on WhatsApp</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             )}
           </div>
