@@ -47,16 +47,54 @@ export default function WebinarLandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070707] text-[#FFFFFF] font-sans antialiased selection:bg-[#E50920] selection:text-white relative">
-      {/* Subtle Atmospheric Red Radial Glow at top */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] pointer-events-none -z-10 opacity-30"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 10%, rgba(229, 9, 32, 0.45) 0%, rgba(180, 10, 20, 0.15) 45%, transparent 75%)",
-        }}
-        aria-hidden="true"
-      />
+    <div className="min-h-screen bg-[#050505] text-[#FFFFFF] font-sans antialiased selection:bg-[#E50920] selection:text-white relative">
+      {/* =========================================================================
+          STATIC BACKGROUND: Top night port background from main website (No transition)
+         ========================================================================= */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <picture className="w-full h-full block">
+          {/* Mobile portrait image (screens < 1024px) */}
+          <source
+            media="(max-width: 1023px)"
+            srcSet="/images/journey/mobile/01-night.webp"
+            type="image/webp"
+          />
+          {/* Desktop widescreen image (screens >= 1024px) */}
+          <source
+            media="(min-width: 1024px)"
+            srcSet="/images/journey/desktop/01-night.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/journey/desktop/01-night.webp"
+            alt="Export Easy Hai Cinematic Port Background"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
+
+        {/* Cinematic Vignette for text contrast & atmospheric night port mood */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(5,5,5,0.7) 0%, rgba(5,5,5,0.35) 25%, rgba(5,5,5,0.55) 60%, rgba(5,5,5,0.92) 100%)",
+          }}
+        />
+
+        {/* Ambient Red Glow over the harbor */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-40"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 15%, rgba(229, 9, 32, 0.35) 0%, rgba(18, 5, 8, 0.4) 45%, transparent 75%)",
+          }}
+        />
+
+        {/* Fine Film Grain Texture Overlay */}
+        <div className="absolute inset-0 bg-grain opacity-25 mix-blend-overlay pointer-events-none" />
+      </div>
 
       {/* =========================================================================
           NAVBAR: Strictly 3 items as requested:
@@ -159,7 +197,7 @@ export default function WebinarLandingPage() {
             - About the Company (Export Easy Hai)
            ========================================================================= */}
         <section id="founder-and-company" className="scroll-mt-24">
-          <div className="relative rounded-2xl sm:rounded-3xl bg-[#0e0c0c] border border-white/10 p-6 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
+          <div className="relative rounded-2xl sm:rounded-3xl bg-[#0e0c0c]/85 backdrop-blur-md border border-white/10 p-6 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
             {/* Ambient Background Accent */}
             <div
               className="absolute top-0 right-0 w-96 h-96 bg-[#E50920]/10 rounded-full blur-3xl pointer-events-none"
@@ -262,7 +300,7 @@ export default function WebinarLandingPage() {
             - Flagship Courses & Practical Curriculum
            ========================================================================= */}
         <section id="mission-and-courses" className="scroll-mt-24">
-          <div className="relative rounded-2xl sm:rounded-3xl bg-[#0e0c0c] border border-white/10 p-6 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
+          <div className="relative rounded-2xl sm:rounded-3xl bg-[#0e0c0c]/85 backdrop-blur-md border border-white/10 p-6 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
             {/* Ambient Background Accent */}
             <div
               className="absolute bottom-0 left-0 w-96 h-96 bg-[#E50920]/10 rounded-full blur-3xl pointer-events-none"
@@ -426,7 +464,7 @@ export default function WebinarLandingPage() {
             - Clear Schedule, Learning Outcomes, and Registration Trigger
            ========================================================================= */}
         <section id="signup-webinar" className="scroll-mt-24">
-          <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#140808] to-[#0d0707] border-2 border-[#E50920] p-6 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
+          <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#140808]/90 to-[#0d0707]/95 backdrop-blur-md border-2 border-[#E50920] p-6 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
             {/* Glowing red accent highlight */}
             <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#E50920]/25 rounded-full blur-[100px] pointer-events-none" />
 
