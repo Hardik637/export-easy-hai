@@ -88,26 +88,47 @@ export default function LandingPage() {
             <img
               src="/images/hero-blood-moon.jpg"
               alt="Cargo port at night with glowing crimson blood moon and shipping cranes"
-              className="w-full h-full object-cover object-[70%_center] md:object-center filter brightness-[0.92] contrast-[1.3] saturate-[1.25]"
+              className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.25] saturate-[1.2]"
               loading="eager"
             />
           </picture>
 
-          {/* RADIANT CRIMSON MOON GLOW (Centered over the Blood Moon so it pops out vividly) */}
+          {/* Natural Atmospheric Cloud Glow around & behind the Blood Moon (Soft, organic, no hard circular ring) */}
+          {/* Mobile Glow: organically scattered through clouds behind the centered moon */}
           <div
-            className="absolute top-[6%] left-[48%] md:left-[41%] -translate-x-1/2 w-60 h-60 md:w-96 md:h-96 rounded-full pointer-events-none mix-blend-screen opacity-90 animate-pulse"
+            className="md:hidden absolute top-[4%] left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] h-[260px] pointer-events-none mix-blend-screen opacity-60 blur-[60px]"
             style={{
               background:
-                "radial-gradient(circle, rgba(255,30,45,0.65) 0%, rgba(229,9,32,0.35) 45%, transparent 75%)",
+                "radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255,50,65,0.45) 0%, rgba(229,9,32,0.22) 42%, rgba(180,10,25,0.06) 68%, transparent 85%)",
             }}
+            aria-hidden="true"
           />
 
-          {/* Localized Left-Side Gradient (Dark behind text, 100% open on the moon & harbor) */}
+          {/* Desktop Glow: diffused atmosphere over cargo cranes and blood moon */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="hidden md:block absolute top-[2%] left-[40%] -translate-x-1/2 w-[720px] h-[360px] pointer-events-none mix-blend-screen opacity-70 blur-[90px]"
+            style={{
+              background:
+                "radial-gradient(ellipse 65% 55% at 50% 45%, rgba(255,45,60,0.42) 0%, rgba(229,9,32,0.2) 42%, rgba(180,10,25,0.05) 68%, transparent 85%)",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Desktop Left-Side Gradient (Dark behind text, 100% open on the moon & harbor) */}
+          <div
+            className="hidden md:block absolute inset-0 pointer-events-none"
             style={{
               background:
                 "linear-gradient(90deg, rgba(3,3,4,0.96) 0%, rgba(3,3,4,0.85) 32%, rgba(3,3,4,0.35) 55%, rgba(3,3,4,0.1) 75%, rgba(3,3,4,0.45) 100%)",
+            }}
+          />
+
+          {/* Mobile Gradient (Clean transparent sky around moon, smooth text contrast for lower half) */}
+          <div
+            className="md:hidden absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(3,3,4,0.1) 0%, rgba(3,3,4,0.02) 25%, rgba(3,3,4,0.65) 52%, rgba(3,3,4,0.9) 82%, #030304 100%)",
             }}
           />
 
