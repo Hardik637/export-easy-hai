@@ -111,9 +111,9 @@ export default function LandingPage() {
             aria-hidden="true"
           />
 
-          {/* MOBILE VIEW: Dynamic Breathing Cloud Background Glow (Slowly comes & goes behind the moon) */}
+          {/* MOBILE VIEW: Dynamic Breathing Cloud Background Glow (Slowly comes & goes through the clouds) */}
           <div
-            className="md:hidden absolute top-[14.5%] left-1/2 w-[380px] h-[280px] pointer-events-none mix-blend-screen blur-[60px] animate-moon-breathe"
+            className="md:hidden absolute top-[18%] left-1/2 w-[440px] h-[320px] pointer-events-none mix-blend-screen blur-[65px] animate-moon-breathe"
             style={{
               background:
                 "radial-gradient(ellipse 65% 50% at 50% 50%, rgba(255,45,60,0.65) 0%, rgba(229,9,32,0.28) 45%, rgba(180,0,20,0.08) 70%, transparent 85%)",
@@ -121,7 +121,7 @@ export default function LandingPage() {
             aria-hidden="true"
           />
           <div
-            className="md:hidden absolute top-[14.5%] left-1/2 w-[180px] h-[180px] pointer-events-none mix-blend-screen blur-[35px] animate-moon-breathe"
+            className="md:hidden absolute top-[18%] left-1/2 w-[220px] h-[220px] pointer-events-none mix-blend-screen blur-[40px] animate-moon-breathe"
             style={{
               background:
                 "radial-gradient(circle, rgba(255,50,70,0.5) 0%, rgba(229,9,32,0.2) 50%, transparent 80%)",
