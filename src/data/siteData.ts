@@ -432,27 +432,24 @@ export const FAQS_CONTENT: FAQItem[] = [
       "Potential categories include textiles, food and agriculture, handicrafts, engineering goods, home products, beauty products, and other suitable Indian products. Product eligibility and compliance requirements must be checked separately.",
   },
   {
-    question: "Is the webinar live or recorded?",
+    question: "How are the training programs conducted?",
     answer:
-      "The ₹699 webinar is live on Zoom and conducted in Hinglish.",
+      "Our export education programs and live batch sessions are conducted online in Hinglish, with structured modules, real-world case studies, and practical documentation guides.",
   },
   {
-    question: "When is the webinar held?",
-    answer: "Every Sunday at 1:00 PM IST.",
-  },
-  {
-    question: "How do I receive the Zoom link?",
+    question: "Do I need an existing company or export licence before joining?",
     answer:
-      "After successful Razorpay payment, you will be redirected to WhatsApp for the Zoom link and joining instructions.",
+      "No. You do not need an existing registered entity or IEC (Import Export Code) to start learning. We teach you the exact step-by-step procedure to set up your firm, acquire your IEC, and secure your GST correctly without overspending.",
   },
   {
-    question: "Is the webinar refundable?",
-    answer: "No. Registrations are non-refundable after payment.",
-  },
-  {
-    question: "What happens after the webinar?",
+    question: "How do I access course materials, templates, and checklists?",
     answer:
-      "If you are ready for structured implementation support, you can apply for the next four-month live Gulf export batch.",
+      "All assignments, contract templates, buyer verification checklists, and shipping documentation guides are made available immediately through your student access dashboard.",
+  },
+  {
+    question: "What is the 4-month live batch?",
+    answer:
+      "The 4-month live Gulf export batch is our guided implementation program designed to take you from foundational understanding to preparing and executing your first shipment with accountability.",
   },
   {
     question: "Is a profitable shipment guaranteed?",
@@ -470,8 +467,8 @@ export const FINAL_CTA_CONTENT = {
   headline: "YOUR NEXT CHAPTER STARTS WITH ONE CLEAR STEP.",
   subcopy:
     "You do not have to understand everything today. Start by learning the process, understanding the risks, and creating a practical roadmap for your India-to-Gulf export journey.",
-  primaryCTA: "Reserve Your ₹699 Webinar Seat",
-  secondaryCTA: "Apply for the Next Live Batch",
+  primaryCTA: "Explore Featured Courses",
+  secondaryCTA: "View Export Roadmap",
   closingLine:
     "From India to the Gulf. Learn the process. Prepare with clarity. Export with confidence.",
 };
@@ -488,7 +485,6 @@ export const FOOTER_CONTENT = {
     { label: "Products", href: "#products" },
     { label: "Live Batch", href: "#live-batch" },
     { label: "About", href: "#about" },
-    { label: "Webinar", href: "/webinar" },
     { label: "FAQs", href: "#faq" },
     { label: "Contact", href: "#footer" },
   ],

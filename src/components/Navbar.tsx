@@ -6,11 +6,10 @@ import { NAV_LINKS, BRAND_NAME, BRAND_TAGLINE } from "@/data/siteData";
 import MobileDotsNav from "@/components/MobileDotsNav";
 
 interface NavbarProps {
-  onOpenWebinarModal?: () => void;
   onOpenCourseModal?: () => void;
 }
 
-export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: NavbarProps) {
+export default function Navbar({ onOpenCourseModal }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [isLightMode, setIsLightMode] = useState(false);
 

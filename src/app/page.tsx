@@ -10,7 +10,6 @@ import HowItWorks from "@/components/HowItWorks";
 import ProductCategories from "@/components/ProductCategories";
 import MentorSection from "@/components/MentorSection";
 import CourseSection from "@/components/CourseSection";
-import WebinarSection from "@/components/WebinarSection";
 import SuccessStories from "@/components/SuccessStories";
 import FraudPrevention from "@/components/FraudPrevention";
 import FAQSection from "@/components/FAQSection";
@@ -18,10 +17,6 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  const handleOpenWebinar = () => {
-    window.location.href = "/webinar";
-  };
-
   const handleOpenCourses = () => {
     const coursesElem = document.getElementById("courses");
     if (coursesElem) {
@@ -42,16 +37,10 @@ export default function Home() {
       <CinematicCanvas />
 
       {/* Floating / Sticky navigation */}
-      <Navbar
-        onOpenWebinarModal={handleOpenWebinar}
-        onOpenCourseModal={handleOpenCourses}
-      />
+      <Navbar onOpenCourseModal={handleOpenCourses} />
 
       {/* Hero Section — Blood Moon Night & Port */}
-      <Hero
-        onOpenWebinarModal={handleOpenWebinar}
-        onOpenCourseModal={handleOpenCourses}
-      />
+      <Hero onOpenCourseModal={handleOpenCourses} />
 
       {/* Section 2 — The Reality (A Stable Job Gives Security) */}
       <RealitySection />
@@ -74,23 +63,17 @@ export default function Home() {
       {/* Section 7 — Featured Courses (4 Practical Courses) */}
       <CourseSection />
 
-      {/* Section 8 — Upcoming Webinar (Dark Port Visual Callback) */}
-      <WebinarSection onOpenWebinarModal={handleOpenWebinar} />
-
-      {/* Section 9 — Success Stories (From Learners to Exporters) */}
+      {/* Section 8 — Success Stories (From Learners to Exporters) */}
       <SuccessStories />
 
-      {/* Section 10 — Fraud Prevention (Avoid Scams. Export Smarter.) */}
+      {/* Section 9 — Fraud Prevention (Avoid Scams. Export Smarter.) */}
       <FraudPrevention />
 
-      {/* Section 11 — FAQ (8 Questions & Practical Answers) */}
+      {/* Section 10 — FAQ (Questions & Practical Answers) */}
       <FAQSection />
 
-      {/* Section 12 — Final CTA (Full Sunrise, Container Ship to Open Horizon) */}
-      <FinalCTA
-        onOpenWebinarModal={handleOpenWebinar}
-        onOpenCourseModal={handleOpenCourses}
-      />
+      {/* Section 11 — Final CTA (Full Sunrise, Container Ship to Open Horizon) */}
+      <FinalCTA onOpenCourseModal={handleOpenCourses} />
 
       {/* Footer */}
       <Footer />

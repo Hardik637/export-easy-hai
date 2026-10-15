@@ -5,17 +5,23 @@ import { ArrowRight } from "lucide-react";
 import { FINAL_CTA_CONTENT } from "@/data/siteData";
 
 interface FinalCTAProps {
-  onOpenWebinarModal?: () => void;
   onOpenCourseModal?: () => void;
 }
 
-export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: FinalCTAProps) {
-  const scrollToLiveBatch = () => {
-    const el = document.getElementById("live-batch");
+export default function FinalCTA({ onOpenCourseModal }: FinalCTAProps) {
+  const scrollToCourses = () => {
+    const el = document.getElementById("courses");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     } else if (onOpenCourseModal) {
       onOpenCourseModal();
+    }
+  };
+
+  const scrollToRoadmap = () => {
+    const el = document.getElementById("how-it-works");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -47,7 +53,7 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3.5 mb-4 sm:mb-8">
             <button
-              onClick={onOpenWebinarModal}
+              onClick={scrollToCourses}
               className="btn-primary py-3 px-5 text-xs sm:text-sm justify-center w-full sm:w-auto"
             >
               <span>{FINAL_CTA_CONTENT.primaryCTA}</span>
@@ -55,7 +61,7 @@ export default function FinalCTA({ onOpenWebinarModal, onOpenCourseModal }: Fina
             </button>
 
             <button
-              onClick={scrollToLiveBatch}
+              onClick={scrollToRoadmap}
               className="btn-secondary-light py-2.5 px-4 text-xs sm:text-sm justify-center w-full sm:w-auto"
             >
               <span>{FINAL_CTA_CONTENT.secondaryCTA}</span>

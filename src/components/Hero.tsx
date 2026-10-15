@@ -5,11 +5,10 @@ import { ArrowRight, Compass } from "lucide-react";
 import { HERO_CONTENT } from "@/data/siteData";
 
 interface HeroProps {
-  onOpenWebinarModal?: () => void;
   onOpenCourseModal?: () => void;
 }
 
-export default function Hero({ onOpenWebinarModal, onOpenCourseModal }: HeroProps) {
+export default function Hero({ onOpenCourseModal }: HeroProps) {
   const scrollToHowItWorks = () => {
     const el = document.getElementById("how-it-works");
     if (el) el.scrollIntoView({ behavior: "smooth" });
