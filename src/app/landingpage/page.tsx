@@ -93,23 +93,30 @@ export default function LandingPage() {
             />
           </picture>
 
-          {/* Natural Atmospheric Cloud Glow around & behind the Blood Moon (Soft, organic, no hard circular ring) */}
-          {/* Mobile Glow: organically scattered through clouds behind the centered moon */}
+          {/* PC VIEW: High-Intensity Glowing Blood Moon (Radiant Core + Cinematic Atmospheric Haze) */}
           <div
-            className="md:hidden absolute top-[4%] left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] h-[260px] pointer-events-none mix-blend-screen opacity-60 blur-[60px]"
+            className="hidden md:block absolute top-[16.5%] left-[39.5%] -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full pointer-events-none mix-blend-screen opacity-95 animate-pulse"
             style={{
               background:
-                "radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255,50,65,0.45) 0%, rgba(229,9,32,0.22) 42%, rgba(180,10,25,0.06) 68%, transparent 85%)",
+                "radial-gradient(circle, rgba(255,40,60,0.85) 0%, rgba(255,20,35,0.5) 40%, rgba(229,9,32,0.2) 65%, transparent 78%)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="hidden md:block absolute top-[16.5%] left-[39.5%] -translate-x-1/2 -translate-y-1/2 w-[720px] h-[520px] pointer-events-none mix-blend-screen opacity-85 blur-[75px]"
+            style={{
+              background:
+                "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(255,30,50,0.6) 0%, rgba(229,9,32,0.3) 45%, rgba(180,0,20,0.1) 70%, transparent 85%)",
             }}
             aria-hidden="true"
           />
 
-          {/* Desktop Glow: diffused atmosphere over cargo cranes and blood moon */}
+          {/* MOBILE VIEW: Soft Natural Cloud Background Glow (Diffused through clouds, zero circular edges) */}
           <div
-            className="hidden md:block absolute top-[2%] left-[40%] -translate-x-1/2 w-[720px] h-[360px] pointer-events-none mix-blend-screen opacity-70 blur-[90px]"
+            className="md:hidden absolute top-[14.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[240px] pointer-events-none mix-blend-screen opacity-40 blur-[55px]"
             style={{
               background:
-                "radial-gradient(ellipse 65% 55% at 50% 45%, rgba(255,45,60,0.42) 0%, rgba(229,9,32,0.2) 42%, rgba(180,10,25,0.05) 68%, transparent 85%)",
+                "radial-gradient(ellipse 65% 50% at 50% 50%, rgba(255,40,55,0.45) 0%, rgba(229,9,32,0.18) 45%, transparent 80%)",
             }}
             aria-hidden="true"
           />
