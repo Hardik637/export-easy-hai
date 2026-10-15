@@ -16,13 +16,10 @@ import FraudPrevention from "@/components/FraudPrevention";
 import FAQSection from "@/components/FAQSection";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import { WebinarModal } from "@/components/Modals";
 
 export default function Home() {
-  const [webinarModalOpen, setWebinarModalOpen] = useState(false);
-
   const handleOpenWebinar = () => {
-    setWebinarModalOpen(true);
+    window.location.href = "/webinar";
   };
 
   const handleOpenCourses = () => {
@@ -97,12 +94,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Interactive Webinar RSVP Modal */}
-      <WebinarModal
-        isOpen={webinarModalOpen}
-        onClose={() => setWebinarModalOpen(false)}
-      />
     </main>
   );
 }

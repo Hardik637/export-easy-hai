@@ -79,19 +79,19 @@ export default function Navbar({ onOpenWebinarModal, onOpenCourseModal }: Navbar
             ))}
           </nav>
 
-          {/* Right Action: Primary CTA */}
+          {/* Right Action: Explore Courses CTA */}
           <div className="hidden sm:flex items-center gap-4">
-            <button
-              onClick={onOpenWebinarModal}
+            <a
+              href="#courses"
               className={`px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-md focus:outline-none focus:ring-2 focus:ring-[#E50920] focus:ring-offset-2 ${
                 isLightMode
                   ? "bg-[#111111] text-white hover:bg-[#E50920]"
                   : "bg-[#E50920] text-white hover:bg-[#c8071a]"
               }`}
             >
-              <span>Reserve Your Webinar Seat</span>
+              <span>Explore Courses</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
         </div>
       </header>

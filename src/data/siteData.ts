@@ -46,7 +46,6 @@ export const NAV_LINKS = [
   { label: "Products", href: "#products" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Live Batch", href: "#live-batch" },
-  { label: "Webinar", href: "#webinar" },
   { label: "About", href: "#about" },
   { label: "FAQs", href: "#faq" },
 ];
@@ -487,9 +486,9 @@ export const FOOTER_CONTENT = {
     { label: "Home", href: "#hero" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "Products", href: "#products" },
-    { label: "Webinar", href: "#webinar" },
     { label: "Live Batch", href: "#live-batch" },
     { label: "About", href: "#about" },
+    { label: "Webinar", href: "/webinar" },
     { label: "FAQs", href: "#faq" },
     { label: "Contact", href: "#footer" },
   ],

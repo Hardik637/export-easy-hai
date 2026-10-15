@@ -9,10 +9,16 @@ interface HeroProps {
   onOpenCourseModal?: () => void;
 }
 
-export default function Hero({ onOpenWebinarModal }: HeroProps) {
+export default function Hero({ onOpenWebinarModal, onOpenCourseModal }: HeroProps) {
   const scrollToHowItWorks = () => {
     const el = document.getElementById("how-it-works");
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToCourses = () => {
+    const el = document.getElementById("courses");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    else if (onOpenCourseModal) onOpenCourseModal();
   };
 
   return (
@@ -50,10 +56,10 @@ export default function Hero({ onOpenWebinarModal }: HeroProps) {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
             <button
-              onClick={onOpenWebinarModal}
+              onClick={scrollToCourses}
               className="btn-primary py-3 px-5 sm:px-6 text-xs sm:text-sm group justify-center w-full sm:w-auto"
             >
-              <span>{HERO_CONTENT.primaryCTA}</span>
+              <span>Explore Featured Courses</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
 
