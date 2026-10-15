@@ -93,24 +93,6 @@ export default function LandingPage() {
             />
           </picture>
 
-          {/* PC VIEW: High-Intensity Glowing Blood Moon (Radiant Core + Cinematic Atmospheric Haze) */}
-          <div
-            className="hidden md:block absolute top-[16.5%] left-[39.5%] -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full pointer-events-none mix-blend-screen opacity-95 animate-pulse"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,40,60,0.85) 0%, rgba(255,20,35,0.5) 40%, rgba(229,9,32,0.2) 65%, transparent 78%)",
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className="hidden md:block absolute top-[16.5%] left-[39.5%] -translate-x-1/2 -translate-y-1/2 w-[720px] h-[520px] pointer-events-none mix-blend-screen opacity-85 blur-[75px]"
-            style={{
-              background:
-                "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(255,30,50,0.6) 0%, rgba(229,9,32,0.3) 45%, rgba(180,0,20,0.1) 70%, transparent 85%)",
-            }}
-            aria-hidden="true"
-          />
-
           {/* MOBILE VIEW: Soft Natural Cloud Background Glow (Diffused through clouds, zero circular edges) */}
           <div
             className="md:hidden absolute top-[14.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[240px] pointer-events-none mix-blend-screen opacity-40 blur-[55px]"
@@ -121,12 +103,12 @@ export default function LandingPage() {
             aria-hidden="true"
           />
 
-          {/* Desktop Left-Side Gradient (Dark behind text, 100% open on the moon & harbor) */}
+          {/* Desktop Left-Side Gradient (Dark behind text on left, 100% open & transparent on the moon & harbor) */}
           <div
             className="hidden md:block absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(90deg, rgba(3,3,4,0.96) 0%, rgba(3,3,4,0.85) 32%, rgba(3,3,4,0.35) 55%, rgba(3,3,4,0.1) 75%, rgba(3,3,4,0.45) 100%)",
+                "linear-gradient(90deg, rgba(3,3,4,0.96) 0%, rgba(3,3,4,0.88) 26%, rgba(3,3,4,0.2) 34%, transparent 40%, transparent 75%, rgba(3,3,4,0.45) 100%)",
             }}
           />
 
