@@ -202,3 +202,21 @@
   outline-offset: 2px;
 }
 
+/* Dynamic Breathing Blood Moon Glow (Slow atmospheric pulse) */
+@keyframes moonBreathe {
+  0%, 100% {
+    opacity: 0.18;
+    transform: translate(-50%, -50%) scale(0.93);
+  }
+  50% {
+    opacity: 0.92;
+    transform: translate(-50%, -50%) scale(1.07);
+  }
+}
+
+.animate-moon-breathe {
+  animation: moonBreathe 5.2s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+

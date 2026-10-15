@@ -93,12 +93,38 @@ export default function LandingPage() {
             />
           </picture>
 
-          {/* MOBILE VIEW: Soft Natural Cloud Background Glow (Diffused through clouds, zero circular edges) */}
+          {/* DESKTOP VIEW: Dynamic Breathing Red Moon Glow (Slowly comes & goes through the clouds) */}
           <div
-            className="md:hidden absolute top-[14.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[240px] pointer-events-none mix-blend-screen opacity-40 blur-[55px]"
+            className="hidden md:block absolute top-[16.5%] left-[39.5%] w-[760px] h-[520px] pointer-events-none mix-blend-screen blur-[85px] animate-moon-breathe"
             style={{
               background:
-                "radial-gradient(ellipse 65% 50% at 50% 50%, rgba(255,40,55,0.45) 0%, rgba(229,9,32,0.18) 45%, transparent 80%)",
+                "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(255,40,60,0.7) 0%, rgba(229,9,32,0.35) 45%, rgba(180,0,20,0.1) 70%, transparent 85%)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="hidden md:block absolute top-[16.5%] left-[39.5%] w-[280px] h-[280px] pointer-events-none mix-blend-screen blur-[45px] animate-moon-breathe"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(255,50,70,0.55) 0%, rgba(229,9,32,0.25) 50%, transparent 80%)",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* MOBILE VIEW: Dynamic Breathing Cloud Background Glow (Slowly comes & goes behind the moon) */}
+          <div
+            className="md:hidden absolute top-[14.5%] left-1/2 w-[380px] h-[280px] pointer-events-none mix-blend-screen blur-[60px] animate-moon-breathe"
+            style={{
+              background:
+                "radial-gradient(ellipse 65% 50% at 50% 50%, rgba(255,45,60,0.65) 0%, rgba(229,9,32,0.28) 45%, rgba(180,0,20,0.08) 70%, transparent 85%)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="md:hidden absolute top-[14.5%] left-1/2 w-[180px] h-[180px] pointer-events-none mix-blend-screen blur-[35px] animate-moon-breathe"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(255,50,70,0.5) 0%, rgba(229,9,32,0.2) 50%, transparent 80%)",
             }}
             aria-hidden="true"
           />
