@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -32,52 +32,12 @@ import {
   Phone,
   Mail,
   User,
-  Radio,
-  Flame,
-  Crosshair,
-  BadgeAlert,
 } from "lucide-react";
 import { WEBINAR_CONTENT, MENTOR_CONTENT } from "@/data/siteData";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
-
-  // Live countdown to Sunday 1:00 PM IST
-  const [timeLeft, setTimeLeft] = useState({
-    days: "03",
-    hours: "14",
-    minutes: "28",
-    seconds: "45",
-  });
-
-  useEffect(() => {
-    const calculateTimeRemaining = () => {
-      const now = new Date();
-      const target = new Date();
-      const currentDay = now.getDay();
-      const daysUntilSunday = currentDay === 0 && now.getHours() < 13 ? 0 : (7 - currentDay) % 7 || 7;
-      target.setDate(now.getDate() + daysUntilSunday);
-      target.setHours(13, 0, 0, 0);
-
-      const diff = Math.max(0, target.getTime() - now.getTime());
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / 1000 / 60) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-
-      setTimeLeft({
-        days: String(d).padStart(2, "0"),
-        hours: String(h).padStart(2, "0"),
-        minutes: String(m).padStart(2, "0"),
-        seconds: String(s).padStart(2, "0"),
-      });
-    };
-
-    calculateTimeRemaining();
-    const interval = setInterval(calculateTimeRemaining, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -109,10 +69,10 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#030304] text-[#FFFFFF] font-sans antialiased selection:bg-[#E50920] selection:text-white relative overflow-x-hidden">
       {/* =========================================================================
-          SECTION 1: HERO — AGGRESSIVE CINEMATIC PORT WITH GLOWING BLOOD MOON
+          SECTION 1: HERO — CINEMATIC NIGHT CARGO PORT WITH VIVID POPPING BLOOD MOON
          ========================================================================= */}
-      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden border-b-2 border-[#E50920]/40 shadow-[0_10px_40px_rgba(229,9,32,0.25)]">
-        {/* Full-Bleed High-Contrast Port Background */}
+      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden border-b border-white/10">
+        {/* Full-Bleed High-Definition Port Background */}
         <div className="absolute inset-0 z-0">
           <picture className="w-full h-full block">
             <source
@@ -128,186 +88,151 @@ export default function LandingPage() {
             <img
               src="/images/hero-blood-moon.jpg"
               alt="Cargo port at night with glowing crimson blood moon and shipping cranes"
-              className="w-full h-full object-cover object-[70%_center] md:object-center filter brightness-[0.9] contrast-[1.35] saturate-[1.3]"
+              className="w-full h-full object-cover object-[70%_center] md:object-center filter brightness-[0.92] contrast-[1.3] saturate-[1.25]"
               loading="eager"
             />
           </picture>
 
-          {/* RADIANT CRIMSON MOON GLOW (Centered over the Blood Moon) */}
+          {/* RADIANT CRIMSON MOON GLOW (Centered over the Blood Moon so it pops out vividly) */}
           <div
-            className="absolute top-[6%] left-[48%] md:left-[41%] -translate-x-1/2 w-64 h-64 md:w-96 md:h-96 rounded-full pointer-events-none mix-blend-screen opacity-90 animate-pulse"
+            className="absolute top-[6%] left-[48%] md:left-[41%] -translate-x-1/2 w-60 h-60 md:w-96 md:h-96 rounded-full pointer-events-none mix-blend-screen opacity-90 animate-pulse"
             style={{
               background:
-                "radial-gradient(circle, rgba(255,30,45,0.7) 0%, rgba(229,9,32,0.4) 45%, transparent 75%)",
+                "radial-gradient(circle, rgba(255,30,45,0.65) 0%, rgba(229,9,32,0.35) 45%, transparent 75%)",
             }}
           />
 
-          {/* Directional Vignette (Dark on left for text, completely open on moon & harbor) */}
+          {/* Localized Left-Side Gradient (Dark behind text, 100% open on the moon & harbor) */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(90deg, rgba(3,3,4,0.96) 0%, rgba(3,3,4,0.88) 32%, rgba(3,3,4,0.4) 55%, rgba(3,3,4,0.15) 80%, rgba(3,3,4,0.6) 100%)",
+                "linear-gradient(90deg, rgba(3,3,4,0.96) 0%, rgba(3,3,4,0.85) 32%, rgba(3,3,4,0.35) 55%, rgba(3,3,4,0.1) 75%, rgba(3,3,4,0.45) 100%)",
             }}
           />
 
-          {/* Bottom ground bleed into next section */}
+          {/* Subtle bottom bleed to seamlessly blend into next section */}
           <div
-            className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+            className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
             style={{
-              background: "linear-gradient(180deg, transparent 0%, rgba(3,3,4,0.85) 60%, #030304 100%)",
-            }}
-          />
-
-          {/* High-Tech Tactical Grid Texture */}
-          <div
-            className="absolute inset-0 opacity-[0.05] pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #ff2233 1px, transparent 1px), linear-gradient(to bottom, #ff2233 1px, transparent 1px)",
-              backgroundSize: "64px 64px",
+              background: "linear-gradient(180deg, transparent 0%, rgba(3,3,4,0.8) 60%, #030304 100%)",
             }}
           />
         </div>
 
         {/* Top Header / Navigation */}
-        <header className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-8 py-5 flex items-center justify-between">
+        <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 py-5 flex items-center justify-between">
           {/* Brand Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[#E50920] flex items-center justify-center text-white shadow-[0_0_20px_rgba(229,9,32,0.7)] shrink-0 border border-white/20">
-              <Compass className="w-5 h-5 text-white animate-spin-slow" />
+            <div className="w-9 h-9 rounded bg-[#E50920] flex items-center justify-center text-white shadow-lg shadow-red-950/80 shrink-0">
+              <Compass className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="font-display text-2xl sm:text-3xl text-white tracking-wider uppercase block leading-none drop-shadow-md">
+              <span className="font-display text-xl sm:text-2xl text-white tracking-wider uppercase block leading-none">
                 EXPORT EASY HAI
               </span>
-              <span className="text-[9.5px] tracking-[0.3em] uppercase text-[#FF4D5E] font-bold block font-mono mt-0.5">
+              <span className="text-[9px] tracking-[0.28em] uppercase text-[#FF4D5E] font-semibold block font-mono mt-0.5">
                 EXPLORE. LEARN. EXPORT.
               </span>
             </div>
           </div>
 
-          {/* High-Alert Live Webinar Badge */}
+          {/* Live Webinar Pill Action */}
           <button
             onClick={scrollToWebinar}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-black/75 hover:bg-[#E50920] text-white border-2 border-[#E50920] backdrop-blur-md transition-all cursor-pointer shadow-[0_0_20px_rgba(229,9,32,0.5)] group active:scale-95"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-black/60 hover:bg-black/80 text-white border border-white/20 hover:border-[#E50920] backdrop-blur-md transition-all cursor-pointer shadow-md"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#E50920] group-hover:bg-white animate-ping" />
-            <span>LIVE WEBINAR • ₹699</span>
+            <span className="w-2 h-2 rounded-full bg-[#E50920] animate-ping" />
+            <span>LIVE WEBINAR</span>
           </button>
         </header>
 
-        {/* Dynamic HUD Floating Telemetry Markers (Desktop) */}
-        <div className="absolute inset-0 max-w-7xl mx-auto pointer-events-none z-20 hidden xl:block">
-          {/* Top-Right HUD Badge */}
-          <div className="absolute top-24 right-8 px-3.5 py-1.5 rounded-lg bg-black/75 border border-[#E50920]/60 text-[11px] font-mono text-[#FFD86A] backdrop-blur-md shadow-2xl flex items-center gap-2">
-            <Ship className="w-3.5 h-3.5 text-[#E50920]" />
-            <span>FASTEST SEA LANE: 3.5 DAYS TO JEBEL ALI</span>
-          </div>
-
-          {/* Mid-Right Radar Pill */}
-          <div className="absolute top-44 right-4 px-3.5 py-1.5 rounded-lg bg-black/75 border border-emerald-500/50 text-[11px] font-mono text-emerald-400 backdrop-blur-md shadow-2xl flex items-center gap-2">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>100% IRREVOCABLE LC / ESCROW VERIFIED</span>
-          </div>
-
-          {/* Bottom-Right Trade Index Pill */}
-          <div className="absolute bottom-36 right-8 px-3.5 py-1.5 rounded-lg bg-black/75 border border-white/20 text-[11px] font-mono text-white/90 backdrop-blur-md shadow-2xl flex items-center gap-2">
-            <Flame className="w-3.5 h-3.5 text-[#E50920]" />
-            <span>GULF IMPORT DEMAND: +34% HIGH TARIFF FREE</span>
-          </div>
-        </div>
-
-        {/* Hero Main Content (Aggressive, Heavy Typography, High-Voltage) */}
+        {/* Hero Main Content */}
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-16 my-auto flex flex-col justify-center">
-          <div className="max-w-2xl lg:max-w-3xl text-left">
-            {/* Urgency Eyebrow */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded bg-[#E50920]/25 border border-[#E50920] text-white text-xs font-mono font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-md shadow-[0_0_15px_rgba(229,9,32,0.4)]">
-              <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
-              <span>FOR AMBITIOUS 9-TO-5 PROFESSIONALS</span>
+          <div className="max-w-xl lg:max-w-2xl text-left">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2 mb-4 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+              <span className="w-5 h-[2px] bg-[#E50920]" />
+              <span>FOR 9 TO 5 PROFESSIONALS</span>
             </div>
 
-            {/* Massive Aggressive Condensed Headline */}
-            <h1 className="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[104px] uppercase tracking-tight leading-[0.90] text-white mb-6 drop-shadow-[0_12px_35px_rgba(0,0,0,0.95)]">
+            {/* Bold Condensed Headline */}
+            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[92px] uppercase tracking-tight leading-[0.92] text-white mb-5 drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
               QUIT 9 TO 5. <br />
-              <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">BUILD AN</span> <br />
-              <span className="text-[#E50920] drop-shadow-[0_0_35px_rgba(229,9,32,0.9)]">
-                EXPORT BUSINESS.
-              </span>
+              <span className="text-[#E50920]">BUILD AN</span> <br />
+              <span className="text-[#E50920]">EXPORT BUSINESS.</span>
             </h1>
 
-            {/* Sharp, Punchy Supporting Copy */}
-            <p className="text-base sm:text-xl text-white/90 max-w-xl leading-relaxed mb-7 drop-shadow-md font-medium">
-              A live, unfiltered masterclass by 14-year on-ground exporter Rahul Makwana.
-              Learn how to dispatch real Indian cargo to high-paying Gulf markets with zero
-              middleman scams and ironclad payment security.
+            {/* Supporting Copy */}
+            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-lg leading-relaxed mb-8 drop-shadow-md font-normal">
+              A live, practical webinar to help you understand how to start an India-to-Gulf
+              export business with a step-by-step roadmap.
             </p>
 
-            {/* 4 Hard-Hitting Value Props Row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mb-8">
-              <div className="p-2.5 rounded-lg bg-black/65 border border-white/15 backdrop-blur-md flex items-center gap-2.5">
-                <BookOpen className="w-4 h-4 text-[#FFD86A] shrink-0" />
-                <span className="text-xs font-bold text-white leading-tight">Practical Guidance</span>
+            {/* 4 Quick Benefit Icons Row */}
+            <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mb-8 text-center sm:text-left">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#FFD86A]">
+                  <BookOpen className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Practical</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Guidance</span>
+                </div>
               </div>
 
-              <div className="p-2.5 rounded-lg bg-black/65 border border-[#E50920]/50 backdrop-blur-md flex items-center gap-2.5">
-                <Rocket className="w-4 h-4 text-[#E50920] shrink-0" />
-                <span className="text-xs font-bold text-white leading-tight">Step-by-Step Roadmap</span>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#E50920]">
+                  <Rocket className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Step-by-Step</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Roadmap</span>
+                </div>
               </div>
 
-              <div className="p-2.5 rounded-lg bg-black/65 border border-white/15 backdrop-blur-md flex items-center gap-2.5">
-                <Ship className="w-4 h-4 text-[#FF4D5E] shrink-0" />
-                <span className="text-xs font-bold text-white leading-tight">India-to-Gulf Focus</span>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#FF4D5E]">
+                  <Ship className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">India-to-Gulf</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Focus</span>
+                </div>
               </div>
 
-              <div className="p-2.5 rounded-lg bg-black/65 border border-emerald-500/40 backdrop-blur-md flex items-center gap-2.5">
-                <Users className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="text-xs font-bold text-white leading-tight">Beginner Friendly</span>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-emerald-400">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Beginner</span>
+                  <span className="text-[10px] text-white/60 block leading-tight">Friendly</span>
+                </div>
               </div>
             </div>
 
-            {/* Aggressive CTA Block with High-Urgency Seat Ticker */}
-            <div className="space-y-4 max-w-xl">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button
-                  onClick={handleOpenModal}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4.5 rounded-xl font-display text-2xl uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_0_45px_rgba(229,9,32,0.85)] hover:shadow-[0_0_70px_rgba(229,9,32,1)] transition-all cursor-pointer active:scale-95 border-2 border-[#FF6B7A] group"
-                >
-                  <span>Reserve Your ₹699 Webinar Seat</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-                </button>
+            {/* Primary Action Button */}
+            <div className="mb-4">
+              <button
+                onClick={handleOpenModal}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_35px_rgba(229,9,32,0.65)] hover:shadow-[0_15px_45px_rgba(229,9,32,0.85)] transition-all cursor-pointer active:scale-98 border border-red-500/40"
+              >
+                <span>Reserve Your ₹699 Webinar Seat</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
 
-                <div className="flex items-center justify-center gap-2 text-xs font-mono text-[#FFD86A] bg-black/70 px-4 py-3 rounded-xl border border-white/15 backdrop-blur-md">
-                  <ShieldCheck className="w-4 h-4 text-[#FFD86A]" />
-                  <span>{WEBINAR_CONTENT.details.seats}</span>
-                </div>
+            {/* Schedule Info Row */}
+            <div className="flex items-center gap-4 text-xs font-mono text-white/70">
+              <div className="flex items-center gap-1.5 text-white/90">
+                <Calendar className="w-3.5 h-3.5 text-[#E50920]" />
+                <span>{WEBINAR_CONTENT.details.schedule}</span>
               </div>
-
-              {/* Urgency Progress Bar */}
-              <div className="p-3 rounded-xl bg-black/75 border border-[#E50920]/40 backdrop-blur-md max-w-lg">
-                <div className="flex items-center justify-between text-xs font-mono mb-1.5">
-                  <span className="text-white/80 flex items-center gap-1.5 font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#E50920] animate-ping" />
-                    BATCH 48 REGISTRATION STATUS:
-                  </span>
-                  <span className="text-[#E50920] font-bold">42 / 50 SEATS BOOKED (84%)</span>
-                </div>
-                <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-[#E50920] via-orange-500 to-[#FFD86A] rounded-full w-[84%]" />
-                </div>
-              </div>
-
-              {/* Schedule Info */}
-              <div className="flex items-center gap-4 text-xs font-mono text-white/70 pt-1">
-                <div className="flex items-center gap-1.5 text-white/95 font-semibold">
-                  <Calendar className="w-3.5 h-3.5 text-[#E50920]" />
-                  <span>{WEBINAR_CONTENT.details.schedule}</span>
-                </div>
-                <span className="text-white/30">|</span>
-                <div className="flex items-center gap-1.5 text-[#FFD86A] font-semibold">
-                  <Video className="w-3.5 h-3.5" />
-                  <span>Live 3-Hour Session on Zoom</span>
-                </div>
+              <span className="text-white/30">|</span>
+              <div className="flex items-center gap-1.5 text-[#FFD86A]">
+                <Video className="w-3.5 h-3.5" />
+                <span>Live on {WEBINAR_CONTENT.details.platform}</span>
               </div>
             </div>
           </div>
@@ -316,138 +241,135 @@ export default function LandingPage() {
         {/* Bottom Right Handwritten Watermark */}
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 pb-6 flex justify-end">
           <div className="text-right">
-            <span className="font-script text-3xl sm:text-4xl text-white/75 drop-shadow-[0_4px_15px_rgba(0,0,0,0.9)] block leading-none">
+            <span className="font-script text-2xl sm:text-3xl text-white/60 drop-shadow-lg block leading-none">
               From India <br />
-              <span className="text-[#FFD86A]">to the Gulf</span>
+              <span className="text-white/80">to the Gulf</span>
             </span>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 2: FOUNDER — RAHUL MAKWANA (UNFILTERED PRACTITIONER CREDIBILITY)
+          SECTION 2: FOUNDER — RAHUL MAKWANA (EDITORIAL ASYMMETRIC SPREAD)
          ========================================================================= */}
-      <section className="relative py-24 sm:py-32 bg-[#070609] border-b-2 border-[#E50920]/30 overflow-hidden">
-        {/* Ambient Red Aura */}
+      <section className="relative py-20 sm:py-28 bg-[#070609] border-b border-white/10 overflow-hidden">
+        {/* Subtle Ambient Red Glow */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#E50920]/15 rounded-full blur-[170px] pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E50920]/15 rounded-full blur-[160px] pointer-events-none"
           aria-hidden="true"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Column: Aggressive Practitioner Authority */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Narrative & Values */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.25em]">
-                <span className="w-6 h-[2px] bg-[#E50920]" />
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+                <span className="w-5 h-[2px] bg-[#E50920]" />
                 <span>WHO AM I</span>
               </div>
 
-              <h2 className="font-display text-5xl sm:text-7xl uppercase tracking-tight text-white leading-[0.92]">
+              {/* Headline */}
+              <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
                 PRACTICAL EXPERIENCE. <br />
-                <span className="text-[#E50920] drop-shadow-[0_0_25px_rgba(229,9,32,0.6)]">
-                  REAL GUIDANCE.
-                </span>
+                <span className="text-[#E50920]">REAL GUIDANCE.</span>
               </h2>
 
-              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal">
+              {/* Bio Paragraph */}
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
                 I help 9-to-5 professionals and beginners understand how to export from India
                 to the Gulf with practical, step-by-step guidance, based on real-world experience.
               </p>
 
-              {/* 3 Value Pillars */}
+              {/* 3 Icon Features */}
               <div className="space-y-4 pt-2">
-                <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#E50920] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
                     <UserCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-sm text-white block font-bold">Mentor with export experience</strong>
-                    <span className="text-xs text-white/70">Real background in international shipments and supplier clearance.</span>
+                    <strong className="text-sm text-white block font-semibold">Mentor with export experience</strong>
+                    <span className="text-xs text-white/60">Real background in international shipments and supplier clearance.</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A] text-black flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
                     <Layers className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-sm text-white block font-bold">Simplifying complex processes</strong>
-                    <span className="text-xs text-white/70">Demystifying ICEGATE customs, HS codes, and bank AD code registration.</span>
+                    <strong className="text-sm text-white block font-semibold">Simplifying complex processes</strong>
+                    <span className="text-xs text-white/60">Demystifying ICEGATE customs, HS codes, and bank AD code registration.</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-emerald-500 text-black flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                     <TrendingUp className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-sm text-white block font-bold">Helping beginners start with clarity</strong>
-                    <span className="text-xs text-white/70">Guiding you to avoid expensive rookie errors and scam payment terms.</span>
+                    <strong className="text-sm text-white block font-semibold">Helping beginners start with clarity</strong>
+                    <span className="text-xs text-white/60">Guiding you to avoid expensive rookie errors and scam payment terms.</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Center: Rahul Makwana Portrait with Glowing Border */}
+            {/* Center: Rahul Makwana Authentic Portrait */}
             <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
+              {/* Handwritten Script Annotation */}
               <div className="w-full text-center lg:text-left mb-2 pl-4">
-                <span className="font-script text-3xl sm:text-4xl text-[#FFD86A] block leading-none drop-shadow-md">
+                <span className="font-script text-2xl sm:text-3xl text-[#FFD86A] block leading-none">
                   &ldquo;Same Knowledge. <br />
                   Simpler Path.&rdquo;
                 </span>
               </div>
 
-              <div className="relative w-full max-w-[360px] aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(229,9,32,0.45)] border-2 border-[#E50920] bg-[#121115]">
+              <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-[#121115]">
                 <Image
                   src="/images/mentor-rahul.jpg"
                   alt="Rahul Makwana - Founder & Export Mentor"
                   fill
-                  sizes="(max-width: 1024px) 360px, 420px"
-                  className="object-cover object-top filter contrast-[1.08] saturate-[1.05]"
+                  sizes="(max-width: 1024px) 340px, 400px"
+                  className="object-cover object-top filter contrast-[1.05]"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-center">
-                  <span className="font-display text-3xl text-white block uppercase tracking-tight leading-none">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-center">
+                  <span className="font-display text-2xl text-white block uppercase">
                     {MENTOR_CONTENT.name}
                   </span>
-                  <span className="text-xs font-mono text-[#FFD86A] uppercase tracking-wider block mt-1 font-semibold">
+                  <span className="text-[11px] font-mono text-[#FFD86A] uppercase tracking-wider block">
                     {MENTOR_CONTENT.role}
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Founder Authority Card */}
+            {/* Right Column: Founder Statement Card */}
             <div className="lg:col-span-3">
-              <div className="rounded-2xl bg-black/75 border-2 border-[#E50920]/60 p-6 sm:p-7 backdrop-blur-xl shadow-2xl relative">
-                <div className="w-8 h-1 bg-[#E50920] mb-4 shadow-[0_0_10px_#E50920]" />
+              <div className="rounded-2xl bg-black/60 border border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl relative">
+                {/* Red Accent Marker */}
+                <div className="w-6 h-1 bg-[#E50920] mb-4" />
 
-                <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#FF4D5E] font-bold block mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#FF4D5E] font-bold block mb-1">
                   FOUNDER
                 </span>
 
-                <h3 className="font-display text-3xl text-white uppercase tracking-tight mb-4">
+                <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight mb-4">
                   {MENTOR_CONTENT.name}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-4">
                   Helping 9-to-5 professionals and beginners understand exports with real
                   experience and practical guidance.
                 </p>
 
-                <p className="text-xs text-white/65 leading-relaxed border-t border-white/10 pt-4">
+                <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-4">
                   I&apos;ve been working in the export and global trade space, and through
                   Export Easy Hai, I focus on making the export process simple, practical
                   and understandable for beginners.
                 </p>
-
-                <div className="mt-5 pt-4 border-t border-white/10 text-center">
-                  <span className="text-[11px] font-mono text-[#FFD86A] uppercase font-bold block">
-                    ✓ 14+ YEARS GROUND TRADE
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -455,17 +377,17 @@ export default function LandingPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3: MISSION — INDIA-TO-GULF MARITIME TRADE CORRIDOR
+          SECTION 3: COMPANY MISSION — THE INDIA-TO-GULF TRADE CORRIDOR
          ========================================================================= */}
-      <section className="relative py-24 sm:py-32 bg-[#050406] border-b-2 border-[#E50920]/30 overflow-hidden">
-        {/* Mission Dusk Port Photography Background */}
+      <section className="relative py-20 sm:py-28 bg-[#050406] border-b border-white/10 overflow-hidden">
+        {/* Mission Photorealistic Dusk Port Background */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/mission-gulf-port.jpg"
             alt="International container port connecting India and Arabian Gulf"
             fill
             sizes="100vw"
-            className="object-cover object-bottom filter brightness-[0.55] contrast-[1.3] saturate-[1.2]"
+            className="object-cover object-bottom filter brightness-[0.45] contrast-[1.25] saturate-[1.15]"
             unoptimized
           />
           <div
@@ -478,78 +400,77 @@ export default function LandingPage() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+          {/* Top Right Script Watermark */}
           <div className="flex justify-end mb-4">
-            <span className="font-script text-3xl sm:text-4xl text-[#FFD86A] drop-shadow-lg">
+            <span className="font-script text-2xl sm:text-3xl text-[#FFD86A]/80 drop-shadow-md">
               Real Markets. Real Opportunities.
             </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Column: Aggressive Mission */}
+            {/* Left Column: Mission Narrative */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.25em]">
-                <span className="w-6 h-[2px] bg-[#E50920]" />
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+                <span className="w-5 h-[2px] bg-[#E50920]" />
                 <span>OUR MISSION</span>
               </div>
 
-              <h2 className="font-display text-5xl sm:text-7xl uppercase tracking-tight text-white leading-[0.92]">
+              {/* Headline */}
+              <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
                 MAKE EXPORTING <br />
-                <span className="text-[#E50920] drop-shadow-[0_0_25px_rgba(229,9,32,0.6)]">
-                  SIMPLE AND PRACTICAL.
-                </span>
+                <span className="text-[#E50920]">SIMPLE AND PRACTICAL.</span>
               </h2>
 
-              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal">
+              {/* Mission Text */}
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
                 Export Easy Hai exists to help more Indians understand real export opportunities,
                 avoid costly mistakes, and take the right steps with clarity and confidence.
               </p>
 
-              {/* 3 Pillars */}
+              {/* 3 Value Pillars */}
               <div className="space-y-4 pt-2">
-                <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#E50920] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
                     <Target className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-sm text-white block font-bold">Clear and practical guidance</strong>
-                    <span className="text-xs text-white/70">Grounded advice focused on action rather than textbook theories.</span>
+                    <strong className="text-sm text-white block font-semibold">Clear and practical guidance</strong>
+                    <span className="text-xs text-white/60">Grounded advice focused on action rather than textbook theories.</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A] text-black flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
                     <FileCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-sm text-white block font-bold">Focus on real opportunities</strong>
-                    <span className="text-xs text-white/70">Evaluate products with genuine buying power in UAE and Saudi Arabia.</span>
+                    <strong className="text-sm text-white block font-semibold">Focus on real opportunities</strong>
+                    <span className="text-xs text-white/60">Evaluate products with genuine buying power in UAE and Saudi Arabia.</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-emerald-500 text-black flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                     <ShieldAlert className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="text-sm text-white block font-bold">Awareness about compliance and risks</strong>
-                    <span className="text-xs text-white/70">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</span>
+                    <strong className="text-sm text-white block font-semibold">Awareness about compliance and risks</strong>
+                    <span className="text-xs text-white/60">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Tactical Radar Map (High-Tech HUD Command Style) */}
+            {/* Right Column: Interactive Illuminated Maritime Trade Map */}
             <div className="lg:col-span-7">
-              <div className="rounded-3xl bg-black/85 border-2 border-[#E50920]/60 p-5 sm:p-8 backdrop-blur-2xl shadow-[0_0_50px_rgba(229,9,32,0.35)] relative overflow-hidden">
+              <div className="rounded-2xl bg-black/70 border border-white/15 p-5 sm:p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
                 <div className="flex items-center justify-between text-xs font-mono mb-4 border-b border-white/10 pb-3">
-                  <span className="text-[#FFD86A] font-bold flex items-center gap-2">
-                    <Radio className="w-4 h-4 text-[#E50920] animate-pulse" />
-                    TACTICAL MARITIME RADAR: ARABIAN SEA
-                  </span>
-                  <span className="text-emerald-400 font-bold">TRANSIT: 3.5 DAYS</span>
+                  <span className="text-[#FFD86A] font-bold">ARABIAN SEA CONTAINER CORRIDOR</span>
+                  <span className="text-emerald-400">3.5 DAYS SAILING</span>
                 </div>
 
-                {/* Dynamic SVG Tactical Radar Map */}
+                {/* Dynamic SVG Map Connecting India to the Gulf */}
                 <div className="relative w-full aspect-[16/9] flex items-center justify-center">
                   <svg
                     viewBox="0 0 700 360"
@@ -557,78 +478,82 @@ export default function LandingPage() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect width="700" height="360" fill="#06090e" rx="14" />
+                    <rect width="700" height="360" fill="#070a0e" rx="12" />
 
-                    {/* Radar Concentric Rings */}
-                    <circle cx="520" cy="220" r="100" stroke="#E50920" strokeOpacity="0.12" strokeWidth="1" />
-                    <circle cx="520" cy="220" r="200" stroke="#E50920" strokeOpacity="0.08" strokeWidth="1" />
-                    <circle cx="520" cy="220" r="320" stroke="#E50920" strokeOpacity="0.05" strokeWidth="1" />
+                    {/* Subtle Latitude/Longitude Grid Lines */}
+                    <line x1="0" y1="90" x2="700" y2="90" stroke="#ffffff" strokeOpacity="0.04" />
+                    <line x1="0" y1="180" x2="700" y2="180" stroke="#ffffff" strokeOpacity="0.04" />
+                    <line x1="0" y1="270" x2="700" y2="270" stroke="#ffffff" strokeOpacity="0.04" />
 
-                    {/* Laser Arcs from India to Gulf */}
+                    {/* Glowing Curved Trade Arcs from India to Gulf */}
                     <path
                       d="M 520 220 Q 340 120 160 110"
                       stroke="#E50920"
                       strokeWidth="2.5"
                       strokeDasharray="6 4"
-                      strokeOpacity="0.85"
+                      strokeOpacity="0.8"
                     />
                     <path
                       d="M 520 220 Q 360 160 210 150"
                       stroke="#E50920"
                       strokeWidth="2"
                       strokeDasharray="6 4"
-                      strokeOpacity="0.75"
+                      strokeOpacity="0.7"
                     />
                     <path
                       d="M 520 220 Q 370 190 230 195"
                       stroke="#FFD86A"
-                      strokeWidth="3.5"
-                      strokeDasharray="8 4"
+                      strokeWidth="3"
+                      strokeDasharray="7 4"
                     />
                     <path
                       d="M 520 220 Q 400 200 280 205"
                       stroke="#E50920"
-                      strokeWidth="4"
+                      strokeWidth="3.5"
                     />
                     <path
                       d="M 520 220 Q 430 240 330 250"
                       stroke="#E50920"
                       strokeWidth="2"
                       strokeDasharray="6 4"
-                      strokeOpacity="0.75"
+                      strokeOpacity="0.7"
                     />
 
                     {/* Origin: INDIA */}
-                    <circle cx="520" cy="220" r="18" fill="#E50920" fillOpacity="0.3" className="animate-ping" />
-                    <circle cx="520" cy="220" r="8" fill="#E50920" />
-                    <text x="542" y="222" fill="#ffffff" fontSize="15" fontFamily="monospace" fontWeight="bold">
+                    <circle cx="520" cy="220" r="14" fill="#E50920" fillOpacity="0.25" className="animate-ping" />
+                    <circle cx="520" cy="220" r="7" fill="#E50920" />
+                    <text x="540" y="222" fill="#ffffff" fontSize="14" fontFamily="monospace" fontWeight="bold">
                       INDIA
                     </text>
-                    <text x="542" y="238" fill="#FFD86A" fontSize="10" fontFamily="monospace">
-                      Nhava Sheva / Mundra
+                    <text x="540" y="238" fill="#888888" fontSize="10" fontFamily="monospace">
+                      Nhava Sheva &amp; Mundra
                     </text>
 
-                    {/* Gulf Hubs */}
+                    {/* Destination 1: KUWAIT */}
                     <circle cx="160" cy="110" r="5" fill="#FFD86A" />
                     <text x="110" y="100" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
                       KUWAIT
                     </text>
 
+                    {/* Destination 2: BAHRAIN */}
                     <circle cx="210" cy="150" r="5" fill="#FFD86A" />
                     <text x="155" y="145" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
                       BAHRAIN
                     </text>
 
+                    {/* Destination 3: SAUDI ARABIA */}
                     <circle cx="230" cy="195" r="7" fill="#FFD86A" />
-                    <text x="130" y="200" fill="#FFD86A" fontSize="13" fontFamily="monospace" fontWeight="bold">
+                    <text x="135" y="200" fill="#FFD86A" fontSize="12" fontFamily="monospace" fontWeight="bold">
                       SAUDI ARABIA
                     </text>
 
-                    <circle cx="280" cy="205" r="9" fill="#E50920" />
-                    <text x="270" y="232" fill="#ffffff" fontSize="14" fontFamily="monospace" fontWeight="bold">
+                    {/* Destination 4: UAE */}
+                    <circle cx="280" cy="205" r="8" fill="#E50920" />
+                    <text x="270" y="230" fill="#ffffff" fontSize="13" fontFamily="monospace" fontWeight="bold">
                       UAE (DUBAI)
                     </text>
 
+                    {/* Destination 5: OMAN */}
                     <circle cx="330" cy="250" r="5" fill="#FFD86A" />
                     <text x="345" y="255" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
                       OMAN
@@ -636,9 +561,9 @@ export default function LandingPage() {
                   </svg>
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-mono text-white/70 mt-3 pt-3 border-t border-white/10">
-                  <span>DISPATCH: DAILY CONTAINER VESSEL SAILINGS</span>
-                  <span className="text-[#FFD86A] font-bold">DUTY-FREE RE-EXPORT HUB</span>
+                <div className="flex items-center justify-between text-[11px] font-mono text-white/60 mt-3 pt-3 border-t border-white/10">
+                  <span>DEPARTURES: DAILY FROM WEST COAST PORTS</span>
+                  <span className="text-[#FFD86A]">CLEARANCE TIME: 3.5 - 4.5 DAYS</span>
                 </div>
               </div>
             </div>
@@ -647,66 +572,67 @@ export default function LandingPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: WEBINAR & REGISTRATION — VIP CARGO PASS (HIGH AGGRESSION)
+          SECTION 4: WEBINAR & REGISTRATION — DIRECT ON-PAGE BOOKING CARD
          ========================================================================= */}
-      <section id="webinar-section" className="relative py-24 sm:py-32 bg-[#030304] overflow-hidden">
+      <section id="webinar-section" className="relative py-20 sm:py-28 bg-[#030304] overflow-hidden">
         {/* Webinar Atmospheric Night Port Background */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/webinar-port-night.jpg"
-            alt="Cargo terminal at night with red floodlights and reflective tarmac"
+            alt="Cargo container terminal at night with red floodlights and reflective ground"
             fill
             sizes="100vw"
-            className="object-cover object-center filter brightness-[0.7] contrast-[1.35] saturate-[1.3]"
+            className="object-cover object-center filter brightness-[0.55] contrast-[1.3]"
             unoptimized
           />
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(90deg, rgba(3,3,4,0.92) 0%, rgba(3,3,4,0.75) 50%, rgba(3,3,4,0.9) 100%)",
+                "linear-gradient(90deg, rgba(3,3,4,0.92) 0%, rgba(3,3,4,0.7) 50%, rgba(3,3,4,0.85) 100%)",
             }}
           />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Column: Aggressive Call to Arms */}
+            {/* Left Column: Webinar Pitch & Highlights */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.25em]">
-                <span className="w-6 h-[2px] bg-[#E50920]" />
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+                <span className="w-5 h-[2px] bg-[#E50920]" />
                 <span>TAKE THE FIRST STEP</span>
               </div>
 
-              <h2 className="font-display text-5xl sm:text-7xl md:text-8xl uppercase tracking-tight text-white leading-[0.90]">
+              {/* Headline */}
+              <h2 className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-white leading-[0.92]">
                 JOIN THE <br />
-                <span className="text-[#E50920] drop-shadow-[0_0_35px_rgba(229,9,32,0.9)]">
-                  LIVE WEBINAR
-                </span>
+                <span className="text-[#E50920]">LIVE WEBINAR</span>
               </h2>
 
-              <p className="text-base sm:text-xl text-white/90 max-w-lg leading-relaxed font-normal">
+              {/* Subcopy */}
+              <p className="text-sm sm:text-base text-white/85 max-w-lg leading-relaxed font-normal">
                 Get clear, practical guidance on how to start your export journey from India to the Gulf.
               </p>
 
-              {/* 4 Feature Badges */}
+              {/* 4 Feature Badges Grid */}
               <div className="grid grid-cols-2 gap-3 max-w-md">
-                <div className="p-3.5 rounded-xl bg-black/75 border border-white/15 flex items-center gap-3 text-xs text-white/95 font-semibold">
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
                   <Video className="w-4 h-4 text-[#E50920] shrink-0" />
                   <span>Live online webinar</span>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/75 border border-white/15 flex items-center gap-3 text-xs text-white/95 font-semibold">
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
                   <GraduationCap className="w-4 h-4 text-[#FFD86A] shrink-0" />
                   <span>Hindi/English training</span>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/75 border border-white/15 flex items-center gap-3 text-xs text-white/95 font-semibold">
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
                   <Users className="w-4 h-4 text-[#FF4D5E] shrink-0" />
                   <span>Limited seats (50 per session)</span>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/75 border border-white/15 flex items-center gap-3 text-xs text-white/75 font-semibold">
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/70">
                   <AlertCircle className="w-4 h-4 text-white/50 shrink-0" />
                   <span>Not included: recording</span>
                 </div>
@@ -716,53 +642,48 @@ export default function LandingPage() {
               <div>
                 <button
                   onClick={handleOpenModal}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4.5 rounded-xl font-display text-2xl uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_0_45px_rgba(229,9,32,0.85)] hover:shadow-[0_0_70px_rgba(229,9,32,1)] transition-all cursor-pointer active:scale-95 border-2 border-[#FF6B7A]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_35px_rgba(229,9,32,0.65)] hover:shadow-[0_15px_45px_rgba(229,9,32,0.85)] transition-all cursor-pointer active:scale-98 border border-red-500/40"
                 >
                   <span>Reserve Your ₹699 Webinar Seat</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
               {/* Schedule Info */}
               <div className="flex items-center gap-4 text-xs font-mono text-white/70">
-                <div className="flex items-center gap-1.5 text-white/95 font-semibold">
+                <div className="flex items-center gap-1.5 text-white/90">
                   <Calendar className="w-3.5 h-3.5 text-[#E50920]" />
                   <span>{WEBINAR_CONTENT.details.schedule}</span>
                 </div>
                 <span className="text-white/30">|</span>
-                <div className="flex items-center gap-1.5 text-[#FFD86A] font-semibold">
+                <div className="flex items-center gap-1.5 text-[#FFD86A]">
                   <Video className="w-3.5 h-3.5" />
                   <span>Live on {WEBINAR_CONTENT.details.platform}</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Embedded VIP High-Voltage Booking Pass Card */}
+            {/* Right Column: Embedded Glowing Registration Card (Exact match to Reference) */}
             <div className="lg:col-span-6 flex justify-center">
-              <div className="w-full max-w-md rounded-3xl bg-[#0B090E]/95 backdrop-blur-2xl border-2 border-[#E50920] shadow-[0_0_80px_rgba(229,9,32,0.65)] p-6 sm:p-8 text-left relative overflow-hidden">
-                {/* Glowing Top Corner Flare */}
-                <div className="absolute top-0 right-0 w-44 h-44 bg-[#E50920]/30 rounded-full blur-3xl pointer-events-none" />
-
+              <div className="w-full max-w-md rounded-2xl bg-[#0D0B0F]/90 backdrop-blur-xl border-2 border-[#E50920] shadow-[0_0_60px_rgba(229,9,32,0.45)] p-6 sm:p-8 text-left relative">
                 {/* Header */}
-                <div className="flex items-start gap-3.5 mb-5 relative z-10">
-                  <div className="w-10 h-10 rounded-xl bg-[#E50920] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-[0_0_20px_#E50920] border border-white/20">
+                <div className="flex items-start gap-3 mb-5">
+                  <div className="w-9 h-9 rounded bg-[#E50920] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-md">
                     <Compass className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight leading-none">
                       Reserve Your <br />
-                      <span className="text-[#E50920] drop-shadow-[0_0_15px_rgba(229,9,32,0.8)]">
-                        ₹699 Webinar Seat
-                      </span>
+                      <span className="text-[#E50920]">₹699 Webinar Seat</span>
                     </h3>
-                    <p className="text-xs text-white/70 mt-1 font-mono">
+                    <p className="text-xs text-white/60 mt-1">
                       Fill in your details to join the live webinar.
                     </p>
                   </div>
                 </div>
 
                 {!formSubmitted ? (
-                  <form onSubmit={handleFormSubmit} className="space-y-3.5 relative z-10">
+                  <form onSubmit={handleFormSubmit} className="space-y-3.5">
                     {/* Name Input */}
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
@@ -774,7 +695,7 @@ export default function LandingPage() {
                         placeholder="Your Name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-black/75 border border-white/20 focus:border-[#E50920] focus:ring-2 focus:ring-[#E50920]/40 rounded-xl pl-10 pr-3.5 py-3.5 text-sm text-white placeholder-white/40 focus:outline-none transition-all"
+                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                       />
                     </div>
 
@@ -789,7 +710,7 @@ export default function LandingPage() {
                         placeholder="Email Address"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-black/75 border border-white/20 focus:border-[#E50920] focus:ring-2 focus:ring-[#E50920]/40 rounded-xl pl-10 pr-3.5 py-3.5 text-sm text-white placeholder-white/40 focus:outline-none transition-all"
+                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                       />
                     </div>
 
@@ -804,7 +725,7 @@ export default function LandingPage() {
                         placeholder="Phone Number (WhatsApp)"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-black/75 border border-white/20 focus:border-[#E50920] focus:ring-2 focus:ring-[#E50920]/40 rounded-xl pl-10 pr-3.5 py-3.5 text-sm text-white placeholder-white/40 focus:outline-none transition-all"
+                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                       />
                     </div>
 
@@ -812,15 +733,15 @@ export default function LandingPage() {
                     <div className="pt-1">
                       <button
                         type="submit"
-                        className="w-full py-4 px-6 rounded-xl font-display text-xl uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-[0_0_35px_rgba(229,9,32,0.8)] border border-red-400"
+                        className="w-full py-3.5 px-6 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40"
                       >
                         <span>Reserve My Seat for ₹699</span>
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
 
                     {/* Verbatim Disclaimers */}
-                    <div className="text-[11px] text-white/50 leading-relaxed pt-2 space-y-2 border-t border-white/10 mt-3 font-sans">
+                    <div className="text-[11px] text-white/50 leading-relaxed pt-2 space-y-2 border-t border-white/10 mt-3">
                       <p>
                         <strong className="text-white/80">Payment and access note: </strong>
                         {WEBINAR_CONTENT.paymentNote}
@@ -832,7 +753,7 @@ export default function LandingPage() {
                     </div>
                   </form>
                 ) : (
-                  <div className="text-center py-6 relative z-10">
+                  <div className="text-center py-6">
                     <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-3 border border-emerald-500/30">
                       <CheckCircle2 className="w-7 h-7" />
                     </div>
@@ -851,7 +772,7 @@ export default function LandingPage() {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg"
                     >
                       <span>Receive Zoom Link on WhatsApp</span>
                       <ExternalLink className="w-4 h-4" />
@@ -867,18 +788,18 @@ export default function LandingPage() {
       {/* =========================================================================
           STICKY MOBILE CONVERSION BAR
          ========================================================================= */}
-      <div className="sm:hidden fixed bottom-3 inset-x-3 z-50 bg-[#0d0b0f]/95 border-2 border-[#E50920] p-2.5 rounded-full backdrop-blur-xl flex items-center justify-between shadow-[0_0_30px_rgba(229,9,32,0.5)]">
+      <div className="sm:hidden fixed bottom-3 inset-x-3 z-50 bg-[#0d0b0f]/95 border border-[#E50920]/60 p-2.5 rounded-full backdrop-blur-xl flex items-center justify-between shadow-2xl">
         <div className="leading-tight pl-3">
           <div className="text-[11px] font-bold text-white flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
             <span>₹699 Webinar Seat</span>
           </div>
-          <div className="text-[9.5px] text-[#FFD86A] font-mono">{WEBINAR_CONTENT.details.schedule}</div>
+          <div className="text-[9.5px] text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule}</div>
         </div>
 
         <button
           onClick={handleOpenModal}
-          className="inline-flex items-center gap-1 px-4 py-2 rounded-full text-xs font-bold bg-[#E50920] hover:bg-[#c9071b] text-white shadow-md shadow-red-950/60 cursor-pointer active:scale-95 border border-red-400"
+          className="inline-flex items-center gap-1 px-4 py-2 rounded-full text-xs font-bold bg-[#E50920] hover:bg-[#c9071b] text-white shadow-md shadow-red-950/60 cursor-pointer active:scale-95"
         >
           <span>Reserve ₹699</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -905,11 +826,12 @@ export default function LandingPage() {
       </footer>
 
       {/* =========================================================================
-          REGISTRATION POPUP MODAL
+          REGISTRATION POPUP MODAL (When clicking any CTA button)
          ========================================================================= */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-3xl bg-[#0D0B0F] border-2 border-[#E50920] p-6 sm:p-8 shadow-[0_0_80px_rgba(229,9,32,0.7)] text-left">
+          <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl bg-[#0D0B0F] border-2 border-[#E50920] p-6 sm:p-8 shadow-[0_0_60px_rgba(229,9,32,0.5)] text-left">
+            {/* Close Button */}
             <button
               onClick={handleCloseModal}
               className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white flex items-center justify-center cursor-pointer transition-colors"
@@ -921,7 +843,7 @@ export default function LandingPage() {
             {!formSubmitted ? (
               <div>
                 <div className="flex items-start gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#E50920] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-[0_0_20px_#E50920] border border-white/20">
+                  <div className="w-9 h-9 rounded bg-[#E50920] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-md">
                     <Compass className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -929,7 +851,7 @@ export default function LandingPage() {
                       Reserve Your <br />
                       <span className="text-[#E50920]">₹699 Webinar Seat</span>
                     </h3>
-                    <p className="text-xs text-white/60 mt-1 font-mono">
+                    <p className="text-xs text-white/60 mt-1">
                       {WEBINAR_CONTENT.details.schedule} • Live with Rahul Makwana.
                     </p>
                   </div>
@@ -946,7 +868,7 @@ export default function LandingPage() {
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-black/75 border border-white/20 focus:border-[#E50920] focus:ring-2 focus:ring-[#E50920]/40 rounded-xl pl-10 pr-3.5 py-3.5 text-sm text-white placeholder-white/40 focus:outline-none transition-all"
+                      className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                     />
                   </div>
 
@@ -960,7 +882,7 @@ export default function LandingPage() {
                       placeholder="Email Address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-black/75 border border-white/20 focus:border-[#E50920] focus:ring-2 focus:ring-[#E50920]/40 rounded-xl pl-10 pr-3.5 py-3.5 text-sm text-white placeholder-white/40 focus:outline-none transition-all"
+                      className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                     />
                   </div>
 
@@ -974,21 +896,21 @@ export default function LandingPage() {
                       placeholder="Phone Number (WhatsApp)"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-black/75 border border-white/20 focus:border-[#E50920] focus:ring-2 focus:ring-[#E50920]/40 rounded-xl pl-10 pr-3.5 py-3.5 text-sm text-white placeholder-white/40 focus:outline-none transition-all"
+                      className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                     />
                   </div>
 
                   <div className="pt-1">
                     <button
                       type="submit"
-                      className="w-full py-4 px-6 rounded-xl font-display text-xl uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-[0_0_35px_rgba(229,9,32,0.8)] border border-red-400"
+                      className="w-full py-3.5 px-6 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40"
                     >
                       <span>Reserve My Seat for ₹699</span>
-                      <ArrowRight className="w-5 h-5" />
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
 
-                  <div className="text-[11px] text-white/50 leading-relaxed pt-2 space-y-2 border-t border-white/10 mt-3 font-sans">
+                  <div className="text-[11px] text-white/50 leading-relaxed pt-2 space-y-2 border-t border-white/10 mt-3">
                     <p>
                       <strong className="text-white/80">Payment and access note: </strong>
                       {WEBINAR_CONTENT.paymentNote}
@@ -1020,7 +942,7 @@ export default function LandingPage() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg"
                 >
                   <span>Receive Zoom Link on WhatsApp</span>
                   <ExternalLink className="w-4 h-4" />
