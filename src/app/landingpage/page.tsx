@@ -219,17 +219,17 @@ export default function LandingPage() {
       {/* =========================================================================
           SECTION 2: FOUNDER — RAHUL MAKWANA (EDITORIAL ASYMMETRIC SPREAD)
          ========================================================================= */}
-      <section className="relative py-20 sm:py-28 bg-[#070609] border-b border-white/10 overflow-hidden">
+      <section className="relative py-12 sm:py-16 lg:py-24 bg-[#070609] border-b border-white/10 overflow-hidden">
         {/* Subtle Ambient Red Glow */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E50920]/15 rounded-full blur-[160px] pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] h-[450px] bg-[#E50920]/15 rounded-full blur-[140px] pointer-events-none"
           aria-hidden="true"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Column: Narrative & Values */}
-            <div className="lg:col-span-5 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start lg:items-center">
+            {/* 1. Introductory Branding & Headline */}
+            <div className="lg:col-span-5 lg:col-start-1 lg:row-start-1 space-y-4">
               {/* Eyebrow */}
               <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
                 <span className="w-5 h-[2px] bg-[#E50920]" />
@@ -247,52 +247,19 @@ export default function LandingPage() {
                 I help 9-to-5 professionals and beginners understand how to export from India
                 to the Gulf with practical, step-by-step guidance, based on real-world experience.
               </p>
-
-              {/* 3 Icon Features */}
-              <div className="space-y-4 pt-2">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
-                    <UserCheck className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-sm text-white block font-semibold">Mentor with export experience</strong>
-                    <span className="text-xs text-white/60">Real background in international shipments and supplier clearance.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
-                    <Layers className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-sm text-white block font-semibold">Simplifying complex processes</strong>
-                    <span className="text-xs text-white/60">Demystifying ICEGATE customs, HS codes, and bank AD code registration.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <TrendingUp className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-sm text-white block font-semibold">Helping beginners start with clarity</strong>
-                    <span className="text-xs text-white/60">Guiding you to avoid expensive rookie errors and scam payment terms.</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Center: Rahul Makwana Authentic Portrait */}
-            <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
+            {/* 2. Rahul Makwana Authentic Portrait */}
+            <div className="lg:col-span-4 lg:col-start-6 lg:row-start-1 lg:row-span-2 flex flex-col items-center justify-center relative">
               {/* Handwritten Script Annotation */}
-              <div className="w-full text-center lg:text-left mb-2 pl-4">
+              <div className="w-full text-center lg:text-left mb-2 pl-0 lg:pl-4">
                 <span className="font-script text-2xl sm:text-3xl text-[#FFD86A] block leading-none">
                   &ldquo;Same Knowledge. <br />
                   Simpler Path.&rdquo;
                 </span>
               </div>
 
-              <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-[#121115]">
+              <div className="relative w-full max-w-[320px] sm:max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-[#121115]">
                 <Image
                   src="/images/mentor-rahul.jpg"
                   alt="Rahul Makwana - Founder & Export Mentor"
@@ -313,30 +280,63 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right Column: Founder Statement Card */}
-            <div className="lg:col-span-3">
-              <div className="rounded-2xl bg-black/60 border border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl relative">
+            {/* 3. Founder Statement Card */}
+            <div className="lg:col-span-3 lg:col-start-10 lg:row-start-1 lg:row-span-2">
+              <div className="rounded-2xl bg-black/60 border border-[#E50920]/40 p-5 sm:p-7 backdrop-blur-md shadow-xl relative max-w-[320px] sm:max-w-[340px] mx-auto lg:max-w-none">
                 {/* Red Accent Marker */}
-                <div className="w-6 h-1 bg-[#E50920] mb-4" />
+                <div className="w-6 h-1 bg-[#E50920] mb-3 sm:mb-4" />
 
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#FF4D5E] font-bold block mb-1">
                   FOUNDER
                 </span>
 
-                <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight mb-4">
+                <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight mb-3 sm:mb-4">
                   {MENTOR_CONTENT.name}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-3 sm:mb-4">
                   Helping 9-to-5 professionals and beginners understand exports with real
                   experience and practical guidance.
                 </p>
 
-                <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-4">
+                <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-3 sm:pt-4">
                   I&apos;ve been working in the export and global trade space, and through
                   Export Easy Hai, I focus on making the export process simple, practical
                   and understandable for beginners.
                 </p>
+              </div>
+            </div>
+
+            {/* 4. Three Core Benefit Pillars */}
+            <div className="lg:col-span-5 lg:col-start-1 lg:row-start-2 space-y-3.5 sm:space-y-4 pt-1 lg:pt-0">
+              <div className="flex items-start gap-3.5 p-3.5 sm:p-0 rounded-xl sm:rounded-none bg-white/[0.02] sm:bg-transparent border border-white/5 sm:border-0">
+                <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
+                  <UserCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <strong className="text-sm text-white block font-semibold">Mentor with export experience</strong>
+                  <span className="text-xs text-white/60 leading-relaxed block">Real background in international shipments and supplier clearance.</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 p-3.5 sm:p-0 rounded-xl sm:rounded-none bg-white/[0.02] sm:bg-transparent border border-white/5 sm:border-0">
+                <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <div>
+                  <strong className="text-sm text-white block font-semibold">Simplifying complex processes</strong>
+                  <span className="text-xs text-white/60 leading-relaxed block">Demystifying ICEGATE customs, HS codes, and bank AD code registration.</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 p-3.5 sm:p-0 rounded-xl sm:rounded-none bg-white/[0.02] sm:bg-transparent border border-white/5 sm:border-0">
+                <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+                <div>
+                  <strong className="text-sm text-white block font-semibold">Helping beginners start with clarity</strong>
+                  <span className="text-xs text-white/60 leading-relaxed block">Guiding you to avoid expensive rookie errors and scam payment terms.</span>
+                </div>
               </div>
             </div>
           </div>
