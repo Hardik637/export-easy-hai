@@ -374,165 +374,50 @@ export default function LandingPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Column: Mission Narrative */}
-            <div className="lg:col-span-5 space-y-6">
-              {/* Eyebrow */}
-              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
-                <span className="w-5 h-[2px] bg-[#E50920]" />
-                <span>OUR MISSION</span>
-              </div>
-
-              {/* Headline */}
-              <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
-                MAKE EXPORTING <br />
-                <span className="text-[#E50920]">SIMPLE AND PRACTICAL.</span>
-              </h2>
-
-              {/* Mission Text */}
-              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
-                Export Easy Hai exists to help more Indians understand real export opportunities,
-                avoid costly mistakes, and take the right steps with clarity and confidence.
-              </p>
-
-              {/* 3 Value Pillars */}
-              <div className="space-y-4 pt-2">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
-                    <Target className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-sm text-white block font-semibold">Clear and practical guidance</strong>
-                    <span className="text-xs text-white/60">Grounded advice focused on action rather than textbook theories.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
-                    <FileCheck className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-sm text-white block font-semibold">Focus on real opportunities</strong>
-                    <span className="text-xs text-white/60">Evaluate products with genuine buying power in UAE and Saudi Arabia.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <ShieldAlert className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-sm text-white block font-semibold">Awareness about compliance and risks</strong>
-                    <span className="text-xs text-white/60">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</span>
-                  </div>
-                </div>
-              </div>
+          <div className="max-w-3xl mb-12 space-y-5">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+              <span className="w-5 h-[2px] bg-[#E50920]" />
+              <span>OUR MISSION</span>
             </div>
 
-            {/* Right Column: Interactive Illuminated Maritime Trade Map */}
-            <div className="lg:col-span-7">
-              <div className="rounded-2xl bg-black/70 border border-white/15 p-5 sm:p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
-                <div className="flex items-center justify-between text-xs font-mono mb-4 border-b border-white/10 pb-3">
-                  <span className="text-[#FFD86A] font-bold">ARABIAN SEA CONTAINER CORRIDOR</span>
-                  <span className="text-emerald-400">3.5 DAYS SAILING</span>
-                </div>
+            {/* Headline */}
+            <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
+              MAKE EXPORTING <br />
+              <span className="text-[#E50920]">SIMPLE AND PRACTICAL.</span>
+            </h2>
 
-                {/* Dynamic SVG Map Connecting India to the Gulf */}
-                <div className="relative w-full aspect-[16/9] flex items-center justify-center">
-                  <svg
-                    viewBox="0 0 700 360"
-                    className="w-full h-full select-none"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect width="700" height="360" fill="#070a0e" rx="12" />
+            {/* Mission Text */}
+            <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-normal">
+              Export Easy Hai exists to help more Indians understand real export opportunities,
+              avoid costly mistakes, and take the right steps with clarity and confidence.
+            </p>
+          </div>
 
-                    {/* Subtle Latitude/Longitude Grid Lines */}
-                    <line x1="0" y1="90" x2="700" y2="90" stroke="#ffffff" strokeOpacity="0.04" />
-                    <line x1="0" y1="180" x2="700" y2="180" stroke="#ffffff" strokeOpacity="0.04" />
-                    <line x1="0" y1="270" x2="700" y2="270" stroke="#ffffff" strokeOpacity="0.04" />
-
-                    {/* Glowing Curved Trade Arcs from India to Gulf */}
-                    <path
-                      d="M 520 220 Q 340 120 160 110"
-                      stroke="#E50920"
-                      strokeWidth="2.5"
-                      strokeDasharray="6 4"
-                      strokeOpacity="0.8"
-                    />
-                    <path
-                      d="M 520 220 Q 360 160 210 150"
-                      stroke="#E50920"
-                      strokeWidth="2"
-                      strokeDasharray="6 4"
-                      strokeOpacity="0.7"
-                    />
-                    <path
-                      d="M 520 220 Q 370 190 230 195"
-                      stroke="#FFD86A"
-                      strokeWidth="3"
-                      strokeDasharray="7 4"
-                    />
-                    <path
-                      d="M 520 220 Q 400 200 280 205"
-                      stroke="#E50920"
-                      strokeWidth="3.5"
-                    />
-                    <path
-                      d="M 520 220 Q 430 240 330 250"
-                      stroke="#E50920"
-                      strokeWidth="2"
-                      strokeDasharray="6 4"
-                      strokeOpacity="0.7"
-                    />
-
-                    {/* Origin: INDIA */}
-                    <circle cx="520" cy="220" r="14" fill="#E50920" fillOpacity="0.25" className="animate-ping" />
-                    <circle cx="520" cy="220" r="7" fill="#E50920" />
-                    <text x="540" y="222" fill="#ffffff" fontSize="14" fontFamily="monospace" fontWeight="bold">
-                      INDIA
-                    </text>
-                    <text x="540" y="238" fill="#888888" fontSize="10" fontFamily="monospace">
-                      Nhava Sheva &amp; Mundra
-                    </text>
-
-                    {/* Destination 1: KUWAIT */}
-                    <circle cx="160" cy="110" r="5" fill="#FFD86A" />
-                    <text x="110" y="100" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
-                      KUWAIT
-                    </text>
-
-                    {/* Destination 2: BAHRAIN */}
-                    <circle cx="210" cy="150" r="5" fill="#FFD86A" />
-                    <text x="155" y="145" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
-                      BAHRAIN
-                    </text>
-
-                    {/* Destination 3: SAUDI ARABIA */}
-                    <circle cx="230" cy="195" r="7" fill="#FFD86A" />
-                    <text x="135" y="200" fill="#FFD86A" fontSize="12" fontFamily="monospace" fontWeight="bold">
-                      SAUDI ARABIA
-                    </text>
-
-                    {/* Destination 4: UAE */}
-                    <circle cx="280" cy="205" r="8" fill="#E50920" />
-                    <text x="270" y="230" fill="#ffffff" fontSize="13" fontFamily="monospace" fontWeight="bold">
-                      UAE (DUBAI)
-                    </text>
-
-                    {/* Destination 5: OMAN */}
-                    <circle cx="330" cy="250" r="5" fill="#FFD86A" />
-                    <text x="345" y="255" fill="#ffffff" fontSize="11" fontFamily="monospace" fontWeight="bold">
-                      OMAN
-                    </text>
-                  </svg>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px] font-mono text-white/60 mt-3 pt-3 border-t border-white/10">
-                  <span>DEPARTURES: DAILY FROM WEST COAST PORTS</span>
-                  <span className="text-[#FFD86A]">CLEARANCE TIME: 3.5 - 4.5 DAYS</span>
-                </div>
+          {/* 3 Value Pillars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center mb-5">
+                <Target className="w-5 h-5" />
               </div>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Clear and practical guidance</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Grounded advice focused on action rather than textbook theories.</p>
+            </div>
+
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#FFD86A]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center mb-5">
+                <FileCheck className="w-4 h-4" />
+              </div>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Focus on real opportunities</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Evaluate products with genuine buying power in UAE and Saudi Arabia.</p>
+            </div>
+
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-emerald-500/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-5">
+                <ShieldAlert className="w-5 h-5" />
+              </div>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Awareness about compliance &amp; risks</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</p>
             </div>
           </div>
         </div>
