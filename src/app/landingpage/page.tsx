@@ -69,7 +69,7 @@ export default function LandingPage() {
       {/* =========================================================================
           SECTION 1: HERO — CINEMATIC NIGHT CARGO PORT WITH VIVID POPPING BLOOD MOON
          ========================================================================= */}
-      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden border-b border-white/10">
+      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden">
         {/* Full-Bleed High-Definition Port Background */}
         <div className="absolute inset-0 z-0">
           <picture className="w-full h-full block">
@@ -145,11 +145,12 @@ export default function LandingPage() {
             }}
           />
 
-          {/* Subtle bottom bleed to seamlessly blend into next section */}
+          {/* Deep atmospheric bottom fade to seamlessly blend into Founder section */}
           <div
-            className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
+            className="absolute inset-x-0 bottom-0 h-44 sm:h-64 pointer-events-none"
             style={{
-              background: "linear-gradient(180deg, transparent 0%, rgba(3,3,4,0.8) 60%, #030304 100%)",
+              background:
+                "linear-gradient(180deg, transparent 0%, rgba(3,3,4,0.3) 30%, rgba(3,3,4,0.8) 70%, #030304 100%)",
             }}
           />
         </div>
@@ -219,7 +220,7 @@ export default function LandingPage() {
       {/* =========================================================================
           SECTION 2: FOUNDER — RAHUL MAKWANA (EDITORIAL ASYMMETRIC SPREAD)
          ========================================================================= */}
-      <section className="relative py-12 sm:py-16 lg:py-24 bg-[#070609] border-b border-white/10 overflow-hidden">
+      <section className="relative py-14 sm:py-20 lg:py-28 bg-[#030304] overflow-hidden">
         {/* Subtle Ambient Red Glow */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] h-[450px] bg-[#E50920]/15 rounded-full blur-[140px] pointer-events-none"
@@ -346,8 +347,8 @@ export default function LandingPage() {
       {/* =========================================================================
           SECTION 3: WEBINAR & REGISTRATION — DIRECT ON-PAGE BOOKING CARD
          ========================================================================= */}
-      <section id="webinar-section" className="relative py-20 sm:py-28 bg-[#030304] border-b border-white/10 overflow-hidden">
-        {/* Webinar Atmospheric Night Port Background */}
+      <section id="webinar-section" className="relative py-20 sm:py-28 bg-[#030304] overflow-hidden">
+        {/* Webinar Atmospheric Night Port Background with Smooth Gradient Blends */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/webinar-port-night.jpg"
@@ -357,11 +358,27 @@ export default function LandingPage() {
             className="object-cover object-center filter brightness-[0.55] contrast-[1.3]"
             unoptimized
           />
+          {/* Seamless Top Blend from Founder */}
+          <div
+            className="absolute inset-x-0 top-0 h-36 sm:h-52 pointer-events-none z-10"
+            style={{
+              background:
+                "linear-gradient(180deg, #030304 0%, rgba(3,3,4,0.85) 40%, transparent 100%)",
+            }}
+          />
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
                 "linear-gradient(90deg, rgba(3,3,4,0.92) 0%, rgba(3,3,4,0.7) 50%, rgba(3,3,4,0.85) 100%)",
+            }}
+          />
+          {/* Seamless Bottom Blend into Mission */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-36 sm:h-52 pointer-events-none z-10"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, rgba(3,3,4,0.85) 60%, #030304 100%)",
             }}
           />
         </div>
@@ -560,8 +577,8 @@ export default function LandingPage() {
       {/* =========================================================================
           SECTION 4: COMPANY MISSION — THE INDIA-TO-GULF TRADE CORRIDOR
          ========================================================================= */}
-      <section className="relative py-20 sm:py-28 bg-[#050406] overflow-hidden">
-        {/* Mission Photorealistic Dusk Port Background */}
+      <section className="relative py-20 sm:py-28 bg-[#030304] overflow-hidden">
+        {/* Mission Photorealistic Dusk Port Background with Seamless Transitions */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/mission-gulf-port.jpg"
@@ -571,11 +588,27 @@ export default function LandingPage() {
             className="object-cover object-bottom filter brightness-[0.45] contrast-[1.25] saturate-[1.15]"
             unoptimized
           />
+          {/* Seamless Top Blend from Webinar */}
+          <div
+            className="absolute inset-x-0 top-0 h-36 sm:h-52 pointer-events-none z-10"
+            style={{
+              background:
+                "linear-gradient(180deg, #030304 0%, rgba(3,3,4,0.85) 40%, transparent 100%)",
+            }}
+          />
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(180deg, rgba(5,4,6,0.92) 0%, rgba(5,4,6,0.7) 40%, rgba(5,4,6,0.95) 100%)",
+                "linear-gradient(180deg, rgba(3,3,4,0.9) 0%, rgba(3,3,4,0.65) 45%, rgba(3,3,4,0.92) 100%)",
+            }}
+          />
+          {/* Seamless Bottom Blend into Footer */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-36 sm:h-52 pointer-events-none z-10"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, rgba(3,3,4,0.85) 60%, #030304 100%)",
             }}
           />
         </div>
@@ -661,7 +694,7 @@ export default function LandingPage() {
       {/* =========================================================================
           FOOTER
          ========================================================================= */}
-      <footer className="border-t border-white/10 bg-[#020203] py-8 text-center text-xs text-white/50 relative z-10">
+      <footer className="bg-[#030304] py-10 text-center text-xs text-white/50 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             &copy; {new Date().getFullYear()} Export Easy Hai. Founded by Rahul Makwana. All rights reserved.
