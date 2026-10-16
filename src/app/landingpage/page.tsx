@@ -344,89 +344,9 @@ export default function LandingPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3: COMPANY MISSION — THE INDIA-TO-GULF TRADE CORRIDOR
+          SECTION 3: WEBINAR & REGISTRATION — DIRECT ON-PAGE BOOKING CARD
          ========================================================================= */}
-      <section className="relative py-20 sm:py-28 bg-[#050406] border-b border-white/10 overflow-hidden">
-        {/* Mission Photorealistic Dusk Port Background */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/mission-gulf-port.jpg"
-            alt="International container port connecting India and Arabian Gulf"
-            fill
-            sizes="100vw"
-            className="object-cover object-bottom filter brightness-[0.45] contrast-[1.25] saturate-[1.15]"
-            unoptimized
-          />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(5,4,6,0.92) 0%, rgba(5,4,6,0.7) 40%, rgba(5,4,6,0.95) 100%)",
-            }}
-          />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
-          {/* Top Right Script Watermark */}
-          <div className="flex justify-end mb-4">
-            <span className="font-script text-2xl sm:text-3xl text-[#FFD86A]/80 drop-shadow-md">
-              Real Markets. Real Opportunities.
-            </span>
-          </div>
-
-          <div className="max-w-3xl mb-12 space-y-5">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
-              <span className="w-5 h-[2px] bg-[#E50920]" />
-              <span>OUR MISSION</span>
-            </div>
-
-            {/* Headline */}
-            <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
-              MAKE EXPORTING <br />
-              <span className="text-[#E50920]">SIMPLE AND PRACTICAL.</span>
-            </h2>
-
-            {/* Mission Text */}
-            <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-normal">
-              Export Easy Hai exists to help more Indians understand real export opportunities,
-              avoid costly mistakes, and take the right steps with clarity and confidence.
-            </p>
-          </div>
-
-          {/* 3 Value Pillars Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center mb-5">
-                <Target className="w-5 h-5" />
-              </div>
-              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Clear and practical guidance</h3>
-              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Grounded advice focused on action rather than textbook theories.</p>
-            </div>
-
-            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#FFD86A]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center mb-5">
-                <FileCheck className="w-4 h-4" />
-              </div>
-              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Focus on real opportunities</h3>
-              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Evaluate products with genuine buying power in UAE and Saudi Arabia.</p>
-            </div>
-
-            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-emerald-500/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-5">
-                <ShieldAlert className="w-5 h-5" />
-              </div>
-              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Awareness about compliance &amp; risks</h3>
-              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 4: WEBINAR & REGISTRATION — DIRECT ON-PAGE BOOKING CARD
-         ========================================================================= */}
-      <section id="webinar-section" className="relative py-20 sm:py-28 bg-[#030304] overflow-hidden">
+      <section id="webinar-section" className="relative py-20 sm:py-28 bg-[#030304] border-b border-white/10 overflow-hidden">
         {/* Webinar Atmospheric Night Port Background */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -632,6 +552,86 @@ export default function LandingPage() {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 4: COMPANY MISSION — THE INDIA-TO-GULF TRADE CORRIDOR
+         ========================================================================= */}
+      <section className="relative py-20 sm:py-28 bg-[#050406] overflow-hidden">
+        {/* Mission Photorealistic Dusk Port Background */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/mission-gulf-port.jpg"
+            alt="International container port connecting India and Arabian Gulf"
+            fill
+            sizes="100vw"
+            className="object-cover object-bottom filter brightness-[0.45] contrast-[1.25] saturate-[1.15]"
+            unoptimized
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(5,4,6,0.92) 0%, rgba(5,4,6,0.7) 40%, rgba(5,4,6,0.95) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+          {/* Top Right Script Watermark */}
+          <div className="flex justify-end mb-4">
+            <span className="font-script text-2xl sm:text-3xl text-[#FFD86A]/80 drop-shadow-md">
+              Real Markets. Real Opportunities.
+            </span>
+          </div>
+
+          <div className="max-w-3xl mb-12 space-y-5">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
+              <span className="w-5 h-[2px] bg-[#E50920]" />
+              <span>OUR MISSION</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white leading-[0.94]">
+              MAKE EXPORTING <br />
+              <span className="text-[#E50920]">SIMPLE AND PRACTICAL.</span>
+            </h2>
+
+            {/* Mission Text */}
+            <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-normal">
+              Export Easy Hai exists to help more Indians understand real export opportunities,
+              avoid costly mistakes, and take the right steps with clarity and confidence.
+            </p>
+          </div>
+
+          {/* 3 Value Pillars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center mb-5">
+                <Target className="w-5 h-5" />
+              </div>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Clear and practical guidance</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Grounded advice focused on action rather than textbook theories.</p>
+            </div>
+
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#FFD86A]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center mb-5">
+                <FileCheck className="w-4 h-4" />
+              </div>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Focus on real opportunities</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Evaluate products with genuine buying power in UAE and Saudi Arabia.</p>
+            </div>
+
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-emerald-500/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-5">
+                <ShieldAlert className="w-5 h-5" />
+              </div>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Awareness about compliance &amp; risks</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</p>
             </div>
           </div>
         </div>
