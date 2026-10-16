@@ -214,15 +214,6 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Bottom Right Handwritten Watermark */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 pb-6 flex justify-end">
-          <div className="text-right">
-            <span className="font-script text-2xl sm:text-3xl text-white/60 drop-shadow-lg block leading-none">
-              From India <br />
-              <span className="text-white/80">to the Gulf</span>
-            </span>
-          </div>
-        </div>
       </section>
 
       {/* =========================================================================
