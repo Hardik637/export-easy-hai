@@ -59,7 +59,7 @@ export const HERO_CONTENT = {
     "Learn how to start an India-to-Gulf export business with a practical, step-by-step roadmap—so you can move from confusion to your first shipment with greater clarity and confidence.",
   positioningNote:
     "Build your export business in 6 months with the right roadmap, consistent execution, and expert guidance. This is a target roadmap, not a guaranteed result.",
-  primaryCTA: "Reserve Your ₹699 Webinar Seat",
+  primaryCTA: "Reserve Your ₹9 Webinar Seat",
   secondaryCTA: "See How It Works",
   trustStrip: [
     "Beginner-friendly guidance",
@@ -206,11 +206,11 @@ export const WEBINAR_CONTENT = {
     platform: "Zoom",
     language: "Hinglish",
     schedule: "Every Sunday at 1:00 PM IST",
-    fee: "₹699",
+    fee: "₹9",
     seats: "Limited to 50 participants per session",
     recording: "Not included; live attendance only",
   },
-  primaryCTA: "Reserve My Seat for ₹699",
+  primaryCTA: "Reserve My Seat for ₹9",
   paymentNote:
     "Complete your payment securely through Razorpay. After successful payment, you will be redirected to WhatsApp to receive the Zoom link and joining instructions.",
   refundNote:

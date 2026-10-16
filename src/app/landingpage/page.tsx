@@ -195,7 +195,7 @@ export default function LandingPage() {
                 onClick={handleOpenModal}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_35px_rgba(229,9,32,0.65)] hover:shadow-[0_15px_45px_rgba(229,9,32,0.85)] transition-all cursor-pointer active:scale-98 border border-red-500/40"
               >
-                <span>Reserve Your ₹699 Webinar Seat</span>
+                <span>Reserve Your ₹9 Webinar Seat</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -433,7 +433,7 @@ export default function LandingPage() {
                   onClick={handleOpenModal}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white shadow-[0_10px_35px_rgba(229,9,32,0.65)] hover:shadow-[0_15px_45px_rgba(229,9,32,0.85)] transition-all cursor-pointer active:scale-98 border border-red-500/40"
                 >
-                  <span>Reserve Your ₹699 Webinar Seat</span>
+                  <span>Reserve Your ₹9 Webinar Seat</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -463,7 +463,7 @@ export default function LandingPage() {
                   <div>
                     <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight leading-none">
                       Reserve Your <br />
-                      <span className="text-[#E50920]">₹699 Webinar Seat</span>
+                      <span className="text-[#E50920]">₹9 Webinar Seat</span>
                     </h3>
                     <p className="text-xs text-white/60 mt-1">
                       Fill in your details to join the live webinar.
@@ -524,7 +524,7 @@ export default function LandingPage() {
                         type="submit"
                         className="w-full py-3.5 px-6 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40"
                       >
-                        <span>Reserve My Seat for ₹699</span>
+                        <span>Reserve My Seat for ₹9</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
@@ -557,7 +557,7 @@ export default function LandingPage() {
 
                     <a
                       href={`https://wa.me/919999999999?text=${encodeURIComponent(
-                        `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹699). My name is ${formData.name}. Please share the Zoom joining instructions!`
+                        `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹9). My name is ${formData.name}. Please share the Zoom joining instructions!`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -677,7 +677,7 @@ export default function LandingPage() {
         <div className="leading-tight pl-3">
           <div className="text-[11px] font-bold text-white flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
-            <span>₹699 Webinar Seat</span>
+            <span>₹9 Webinar Seat</span>
           </div>
           <div className="text-[9.5px] text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule}</div>
         </div>
@@ -686,7 +686,7 @@ export default function LandingPage() {
           onClick={handleOpenModal}
           className="inline-flex items-center gap-1 px-4 py-2 rounded-full text-xs font-bold bg-[#E50920] hover:bg-[#c9071b] text-white shadow-md shadow-red-950/60 cursor-pointer active:scale-95"
         >
-          <span>Reserve ₹699</span>
+          <span>Reserve ₹9</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
@@ -704,7 +704,7 @@ export default function LandingPage() {
               onClick={handleOpenModal}
               className="text-[#FF4D5E] hover:text-[#E50920] font-semibold transition-colors cursor-pointer"
             >
-              Reserve ₹699 Webinar Seat
+              Reserve ₹9 Webinar Seat
             </button>
           </div>
         </div>
@@ -734,7 +734,7 @@ export default function LandingPage() {
                   <div>
                     <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight leading-none">
                       Reserve Your <br />
-                      <span className="text-[#E50920]">₹699 Webinar Seat</span>
+                      <span className="text-[#E50920]">₹9 Webinar Seat</span>
                     </h3>
                     <p className="text-xs text-white/60 mt-1">
                       {WEBINAR_CONTENT.details.schedule} • Live with Rahul Makwana.
@@ -790,7 +790,7 @@ export default function LandingPage() {
                       type="submit"
                       className="w-full py-3.5 px-6 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40"
                     >
-                      <span>Reserve My Seat for ₹699</span>
+                      <span>Reserve My Seat for ₹9</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -823,7 +823,7 @@ export default function LandingPage() {
 
                 <a
                   href={`https://wa.me/919999999999?text=${encodeURIComponent(
-                    `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹699). My name is ${formData.name}. Please share the Zoom joining instructions!`
+                    `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹9). My name is ${formData.name}. Please share the Zoom joining instructions!`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
