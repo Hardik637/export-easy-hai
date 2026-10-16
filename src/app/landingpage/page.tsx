@@ -20,8 +20,6 @@ import {
   Zap,
   Globe2,
   FileCheck,
-  BookOpen,
-  Rocket,
   UserCheck,
   Layers,
   TrendingUp,
@@ -172,15 +170,6 @@ export default function LandingPage() {
               </span>
             </div>
           </div>
-
-          {/* Live Webinar Pill Action */}
-          <button
-            onClick={scrollToWebinar}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-black/60 hover:bg-black/80 text-white border border-white/20 hover:border-[#E50920] backdrop-blur-md transition-all cursor-pointer shadow-md"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#E50920] animate-ping" />
-            <span>LIVE WEBINAR</span>
-          </button>
         </header>
 
         {/* Hero Main Content */}
@@ -193,60 +182,11 @@ export default function LandingPage() {
             </div>
 
             {/* Bold Condensed Headline */}
-            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[92px] uppercase tracking-tight leading-[0.92] text-white mb-5 drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
+            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[92px] uppercase tracking-tight leading-[0.92] text-white mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
               QUIT 9 TO 5. <br />
               <span className="text-[#E50920]">BUILD AN</span> <br />
               <span className="text-[#E50920]">EXPORT BUSINESS.</span>
             </h1>
-
-            {/* Supporting Copy */}
-            <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-lg leading-relaxed mb-8 drop-shadow-md font-normal">
-              A live, practical webinar to help you understand how to start an India-to-Gulf
-              export business with a step-by-step roadmap.
-            </p>
-
-            {/* 4 Quick Benefit Icons Row */}
-            <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mb-8 text-center sm:text-left">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#FFD86A]">
-                  <BookOpen className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Practical</span>
-                  <span className="text-[10px] text-white/60 block leading-tight">Guidance</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#E50920]">
-                  <Rocket className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Step-by-Step</span>
-                  <span className="text-[10px] text-white/60 block leading-tight">Roadmap</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#FF4D5E]">
-                  <Ship className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">India-to-Gulf</span>
-                  <span className="text-[10px] text-white/60 block leading-tight">Focus</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-emerald-400">
-                  <Users className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-semibold text-white block leading-tight">Beginner</span>
-                  <span className="text-[10px] text-white/60 block leading-tight">Friendly</span>
-                </div>
-              </div>
-            </div>
 
             {/* Primary Action Button */}
             <div className="mb-4">
