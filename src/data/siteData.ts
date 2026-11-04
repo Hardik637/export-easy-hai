@@ -52,18 +52,18 @@ export const NAV_LINKS = [
 
 // 1. Hero Section:
 export const HERO_CONTENT = {
-  eyebrow: "STUCK IN A 9 TO 5?",
+  eyebrow: "FOR PROFESSIONALS, TRADERS, STUDENTS & ASPIRING EXPORTERS",
   headlineMain: "QUIT 9 TO 5.",
   headlineSub: "BUILD AN EXPORT BUSINESS.",
   supportingCopy:
     "Learn how to start an India-to-Gulf export business with a practical, step-by-step roadmap—so you can move from confusion to your first shipment with greater clarity and confidence.",
   positioningNote:
-    "Build your export business in 6 months with the right roadmap, consistent execution, and expert guidance. This is a target roadmap, not a guaranteed result.",
+    "Build your export business with the right six-month roadmap, consistent execution, and expert guidance. This is a target roadmap, not a guaranteed result.",
   primaryCTA: "Reserve Your ₹9 Webinar Seat",
   secondaryCTA: "See How It Works",
   trustStrip: [
     "Beginner-friendly guidance",
-    "India-to-Gulf export focus",
+    "India-to-Gulf export focus (Dubai, Kuwait, Qatar)",
     "Live Hinglish training",
     "Documentation and compliance support",
   ],
@@ -181,38 +181,45 @@ export const HOW_IT_WORKS_CONTENT = {
 
 // 6. Webinar Offer Section:
 export const WEBINAR_CONTENT = {
-  eyebrow: "QUIT 9 TO 5. BUILD AN EXPORT BUSINESS IN 6 MONTHS.",
-  subhead: "India-to-Gulf Export Starter Webinar",
+  eyebrow: "EXPORT BUSINESS MASTER CLASS",
+  title: "Export Business Master Class",
+  subhead: "Export Business Master Class (Live 3-Hour Workshop)",
   description:
-    "A live, practical webinar for working professionals and complete beginners who want to understand how to start exporting from India to the Gulf.",
+    "A live, practical 3-hour masterclass for working professionals, traders, students, and beginners who want to understand how to start exporting from India to Gulf markets (Dubai, Kuwait, Qatar, Saudi Arabia).",
   learnList: [
-    "How the India-to-Gulf export model works",
-    "How to evaluate product opportunities across multiple categories",
-    "How to choose a suitable Gulf market",
-    "How to find and verify suppliers and buyers",
-    "How to set up your export business legally",
-    "Which documents are commonly involved in an export shipment",
-    "How to reduce the risk of customs delays and documentation mistakes",
-    "How to create a practical six-month export action roadmap",
+    "How to start exporting from India step by step",
+    "How to evaluate and choose profitable products",
+    "How to choose the right Gulf country (Dubai, Kuwait, Qatar)",
+    "How to find and verify genuine buyers and suppliers",
+    "How to set up your export business legally (IEC, GST, HS codes, Bank AD Code)",
+    "International payment terms, LC, Forex & freight coordination",
+    "Customs clearance (ICEGATE) and shipment planning",
+    "How to avoid scams, fraud, and expensive rookie mistakes",
+    "A practical six-month export action roadmap",
   ],
   receiveList: [
     "Beginner export roadmap",
     "Product-selection checklist",
     "Buyer-verification checklist",
     "Export documentation checklist",
+    "Workbook and templates",
+    "Bonus materials & community access",
   ],
   details: {
     format: "Live online webinar",
     platform: "Zoom",
     language: "Hinglish",
+    duration: "3 Hours",
     schedule: "Every Sunday at 1:00 PM IST",
     fee: "₹9",
-    seats: "Limited to 50 participants per session",
+    seats: "Limited to 300 participants per session",
     recording: "Not included; live attendance only",
+    reminders: "WhatsApp reminders & Zoom access link included",
+    whatsappNumber: "9131676447",
   },
   primaryCTA: "Reserve My Seat for ₹9",
   paymentNote:
-    "Complete your payment securely through Razorpay. After successful payment, you will be redirected to WhatsApp to receive the Zoom link and joining instructions.",
+    "Complete your payment securely through Razorpay. After successful payment, you will receive WhatsApp confirmation with the Zoom access link.",
   refundNote:
     "No refunds are offered after registration. Please review the webinar details before completing payment.",
   disclaimer:
@@ -231,7 +238,7 @@ export const WHY_LEARN_WITH_US = {
     },
     {
       title: "Gulf-focused guidance",
-      desc: "Learn about the UAE, Saudi Arabia, Qatar, Oman, Kuwait, and Bahrain.",
+      desc: "Learn about Dubai (UAE), Kuwait, Qatar, Saudi Arabia, Oman, and Bahrain.",
     },
     {
       title: "Supplier and buyer verification",
@@ -247,7 +254,7 @@ export const WHY_LEARN_WITH_US = {
     },
     {
       title: "Beginner-friendly teaching",
-      desc: "Clear explanations without unnecessary jargon.",
+      desc: "Clear explanations without unnecessary jargon in Hinglish.",
     },
     {
       title: "Live doubt solving",
@@ -260,16 +267,33 @@ export const WHY_LEARN_WITH_US = {
 // 8. Founder / Mentor Section:
 export const MENTOR_CONTENT = {
   name: "Rahul Makwana",
-  role: "Founder • Mentor • Export Educator",
+  role: "Export Consultant • International Trade & Forex Mentor",
   title: "Learn With Rahul Makwana",
+  tagline: "20+ Years Banking & Trade Finance Experience • 5 Years as Trade Forex Head",
   bio1:
-    "Rahul Makwana helps beginners understand the practical side of building an India-to-Gulf export business—from product selection and business setup to buyer verification, documentation, and shipment execution.",
+    "Rahul Makwana is a seasoned banking and financial services professional with over 20 years of experience across retail banking, trade finance, foreign exchange, international remittances, business development, and customer relationship management.",
   bio2:
-    "His teaching approach focuses on making export easier to understand, easier to plan, and safer to execute.",
+    "Throughout his career, he has held leadership responsibilities with leading banking institutions, including 5 years as Trade Forex Head. He brings extensive practical knowledge of international trade transactions, import-export banking, trade documentation, and regulatory frameworks.",
+  bio3:
+    "An alumnus of IIM Ahmedabad (Strategic Management) and SP Jain (FinTech), Rahul is also nominated as an Industry Member on the Board of Studies at S.B. Patil Institute of Management, Pune. Through Export Easy Hai, he helps entrepreneurs navigate the journey from domestic business to global export markets.",
+  credentials: [
+    "20+ Years Banking & Trade Finance Experience",
+    "5 Years as Trade Forex Head at Premier Banking Institutions",
+    "Professional Certificate in Strategic Management – IIM Ahmedabad",
+    "Financial Technology Education – SP Jain",
+    "Industry Member – Board of Studies, S.B. Patil Institute of Management, Pune",
+    "100+ Shipments Guided • 100+ Clients & Students Supported • 15+ Countries",
+  ],
+  social: {
+    linkedin: "https://www.linkedin.com/in/rahul-makwana-4ba33646/",
+    facebook: "https://www.facebook.com/profile.php?id=61583346396603&sk=about",
+    whatsapp: "9131676447",
+    email: "consult@exporteasyhai.com",
+  },
   experienceProof: [
-    "Years of export experience",
-    "Export shipments and clients supported",
-    "Relevant certifications and industry guidance",
+    "20+ Years Banking & Forex Experience",
+    "100+ Shipments Guided",
+    "100+ Students & Clients Mentored",
   ],
   cta: "Learn From the Export Roadmap",
 };
@@ -476,9 +500,16 @@ export const FINAL_CTA_CONTENT = {
 // 15. Footer Copy:
 export const FOOTER_CONTENT = {
   brand: "EXPORT EASY HAI",
+  legalEntity: "Kavneet International",
   tagline: "Explore. Learn. Export.",
   mission:
-    "Practical India-to-Gulf export education for beginners who want to build a business beyond the 9-to-5.",
+    "Practical India-to-Gulf export education for working professionals, traders, students, and beginners who want to build a business beyond the 9-to-5.",
+  address: "B-9 Mayur Terracess, Behind Emrold City, Shivaji Nagar, Sambhaji Nagar, 431005 Maharashtra",
+  contactEmail: "consult@exporteasyhai.com",
+  contactWhatsApp: "+91 9131676447",
+  whatsappUrl: "https://wa.me/919131676447",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61583346396603&sk=about",
+  linkedinUrl: "https://www.linkedin.com/in/rahul-makwana-4ba33646/",
   quickLinks: [
     { label: "Home", href: "#hero" },
     { label: "How It Works", href: "#how-it-works" },
@@ -495,6 +526,5 @@ export const FOOTER_CONTENT = {
     { label: "Refund Policy", href: "#" },
   ],
   disclaimer:
-    "Export Easy Hai provides educational content and practical guidance. We do not guarantee profits, buyers, orders, shipment completion, business success, or any specific financial outcome. Participants are responsible for verifying current laws, duties, licences, documentation, suppliers, buyers, and professional advice relevant to their transaction.",
-  contactEmail: "support@exporteasyhai.com",
+    "Export Easy Hai (Kavneet International) provides educational content and practical guidance. We do not guarantee profits, buyers, orders, shipment completion, business success, or any specific financial outcome. Participants are responsible for verifying current laws, duties, licences, documentation, suppliers, buyers, and professional advice relevant to their transaction.",
 };

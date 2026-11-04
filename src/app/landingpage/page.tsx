@@ -179,7 +179,7 @@ export default function LandingPage() {
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-4 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
               <span className="w-5 h-[2px] bg-[#E50920]" />
-              <span>FOR 9 TO 5 PROFESSIONALS</span>
+              <span>FOR PROFESSIONALS, TRADERS, STUDENTS & ASPIRING EXPORTERS</span>
             </div>
 
             {/* Bold Condensed Headline */}
@@ -204,12 +204,12 @@ export default function LandingPage() {
             <div className="flex items-center gap-4 text-xs font-mono text-white/70">
               <div className="flex items-center gap-1.5 text-white/90">
                 <Calendar className="w-3.5 h-3.5 text-[#E50920]" />
-                <span>{WEBINAR_CONTENT.details.schedule}</span>
+                <span>{WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration})</span>
               </div>
               <span className="text-white/30">|</span>
               <div className="flex items-center gap-1.5 text-[#FFD86A]">
                 <Video className="w-3.5 h-3.5" />
-                <span>Live on {WEBINAR_CONTENT.details.platform}</span>
+                <span>Live on {WEBINAR_CONTENT.details.platform} ({WEBINAR_CONTENT.details.language})</span>
               </div>
             </div>
           </div>
@@ -245,8 +245,8 @@ export default function LandingPage() {
 
               {/* Bio Paragraph */}
               <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
-                I help 9-to-5 professionals and beginners understand how to export from India
-                to the Gulf with practical, step-by-step guidance, based on real-world experience.
+                I help 9-to-5 professionals, traders, students, and beginners understand how to export from India
+                to the Gulf (Dubai, Kuwait, Qatar, Saudi Arabia) with practical, step-by-step guidance based on 20+ years of banking, trade finance, and forex experience.
               </p>
             </div>
 
@@ -275,7 +275,7 @@ export default function LandingPage() {
                     {MENTOR_CONTENT.name}
                   </span>
                   <span className="text-[11px] font-mono text-[#FFD86A] uppercase tracking-wider block">
-                    {MENTOR_CONTENT.role}
+                    Export Consultant • 20+ Yrs Banking &amp; Forex
                   </span>
                 </div>
               </div>
@@ -288,23 +288,30 @@ export default function LandingPage() {
                 <div className="w-6 h-1 bg-[#E50920] mb-3 sm:mb-4" />
 
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#FF4D5E] font-bold block mb-1">
-                  FOUNDER
+                  FOUNDER &amp; EXPORT MENTOR
                 </span>
 
-                <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight mb-3 sm:mb-4">
+                <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight mb-2 sm:mb-3">
                   {MENTOR_CONTENT.name}
                 </h3>
 
                 <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-3 sm:mb-4">
-                  Helping 9-to-5 professionals and beginners understand exports with real
-                  experience and practical guidance.
+                  Seasoned banking &amp; financial services professional with 20+ years of experience across trade finance, foreign exchange, and cross-border remittances, including 5 years as Trade Forex Head.
                 </p>
 
-                <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-3 sm:pt-4">
-                  I&apos;ve been working in the export and global trade space, and through
-                  Export Easy Hai, I focus on making the export process simple, practical
-                  and understandable for beginners.
+                <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-3 sm:pt-4 mb-3">
+                  Alumnus of IIM Ahmedabad (Strategic Management) &amp; SP Jain. Through Export Easy Hai (Kavneet International), I focus on demystifying cross-border trade, ICEGATE customs, and buyer verification into a simple six-month roadmap.
                 </p>
+
+                <a
+                  href="https://www.linkedin.com/in/rahul-makwana-4ba33646/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#FFD86A] hover:text-[#FFE394] font-mono transition-colors"
+                >
+                  <span>View Verified LinkedIn Profile</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
 
@@ -315,8 +322,8 @@ export default function LandingPage() {
                   <UserCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <strong className="text-sm text-white block font-semibold">Mentor with export experience</strong>
-                  <span className="text-xs text-white/60 leading-relaxed block">Real background in international shipments and supplier clearance.</span>
+                  <strong className="text-sm text-white block font-semibold">20+ Years Banking &amp; Forex Head Experience</strong>
+                  <span className="text-xs text-white/60 leading-relaxed block">Real background in cross-border trade transactions, LC, foreign exchange, and compliance.</span>
                 </div>
               </div>
 
@@ -325,8 +332,8 @@ export default function LandingPage() {
                   <Layers className="w-4 h-4" />
                 </div>
                 <div>
-                  <strong className="text-sm text-white block font-semibold">Simplifying complex processes</strong>
-                  <span className="text-xs text-white/60 leading-relaxed block">Demystifying ICEGATE customs, HS codes, and bank AD code registration.</span>
+                  <strong className="text-sm text-white block font-semibold">Simplifying Complex Regulations</strong>
+                  <span className="text-xs text-white/60 leading-relaxed block">Demystifying ICEGATE customs, HS codes, GST compliance, and bank AD code registration.</span>
                 </div>
               </div>
 
@@ -335,8 +342,8 @@ export default function LandingPage() {
                   <TrendingUp className="w-4 h-4" />
                 </div>
                 <div>
-                  <strong className="text-sm text-white block font-semibold">Helping beginners start with clarity</strong>
-                  <span className="text-xs text-white/60 leading-relaxed block">Guiding you to avoid expensive rookie errors and scam payment terms.</span>
+                  <strong className="text-sm text-white block font-semibold">Protecting Your Capital &amp; Safe Deals</strong>
+                  <span className="text-xs text-white/60 leading-relaxed block">Guiding you to avoid unverified buyers, fraud scams, and risky payment terms before you ship.</span>
                 </div>
               </div>
             </div>
@@ -390,7 +397,7 @@ export default function LandingPage() {
               {/* Eyebrow */}
               <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#E50920] font-bold tracking-[0.2em]">
                 <span className="w-5 h-[2px] bg-[#E50920]" />
-                <span>TAKE THE FIRST STEP</span>
+                <span>EXPORT BUSINESS MASTER CLASS</span>
               </div>
 
               {/* Headline */}
@@ -401,29 +408,29 @@ export default function LandingPage() {
 
               {/* Subcopy */}
               <p className="text-sm sm:text-base text-white/85 max-w-lg leading-relaxed font-normal">
-                Get clear, practical guidance on how to start your export journey from India to the Gulf.
+                Get 3 hours of clear, practical guidance on how to start your export journey from India to Gulf markets (Dubai, Kuwait, Qatar, Saudi Arabia).
               </p>
 
               {/* 4 Feature Badges Grid */}
               <div className="grid grid-cols-2 gap-3 max-w-md">
                 <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
                   <Video className="w-4 h-4 text-[#E50920] shrink-0" />
-                  <span>Live online webinar</span>
+                  <span>Live online webinar (3 Hours)</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
                   <GraduationCap className="w-4 h-4 text-[#FFD86A] shrink-0" />
-                  <span>Hindi/English training</span>
+                  <span>Hinglish interactive training</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
                   <Users className="w-4 h-4 text-[#FF4D5E] shrink-0" />
-                  <span>Limited seats (50 per session)</span>
+                  <span>Limited to 300 seats</span>
                 </div>
 
-                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/70">
-                  <AlertCircle className="w-4 h-4 text-white/50 shrink-0" />
-                  <span>Not included: recording</span>
+                <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>WhatsApp reminders included</span>
                 </div>
               </div>
 
@@ -442,12 +449,12 @@ export default function LandingPage() {
               <div className="flex items-center gap-4 text-xs font-mono text-white/70">
                 <div className="flex items-center gap-1.5 text-white/90">
                   <Calendar className="w-3.5 h-3.5 text-[#E50920]" />
-                  <span>{WEBINAR_CONTENT.details.schedule}</span>
+                  <span>{WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration})</span>
                 </div>
                 <span className="text-white/30">|</span>
                 <div className="flex items-center gap-1.5 text-[#FFD86A]">
                   <Video className="w-3.5 h-3.5" />
-                  <span>Live on {WEBINAR_CONTENT.details.platform}</span>
+                  <span>Live on {WEBINAR_CONTENT.details.platform} ({WEBINAR_CONTENT.details.language})</span>
                 </div>
               </div>
             </div>
@@ -466,7 +473,7 @@ export default function LandingPage() {
                       <span className="text-[#E50920]">₹9 Webinar Seat</span>
                     </h3>
                     <p className="text-xs text-white/60 mt-1">
-                      Fill in your details to join the live webinar.
+                      Export Business Master Class • {WEBINAR_CONTENT.details.schedule}
                     </p>
                   </div>
                 </div>
@@ -556,8 +563,8 @@ export default function LandingPage() {
                     </p>
 
                     <a
-                      href={`https://wa.me/919999999999?text=${encodeURIComponent(
-                        `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹9). My name is ${formData.name}. Please share the Zoom joining instructions!`
+                      href={`https://wa.me/919131676447?text=${encodeURIComponent(
+                        `Hello Rahul sir, I have registered for the Export Business Master Class (₹9). My name is ${formData.name}. Please share the Zoom joining instructions!`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -617,7 +624,7 @@ export default function LandingPage() {
           {/* Top Right Script Watermark */}
           <div className="flex justify-end mb-4">
             <span className="font-script text-2xl sm:text-3xl text-[#FFD86A]/80 drop-shadow-md">
-              Real Markets. Real Opportunities.
+              Dubai • Kuwait • Qatar • Saudi Arabia
             </span>
           </div>
 
@@ -636,8 +643,7 @@ export default function LandingPage() {
 
             {/* Mission Text */}
             <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-normal">
-              Export Easy Hai exists to help more Indians understand real export opportunities,
-              avoid costly mistakes, and take the right steps with clarity and confidence.
+              Export Easy Hai (Kavneet International) exists to help more Indians understand real export opportunities across Dubai, Kuwait, Qatar, and Saudi Arabia—avoiding costly mistakes and taking the right steps with a structured six-month roadmap.
             </p>
           </div>
 
@@ -648,23 +654,23 @@ export default function LandingPage() {
                 <Target className="w-5 h-5" />
               </div>
               <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Clear and practical guidance</h3>
-              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Grounded advice focused on action rather than textbook theories.</p>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Grounded advice and a structured six-month roadmap focused on execution rather than textbook theories.</p>
             </div>
 
             <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#FFD86A]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
               <div className="w-10 h-10 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center mb-5">
                 <FileCheck className="w-4 h-4" />
               </div>
-              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Focus on real opportunities</h3>
-              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Evaluate products with genuine buying power in UAE and Saudi Arabia.</p>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Real Gulf market opportunities</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Evaluate high-demand products with genuine buying power in Dubai, Kuwait, Qatar, and Saudi Arabia.</p>
             </div>
 
             <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-emerald-500/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
               <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-5">
                 <ShieldAlert className="w-5 h-5" />
               </div>
-              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Awareness about compliance &amp; risks</h3>
-              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Understanding international terms (Incoterms, LC, ECGC) to protect your funds.</p>
+              <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Forex, compliance &amp; risk control</h3>
+              <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Understanding international terms (Incoterms, LC, Bank AD Code, ECGC) to protect your funds.</p>
             </div>
           </div>
         </div>
@@ -679,7 +685,7 @@ export default function LandingPage() {
             <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
             <span>₹9 Webinar Seat</span>
           </div>
-          <div className="text-[9.5px] text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule}</div>
+          <div className="text-[9.5px] text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration})</div>
         </div>
 
         <button
@@ -694,18 +700,71 @@ export default function LandingPage() {
       {/* =========================================================================
           FOOTER
          ========================================================================= */}
-      <footer className="bg-[#030304] py-10 text-center text-xs text-white/50 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            &copy; {new Date().getFullYear()} Export Easy Hai. Founded by Rahul Makwana. All rights reserved.
+      <footer className="bg-[#030304] py-12 text-center text-xs text-white/50 relative z-10 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-6">
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6 text-center md:text-left">
+            <div className="space-y-1.5 max-w-md">
+              <span className="font-display text-xl text-white tracking-wider uppercase block">
+                EXPORT EASY HAI
+              </span>
+              <p className="text-[11px] text-white/70 leading-relaxed">
+                <strong className="text-white">Kavneet International</strong> • B-9 Mayur Terracess, Behind Emrold City, Shivaji Nagar, Sambhaji Nagar, 431005 Maharashtra
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2 text-white/75 text-xs">
+              <a
+                href="mailto:consult@exporteasyhai.com"
+                className="hover:text-white transition-colors"
+              >
+                consult@exporteasyhai.com
+              </a>
+              <span className="text-white/20 hidden sm:inline">|</span>
+              <a
+                href="https://wa.me/919131676447"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 transition-colors"
+              >
+                WhatsApp: +91 9131676447
+              </a>
+              <span className="text-white/20 hidden sm:inline">|</span>
+              <a
+                href="https://www.facebook.com/profile.php?id=61583346396603&sk=about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-400 transition-colors"
+              >
+                Facebook
+              </a>
+              <span className="text-white/20 hidden sm:inline">|</span>
+              <a
+                href="https://www.linkedin.com/in/rahul-makwana-4ba33646/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-400 transition-colors"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
-          <div className="flex items-center gap-4 text-white/70">
-            <button
-              onClick={handleOpenModal}
-              className="text-[#FF4D5E] hover:text-[#E50920] font-semibold transition-colors cursor-pointer"
-            >
-              Reserve ₹9 Webinar Seat
-            </button>
+
+          <div className="pt-4 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/40">
+            <div>
+              &copy; {new Date().getFullYear()} Export Easy Hai (Kavneet International). Founded by Rahul Makwana. All rights reserved.
+            </div>
+            <div className="flex items-center gap-4 text-white/60">
+              <button
+                onClick={handleOpenModal}
+                className="text-[#FF4D5E] hover:text-[#E50920] font-semibold transition-colors cursor-pointer"
+              >
+                Reserve ₹9 Webinar Seat
+              </button>
+            </div>
+          </div>
+
+          <div className="text-[10.5px] text-white/35 leading-relaxed max-w-4xl mx-auto pt-2">
+            Export Easy Hai (Kavneet International) provides educational content and practical training. We do not guarantee profits, buyers, orders, shipment completion, or specific earnings. Participants are responsible for complying with current Indian and Gulf export-import regulations, duties, and documentation.
           </div>
         </div>
       </footer>
@@ -737,7 +796,7 @@ export default function LandingPage() {
                       <span className="text-[#E50920]">₹9 Webinar Seat</span>
                     </h3>
                     <p className="text-xs text-white/60 mt-1">
-                      {WEBINAR_CONTENT.details.schedule} • Live with Rahul Makwana.
+                      Export Business Master Class • {WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration}) • Live with Rahul Makwana
                     </p>
                   </div>
                 </div>
@@ -822,8 +881,8 @@ export default function LandingPage() {
                 </p>
 
                 <a
-                  href={`https://wa.me/919999999999?text=${encodeURIComponent(
-                    `Hello Rahul sir, I have registered for the India-to-Gulf Export Webinar (₹9). My name is ${formData.name}. Please share the Zoom joining instructions!`
+                  href={`https://wa.me/919131676447?text=${encodeURIComponent(
+                    `Hello Rahul sir, I have registered for the Export Business Master Class (₹9). My name is ${formData.name}. Please share the Zoom joining instructions!`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
