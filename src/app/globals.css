@@ -219,4 +219,19 @@
   will-change: opacity, transform;
 }
 
+/* Minimalist Carousel Progress Bar Animation */
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-progress-fill {
+  animation: progressFill 4s linear infinite;
+  will-change: width;
+}
+
 
