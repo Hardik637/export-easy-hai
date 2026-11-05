@@ -24,6 +24,19 @@ export interface FAQItem {
   answer: string;
 }
 
+// ============================================================================
+// CENTRAL WEBINAR PRICING SOURCE OF TRUTH
+// ============================================================================
+export const WEBINAR_PRICE_CONFIG = {
+  amount: 9, // numeric in INR
+  currency: "INR",
+  currencySymbol: "₹",
+  formatted: "₹9",
+  originalValue: "₹14,999",
+  isSpecialOffer: true,
+  pricingNote: "Limited-seat live masterclass for Indian professionals, traders, students & beginners.",
+};
+
 // Brand Line:
 // EXPORT EASY HAI
 // Explore. Learn. Export.
@@ -59,7 +72,7 @@ export const HERO_CONTENT = {
     "Learn how to start an India-to-Gulf export business with a practical, step-by-step roadmap—so you can move from confusion to your first shipment with greater clarity and confidence.",
   positioningNote:
     "Build your export business with the right six-month roadmap, consistent execution, and expert guidance. This is a target roadmap, not a guaranteed result.",
-  primaryCTA: "Reserve Your ₹9 Webinar Seat",
+  primaryCTA: `Reserve Your ${WEBINAR_PRICE_CONFIG.formatted} Webinar Seat`,
   secondaryCTA: "See How It Works",
   trustStrip: [
     "Beginner-friendly guidance",
@@ -211,19 +224,204 @@ export const WEBINAR_CONTENT = {
     language: "Hinglish",
     duration: "3 Hours",
     schedule: "Every Sunday at 1:00 PM IST",
-    fee: "₹9",
+    fee: WEBINAR_PRICE_CONFIG.formatted,
+    amount: WEBINAR_PRICE_CONFIG.amount,
+    originalValue: WEBINAR_PRICE_CONFIG.originalValue,
     seats: "Limited to 300 participants per session",
     recording: "Not included; live attendance only",
     reminders: "WhatsApp reminders & Zoom access link included",
     whatsappNumber: "9131676447",
   },
-  primaryCTA: "Reserve My Seat for ₹9",
+  primaryCTA: `Reserve My Seat for ${WEBINAR_PRICE_CONFIG.formatted}`,
   paymentNote:
     "Complete your payment securely through Razorpay. After successful payment, you will receive WhatsApp confirmation with the Zoom access link.",
   refundNote:
     "No refunds are offered after registration. Please review the webinar details before completing payment.",
   disclaimer:
     "The six-month roadmap is an educational framework and not a promise of income, orders, profits, or business success. Results depend on product choice, capital, execution, market conditions, compliance, and other factors.",
+};
+
+// ============================================================================
+// WHO IS THIS WEBINAR FOR (Audience Suitability)
+// ============================================================================
+export const WHO_IS_THIS_FOR = {
+  eyebrow: "WHO SHOULD ATTEND",
+  title: "Designed For Ambitious Beginners & Working Professionals",
+  subtitle:
+    "You do not need to quit your current job or risk significant capital right away. The export process can be learned and prepared alongside your existing responsibilities.",
+  audiences: [
+    {
+      role: "9-to-5 Working Professionals",
+      tag: "Flexible Hours",
+      desc: "Build an independent export business step by step while maintaining your current salary and career stability.",
+    },
+    {
+      role: "Students & Young Graduates",
+      tag: "Career Building",
+      desc: "Gain practical international trade knowledge, global compliance skills, and real-world business acumen early on.",
+    },
+    {
+      role: "Domestic Wholesalers & Traders",
+      tag: "Market Expansion",
+      desc: "Expand beyond saturated domestic markets and tap into high-value currency demand across the Arabian Gulf.",
+    },
+    {
+      role: "Manufacturers & Producers",
+      tag: "Direct Exports",
+      desc: "Eliminate unnecessary middlemen and export your goods directly to buyers across UAE, Saudi Arabia, and Qatar.",
+    },
+    {
+      role: "Aspiring Exporters & Beginners",
+      tag: "Zero Experience",
+      desc: "Clear the confusion around IEC, GST, custom documentation, logistics, and foreign exchange from scratch.",
+    },
+  ],
+};
+
+// ============================================================================
+// PROBLEMS BEGINNERS FACE (Key Challenges Addressed)
+// ============================================================================
+export const PROBLEMS_BEGINNERS_FACE = {
+  eyebrow: "THE REAL CHALLENGES",
+  title: "What Stops Most Beginners From Exporting?",
+  subtitle:
+    "Most aspiring exporters do not fail from lack of ambition—they stall because of confusing paperwork, unverified contacts, and fear of losing capital.",
+  problems: [
+    {
+      title: "Which product should I export?",
+      question: "Which Indian products have realistic demand, profitable margins, and viable shelf-life in Gulf markets?",
+      resolution: "We teach a data-backed product-market evaluation framework rather than relying on guesswork.",
+    },
+    {
+      title: "How do I choose the right Gulf country?",
+      question: "Should I start in UAE (Dubai), Saudi Arabia, Qatar, Kuwait, Oman, or Bahrain?",
+      resolution: "Compare import regulations, local consumer habits, duty structures, and buyer profiles per country.",
+    },
+    {
+      title: "How do I find and verify genuine buyers?",
+      question: "How can I tell if an overseas buyer is legitimate before shipping valuable goods?",
+      resolution: "Follow a multi-point verification checklist including chamber checks, credit screening, and embassy records.",
+    },
+    {
+      title: "How do I avoid customs delays & payment fraud?",
+      question: "What documents are required (IEC, GST, AD Code, ICEGATE) and which payment terms (LC vs Advance) protect me?",
+      resolution: "Learn the exact banking and trade documentation protocols refined over 20+ years in international trade forex.",
+    },
+  ],
+};
+
+// ============================================================================
+// COMPLETE 11-TOPIC WEBINAR CURRICULUM
+// ============================================================================
+export const WEBINAR_CURRICULUM = [
+  {
+    number: "01",
+    title: "Introduction to India-to-Gulf Export Opportunities",
+    desc: "Understanding the trade corridor connecting India with UAE, Saudi Arabia, Qatar, Kuwait, Oman, and Bahrain.",
+  },
+  {
+    number: "02",
+    title: "Product Evaluation & Profit Margin Strategy",
+    desc: "How to assess demand, competition, compliance requirements, and realistic export margins without hype.",
+  },
+  {
+    number: "03",
+    title: "Gulf Country Selection & Market Nuances",
+    desc: "Targeting specific markets (Dubai/UAE, Saudi Arabia, Qatar, etc.) based on your product fit and buyer profiles.",
+  },
+  {
+    number: "04",
+    title: "Buyer & Supplier Discovery & Verification Framework",
+    desc: "Practical techniques to identify genuine buyers and domestic suppliers—and how to cross-check business legitimacy.",
+  },
+  {
+    number: "05",
+    title: "Legal Business Setup & Licensing",
+    desc: "The essential registrations: Sole Proprietorship/LLP, IEC (Import Export Code), GST, and RCMC requirements.",
+  },
+  {
+    number: "06",
+    title: "Essential Export Documentation",
+    desc: "Mastering Proforma Invoices, Commercial Invoices, Packing Lists, Certificates of Origin, and Shipping Bills.",
+  },
+  {
+    number: "07",
+    title: "Payment Terms, Letter of Credit (LC) & Forex Risk",
+    desc: "How to structure payments (Advance, LC, DA/DP), manage currency fluctuation, and safeguard your funds.",
+  },
+  {
+    number: "08",
+    title: "Logistics, Freight Forwarding & Incoterms",
+    desc: "Selecting air vs. sea freight, working with reliable freight forwarders, and understanding FOB vs. CIF terms.",
+  },
+  {
+    number: "09",
+    title: "Customs Clearance & ICEGATE Procedures",
+    desc: "Navigating port clearance, AD Code registration at custom ports, and preventing costly port demurrage fees.",
+  },
+  {
+    number: "10",
+    title: "Fraud Prevention & Scam Avoidance",
+    desc: "Recognizing red flags, unverified intermediaries, fake purchase orders, and payment trap scenarios.",
+  },
+  {
+    number: "11",
+    title: "The 6-Month Action Roadmap",
+    desc: "A structured timeline mapping out each milestone from initial preparation to executing your first live shipment.",
+  },
+];
+
+// ============================================================================
+// RESOURCES INCLUDED WITH WEBINAR REGISTRATION
+// ============================================================================
+export const WEBINAR_RESOURCES = [
+  {
+    title: "Beginner Export Action Roadmap",
+    format: "Digital PDF Guide",
+    desc: "Structured milestone-by-milestone framework guiding your six-month preparation plan.",
+  },
+  {
+    title: "Product Selection & HS Code Checklist",
+    format: "Evaluation Matrix",
+    desc: "Practical tool to evaluate product viability, Gulf demand, and tariff classifications.",
+  },
+  {
+    title: "Buyer Verification & Due Diligence Checklist",
+    format: "Verification Guide",
+    desc: "Essential questions and verification channels to test potential buyers before shipping.",
+  },
+  {
+    title: "Export Documentation Checklist",
+    format: "Compliance Summary",
+    desc: "Step-by-step documentation inventory covering IEC, GST, AD Code, and customs paperwork.",
+  },
+  {
+    title: "Practical Workbook & Shipment Templates",
+    format: "Printable / Digital Workbook",
+    desc: "Sample commercial invoices, packing lists, and inquiry templates formatted for international standards.",
+  },
+  {
+    title: "Community Access & Live Q&A Replay Access",
+    format: "WhatsApp Community",
+    desc: "Direct access to session reminders, follow-up notifications, and masterclass resources.",
+  },
+];
+
+// ============================================================================
+// GULF MARKETS & PRODUCT CATEGORIES NOTICE
+// ============================================================================
+export const GULF_MARKETS_INFO = {
+  focus: "Export only — shipping Indian products to Arabian Gulf markets.",
+  countries: [
+    { name: "United Arab Emirates", highlight: "Dubai & Abu Dhabi hubs" },
+    { name: "Kingdom of Saudi Arabia", highlight: "Riyadh & Jeddah markets" },
+    { name: "Qatar", highlight: "Doha commercial sector" },
+    { name: "Kuwait", highlight: "Kuwait City retail & wholesale" },
+    { name: "Oman", highlight: "Muscat trade corridor" },
+    { name: "Bahrain", highlight: "Manama distribution" },
+  ],
+  importantNotice:
+    "We provide a structured educational framework to help you discover, vet, and qualify genuine buyers and suppliers directly. We do NOT sell pre-packaged buyer lists, database CDs, or fabricated trade contacts, as unverified lists frequently lead to fraud and customs complications.",
 };
 
 // 7. Why Learn With Us:
@@ -436,53 +634,59 @@ export const OBJECTION_CONTENT = {
 // 13. FAQ Section:
 export const FAQS_CONTENT: FAQItem[] = [
   {
-    question: "Can a complete beginner start exporting?",
+    question: "Can a complete beginner start an export business?",
     answer:
-      "Yes. You can begin by learning the process, selecting a suitable product, understanding the target market, and completing the required legal and documentation steps. Your starting requirements will depend on your product, business structure, destination, and shipment model.",
+      "Yes. You can begin by learning the step-by-step export process, selecting an in-demand product, understanding Gulf import regulations, and completing essential legal registrations (IEC, GST). Our curriculum is specifically designed from the ground up for beginners with zero prior international trade experience.",
   },
   {
-    question: "Do I need to quit my job immediately?",
+    question: "Do I need to quit my 9-to-5 job immediately?",
     answer:
-      "No. Many people first learn and validate their export plan while continuing their existing work. Decide when to make a career change only after reviewing your finances, responsibilities, and business progress.",
+      "No. We strongly recommend learning and validating your export roadmap while continuing your existing job. Initial stages—such as product selection, supplier evaluation, and market research—can be executed part-time during evenings and weekends before committing full-time capital.",
   },
   {
-    question: "Which countries do you cover?",
+    question: "Which countries and markets are covered in the training?",
     answer:
-      "The programme focuses on Gulf markets including the UAE, Saudi Arabia, Qatar, Oman, Kuwait, and Bahrain.",
+      "Our training specifically focuses on the Arabian Gulf corridor: the United Arab Emirates (including Dubai and Abu Dhabi), the Kingdom of Saudi Arabia, Qatar, Kuwait, Oman, and Bahrain.",
   },
   {
-    question: "Which products can I export?",
+    question: "Which products can I export from India?",
     answer:
-      "Potential categories include textiles, food and agriculture, handicrafts, engineering goods, home products, beauty products, and other suitable Indian products. Product eligibility and compliance requirements must be checked separately.",
+      "High-demand categories include textiles and garments, food, spices and agricultural goods, handicrafts, lifestyle items, engineering goods, and personal care. We teach you how to analyze tariffs, HS codes, and Gulf compliance per product.",
   },
   {
-    question: "How are the training programs conducted?",
+    question: "Do you provide ready-made buyer or supplier lists?",
     answer:
-      "Our export education programs and live batch sessions are conducted online in Hinglish, with structured modules, real-world case studies, and practical documentation guides.",
+      "No. We do not sell or provide ready-made buyer contact lists. Purchased database lists are notorious for outdated contacts and fraud. Instead, we teach you proven frameworks to find, vet, and verify genuine importers and local suppliers directly.",
   },
   {
-    question: "Do I need an existing company or export licence before joining?",
+    question: "What is your refund policy for the webinar?",
     answer:
-      "No. You do not need an existing registered entity or IEC (Import Export Code) to start learning. We teach you the exact step-by-step procedure to set up your firm, acquire your IEC, and secure your GST correctly without overspending.",
+      "Due to the live interactive nature and limited seating (capped at 300 participants), registrations are strictly non-refundable once booked. Please review the schedule and details before completing payment.",
   },
   {
-    question: "How do I access course materials, templates, and checklists?",
+    question: "Do I need an existing company, GST, or IEC before attending?",
     answer:
-      "All assignments, contract templates, buyer verification checklists, and shipping documentation guides are made available immediately through your student access dashboard.",
+      "No prior business registration or Import Export Code (IEC) is required to attend the masterclass. We will walk you through the exact steps to register your business entity, obtain your IEC, and link your bank AD code properly.",
   },
   {
-    question: "What is the 4-month live batch?",
+    question: "How and when will I receive the Zoom joining link?",
     answer:
-      "The 4-month live Gulf export batch is our guided implementation program designed to take you from foundational understanding to preparing and executing your first shipment with accountability.",
+      "Immediately upon successful payment, you will receive confirmation on WhatsApp and email. The Zoom access link, digital workbook, and masterclass reminders will be sent to your registered WhatsApp number before the session.",
   },
   {
-    question: "Is a profitable shipment guaranteed?",
+    question: "What language is the masterclass conducted in?",
     answer:
-      "No. Export results depend on product selection, demand, sourcing, pricing, compliance, logistics, capital, and execution. The programme provides education and guidance, not a guarantee of profit or orders.",
+      "The masterclass is conducted live in Hinglish (a practical blend of Hindi and English) to ensure all trade finance and customs concepts are easy to understand.",
   },
   {
-    question: "Is one-on-one coaching available?",
-    answer: "One-on-one coaching is not currently being offered.",
+    question: "Is profit or first-shipment success guaranteed?",
+    answer:
+      "No. International trade involves real-world market dynamics, capital requirements, and business execution. Export Easy Hai provides educational frameworks, risk mitigation techniques, and compliance roadmaps, not guarantees of profit or orders.",
+  },
+  {
+    question: "Is one-on-one personal coaching or consulting included?",
+    answer:
+      "One-on-one consulting is not included in the masterclass. The session is a focused 3-hour group masterclass with live interactive Q&A at the end.",
   },
 ];
 
@@ -491,7 +695,7 @@ export const FINAL_CTA_CONTENT = {
   headline: "YOUR NEXT CHAPTER STARTS WITH ONE CLEAR STEP.",
   subcopy:
     "You do not have to understand everything today. Start by learning the process, understanding the risks, and creating a practical roadmap for your India-to-Gulf export journey.",
-  primaryCTA: "Explore Featured Courses",
+  primaryCTA: `Reserve Your ${WEBINAR_PRICE_CONFIG.formatted} Seat`,
   secondaryCTA: "View Export Roadmap",
   closingLine:
     "From India to the Gulf. Learn the process. Prepare with clarity. Export with confidence.",
@@ -512,18 +716,16 @@ export const FOOTER_CONTENT = {
   linkedinUrl: "https://www.linkedin.com/in/rahul-makwana-4ba33646/",
   quickLinks: [
     { label: "Home", href: "#hero" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Products", href: "#products" },
-    { label: "Live Batch", href: "#live-batch" },
-    { label: "About", href: "#about" },
-    { label: "FAQs", href: "#faq" },
-    { label: "Contact", href: "#footer" },
+    { label: "About Rahul Makwana", href: "#founder" },
+    { label: "Webinar Details", href: "#webinar-section" },
+    { label: "Curriculum", href: "#curriculum" },
+    { label: "Our Mission", href: "#mission" },
+    { label: "FAQs", href: "#faqs" },
   ],
   legalLinks: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms and Conditions", href: "#" },
-    { label: "Disclaimer", href: "#" },
-    { label: "Refund Policy", href: "#" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms and Conditions", href: "/terms" },
+    { label: "Refund Policy", href: "/refund-policy" },
   ],
   disclaimer:
     "Export Easy Hai (Kavneet International) provides educational content and practical guidance. We do not guarantee profits, buyers, orders, shipment completion, business success, or any specific financial outcome. Participants are responsible for verifying current laws, duties, licences, documentation, suppliers, buyers, and professional advice relevant to their transaction.",
