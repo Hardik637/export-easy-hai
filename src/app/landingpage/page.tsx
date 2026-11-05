@@ -101,6 +101,7 @@ const loadRazorpayScript = (): Promise<boolean> => {
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [isBioExpanded, setIsBioExpanded] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -498,23 +499,46 @@ export default function LandingPage() {
                   {MENTOR_CONTENT.name}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-3 sm:mb-4">
+                {/* Top important lines (clamped to 3 lines on mobile when collapsed, full on desktop) */}
+                <p
+                  className={`text-xs sm:text-sm text-white/80 leading-relaxed mb-2 sm:mb-4 ${
+                    !isBioExpanded ? "line-clamp-3 sm:line-clamp-none" : ""
+                  }`}
+                >
                   {MENTOR_CONTENT.bio1}
                 </p>
 
-                <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-3 sm:pt-4 mb-3">
-                  Alumnus of IIM Ahmedabad (Strategic Management) &amp; SP Jain (FinTech). Industry Member on Board of Studies, S.B. Patil Institute of Management, Pune. Through Export Easy Hai (Kavneet International), he has guided 100+ shipments and supported 100+ students across 15+ countries.
-                </p>
+                {/* Rest of the bio & credentials — openable on mobile, always visible on desktop */}
+                <div className={isBioExpanded ? "block" : "hidden sm:block"}>
+                  <p className="text-xs text-white/60 leading-relaxed border-t border-white/10 pt-3 sm:pt-4 mb-3">
+                    Alumnus of IIM Ahmedabad (Strategic Management) &amp; SP Jain (FinTech). Industry Member on Board of Studies, S.B. Patil Institute of Management, Pune. Through Export Easy Hai (Kavneet International), he has guided 100+ shipments and supported 100+ students across 15+ countries.
+                  </p>
 
-                <a
-                  href={MENTOR_CONTENT.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#FF4D5E] hover:text-[#E50920] font-mono transition-colors"
+                  <a
+                    href={MENTOR_CONTENT.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#FF4D5E] hover:text-[#E50920] font-mono transition-colors"
+                  >
+                    <span>View Verified LinkedIn Profile</span>
+                    <ExternalLink className="w-3 h-3 text-[#E50920]" />
+                  </a>
+                </div>
+
+                {/* See more / See less button ONLY ON MOBILE VIEW */}
+                <button
+                  type="button"
+                  onClick={() => setIsBioExpanded(!isBioExpanded)}
+                  className="sm:hidden mt-2 inline-flex items-center gap-1 text-xs font-mono font-semibold text-[#E50920] hover:text-white transition-colors cursor-pointer py-1"
+                  aria-expanded={isBioExpanded}
                 >
-                  <span>View Verified LinkedIn Profile</span>
-                  <ExternalLink className="w-3 h-3 text-[#E50920]" />
-                </a>
+                  <span>{isBioExpanded ? "See less" : "See more"}</span>
+                  {isBioExpanded ? (
+                    <ChevronUp className="w-3.5 h-3.5" />
+                  ) : (
+                    <ChevronDown className="w-3.5 h-3.5" />
+                  )}
+                </button>
               </div>
             </div>
 
