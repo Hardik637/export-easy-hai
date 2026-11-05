@@ -109,6 +109,9 @@ export default function LandingPage() {
   const [audienceIndex, setAudienceIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
+  // Module Accordion State (Mobile view only)
+  const [expandedModule, setExpandedModule] = useState<string | null>(null);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setAudienceIndex((prev) => (prev + 1) % WHO_IS_THIS_FOR.audiences.length);
@@ -961,7 +964,8 @@ export default function LandingPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* DESKTOP VIEW: Grid of all 11 module cards */}
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {WEBINAR_CURRICULUM.map((item) => (
                 <div
                   key={item.number}
@@ -980,6 +984,66 @@ export default function LandingPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* MOBILE VIEW ONLY: Compact Vertical Accordion (11 Modules) */}
+            <div className="sm:hidden space-y-2">
+              {WEBINAR_CURRICULUM.map((item) => {
+                const isOpen = expandedModule === item.number;
+                return (
+                  <div
+                    key={item.number}
+                    className={`rounded-xl transition-all duration-200 border ${
+                      isOpen
+                        ? "bg-black/90 border-[#E50920]/60 shadow-[0_0_20px_rgba(229,9,32,0.18)]"
+                        : "bg-black/60 border-white/10 hover:border-white/20"
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpandedModule(isOpen ? null : item.number)
+                      }
+                      className="w-full text-left px-4 py-3.5 flex items-center justify-between gap-3 min-h-[50px] cursor-pointer"
+                      aria-expanded={isOpen}
+                    >
+                      <div className="flex-1 min-w-0 pr-1">
+                        <span className="text-[10px] font-mono font-bold text-[#E50920] tracking-widest uppercase block mb-1">
+                          MODULE {item.number}
+                        </span>
+                        <h4 className="text-xs sm:text-sm font-semibold text-white leading-snug">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <div
+                        className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                          isOpen
+                            ? "bg-[#E50920]/20 text-[#E50920]"
+                            : "bg-white/5 text-white/50"
+                        }`}
+                      >
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                            isOpen ? "rotate-180 text-[#E50920]" : ""
+                          }`}
+                        />
+                      </div>
+                    </button>
+
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="px-4 pb-3.5 pt-1 text-xs text-white/75 leading-relaxed border-t border-white/5 mt-0.5">
+                          {item.desc}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
