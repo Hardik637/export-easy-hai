@@ -687,191 +687,68 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right Column: Embedded Glowing Registration Card */}
-            <div className="lg:col-span-6 flex justify-center">
-              <div className="w-full max-w-md rounded-2xl bg-[#0D0B0F]/95 backdrop-blur-xl border-2 border-[#E50920] shadow-[0_0_60px_rgba(229,9,32,0.45)] p-6 sm:p-8 text-left relative">
-                {/* Header */}
-                <div className="flex items-start gap-3 mb-5">
-                  <div className="w-9 h-9 rounded bg-[#E50920] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-md">
-                    <Compass className="w-5 h-5 text-white" />
+            {/* Right Column: Masterclass VIP Pass (Desktop only, triggers modal on click) */}
+            <div className="hidden lg:flex lg:col-span-6 justify-center">
+              <div className="w-full max-w-md rounded-2xl bg-[#0D0B0F]/95 backdrop-blur-xl border-2 border-[#E50920] shadow-[0_0_60px_rgba(229,9,32,0.45)] p-7 sm:p-8 text-left relative flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#FF4D5E] font-bold bg-[#E50920]/10 px-2.5 py-1 rounded border border-[#E50920]/30">
+                      LIVE BATCH ACCESS PASS
+                    </span>
+                    <span className="text-xs font-mono text-white/50">300 Seats Max</span>
                   </div>
-                  <div>
-                    <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-tight leading-none">
-                      Reserve Your <br />
-                      <span className="text-[#E50920]">{WEBINAR_PRICE_CONFIG.formatted} Webinar Seat</span>
-                    </h3>
-                    <p className="text-xs text-white/60 mt-1">
-                      Live Workshop with Rahul Makwana • {WEBINAR_CONTENT.details.schedule}
-                    </p>
+
+                  <h3 className="font-display text-3xl sm:text-4xl text-white uppercase tracking-tight leading-none mb-2">
+                    Export Business <br />
+                    <span className="text-[#E50920]">Master Class</span>
+                  </h3>
+                  <p className="text-xs text-white/70 mb-5">
+                    {WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration}) • Live with Rahul Makwana
+                  </p>
+
+                  <div className="space-y-2.5 border-t border-white/10 pt-4 mb-6 text-xs text-white/80">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0" />
+                      <span>11-Module Complete India-to-Gulf Export Curriculum</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0" />
+                      <span>6 Practical Roadmaps, Verification Checklists &amp; Templates</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0" />
+                      <span>Live Interactive Doubt Solving in Hinglish</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0" />
+                      <span>WhatsApp Community Access &amp; Session Reminders</span>
+                    </div>
                   </div>
                 </div>
 
-                {!verifiedRegistration ? (
-                  <form onSubmit={handlePaymentSubmit} className="space-y-3">
-                    {errorMessage && (
-                      <div className="p-3 rounded-lg bg-red-950/70 border border-red-500/50 text-red-200 text-xs flex items-start gap-2">
-                        <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                        <span>{errorMessage}</span>
-                      </div>
-                    )}
-
-                    {/* Name Input */}
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
-                        <User className="w-4 h-4" />
-                      </div>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Your Full Name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                      />
+                <div className="pt-4 border-t border-white/10">
+                  <div className="flex items-baseline justify-between mb-3">
+                    <span className="text-xs text-white/50 font-mono">
+                      Regular Fee: <s className="text-white/40">{WEBINAR_PRICE_CONFIG.originalValue}</s>
+                    </span>
+                    <div className="text-right">
+                      <span className="text-2xl font-display text-white">{WEBINAR_PRICE_CONFIG.formatted}</span>
+                      <span className="text-[10px] text-[#E50920] font-mono ml-1.5 uppercase font-bold">Special Offer</span>
                     </div>
-
-                    {/* Email Input */}
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
-                        <Mail className="w-4 h-4" />
-                      </div>
-                      <input
-                        type="email"
-                        required
-                        placeholder="Email Address"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                      />
-                    </div>
-
-                    {/* Phone Input */}
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
-                        <Phone className="w-4 h-4" />
-                      </div>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="10-digit WhatsApp Number"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                      />
-                    </div>
-
-                    {/* City & Profession in 2 Cols */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-white/40">
-                          <MapPin className="w-3.5 h-3.5" />
-                        </div>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Your City"
-                          value={formData.city}
-                          onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                          className="w-full bg-black/60 border border-white/15 rounded-lg pl-9 pr-3 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                        />
-                      </div>
-
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-white/40">
-                          <Briefcase className="w-3.5 h-3.5" />
-                        </div>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Profession (e.g. Job/Trader)"
-                          value={formData.profession}
-                          onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
-                          className="w-full bg-black/60 border border-white/15 rounded-lg pl-9 pr-3 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Product of Interest (Optional) */}
-                    <div className="relative">
-                      <input
-                        type="text"
-                        placeholder="Product of Interest (Optional: e.g. Spices, Garments)"
-                        value={formData.interest}
-                        onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                        className="w-full bg-black/60 border border-white/15 rounded-lg px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                      />
-                    </div>
-
-                    {/* Submit Button */}
-                    <div className="pt-2">
-                      <button
-                        type="submit"
-                        disabled={isLoading}
-                        className="w-full py-3.5 px-6 rounded-lg font-bold text-sm sm:text-base uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40 disabled:opacity-60"
-                      >
-                        {isLoading ? (
-                          <>
-                            <Loader2 className="w-4 h-4 animate-spin" />
-                            <span>Processing...</span>
-                          </>
-                        ) : (
-                          <>
-                            <span>Reserve Seat for {WEBINAR_PRICE_CONFIG.formatted}</span>
-                            <ArrowRight className="w-4 h-4" />
-                          </>
-                        )}
-                      </button>
-                    </div>
-
-                    {/* Pricing Guarantee */}
-                    <div className="flex items-center justify-between text-[11px] text-white/60 font-mono px-1">
-                      <span>Regular Fee: <s className="text-white/40">{WEBINAR_PRICE_CONFIG.originalValue}</s></span>
-                      <span className="text-[#E50920] font-bold">Limited Offer: {WEBINAR_PRICE_CONFIG.formatted}</span>
-                    </div>
-
-                    {/* Disclaimers */}
-                    <div className="text-[10.5px] text-white/50 leading-relaxed pt-2 space-y-1.5 border-t border-white/10 mt-2">
-                      <p>
-                        <strong className="text-white/80">Access Note: </strong>
-                        {WEBINAR_CONTENT.paymentNote}
-                      </p>
-                      <p>
-                        <strong className="text-white/80">Strict Refund Policy: </strong>
-                        {WEBINAR_CONTENT.refundNote}
-                      </p>
-                    </div>
-                  </form>
-                ) : (
-                  <div className="text-center py-6">
-                    <div className="w-14 h-14 rounded-full bg-[#E50920]/20 text-[#E50920] mx-auto flex items-center justify-center mb-3 border border-[#E50920]/40">
-                      <CheckCircle2 className="w-7 h-7 text-[#E50920]" />
-                    </div>
-
-                    <h4 className="font-display text-2xl text-white uppercase tracking-tight mb-1">
-                      {isDuplicateNotice ? "Seat Already Reserved!" : "Seat Confirmed!"}
-                    </h4>
-
-                    <p className="text-xs text-white/80 mb-2 leading-relaxed">
-                      Thank you, <strong className="text-white">{verifiedRegistration.name || formData.name}</strong>. Your {WEBINAR_PRICE_CONFIG.formatted} masterclass registration is confirmed.
-                    </p>
-
-                    <div className="bg-black/50 p-3 rounded-lg border border-white/10 text-left text-xs space-y-1 mb-5">
-                      <div className="text-white/60">Registered Phone: <span className="text-white font-mono">{verifiedRegistration.phone || formData.phone}</span></div>
-                      <div className="text-white/60">Schedule: <span className="text-white font-medium">{WEBINAR_CONTENT.details.schedule}</span></div>
-                      <div className="text-white/60">Format: <span className="text-white font-medium">Live Zoom ({WEBINAR_CONTENT.details.duration})</span></div>
-                    </div>
-
-                    <a
-                      href={whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg shadow-emerald-950/80 cursor-pointer"
-                    >
-                      <span>Join Masterclass Group on WhatsApp</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
                   </div>
-                )}
+
+                  <button
+                    onClick={handleOpenModal}
+                    className="w-full py-3.5 px-6 rounded-lg font-bold text-sm uppercase tracking-wider bg-[#E50920] hover:bg-[#c9071b] text-white transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-xl shadow-red-950/70 border border-red-500/40"
+                  >
+                    <span>Reserve My Seat for {WEBINAR_PRICE_CONFIG.formatted}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <p className="text-[10.5px] text-white/40 text-center mt-2.5 font-mono">
+                    Instant confirmation via WhatsApp &amp; Email
+                  </p>
+                </div>
               </div>
             </div>
           </div>
