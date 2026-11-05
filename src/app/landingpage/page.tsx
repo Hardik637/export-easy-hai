@@ -411,8 +411,8 @@ export default function LandingPage() {
                 <span>{WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration})</span>
               </div>
               <span className="text-white/30 hidden sm:inline">|</span>
-              <div className="flex items-center gap-1.5 text-[#FFD86A]">
-                <Video className="w-3.5 h-3.5" />
+              <div className="flex items-center gap-1.5 text-white/90">
+                <Video className="w-3.5 h-3.5 text-[#E50920]" />
                 <span>Live on {WEBINAR_CONTENT.details.platform} ({WEBINAR_CONTENT.details.language})</span>
               </div>
             </div>
@@ -457,7 +457,7 @@ export default function LandingPage() {
             <div className="lg:col-span-4 lg:col-start-6 lg:row-start-1 lg:row-span-2 flex flex-col items-center justify-center relative">
               {/* Handwritten Script Annotation */}
               <div className="w-full text-center lg:text-left mb-2 pl-0 lg:pl-4">
-                <span className="font-script text-2xl sm:text-3xl text-[#FFD86A] block leading-none">
+                <span className="font-script text-2xl sm:text-3xl text-[#FF4D5E] block leading-none">
                   &ldquo;Same Knowledge. <br />
                   Simpler Path.&rdquo;
                 </span>
@@ -477,7 +477,7 @@ export default function LandingPage() {
                   <span className="font-display text-2xl text-white block uppercase">
                     {MENTOR_CONTENT.name}
                   </span>
-                  <span className="text-[11px] font-mono text-[#FFD86A] uppercase tracking-wider block">
+                  <span className="text-[11px] font-mono text-[#FF4D5E] uppercase tracking-wider block">
                     Export Consultant • 20+ Yrs Banking &amp; Forex
                   </span>
                 </div>
@@ -510,10 +510,10 @@ export default function LandingPage() {
                   href={MENTOR_CONTENT.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#FFD86A] hover:text-[#FFE394] font-mono transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#FF4D5E] hover:text-[#E50920] font-mono transition-colors"
                 >
                   <span>View Verified LinkedIn Profile</span>
-                  <ExternalLink className="w-3 h-3" />
+                  <ExternalLink className="w-3 h-3 text-[#E50920]" />
                 </a>
               </div>
             </div>
@@ -522,7 +522,7 @@ export default function LandingPage() {
             <div className="lg:col-span-5 lg:col-start-1 lg:row-start-2 space-y-3.5 sm:space-y-4 pt-1 lg:pt-0">
               <div className="flex items-start gap-3.5 p-3.5 sm:p-0 rounded-xl sm:rounded-none bg-white/[0.02] sm:bg-transparent border border-white/5 sm:border-0">
                 <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
-                  <ShieldCheck className="w-5 h-5" />
+                  <ShieldCheck className="w-5 h-5 text-[#E50920]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white uppercase">20+ Years Banking &amp; Forex Head</h4>
@@ -531,8 +531,8 @@ export default function LandingPage() {
               </div>
 
               <div className="flex items-start gap-3.5 p-3.5 sm:p-0 rounded-xl sm:rounded-none bg-white/[0.02] sm:bg-transparent border border-white/5 sm:border-0">
-                <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
-                  <Compass className="w-5 h-5" />
+                <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
+                  <Compass className="w-5 h-5 text-[#E50920]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white uppercase">Practical Six-Month Roadmap</h4>
@@ -541,8 +541,8 @@ export default function LandingPage() {
               </div>
 
               <div className="flex items-start gap-3.5 p-3.5 sm:p-0 rounded-xl sm:rounded-none bg-white/[0.02] sm:bg-transparent border border-white/5 sm:border-0">
-                <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                  <Ship className="w-5 h-5" />
+                <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
+                  <Ship className="w-5 h-5 text-[#E50920]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white uppercase">Direct India-to-Gulf Focus</h4>
@@ -623,17 +623,17 @@ export default function LandingPage() {
                 </div>
 
                 <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
-                  <GraduationCap className="w-4 h-4 text-[#FFD86A] shrink-0" />
+                  <GraduationCap className="w-4 h-4 text-[#E50920] shrink-0" />
                   <span>Hinglish interactive training</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
-                  <Users className="w-4 h-4 text-[#FF4D5E] shrink-0" />
+                  <Users className="w-4 h-4 text-[#E50920] shrink-0" />
                   <span>Limited to 300 seats</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-black/60 border border-white/10 flex items-center gap-2.5 text-xs text-white/90">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#E50920] shrink-0" />
                   <span>WhatsApp reminders included</span>
                 </div>
               </div>
@@ -656,8 +656,8 @@ export default function LandingPage() {
                   <span>{WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration})</span>
                 </div>
                 <span className="text-white/30">|</span>
-                <div className="flex items-center gap-1.5 text-[#FFD86A]">
-                  <Video className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-1.5 text-white/90">
+                  <Video className="w-3.5 h-3.5 text-[#E50920]" />
                   <span>Live on {WEBINAR_CONTENT.details.platform} ({WEBINAR_CONTENT.details.language})</span>
                 </div>
               </div>
@@ -802,7 +802,7 @@ export default function LandingPage() {
                     {/* Pricing Guarantee */}
                     <div className="flex items-center justify-between text-[11px] text-white/60 font-mono px-1">
                       <span>Regular Fee: <s className="text-white/40">{WEBINAR_PRICE_CONFIG.originalValue}</s></span>
-                      <span className="text-[#FFD86A] font-bold">Limited Offer: {WEBINAR_PRICE_CONFIG.formatted}</span>
+                      <span className="text-[#E50920] font-bold">Limited Offer: {WEBINAR_PRICE_CONFIG.formatted}</span>
                     </div>
 
                     {/* Disclaimers */}
@@ -819,8 +819,8 @@ export default function LandingPage() {
                   </form>
                 ) : (
                   <div className="text-center py-6">
-                    <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-3 border border-emerald-500/30">
-                      <CheckCircle2 className="w-7 h-7" />
+                    <div className="w-14 h-14 rounded-full bg-[#E50920]/20 text-[#E50920] mx-auto flex items-center justify-center mb-3 border border-[#E50920]/40">
+                      <CheckCircle2 className="w-7 h-7 text-[#E50920]" />
                     </div>
 
                     <h4 className="font-display text-2xl text-white uppercase tracking-tight mb-1">
@@ -833,8 +833,8 @@ export default function LandingPage() {
 
                     <div className="bg-black/50 p-3 rounded-lg border border-white/10 text-left text-xs space-y-1 mb-5">
                       <div className="text-white/60">Registered Phone: <span className="text-white font-mono">{verifiedRegistration.phone || formData.phone}</span></div>
-                      <div className="text-white/60">Schedule: <span className="text-[#FFD86A] font-medium">{WEBINAR_CONTENT.details.schedule}</span></div>
-                      <div className="text-white/60">Format: <span className="text-emerald-400">Live Zoom ({WEBINAR_CONTENT.details.duration})</span></div>
+                      <div className="text-white/60">Schedule: <span className="text-white font-medium">{WEBINAR_CONTENT.details.schedule}</span></div>
+                      <div className="text-white/60">Format: <span className="text-white font-medium">Live Zoom ({WEBINAR_CONTENT.details.duration})</span></div>
                     </div>
 
                     <a
@@ -874,10 +874,10 @@ export default function LandingPage() {
                   className="rounded-xl bg-black/60 border border-white/10 hover:border-[#E50920]/40 p-5 backdrop-blur-md transition-all"
                 >
                   <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#FFD86A] bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#E50920] bg-[#E50920]/10 px-2 py-0.5 rounded border border-[#E50920]/30 font-semibold">
                       {aud.tag}
                     </span>
-                    <UserCheck className="w-4 h-4 text-white/40" />
+                    <UserCheck className="w-4 h-4 text-[#E50920]" />
                   </div>
                   <h4 className="text-base text-white font-semibold mb-1.5">{aud.role}</h4>
                   <p className="text-xs text-white/60 leading-relaxed">{aud.desc}</p>
@@ -914,8 +914,8 @@ export default function LandingPage() {
                     <h4>{prob.title}</h4>
                   </div>
                   <p className="text-xs text-white/60 pl-7">{prob.question}</p>
-                  <div className="pt-2 pl-7 border-t border-white/5 flex items-start gap-2 text-xs text-emerald-400">
-                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                  <div className="pt-2 pl-7 border-t border-white/5 flex items-start gap-2 text-xs text-white/90">
+                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#E50920]" />
                     <span>{prob.resolution}</span>
                   </div>
                 </div>
@@ -935,7 +935,7 @@ export default function LandingPage() {
                   WHAT YOU WILL LEARN (11 MODULES)
                 </h3>
               </div>
-              <span className="text-xs font-mono text-[#FFD86A] bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20 w-fit">
+              <span className="text-xs font-mono text-[#E50920] bg-[#E50920]/10 px-3 py-1 rounded-full border border-[#E50920]/30 w-fit">
                 3 Hours • Live Q&amp;A Included
               </span>
             </div>
@@ -983,11 +983,11 @@ export default function LandingPage() {
                   key={i}
                   className="rounded-xl bg-black/60 border border-white/10 p-5 backdrop-blur-md flex items-start gap-3.5"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-[#FFD86A]/10 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center shrink-0 mt-0.5">
-                    <FileText className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center shrink-0 mt-0.5">
+                    <FileText className="w-4 h-4 text-[#E50920]" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#FFD86A] block mb-1">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#E50920] block mb-1 font-semibold">
                       {res.format}
                     </span>
                     <h4 className="text-sm font-semibold text-white mb-1">{res.title}</h4>
@@ -1073,7 +1073,7 @@ export default function LandingPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
           {/* Top Right Script Watermark */}
           <div className="flex justify-end mb-4">
-            <span className="font-script text-2xl sm:text-3xl text-[#FFD86A]/80 drop-shadow-md">
+            <span className="font-script text-2xl sm:text-3xl text-[#FF4D5E]/90 drop-shadow-md">
               Dubai • Saudi Arabia • Qatar • Kuwait • Oman • Bahrain
             </span>
           </div>
@@ -1101,23 +1101,23 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
               <div className="w-10 h-10 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center mb-5">
-                <Target className="w-5 h-5" />
+                <Target className="w-5 h-5 text-[#E50920]" />
               </div>
               <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Clear and practical guidance</h3>
               <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Grounded advice and a structured six-month roadmap focused on execution rather than textbook theories.</p>
             </div>
 
-            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#FFD86A]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-[#FFD86A]/15 border border-[#FFD86A]/30 text-[#FFD86A] flex items-center justify-center mb-5">
-                <FileCheck className="w-4 h-4" />
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center mb-5">
+                <FileCheck className="w-4 h-4 text-[#E50920]" />
               </div>
               <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Real Gulf market opportunities</h3>
               <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Evaluate high-demand products with genuine buying power in UAE (Dubai), Saudi Arabia, Qatar, and Kuwait.</p>
             </div>
 
-            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-emerald-500/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-5">
-                <ShieldAlert className="w-5 h-5" />
+            <div className="rounded-2xl bg-black/60 border border-white/10 hover:border-[#E50920]/40 p-6 sm:p-7 backdrop-blur-md shadow-xl transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#E50920]/15 border border-[#E50920]/30 text-[#E50920] flex items-center justify-center mb-5">
+                <ShieldAlert className="w-5 h-5 text-[#E50920]" />
               </div>
               <h3 className="text-base sm:text-lg text-white font-semibold mb-2">Forex, compliance &amp; risk control</h3>
               <p className="text-xs sm:text-sm text-white/60 leading-relaxed">Understanding international banking terms (Incoterms, LC, Bank AD Code, ICEGATE) to protect your funds.</p>
@@ -1181,10 +1181,10 @@ export default function LandingPage() {
               href="https://wa.me/919131676447"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-mono text-[#FFD86A] hover:text-[#FFE394] transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-mono text-[#FF4D5E] hover:text-[#E50920] transition-colors"
             >
               <span>Chat with our team on WhatsApp (+91 9131676447)</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#E50920]" />
             </a>
           </div>
         </div>
@@ -1199,7 +1199,7 @@ export default function LandingPage() {
             <span className="w-2 h-2 rounded-full bg-[#E50920] animate-pulse" />
             <span>{WEBINAR_PRICE_CONFIG.formatted} Master Class</span>
           </div>
-          <div className="text-[9.5px] text-[#FFD86A]">{WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration})</div>
+          <div className="text-[9.5px] text-white/70">{WEBINAR_CONTENT.details.schedule} ({WEBINAR_CONTENT.details.duration})</div>
         </div>
 
         <button
@@ -1238,7 +1238,7 @@ export default function LandingPage() {
                 href={FOOTER_CONTENT.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-emerald-400 transition-colors"
+                className="hover:text-[#FF4D5E] transition-colors"
               >
                 WhatsApp: {FOOTER_CONTENT.contactWhatsApp}
               </a>
@@ -1443,8 +1443,8 @@ export default function LandingPage() {
               </div>
             ) : (
               <div className="text-center py-6">
-                <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-3 border border-emerald-500/30">
-                  <CheckCircle2 className="w-7 h-7" />
+                <div className="w-14 h-14 rounded-full bg-[#E50920]/20 text-[#E50920] mx-auto flex items-center justify-center mb-3 border border-[#E50920]/40">
+                  <CheckCircle2 className="w-7 h-7 text-[#E50920]" />
                 </div>
 
                 <h4 className="font-display text-2xl text-white uppercase tracking-tight mb-1">
@@ -1457,8 +1457,8 @@ export default function LandingPage() {
 
                 <div className="bg-black/50 p-3 rounded-lg border border-white/10 text-left text-xs space-y-1 mb-5">
                   <div className="text-white/60">Registered Phone: <span className="text-white font-mono">{verifiedRegistration.phone || formData.phone}</span></div>
-                  <div className="text-white/60">Schedule: <span className="text-[#FFD86A] font-medium">{WEBINAR_CONTENT.details.schedule}</span></div>
-                  <div className="text-white/60">Format: <span className="text-emerald-400">Live Zoom ({WEBINAR_CONTENT.details.duration})</span></div>
+                  <div className="text-white/60">Schedule: <span className="text-white font-medium">{WEBINAR_CONTENT.details.schedule}</span></div>
+                  <div className="text-white/60">Format: <span className="text-white font-medium">Live Zoom ({WEBINAR_CONTENT.details.duration})</span></div>
                 </div>
 
                 <a
