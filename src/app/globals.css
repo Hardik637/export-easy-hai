@@ -202,36 +202,44 @@
   outline-offset: 2px;
 }
 
-/* Dynamic Breathing Blood Moon Glow (Slow atmospheric pulse) */
+/* Dynamic Breathing Blood Moon Glow (Optimized compositor-only pulse) */
 @keyframes moonBreathe {
   0%, 100% {
-    opacity: 0.18;
-    transform: translate(-50%, -50%) scale(0.93);
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.96);
   }
   50% {
-    opacity: 0.92;
-    transform: translate(-50%, -50%) scale(1.07);
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.04);
   }
 }
 
 .animate-moon-breathe {
-  animation: moonBreathe 5.2s ease-in-out infinite;
+  animation: moonBreathe 6s ease-in-out infinite;
   will-change: opacity, transform;
 }
 
-/* Minimalist Carousel Progress Bar Animation */
+/* Minimalist Carousel Progress Bar Animation (Zero-layout-shift scaleX) */
 @keyframes progressFill {
   0% {
-    width: 0%;
+    transform: scaleX(0);
   }
   100% {
-    width: 100%;
+    transform: scaleX(1);
   }
 }
 
 .animate-progress-fill {
   animation: progressFill 4s linear infinite;
-  will-change: width;
+  transform-origin: left;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-moon-breathe,
+  .animate-progress-fill {
+    animation: none !important;
+  }
 }
 
 

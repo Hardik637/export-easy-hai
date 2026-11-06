@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import { ChevronDown } from "lucide-react";
 import { JOURNEY_STAGES } from "@/data/journeyData";
 
 // Color stops aligned with page scroll progression (0.00 to 1.00)
@@ -56,13 +55,14 @@ export default function CinematicCanvas() {
 
   const [progress, setProgress] = useState(0);
   const [activeNavIndex, setActiveNavIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false
+  );
   const [isNavHovered, setIsNavHovered] = useState(false);
 
   // Check reduced motion preference
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import CinematicCanvas from "@/components/CinematicCanvas";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
