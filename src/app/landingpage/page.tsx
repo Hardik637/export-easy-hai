@@ -42,7 +42,6 @@ import { FounderBio } from "@/components/landing/FounderBio";
 import { AudienceCarousel } from "@/components/landing/AudienceCarousel";
 import { CurriculumAccordion } from "@/components/landing/CurriculumAccordion";
 import { FaqAccordion } from "@/components/landing/FaqAccordion";
-import { StickyMobileCta } from "@/components/landing/StickyMobileCta";
 
 export default function LandingPage() {
   return (
@@ -799,11 +798,6 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-
-        {/* =========================================================================
-            STICKY MOBILE CONVERSION BAR (Bottom Screen on Mobile View Only)
-           ========================================================================= */}
-        <StickyMobileCta />
 
         {/* =========================================================================
             FOOTER WITH WORKING LEGAL LINKS
