@@ -32,13 +32,6 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!city || typeof city !== "string" || city.trim().length < 2) {
-      return NextResponse.json(
-        { success: false, error: "Please enter your city." },
-        { status: 400 }
-      );
-    }
-
     if (!profession || typeof profession !== "string" || profession.trim().length < 2) {
       return NextResponse.json(
         { success: false, error: "Please specify your current profession or background." },

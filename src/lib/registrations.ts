@@ -7,7 +7,7 @@ export interface Registration {
   name: string;
   email: string;
   phone: string;
-  city: string;
+  city?: string;
   profession: string;
   interest?: string;
   amount: number;

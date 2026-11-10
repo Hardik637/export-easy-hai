@@ -8,7 +8,6 @@ import {
   User,
   Mail,
   Phone,
-  MapPin,
   Briefcase,
   ArrowRight,
   Loader2,
@@ -81,9 +80,7 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
     name: "",
     email: "",
     phone: "",
-    city: "",
     profession: "",
-    interest: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -328,43 +325,17 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-white/40">
-                    <MapPin className="w-3.5 h-3.5" />
-                  </div>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Your City"
-                    value={formData.city}
-                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full bg-black/60 border border-white/15 rounded-lg pl-9 pr-3 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                  />
-                </div>
-
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-white/40">
-                    <Briefcase className="w-3.5 h-3.5" />
-                  </div>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Profession (e.g. Job/Trader)"
-                    value={formData.profession}
-                    onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
-                    className="w-full bg-black/60 border border-white/15 rounded-lg pl-9 pr-3 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
-                  />
-                </div>
-              </div>
-
               <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
+                  <Briefcase className="w-4 h-4" />
+                </div>
                 <input
                   type="text"
-                  placeholder="Product of Interest (Optional: e.g. Spices, Garments)"
-                  value={formData.interest}
-                  onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                  className="w-full bg-black/60 border border-white/15 rounded-lg px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
+                  required
+                  placeholder="Profession (e.g. Job/Trader)"
+                  value={formData.profession}
+                  onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
+                  className="w-full bg-black/60 border border-white/15 rounded-lg pl-10 pr-3.5 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#E50920] transition-colors"
                 />
               </div>
 
@@ -386,17 +357,6 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                     </>
                   )}
                 </button>
-              </div>
-
-              <div className="text-[10.5px] text-white/50 leading-relaxed pt-2 space-y-1.5 border-t border-white/10 mt-2">
-                <p>
-                  <strong className="text-white/80">Access note: </strong>
-                  {WEBINAR_CONTENT.paymentNote}
-                </p>
-                <p>
-                  <strong className="text-white/80">Strict refund note: </strong>
-                  {WEBINAR_CONTENT.refundNote}
-                </p>
               </div>
             </form>
           </div>
